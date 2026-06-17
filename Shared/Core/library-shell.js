@@ -111,6 +111,7 @@
 
     if (!indexUrl && !jsonParam && scenarioParam && scenarioParam !== "demo") {
       indexUrl = "../../scenarios/" + scenarioParam + "/" + opts.scenarioFolder + "/" + opts.indexFileName;
+      sourcesJs = indexUrl.replace(/\.json$/i, "-sources.js");
     }
     if (!indexUrl && !jsonParam) {
       indexUrl = opts.demoIndex;

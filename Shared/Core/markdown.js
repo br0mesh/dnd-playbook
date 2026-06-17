@@ -4,8 +4,12 @@
   const UA_SPLIT = /##\s+Українська\s+Версія/i;
   const DM_NOTES_HEADINGS = new Set(["dm notes", "нотатки майстра", "notes dm"]);
 
+  function normalizeNewlines(text) {
+    return String(text || "").replace(/\r\n/g, "\n").replace(/\r/g, "\n");
+  }
+
   function excludeDmNotes(text) {
-    const lines = text.split("\n");
+    const lines = normalizeNewlines(text).split("\n");
     const out = [];
     let i = 0;
     while (i < lines.length) {
@@ -63,7 +67,7 @@
   function parseBoldFields(block) {
     const out = {};
     if (!block) return out;
-    block.split("\n").forEach(function (line) {
+    normalizeNewlines(block).split("\n").forEach(function (line) {
       const m = line.trim().match(/^\*\*(.+?):\*\*\s*(.+)$/);
       if (m) out[m[1].trim()] = m[2].trim();
     });
@@ -71,11 +75,12 @@
   }
 
   function sectionByHeading(text, heading) {
+    const body = normalizeNewlines(text);
     const pattern = new RegExp(
-      "###\\s+" + heading.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "\\s*\\n\\n([\\s\\S]*?)(?=\\n### |\\n---|\\n## |\\Z)",
+      "###\\s+" + heading.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "\\s*(?:\\r?\\n){2,}([\\s\\S]*?)(?=(?:\\r?\\n)### |(?:\\r?\\n)---|(?:\\r?\\n)## |$)",
       "i"
     );
-    const m = text.match(pattern);
+    const m = body.match(pattern);
     return m ? m[1].trim() : "";
   }
 
@@ -90,7 +95,7 @@
   function tableRows(block) {
     const rows = [];
     if (!block) return rows;
-    block.split("\n").forEach(function (line) {
+    normalizeNewlines(block).split("\n").forEach(function (line) {
       if (!line.startsWith("|")) return;
       if (/^\|[\s\-:|]+\|$/.test(line.trim())) return;
       rows.push(line.trim().replace(/^\|/, "").replace(/\|$/, "").split("|").map(function (c) { return c.trim(); }));
@@ -151,6 +156,7 @@
   global.DnDCore.markdown = {
     UA_SPLIT: UA_SPLIT,
     DM_NOTES_HEADINGS: DM_NOTES_HEADINGS,
+    normalizeNewlines: normalizeNewlines,
     excludeDmNotes: excludeDmNotes,
     splitBilingual: splitBilingual,
     stripLegacyBilingualWrapper: stripLegacyBilingualWrapper,

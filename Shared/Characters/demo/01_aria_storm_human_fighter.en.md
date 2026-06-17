@@ -29,16 +29,23 @@
 
 **Armor Class AC:** 18 (chain mail, shield)
 **Hit Points HP:** 28
-**Speed:** 30 ft.
+**Speed:** 30 ft/6 tiles
 **Proficiency Bonus:** +2
 **Passive Perception:** 11
+
+### Class Resources
+
+| Resource | Uses | Recharge |
+|---|---|---|
+| Second Wind | ○ | Short or long rest |
+| Action Surge | ○ | Short or long rest |
 
 ### Attacks
 
 | Attack | Bonus | Damage | Notes |
 |---|---|---|---|
 | Longsword | +5 | 1d8+3 slashing | With shield |
-| Javelin | +5 | 1d6+3 piercing | Thrown 30/120 ft. |
+| Javelin | +5 | 1d6+3 piercing | Thrown 30 ft/6 tiles, 120 ft/24 tiles |
 
 ### Good Skills
 
@@ -48,8 +55,8 @@
 
 ### Special Abilities
 
-- **Second Wind:** Bonus action, heal 1d10+3 HP (short rest).
-- **Action Surge:** Extra action once per short rest.
+- **Second Wind** · 1/SR — Bonus action; regain 1d10+3 HP.
+- **Action Surge** · 1/SR — Take one additional action on your turn.
 
 ### Equipment & Inventory
 

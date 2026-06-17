@@ -33,7 +33,7 @@
       name: md.titleForLocale(body, lang),
       type: stat.Type || stat["Тип"] || "",
       ac: stat["Armor Class AC"] || stat["Клас броні КБ"] || "",
-      hp: stat["Hit Points HP"] || stat["Пункти здоров'я ПЗ"] || "",
+      hp: stat["Hit Points HP"] || stat["ХП"] || stat["Пункти здоров'я ХП"] || stat["Пункти здоров'я ПЗ"] || "",
       speed: mech.formatDistancesInText(stat.Speed || stat["Швидкість"] || "", lang === "ua"),
       cr: stat["Challenge Rating CR"] || stat["Рейтинг складності РС"] || "",
       traits: traits, actions: actions, dm: dm, tactics: tactics, statsTable: statsTable,

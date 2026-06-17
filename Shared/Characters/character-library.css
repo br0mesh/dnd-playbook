@@ -1,0 +1,11 @@
+.entity-card .prose-block .prose-line {
+  margin: 0.25rem 0;
+}
+
+.entity-card .prose-block .prose-line:first-child {
+  margin-top: 0;
+}
+
+.entity-card .prose-block .prose-line:last-child {
+  margin-bottom: 0;
+}

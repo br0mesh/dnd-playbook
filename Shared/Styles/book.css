@@ -281,6 +281,46 @@
   font-weight: 600;
 }
 
+.rest-badge {
+  font-family: var(--font-sans);
+  font-size: 0.78em;
+  font-weight: 600;
+  padding: 0.08em 0.4em;
+  border-radius: 3px;
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+}
+
+.rest-badge.rest-sr {
+  color: #2d5a3d;
+  background: rgba(90, 143, 90, 0.18);
+}
+
+.rest-badge.rest-lr {
+  color: #3d4a7a;
+  background: rgba(74, 126, 181, 0.16);
+}
+
+.rest-badge.rest-sr-lr {
+  color: #5a4a1a;
+  background: rgba(201, 162, 39, 0.2);
+}
+
+.rest-badge.rest-day {
+  color: #6b3d5c;
+  background: rgba(199, 91, 138, 0.14);
+}
+
+.entity-card .spellcasting-summary {
+  margin: 0.35rem 0 0.5rem;
+}
+
+.entity-card .resource-uses {
+  letter-spacing: 0.12em;
+  font-size: 1.05em;
+  text-align: center;
+}
+
 .pagination {
   display: flex;
   align-items: center;
