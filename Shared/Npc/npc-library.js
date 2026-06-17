@@ -8,7 +8,7 @@
   const headings = window.DnDCore.contentSchema.NPC;
   const esc = shell.esc;
   const loader = window.DnDCore.loader.createLoader();
-  const state = { lang: "en", mode: "player", page: 1 };
+  const state = { lang: "en", mode: "player", page: 1, slug: null };
   let raws = [];
 
   function section(text, key) {
@@ -64,16 +64,49 @@
 
   function entries() { return raws.map(function (r) { return assembleEntry(r.slug, r); }); }
 
+  function focusNpcFromUrl() {
+    const slug = shell.parseUrlParams().npc;
+    if (!slug) return;
+    const list = entries();
+    const idx = list.findIndex(function (e) { return e.slug === slug; });
+    if (idx < 0) {
+      console.warn("[npc-library] NPC not found:", slug);
+      return;
+    }
+    state.page = idx + 1;
+    state.slug = slug;
+  }
+
   function renderPage() {
     const list = entries();
     const uiEl = ui.defaultUi("npc-library");
-    const idx = Math.max(0, state.page - 1);
+    const idx = Math.min(Math.max(state.page - 1, 0), Math.max(list.length - 1, 0));
+    state.page = idx + 1;
+    if (list[idx]) state.slug = list[idx].slug;
     uiEl.empty.hidden = true;
     uiEl.page.hidden = false;
     uiEl.page.innerHTML = renderEntry(list[idx] || { en: {}, ua: {} });
     uiEl.pageInfo.textContent = (idx + 1) + " of " + list.length;
     uiEl.prev.disabled = idx <= 0;
     uiEl.next.disabled = idx >= list.length - 1;
+    document.querySelectorAll("#list-nav .bookmark-btn").forEach(function (btn) {
+      btn.setAttribute("aria-pressed", btn.getAttribute("data-slug") === state.slug ? "true" : "false");
+    });
+  }
+
+  function buildListNav() {
+    const nav = document.getElementById("list-nav");
+    nav.innerHTML = entries().map(function (e) {
+      const name = (e[state.lang] || e.en).name;
+      return '<button type="button" class="bookmark-btn" data-slug="' + esc(e.slug) + '">' + esc(name) + "</button>";
+    }).join("");
+    nav.querySelectorAll(".bookmark-btn").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        state.slug = btn.getAttribute("data-slug");
+        state.page = entries().findIndex(function (e) { return e.slug === state.slug; }) + 1;
+        renderPage();
+      });
+    });
   }
 
   async function bootstrap() {
@@ -90,12 +123,8 @@
       raws = await loader.loadData(config, false, function (slug, texts) {
         return { slug: slug, en: texts.en, ua: texts.ua };
       });
-      document.getElementById("list-nav").innerHTML = entries().map(function (e, i) {
-        return '<button type="button" class="bookmark-btn">' + esc((e[state.lang] || e.en).name) + "</button>";
-      }).join("");
-      document.getElementById("list-nav").querySelectorAll(".bookmark-btn").forEach(function (btn, i) {
-        btn.addEventListener("click", function () { state.page = i + 1; renderPage(); });
-      });
+      buildListNav();
+      focusNpcFromUrl();
       renderPage();
       ui.bindPagination(state, uiEl, renderPage, function () { return raws.length; });
     } catch (err) { ui.setError(uiEl, "Failed to load NPCs", esc(err.message)); }

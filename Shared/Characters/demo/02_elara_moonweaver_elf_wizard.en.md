@@ -72,6 +72,8 @@
 
 ### Equipment & Inventory
 
+**Magic items:** 02_wand_war_mage_uncommon_wand
+
 **Gear**
 - Spellbook, component pouch, quarterstaff, dagger, scholar's pack
 

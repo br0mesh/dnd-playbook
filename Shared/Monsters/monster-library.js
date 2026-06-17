@@ -91,6 +91,22 @@
     });
   }
 
+  function focusMonsterFromUrl() {
+    const slug = shell.parseUrlParams().monster;
+    if (!slug) return;
+    const list = filtered();
+    const idx = list.findIndex(function (e) { return e.slug === slug; });
+    if (idx < 0) {
+      console.warn("[monster-library] Monster not found:", slug);
+      return;
+    }
+    state.page = idx + 1;
+    state.slug = slug;
+    state.search = "";
+    const search = document.getElementById("search");
+    if (search) search.value = "";
+  }
+
   function renderPage() {
     const list = filtered();
     const uiEl = ui.defaultUi("monster-library");
@@ -146,6 +162,7 @@
       });
       ui.setReady(uiEl);
       buildListNav();
+      focusMonsterFromUrl();
       renderPage();
       document.getElementById("search").addEventListener("input", function (e) {
         state.search = e.target.value;

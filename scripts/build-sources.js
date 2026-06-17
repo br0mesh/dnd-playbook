@@ -4,6 +4,7 @@
 const fs = require("fs");
 const path = require("path");
 const spellSync = require("./spell-sync");
+const itemSync = require("./item-sync");
 
 const ROOT = path.resolve(__dirname, "..");
 const UA_SPLIT = /##\s+Українська\s+Версія/i;
@@ -153,9 +154,15 @@ if (args.includes("--sync-spells")) {
   const syncCode = spellSync.syncAllScenarios();
   if (syncCode) process.exit(syncCode);
 }
+if (args.includes("--sync-items")) {
+  const syncItemsCode = itemSync.syncAllScenarios();
+  if (syncItemsCode) process.exit(syncItemsCode);
+}
 const onlySplitLegacy = args.length === 1 && args[0] === "--split-legacy";
 if (!onlySplitLegacy) {
   validate();
   const spellCode = spellSync.validateAllSpellClosure();
   if (spellCode) process.exit(spellCode);
+  const itemCode = itemSync.validateAllItemClosure();
+  if (itemCode) process.exit(itemCode);
 }

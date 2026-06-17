@@ -7,13 +7,11 @@
   const locale = window.DnDCore.locale;
   const esc = shell.esc;
   const loader = window.DnDCore.loader.createLoader();
-  const SPELL_SLUG_RE = /^[a-z0-9]+(?:_[a-z0-9]+)*_(cantrip|\d+(?:st|nd|rd|th))_[a-z]+$/;
+  const spellLinks = window.DnDCore.spellLinks;
+  const itemLinks = window.DnDCore.itemLinks;
   const state = { lang: "en", page: 1, slug: null };
   let raws = [];
   let loadConfig = null;
-  let spellNameMap = {};
-  let nameToSlugEn = {};
-  let nameToSlugUa = {};
 
   const DEFAULT_HEADINGS = {
     basicInfo: ["Basic Info", "Основна інформація"],
@@ -35,6 +33,7 @@
     spellAttack: ["Spell attack", "Атака заклинанням"],
     cantrips: ["Cantrips", "Заговори"],
     preparedSpells: ["Prepared spells", "Підготовлені заклинання"],
+    magicItems: ["Magic items", "Чарівні предмети"],
   };
 
   function characterSchema() {
@@ -75,116 +74,27 @@
     "Підготовлені заклинання": "prepared",
   };
 
-  function isSpellSlug(token) {
-    return SPELL_SLUG_RE.test(String(token || "").trim());
-  }
-
-  function normalizeSpellName(name) {
-    return String(name || "")
-      .toLowerCase()
-      .trim()
-      .replace(/[^a-z0-9а-яіїєґ\s]/gi, " ")
-      .replace(/\s+/g, " ")
-      .trim();
-  }
-
-  function parseSpellNameFromMd(text, lang) {
-    const headerMatch = text.match(/###\s+Header\s*\n([\s\S]*?)(?=\n### |\n---|$)/i);
-    const headerBlock = headerMatch ? headerMatch[1] : text.split("---")[0];
-    const nameKey = lang === "ua" ? "Назва" : "Name";
-    const fieldRe = new RegExp("\\*\\*" + nameKey + ":\\*\\*\\s*(.+)", "i");
-    const fieldMatch = headerBlock.match(fieldRe);
-    if (fieldMatch) return fieldMatch[1].trim();
-    const h1 = text.match(/^#\s+(.+)$/m);
-    return h1 ? h1[1].trim() : null;
-  }
-
-  async function loadSpellNameMap(scenario) {
-    spellNameMap = {};
-    nameToSlugEn = {};
-    nameToSlugUa = {};
-    const indexUrl = scenario
-      ? "../../scenarios/" + scenario + "/spells/spells-index.json"
-      : "../Spells/demo/spells-index.json";
-    try {
-      const indexText = await shell.fetchText(new URL(indexUrl, shell.pageBaseUrl()).href, false);
-      const slugs = JSON.parse(indexText);
-      if (!Array.isArray(slugs)) return;
-      const base = shell.indexBaseUrl(indexUrl);
-      await Promise.all(slugs.map(async function (entry) {
-        const slug = shell.slugFromIndexPath(entry);
-        try {
-          const enUrl = new URL(slug + ".en.md", base).href;
-          const uaUrl = new URL(slug + ".ua.md", base).href;
-          const enText = await shell.fetchText(enUrl, false);
-          let uaText = null;
-          try {
-            uaText = await shell.fetchTextOptional(uaUrl, false);
-          } catch (_uaErr) {
-            /* UA locale is optional */
-          }
-          const enName = parseSpellNameFromMd(enText, "en") || slug;
-          const uaName = uaText ? (parseSpellNameFromMd(uaText, "ua") || enName) : "";
-          spellNameMap[slug] = { en: enName, ua: uaName };
-          const normEn = normalizeSpellName(enName);
-          if (normEn) nameToSlugEn[normEn] = slug;
-          if (uaName) {
-            const normUa = normalizeSpellName(uaName);
-            if (normUa) nameToSlugUa[normUa] = slug;
-          }
-        } catch (err) {
-          console.warn("[character-library] Failed to load spell:", slug, err);
-        }
-      }));
-    } catch (err) {
-      console.warn("[character-library] Failed to load spell name map:", err);
-    }
-  }
-
-  function spellLibraryHref(slug) {
-    const q = new URLSearchParams();
-    if (loadConfig && loadConfig.scenario) q.set("scenario", loadConfig.scenario);
-    q.set("spell", slug);
-    if (state.lang === "ua") q.set("lang", "ua");
-    return "../Spells/library.html?" + q.toString();
-  }
-
-  function resolveSpellSlug(token) {
-    const t = String(token || "").trim();
-    if (isSpellSlug(t)) return t;
-    const norm = normalizeSpellName(t);
-    if (state.lang === "ua" && nameToSlugUa[norm]) return nameToSlugUa[norm];
-    if (nameToSlugEn[norm]) return nameToSlugEn[norm];
-    if (nameToSlugUa[norm]) return nameToSlugUa[norm];
-    return null;
-  }
-
-  function renderSpellToken(token) {
-    const t = String(token || "").trim();
-    const slug = resolveSpellSlug(t);
-    if (!slug) return esc(t);
-    const names = spellNameMap[slug];
-    const label = names
-      ? (state.lang === "ua" && names.ua ? names.ua : names.en)
-      : t;
-    if (!names) console.warn("[character-library] Unknown spell slug:", slug);
-    return '<a class="spell-link" href="' + esc(spellLibraryHref(slug)) + '">' + esc(label) + "</a>";
-  }
-
-  function renderSpellSlugList(text) {
-    if (!text) return "";
-    return text.split(",").map(function (part) {
-      return renderSpellToken(part.trim());
-    }).filter(Boolean).join(", ");
-  }
-
   function attackCellTransform(c, j, row) {
     if (j !== 0) return withTiles(c);
     const cell = stripCellBold(String(c || "").trim());
     if (!cell) return "";
-    const slug = resolveSpellSlug(cell);
-    if (slug) return renderSpellToken(cell);
+    if (spellLinks.resolveSpellSlug(cell, state.lang)) return spellLinks.renderSpellToken(cell, state.lang);
     return esc(cell);
+  }
+
+  function parseEquipmentBlock(block) {
+    if (!block) return { prose: "", magicItems: "" };
+    let prose = block;
+    let magicItems = "";
+    ["Magic items", "Чарівні предмети"].forEach(function (key) {
+      const re = new RegExp("\\*\\*" + key.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + ":\\*\\*\\s*(.+)", "i");
+      const m = block.match(re);
+      if (m) {
+        magicItems = m[1].trim();
+        prose = block.replace(re, "").trim();
+      }
+    });
+    return { prose: prose, magicItems: magicItems };
   }
 
   function section(text, key) {
@@ -245,6 +155,7 @@
     const body = md.excludeDmNotes(text);
     const info = md.parseBoldFields(section(body, "basicInfo"));
     const combat = md.parseBoldFields(section(body, "combat"));
+    const equipParsed = parseEquipmentBlock(section(body, "equipment"));
     return {
       name: info["Character Name"] || info["Ім'я персонажа"] || md.titleForLocale(body, lang),
       className: info.Class || info["Клас"] || "",
@@ -258,7 +169,8 @@
       attacks: section(body, "attacks"),
       skills: section(body, "skills"),
       abilities: section(body, "abilities"),
-      equipment: section(body, "equipment"),
+      equipment: equipParsed.prose,
+      magicItems: equipParsed.magicItems,
     };
   }
 
@@ -311,11 +223,11 @@
     const re = /\*\*(.+?)\*\*/g;
     let m;
     while ((m = re.exec(raw)) !== null) {
-      if (m.index > last) out += mechanicalEnrich(raw.slice(last, m.index));
+      if (m.index > last) out += itemLinks.renderItemProse(raw.slice(last, m.index), state.lang);
       out += "<strong>" + esc(m[1]) + "</strong>";
       last = m.index + m[0].length;
     }
-    out += mechanicalEnrich(raw.slice(last));
+    out += itemLinks.renderItemProse(raw.slice(last), state.lang);
     return out;
   }
 
@@ -351,8 +263,8 @@
         return enrichCell(c);
       }, true);
     }
-    if (sc.cantrips) html += "<p><strong>" + esc(uiLabel("cantrips")) + ":</strong> " + renderSpellSlugList(sc.cantrips) + "</p>";
-    if (sc.prepared) html += "<p><strong>" + esc(uiLabel("preparedSpells")) + ":</strong> " + renderSpellSlugList(sc.prepared) + "</p>";
+    if (sc.cantrips) html += "<p><strong>" + esc(uiLabel("cantrips")) + ":</strong> " + spellLinks.renderSpellSlugList(sc.cantrips, state.lang) + "</p>";
+    if (sc.prepared) html += "<p><strong>" + esc(uiLabel("preparedSpells")) + ":</strong> " + spellLinks.renderSpellSlugList(sc.prepared, state.lang) + "</p>";
     return html;
   }
 
@@ -378,17 +290,38 @@
     if (b.attacks) html += "<h3>" + esc(sectionLabel("attacks")) + "</h3>" + renderTable(md.tableRows(b.attacks), attackCellTransform, true);
     if (b.skills) html += "<h3>" + esc(sectionLabel("skills")) + "</h3><div class=\"prose-block\">" + renderProseBlock(b.skills) + "</div>";
     if (b.abilities) html += "<h3>" + esc(sectionLabel("abilities")) + "</h3><div class=\"prose-block\">" + renderProseBlock(b.abilities) + "</div>";
-    if (b.equipment) html += "<h3>" + esc(sectionLabel("equipment")) + "</h3><div class=\"prose-block\">" + renderProseBlock(b.equipment) + "</div>";
+    if (b.magicItems || b.equipment) {
+      html += "<h3>" + esc(sectionLabel("equipment")) + "</h3>";
+      if (b.magicItems) {
+        html += "<p><strong>" + esc(uiLabel("magicItems")) + ":</strong> " +
+          itemLinks.renderItemSlugList(b.magicItems, state.lang) + "</p>";
+      }
+      if (b.equipment) html += "<div class=\"prose-block\">" + renderProseBlock(b.equipment) + "</div>";
+    }
     return html + "</article>";
   }
 
   function entries() { return raws.map(function (r) { return assembleEntry(r.slug, r); }); }
 
+  function focusCharacterFromUrl() {
+    const slug = shell.parseUrlParams().character;
+    if (!slug) return;
+    const idx = raws.findIndex(function (r) { return r.slug === slug; });
+    if (idx < 0) {
+      console.warn("[character-library] Character not found:", slug);
+      return;
+    }
+    state.page = idx + 1;
+    state.slug = slug;
+  }
+
   function renderPage() {
     const list = entries();
     const uiEl = ui.defaultUi("character-library");
     if (!list.length) { ui.setError(uiEl, "No characters", ""); return; }
-    const idx = Math.max(0, state.page - 1);
+    const idx = Math.min(Math.max(state.page - 1, 0), list.length - 1);
+    state.page = idx + 1;
+    state.slug = list[idx].slug;
     try {
       uiEl.empty.hidden = true;
       uiEl.page.hidden = false;
@@ -396,6 +329,9 @@
       uiEl.pageInfo.textContent = (idx + 1) + " of " + list.length;
       uiEl.prev.disabled = idx <= 0;
       uiEl.next.disabled = idx >= list.length - 1;
+      document.querySelectorAll("#list-nav .bookmark-btn").forEach(function (btn) {
+        btn.setAttribute("aria-pressed", btn.getAttribute("data-slug") === state.slug ? "true" : "false");
+      });
     } catch (err) {
       console.error("[character-library] render failed:", err);
       ui.setError(uiEl, "Failed to render character", esc(err.message));
@@ -406,10 +342,15 @@
     const nav = document.getElementById("list-nav");
     nav.innerHTML = entries().map(function (e) {
       const name = (e[state.lang] || e.en).name;
-      return '<button type="button" class="bookmark-btn">' + esc(name) + "</button>";
+      return '<button type="button" class="bookmark-btn" data-slug="' + esc(e.slug) + '">' + esc(name) + "</button>";
     }).join("");
-    nav.querySelectorAll(".bookmark-btn").forEach(function (btn, i) {
-      btn.addEventListener("click", function () { state.page = i + 1; renderPage(); });
+    nav.querySelectorAll(".bookmark-btn").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        state.slug = btn.getAttribute("data-slug");
+        const list = entries();
+        state.page = list.findIndex(function (e) { return e.slug === state.slug; }) + 1;
+        renderPage();
+      });
     });
   }
 
@@ -423,11 +364,15 @@
         rootEl: uiEl.root, scenarioFolder: "characters", indexFileName: "characters-index.json",
         demoIndex: "demo/characters-index.json",
       });
-      await loadSpellNameMap(loadConfig.scenario);
+      await Promise.all([
+        spellLinks.loadSpellNameMap(loadConfig.scenario),
+        itemLinks.loadItemNameMap(loadConfig.scenario),
+      ]);
       raws = await loader.loadData(loadConfig, false, function (slug, texts) {
         return { slug: slug, en: texts.en, ua: texts.ua };
       });
       ui.setReady(uiEl);
+      focusCharacterFromUrl();
       buildListNav();
       renderPage();
       ui.bindPagination(state, uiEl, renderPage, function () { return raws.length; });

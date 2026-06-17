@@ -166,3 +166,20 @@ Legacy parenthetical prose still renders with rest badges: `(short rest)`, `(к�
 | Martial characters with short-rest pools | Flavor abilities with no limited uses |
 
 Characters without these sections render unchanged (backward compatible).
+
+## Magic items (character equipment)
+
+Indexed magic items referenced from a character sheet use comma-separated **slugs** in `.en.md` (same pattern as spell lists):
+
+```markdown
+### Equipment & Inventory
+
+**Magic items:** 02_wand_war_mage_uncommon_wand
+
+**Gear**
+- Spellbook, component pouch, quarterstaff
+```
+
+UA field label: `**Чарівні предмети:**` (slug values stay EN). The character library renders localized item names as links to the items book.
+
+Gear bullet prose may also match known item display names from the scenario item index (fallback); prefer explicit slugs for validation and disambiguation. See `docs/item-closure.md`.

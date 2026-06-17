@@ -162,16 +162,41 @@ def run_spell_sync():
         sys.exit(result.returncode)
 
 
+def run_item_closure():
+    node = shutil.which("node")
+    if not node:
+        print("Item closure validation requires Node.js. Install Node or run: node scripts/build-sources.js")
+        sys.exit(1)
+    script = os.path.join(os.path.dirname(os.path.abspath(__file__)), "item-cli.js")
+    result = subprocess.run([node, script, "validate"], cwd=ROOT)
+    if result.returncode:
+        sys.exit(result.returncode)
+
+
+def run_item_sync():
+    node = shutil.which("node")
+    if not node:
+        print("Sync items requires Node.js. Install Node or run: node scripts/build-sources.js --sync-items")
+        sys.exit(1)
+    script = os.path.join(os.path.dirname(os.path.abspath(__file__)), "item-cli.js")
+    result = subprocess.run([node, script, "sync"], cwd=ROOT)
+    if result.returncode:
+        sys.exit(result.returncode)
+
+
 def main():
     args = sys.argv[1:]
     if "--split-legacy" in args:
         split_legacy()
     if "--sync-spells" in args:
         run_spell_sync()
+    if "--sync-items" in args:
+        run_item_sync()
     only_split_legacy = len(args) == 1 and args[0] == "--split-legacy"
     if not only_split_legacy:
         validate()
         run_spell_closure()
+        run_item_closure()
 
 
 if __name__ == "__main__":

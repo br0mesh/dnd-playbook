@@ -1,4 +1,11 @@
 [
-  "01_healing_potion_uncommon_consumable",
-  "02_wand_focus_rare_wondrous"
+  "01_healing_potion_common_potion",
+  "02_wand_war_mage_uncommon_wand",
+  "03_spell_scroll_shield_common_scroll",
+  "04_staff_adder_uncommon_staff",
+  "05_chain_mail_plus_one_rare_armor",
+  "06_longsword_plus_one_rare_weapon",
+  "07_ring_spell_turning_very_rare_ring",
+  "08_rod_lordly_might_legendary_rod",
+  "09_orb_dragonkind_artifact_wondrous"
 ]

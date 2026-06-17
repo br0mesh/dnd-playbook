@@ -53,6 +53,12 @@
       lang: params.get("lang") === "ua" ? "ua" : "en",
       mode: params.get("mode") === "dm" ? "dm" : "player",
       index: params.get("index") || "",
+      item: params.get("item") || "",
+      rarity: params.get("rarity") || "",
+      type: params.get("type") || "",
+      character: params.get("character") || "",
+      monster: params.get("monster") || "",
+      npc: params.get("npc") || "",
     };
   }
 

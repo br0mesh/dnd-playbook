@@ -1,0 +1,21 @@
+---
+description: Spell closure — every referenced spell must be in the scenario spell book
+globs: scenarios/**/*
+alwaysApply: false
+---
+
+# Spell closure
+
+When editing scenario content under `scenarios/<slug>/`:
+
+1. **Rule:** Every spell slug in indexed play content (characters, monsters, dm-script, npc, items) must appear in `spells/spells-index.json` with `{slug}.en.md` (and `.ua.md` if the scenario uses UA elsewhere).
+
+2. **Authoring:** Use comma-separated **semantic slugs** in `.en.md` character spell lists (`**Cantrips:**`, `**Prepared spells:**`). Format: `{name}_{level}_{school}` (e.g. `fire_bolt_cantrip_evocation`). Use the slug in the Attacks table Attack column for spell attacks.
+
+3. **Before commit:** Run `scripts\build-sources.cmd --validate-only`.
+
+4. **Adding spells:** Run `scripts\build-sources.cmd --sync-spells` to copy from `Shared/Spells/demo/` or create stubs. Edit `spells-index.json` only via sync or deliberate manual adds — there are no generated `*-sources.js` / `*-index.js` files.
+
+5. **Out of scope:** "spellbook", "spell slots", class features (Arcane Recovery), equipment "shield" unless it is the Shield spell in a spell list.
+
+See `docs/spell-closure.md` for full scan scope and resolution rules.

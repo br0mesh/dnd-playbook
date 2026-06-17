@@ -21,6 +21,20 @@
       header: ["Header"],
       properties: ["Properties", "Властивості"],
       description: ["Description", "Опис"],
+      /** DMG Ch.7 — slug tail: {name}_{rarity}_{type}; rarity may be two segments (very_rare) */
+      rarities: ["common", "uncommon", "rare", "very_rare", "legendary", "artifact"],
+      types: ["armor", "potion", "ring", "rod", "scroll", "staff", "wand", "weapon", "wondrous"],
+      ui: {
+        attunement: ["Attunement", "Узгодження"],
+        all: ["All", "Усі"],
+        heldBy: ["Held by", "У володінні"],
+        filterRarity: ["Filter by rarity", "За рідкістю"],
+        filterType: ["Filter by type", "За типом"],
+        title: ["Items Stash", "Сховище предметів"],
+        searchPlaceholder: ["Search items…", "Пошук предметів…"],
+        empty: ["No items match", "Немає відповідних предметів"],
+        loadError: ["Failed to load items", "Не вдалося завантажити предмети"],
+      },
     },
     NPC: {
       quickRoleplay: ["Quick Roleplay", "Швидка гра"],
@@ -45,6 +59,7 @@
         spellAttack: ["Spell attack", "Атака заклинанням"],
         cantrips: ["Cantrips", "Заговори"],
         preparedSpells: ["Prepared spells", "Підготовлені заклинання"],
+        magicItems: ["Magic items", "Чарівні предмети"],
       },
     },
     MAP: {

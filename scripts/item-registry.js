@@ -4,19 +4,27 @@ const fs = require("fs");
 const path = require("path");
 
 const ROOT = path.resolve(__dirname, "..");
-const DEMO_SPELLS = path.join(ROOT, "Shared", "Spells", "demo");
+const DEMO_ITEMS = path.join(ROOT, "Shared", "Items", "demo");
 
-const SPELL_SLUG_RE = /^[a-z0-9]+(?:_[a-z0-9]+)*_(cantrip|\d+(?:st|nd|rd|th))_[a-z]+$/;
+const ITEM_TYPES = ["armor", "potion", "ring", "rod", "scroll", "staff", "wand", "weapon", "wondrous"];
+const ITEM_RARITIES = ["common", "uncommon", "rare", "very_rare", "legendary", "artifact"];
 
-function isSpellSlug(token) {
+function keysFromSlug(slug) {
+  const p = String(slug || "").split("_");
+  const type_key = p[p.length - 1] || "unknown";
+  let rarity_key = p.length >= 2 ? p[p.length - 2] : "unknown";
+  if (p.length >= 3) {
+    const two = p[p.length - 3] + "_" + p[p.length - 2];
+    if (ITEM_RARITIES.indexOf(two) !== -1) rarity_key = two;
+  }
+  return { rarity_key: rarity_key, type_key: type_key };
+}
+
+function isItemSlug(token) {
   const slug = String(token || "").trim();
   if (!slug) return false;
-  if (SPELL_SLUG_RE.test(slug)) return true;
-  const parts = slug.split("_");
-  if (parts.length < 3) return false;
-  const school = parts[parts.length - 1];
-  const level = parts[parts.length - 2];
-  return /^[a-z]+$/.test(school) && /^(cantrip|\d+(?:st|nd|rd|th))$/.test(level);
+  const keys = keysFromSlug(slug);
+  return ITEM_TYPES.indexOf(keys.type_key) !== -1 && ITEM_RARITIES.indexOf(keys.rarity_key) !== -1;
 }
 
 function normalizeName(name) {
@@ -28,7 +36,7 @@ function normalizeName(name) {
     .trim();
 }
 
-function parseSpellNameFromFile(filePath, lang) {
+function parseItemNameFromFile(filePath, lang) {
   const text = fs.readFileSync(filePath, "utf8");
   const headerMatch = text.match(/###\s+Header\s*\n([\s\S]*?)(?=\n### |\n---|$)/i);
   const headerBlock = headerMatch ? headerMatch[1] : text.split("---")[0];
@@ -40,7 +48,7 @@ function parseSpellNameFromFile(filePath, lang) {
   return h1 ? h1[1].trim() : null;
 }
 
-function scanSpellDir(dir) {
+function scanItemDir(dir) {
   const entries = [];
   if (!fs.existsSync(dir)) return entries;
   fs.readdirSync(dir).forEach(function (name) {
@@ -48,30 +56,30 @@ function scanSpellDir(dir) {
     const slug = name.replace(/\.en\.md$/, "");
     const enPath = path.join(dir, slug + ".en.md");
     const uaPath = path.join(dir, slug + ".ua.md");
-    const enName = parseSpellNameFromFile(enPath, "en");
+    const enName = parseItemNameFromFile(enPath, "en");
     if (!enName) return;
     let uaName = null;
     if (fs.existsSync(uaPath)) {
-      uaName = parseSpellNameFromFile(uaPath, "ua");
+      uaName = parseItemNameFromFile(uaPath, "ua");
     }
     entries.push({
       slug: slug,
       enName: enName,
       uaName: uaName,
       dir: dir,
-      isDemo: dir.replace(/\\/g, "/").endsWith("Shared/Spells/demo"),
+      isDemo: dir.replace(/\\/g, "/").endsWith("Shared/Items/demo"),
     });
   });
   return entries;
 }
 
 function buildRegistry() {
-  const entries = scanSpellDir(DEMO_SPELLS);
+  const entries = scanItemDir(DEMO_ITEMS);
   const scenariosDir = path.join(ROOT, "scenarios");
   if (fs.existsSync(scenariosDir)) {
     fs.readdirSync(scenariosDir).forEach(function (scenario) {
-      const spellDir = path.join(scenariosDir, scenario, "spells");
-      entries.push.apply(entries, scanSpellDir(spellDir));
+      const itemDir = path.join(scenariosDir, scenario, "items");
+      entries.push.apply(entries, scanItemDir(itemDir));
     });
   }
 
@@ -85,6 +93,7 @@ function buildRegistry() {
     }
     if (entry.uaName) {
       const normUa = normalizeName(entry.uaName);
+      if (!normUa) return;
       if (!byNormUa.has(normUa)) byNormUa.set(normUa, []);
       byNormUa.get(normUa).push(entry);
     }
@@ -93,8 +102,8 @@ function buildRegistry() {
   return { entries: entries, byNormEn: byNormEn, byNormUa: byNormUa };
 }
 
-function readScenarioSpellSlugs(scenarioSpellsDir) {
-  const indexPath = path.join(scenarioSpellsDir, "spells-index.json");
+function readScenarioItemSlugs(scenarioItemsDir) {
+  const indexPath = path.join(scenarioItemsDir, "items-index.json");
   if (!fs.existsSync(indexPath)) return [];
   const raw = JSON.parse(fs.readFileSync(indexPath, "utf8"));
   return raw.map(function (entry) {
@@ -105,7 +114,7 @@ function readScenarioSpellSlugs(scenarioSpellsDir) {
   });
 }
 
-function pickSlug(candidates, scenarioSpellsDir) {
+function pickSlug(candidates, scenarioItemsDir) {
   const seen = new Set();
   candidates = candidates.filter(function (c) {
     if (seen.has(c.slug)) return false;
@@ -115,7 +124,7 @@ function pickSlug(candidates, scenarioSpellsDir) {
   if (!candidates.length) return null;
   if (candidates.length === 1) return candidates[0].slug;
 
-  const scenarioSlugs = new Set(readScenarioSpellSlugs(scenarioSpellsDir));
+  const scenarioSlugs = new Set(readScenarioItemSlugs(scenarioItemsDir));
   const inScenario = candidates.filter(function (c) {
     return scenarioSlugs.has(c.slug);
   });
@@ -133,9 +142,9 @@ function pickSlug(candidates, scenarioSpellsDir) {
   return { error: "ambiguous", candidates: candidates.map(function (c) { return c.slug; }) };
 }
 
-function resolveSpellSlug(name, options) {
+function resolveItemSlug(name, options) {
   const registry = options && options.registry ? options.registry : buildRegistry();
-  const scenarioSpellsDir = options && options.scenarioSpellsDir ? options.scenarioSpellsDir : null;
+  const scenarioItemsDir = options && options.scenarioItemsDir ? options.scenarioItemsDir : null;
   const norm = normalizeName(name);
   if (!norm) return null;
 
@@ -145,14 +154,14 @@ function resolveSpellSlug(name, options) {
   }
   if (!candidates.length) return null;
 
-  const picked = pickSlug(candidates, scenarioSpellsDir);
+  const picked = pickSlug(candidates, scenarioItemsDir);
   if (picked && typeof picked === "object" && picked.error) {
     return picked;
   }
   return picked;
 }
 
-function allSpellNames(registry) {
+function allItemNames(registry) {
   const reg = registry || buildRegistry();
   const names = new Set();
   reg.entries.forEach(function (e) {
@@ -162,28 +171,16 @@ function allSpellNames(registry) {
   return Array.from(names);
 }
 
-function findDemoSlugByEnName(enName) {
-  const registry = buildRegistry();
-  const norm = normalizeName(enName);
-  const candidates = registry.byNormEn.get(norm) || [];
-  const demo = candidates.filter(function (c) { return c.isDemo; });
-  return demo.length === 1 ? demo[0].slug : null;
-}
-
-function getEntryBySlug(slug) {
-  return buildRegistry().entries.find(function (e) { return e.slug === slug; });
-}
-
 module.exports = {
   ROOT: ROOT,
-  DEMO_SPELLS: DEMO_SPELLS,
-  SPELL_SLUG_RE: SPELL_SLUG_RE,
-  isSpellSlug: isSpellSlug,
+  DEMO_ITEMS: DEMO_ITEMS,
+  ITEM_TYPES: ITEM_TYPES,
+  ITEM_RARITIES: ITEM_RARITIES,
+  keysFromSlug: keysFromSlug,
+  isItemSlug: isItemSlug,
   normalizeName: normalizeName,
   buildRegistry: buildRegistry,
-  resolveSpellSlug: resolveSpellSlug,
-  allSpellNames: allSpellNames,
-  findDemoSlugByEnName: findDemoSlugByEnName,
-  getEntryBySlug: getEntryBySlug,
-  readScenarioSpellSlugs: readScenarioSpellSlugs,
+  resolveItemSlug: resolveItemSlug,
+  allItemNames: allItemNames,
+  readScenarioItemSlugs: readScenarioItemSlugs,
 };
