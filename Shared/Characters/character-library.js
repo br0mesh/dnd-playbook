@@ -4,6 +4,8 @@
   const md = window.DnDCore.markdown;
   const mech = window.DnDCore.mechanical;
   const ui = window.DnDCore.entityUi;
+  const locale = window.DnDCore.locale;
+  const headings = window.DnDCore.contentSchema.CHARACTER;
   const esc = shell.esc;
   const loader = window.DnDCore.loader.createLoader({
     indexGlobal: "CHARACTERS_LIBRARY_INDEX", mdGlobal: "__CHARACTERS_MD__",
@@ -13,27 +15,35 @@
   const state = { lang: "en", page: 1, slug: null };
   let raws = [];
 
-  function parseLang(text, ua) {
+  function section(text, key) {
+    const args = [text].concat(headings[key] || []);
+    return md.sectionAnyHeading.apply(md, args);
+  }
+
+  function parseLang(text, lang) {
     const body = md.excludeDmNotes(text);
-    const info = md.parseBoldFields(md.sectionAnyHeading(body, "Basic Info", "Основна інформація"));
-    const combat = md.parseBoldFields(md.sectionAnyHeading(body, "Combat", "Бойові характеристики"));
+    const info = md.parseBoldFields(section(body, "basicInfo"));
+    const combat = md.parseBoldFields(section(body, "combat"));
     return {
-      name: info["Character Name"] || info["Ім'я персонажа"] || md.titleParts(body).en,
+      name: info["Character Name"] || info["Ім'я персонажа"] || md.titleForLocale(body, lang),
       cls: (info.Class || info["Клас"] || "") + " · Lv " + (info.Level || info["Рівень"] || "?"),
       ac: combat["Armor Class AC"] || combat["Клас броні КБ"] || "",
       hp: combat["Hit Points HP"] || combat["Пункти здоров'я ПЗ"] || "",
-      speed: mech.formatDistancesInText(combat.Speed || combat["Швидкість"] || "", ua),
-      stats: md.tableRows(md.sectionAnyHeading(body, "Main Stats", "Основні характеристики")),
-      attacks: md.sectionAnyHeading(body, "Attacks", "Атаки"),
-      skills: md.sectionAnyHeading(body, "Good Skills", "Навички"),
-      abilities: md.sectionAnyHeading(body, "Special Abilities", "Особливі здібності"),
-      equipment: md.sectionAnyHeading(body, "Equipment & Inventory", "Спорядження"),
+      speed: mech.formatDistancesInText(combat.Speed || combat["Швидкість"] || "", lang === "ua"),
+      stats: md.tableRows(section(body, "mainStats")),
+      attacks: section(body, "attacks"),
+      skills: section(body, "skills"),
+      abilities: section(body, "abilities"),
+      equipment: section(body, "equipment"),
     };
   }
 
-  function parseEntry(slug, raw) {
-    const split = md.splitBilingual(md.excludeDmNotes(raw));
-    return { slug: slug, en: parseLang(split.enText, false), ua: split.hasUa ? parseLang(split.uaText, true) : {} };
+  function assembleEntry(slug, texts) {
+    const en = parseLang(texts.en, "en");
+    const ua = texts.ua.trim()
+      ? parseLang(texts.ua, "ua")
+      : locale.mergeWithFallback(en, {});
+    return { slug: slug, en: en, ua: ua };
   }
 
   function renderTable(rows) {
@@ -57,7 +67,7 @@
     return html + "</article>";
   }
 
-  function entries() { return raws.map(function (r) { return parseEntry(r.slug, r.raw); }); }
+  function entries() { return raws.map(function (r) { return assembleEntry(r.slug, r); }); }
 
   function renderPage() {
     const list = entries();
@@ -93,8 +103,9 @@
         rootEl: uiEl.root, scenarioFolder: "characters", indexFileName: "characters-index.json",
         demoIndex: "demo/characters-index.json", sourcesJs: "demo/characters-sources.js",
       });
-      const loaded = await loader.loadData(config, false, function (slug, text) { return { slug: slug, raw: text }; });
-      raws = loaded;
+      raws = await loader.loadData(config, false, function (slug, texts) {
+        return { slug: slug, en: texts.en, ua: texts.ua };
+      });
       ui.setReady(uiEl);
       buildListNav();
       renderPage();

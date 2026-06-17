@@ -4,6 +4,8 @@
   const mech = window.DnDCore.mechanical;
   const shell = window.DnDCore.shell;
   const ui = window.DnDCore.entityUi;
+  const locale = window.DnDCore.locale;
+  const headings = window.DnDCore.contentSchema.DM_SCRIPT;
   const esc = shell.esc;
   const loader = window.DnDCore.loader.createLoader({
     indexGlobal: "DMSCRIPT_LIBRARY_INDEX", mdGlobal: "__DMSCRIPT_MD__",
@@ -13,19 +15,28 @@
   const state = { lang: "en", page: 1 };
   let raws = [];
 
-  function parseScene(text, ua) {
-    const body = ua ? (md.splitBilingual(text).uaText || text) : md.splitBilingual(text).enText;
-    const title = md.titleParts(text);
-    const summary = md.sectionAnyHeading(body, "Summary", "Короткий опис");
-    const readAloud = md.sectionAnyHeading(body, "Read-aloud", "Зачитай");
-    const checks = md.sectionAnyHeading(body, "Checks", "Перевірки");
-    const contingencies = md.sectionAnyHeading(body, "Contingencies", "Запасні варіанти");
-    const dmNotes = md.sectionAnyHeading(body, "DM Notes", "Нотатки Майстра");
+  function section(text, key) {
+    const args = [text].concat(headings[key] || []);
+    return md.sectionAnyHeading.apply(md, args);
+  }
+
+  function parseScene(text, lang) {
     return {
-      title: ua ? title.ua : title.en,
-      summary: summary, readAloud: readAloud, checks: checks,
-      contingencies: contingencies, dm: dmNotes,
+      title: md.titleForLocale(text, lang),
+      summary: section(text, "summary"),
+      readAloud: section(text, "readAloud"),
+      checks: section(text, "checks"),
+      contingencies: section(text, "contingencies"),
+      dm: section(text, "dmNotes"),
     };
+  }
+
+  function assembleEntry(slug, texts) {
+    const en = parseScene(texts.en, "en");
+    const ua = texts.ua.trim()
+      ? parseScene(texts.ua, "ua")
+      : locale.mergeWithFallback(en, {});
+    return { slug: slug, en: en, ua: ua };
   }
 
   function block(label, content, cls) {
@@ -45,28 +56,36 @@
     return html + "</article>";
   }
 
-  function scenes() {
-    return raws.map(function (r) {
-      const split = md.splitBilingual(r.raw);
-      const s = parseScene(r.raw, state.lang === "ua");
-      return { slug: r.slug, scene: s };
-    });
+  function entries() {
+    return raws.map(function (r) { return assembleEntry(r.slug, r); });
   }
 
   function renderPage() {
-    const list = scenes();
+    const list = entries();
     const uiEl = ui.defaultUi("dm-script-library");
     const idx = Math.max(0, state.page - 1);
+    const entry = list[idx] || { en: {}, ua: {} };
+    const scene = entry[state.lang] || entry.en || {};
     uiEl.empty.hidden = true;
     uiEl.page.hidden = false;
-    uiEl.page.innerHTML = renderScene(list[idx].scene);
+    uiEl.page.innerHTML = renderScene(scene);
     uiEl.pageInfo.textContent = "Scene " + (idx + 1) + " of " + list.length;
     uiEl.prev.disabled = idx <= 0;
     uiEl.next.disabled = idx >= list.length - 1;
   }
 
+  function buildListNav() {
+    document.getElementById("list-nav").innerHTML = entries().map(function (e) {
+      const scene = e[state.lang] || e.en || {};
+      return '<button type="button" class="bookmark-btn">' + esc(scene.title) + "</button>";
+    }).join("");
+    document.getElementById("list-nav").querySelectorAll(".bookmark-btn").forEach(function (btn, i) {
+      btn.addEventListener("click", function () { state.page = i + 1; renderPage(); });
+    });
+  }
+
   async function bootstrap() {
-    ui.initBookChrome("dm-script", function (l) { state.lang = l; renderPage(); });
+    ui.initBookChrome("dm-script", function (l) { state.lang = l; buildListNav(); renderPage(); });
     state.lang = shell.parseUrlParams().lang;
     const uiEl = ui.defaultUi("dm-script-library");
     try {
@@ -74,13 +93,10 @@
         rootEl: uiEl.root, scenarioFolder: "dm-script", indexFileName: "dm-script-index.json",
         demoIndex: "demo/dm-script-index.json", sourcesJs: "demo/dm-script-sources.js",
       });
-      raws = await loader.loadData(config, false, function (slug, text) { return { slug: slug, raw: text }; });
-      document.getElementById("list-nav").innerHTML = scenes().map(function (s, i) {
-        return '<button type="button" class="bookmark-btn">' + esc(s.scene.title.split("/")[0].trim()) + "</button>";
-      }).join("");
-      document.getElementById("list-nav").querySelectorAll(".bookmark-btn").forEach(function (btn, i) {
-        btn.addEventListener("click", function () { state.page = i + 1; renderPage(); });
+      raws = await loader.loadData(config, false, function (slug, texts) {
+        return { slug: slug, en: texts.en, ua: texts.ua };
       });
+      buildListNav();
       renderPage();
       ui.bindPagination(state, uiEl, renderPage, function () { return raws.length; });
     } catch (err) { ui.setError(uiEl, "Failed to load DM script", esc(err.message)); }

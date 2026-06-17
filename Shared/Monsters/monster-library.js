@@ -4,6 +4,8 @@
   const md = window.DnDCore.markdown;
   const mech = window.DnDCore.mechanical;
   const ui = window.DnDCore.entityUi;
+  const locale = window.DnDCore.locale;
+  const headings = window.DnDCore.contentSchema.MONSTER;
   const esc = shell.esc;
   const loader = window.DnDCore.loader.createLoader({
     indexGlobal: "MONSTERS_LIBRARY_INDEX", mdGlobal: "__MONSTERS_MD__",
@@ -14,41 +16,48 @@
   const state = { lang: "en", mode: "player", search: "", page: 1, slug: null };
   let raws = [];
 
-  function parseLang(text, ua, showDm) {
+  function section(text, key) {
+    const args = [text].concat(headings[key] || []);
+    return md.sectionAnyHeading.apply(md, args);
+  }
+
+  function parseLang(text, lang, showDm) {
     const body = showDm ? text : md.excludeDmNotes(text);
-    const titles = md.titleParts(body);
-    const stat = md.parseBoldFields(md.sectionAnyHeading(body, "Stat Block", "Статблок"));
-    const traits = md.sectionAnyHeading(body, "Traits", "Риси");
-    const actions = md.sectionAnyHeading(body, "Actions", "Дії");
-    const dm = showDm ? md.sectionAnyHeading(body, "DM Notes", "Нотатки Майстра") : "";
-    const tactics = showDm ? md.sectionAnyHeading(body, "Quick Tactics", "Тактика") : "";
-    const statsTable = md.tableRows(md.sectionAnyHeading(body, "Main Stats", "Основні характеристики"));
+    const stat = md.parseBoldFields(section(body, "statBlock"));
+    const traits = section(body, "traits");
+    const actions = section(body, "actions");
+    const dm = showDm ? section(body, "dmNotes") : "";
+    const tactics = showDm ? section(body, "tactics") : "";
+    const statsTable = md.tableRows(section(body, "mainStats"));
     return {
-      name: ua ? titles.ua : titles.en,
+      name: md.titleForLocale(body, lang),
       type: stat.Type || stat["Тип"] || "",
       ac: stat["Armor Class AC"] || stat["Клас броні КБ"] || "",
       hp: stat["Hit Points HP"] || stat["Пункти здоров'я ПЗ"] || "",
-      speed: mech.formatDistancesInText(stat.Speed || stat["Швидкість"] || "", ua),
+      speed: mech.formatDistancesInText(stat.Speed || stat["Швидкість"] || "", lang === "ua"),
       cr: stat["Challenge Rating CR"] || stat["Рейтинг складності РС"] || "",
       traits: traits, actions: actions, dm: dm, tactics: tactics, statsTable: statsTable,
     };
   }
 
-  function parseEntry(slug, raw) {
-    const split = md.splitBilingual(raw);
-    const crMatch = raw.match(/CR[:\s]*([\d/]+)/i) || raw.match(/РС[:\s]*([\d/]+)/i);
-    const typeMatch = (split.enText.match(/\*\*Type:\*\*\s*(.+)/i) || [])[1] || "unknown";
-    const typeKey = typeMatch.split("(")[0].trim().toLowerCase().split(" ").pop() || "unknown";
+  function assembleEntry(slug, texts) {
     const dm = state.mode === "dm";
+    const enBlock = parseLang(texts.en, "en", dm);
+    const uaBlock = texts.ua.trim()
+      ? parseLang(texts.ua, "ua", dm)
+      : locale.mergeWithFallback(enBlock, {});
+    const crMatch = texts.en.match(/CR[:\s]*([\d/]+)/i) || texts.en.match(/РС[:\s]*([\d/]+)/i);
+    const typeMatch = (texts.en.match(/\*\*Type:\*\*\s*(.+)/i) || [])[1] || "unknown";
+    const typeKey = typeMatch.split("(")[0].trim().toLowerCase().split(" ").pop() || "unknown";
     return {
       slug: slug, cr_key: crMatch ? crMatch[1] : "?",
       type_key: typeKey,
-      en: parseLang(split.enText, false, dm),
-      ua: split.hasUa ? parseLang(split.uaText, true, dm) : {},
+      en: enBlock,
+      ua: uaBlock,
     };
   }
 
-  function entries() { return raws.map(function (r) { return parseEntry(r.slug, r.raw); }); }
+  function entries() { return raws.map(function (r) { return assembleEntry(r.slug, r); }); }
 
   function renderTable(rows) {
     if (!rows.length) return "";
@@ -136,7 +145,9 @@
         rootEl: uiEl.root, scenarioFolder: "monsters", indexFileName: "monsters-index.json",
         demoIndex: "demo/monsters-index.json", sourcesJs: "demo/monsters-sources.js",
       });
-      raws = await loader.loadData(config, false, function (slug, text) { return { slug: slug, raw: text }; });
+      raws = await loader.loadData(config, false, function (slug, texts) {
+        return { slug: slug, en: texts.en, ua: texts.ua };
+      });
       ui.setReady(uiEl);
       buildListNav();
       renderPage();

@@ -55,8 +55,20 @@
     return resp.text();
   }
 
+  async function fetchTextOptional(url, bustCache) {
+    const resp = await fetch(withCacheBust(url, bustCache), { cache: bustCache ? "no-store" : "default" });
+    if (resp.status === 404) return null;
+    if (!resp.ok) {
+      throw new Error("HTTP " + resp.status + " loading " + url);
+    }
+    return resp.text();
+  }
+
   function slugFromIndexPath(relPath) {
-    return String(relPath).replace(/^.*\//, "").replace(/\.md$/i, "");
+    return String(relPath)
+      .replace(/^.*\//, "")
+      .replace(/\.(en|ua)\.md$/i, "")
+      .replace(/\.md$/i, "");
   }
 
   function parseUrlParams() {
@@ -126,6 +138,7 @@
     jsonToOfflineJs: jsonToOfflineJs,
     loadScript: loadScript,
     fetchText: fetchText,
+    fetchTextOptional: fetchTextOptional,
     slugFromIndexPath: slugFromIndexPath,
     parseUrlParams: parseUrlParams,
     buildQuery: buildQuery,

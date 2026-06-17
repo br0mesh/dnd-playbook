@@ -3,6 +3,8 @@
   const md = window.DnDCore.markdown;
   const shell = window.DnDCore.shell;
   const ui = window.DnDCore.entityUi;
+  const locale = window.DnDCore.locale;
+  const headings = window.DnDCore.contentSchema.MAP;
   const esc = shell.esc;
   const loader = window.DnDCore.loader.createLoader({
     indexGlobal: "MAPS_LIBRARY_INDEX", mdGlobal: "__MAPS_MD__",
@@ -12,21 +14,30 @@
   const state = { lang: "en", page: 1, grid: "" };
   let entries = [];
 
-  function parseMap(slug, raw) {
-    const split = md.splitBilingual(raw);
-    function block(text, ua) {
-      const info = md.parseBoldFields(md.sectionAnyHeading(text, "Map Info", "Інформація про карту"));
-      const desc = md.sectionAnyHeading(text, "Description", "Опис");
-      const dm = md.sectionAnyHeading(text, "DM Notes", "Нотатки Майстра");
-      const image = info.Image || info["Зображення"] || "";
-      const grid = info["Grid template"] || info["Шаблон сітки"] || "";
-      const scale = info.Scale || info["Масштаб"] || "";
-      return {
-        title: md.titleParts(text)[ua ? "ua" : "en"],
-        image: image, gridTemplate: grid, scale: scale, description: desc, dm: dm,
-      };
-    }
-    return { slug: slug, en: block(split.enText, false), ua: split.hasUa ? block(split.uaText, true) : {} };
+  function section(text, key) {
+    const args = [text].concat(headings[key] || []);
+    return md.sectionAnyHeading.apply(md, args);
+  }
+
+  function parseLang(text, lang) {
+    const info = md.parseBoldFields(section(text, "mapInfo"));
+    const desc = section(text, "description");
+    const dm = section(text, "dmNotes");
+    const image = info.Image || info["Зображення"] || "";
+    const grid = info["Grid template"] || info["Шаблон сітки"] || "";
+    const scale = info.Scale || info["Масштаб"] || "";
+    return {
+      title: md.titleForLocale(text, lang),
+      image: image, gridTemplate: grid, scale: scale, description: desc, dm: dm,
+    };
+  }
+
+  function assembleMap(slug, texts) {
+    const en = parseLang(texts.en, "en");
+    const ua = texts.ua.trim()
+      ? parseLang(texts.ua, "ua")
+      : locale.mergeWithFallback(en, {});
+    return { slug: slug, en: en, ua: ua };
   }
 
   function renderMap(entry) {
@@ -68,7 +79,7 @@
         rootEl: uiEl.root, scenarioFolder: "maps", indexFileName: "maps-index.json",
         demoIndex: "demo/maps-index.json", sourcesJs: "demo/maps-sources.js",
       });
-      entries = await loader.loadData(config, false, parseMap);
+      entries = await loader.loadData(config, false, assembleMap);
       document.getElementById("list-nav").innerHTML = entries.map(function (e, i) {
         return '<button type="button" class="bookmark-btn">' + esc((e[state.lang] || e.en).title) + "</button>";
       }).join("");

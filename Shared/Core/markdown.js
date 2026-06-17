@@ -32,11 +32,32 @@
     return out.join("\n");
   }
 
+  /** @deprecated Use per-locale .en.md / .ua.md files instead of splitBilingual(). */
   function splitBilingual(text) {
     const parts = text.split(UA_SPLIT);
     const enText = parts[0];
     const uaText = parts.length > 1 ? parts[1] : "";
     return { enText: enText, uaText: uaText, hasUa: Boolean(uaText.trim()) };
+  }
+
+  const EN_VERSION_SPLIT = /##\s+English\s+Version\s*/i;
+
+  function stripLegacyBilingualWrapper(text) {
+    let body = String(text || "");
+    const uaParts = body.split(UA_SPLIT);
+    if (uaParts.length > 1) {
+      return { enText: stripEnVersionHeader(uaParts[0]), uaText: uaParts[1].trim() };
+    }
+    return { enText: stripEnVersionHeader(body), uaText: "" };
+  }
+
+  function stripEnVersionHeader(text) {
+    let body = String(text || "");
+    const enMatch = body.match(EN_VERSION_SPLIT);
+    if (enMatch) {
+      body = body.slice(enMatch.index + enMatch[0].length);
+    }
+    return body.trim();
   }
 
   function parseBoldFields(block) {
@@ -86,10 +107,30 @@
     return items;
   }
 
-  function titleParts(text) {
+  function titleForLocale(text, locale) {
     const m = text.match(/^#\s+(.+)$/m);
-    if (!m) return { en: "", ua: "" };
+    if (!m) return "";
     const title = m[1].trim();
+    if (title.indexOf(" / ") >= 0 && !locale) {
+      return title.split(" / ")[0].trim();
+    }
+    if (title.indexOf(" / ") >= 0 && locale) {
+      const parts = title.split(" / ");
+      return locale === "ua" ? parts.slice(1).join(" / ").trim() : parts[0].trim();
+    }
+    return title;
+  }
+
+  function titleParts(text, locale) {
+    const m = text.match(/^#\s+(.+)$/m);
+    if (!m) {
+      if (locale === "ua") return { ua: "" };
+      if (locale === "en") return { en: "" };
+      return { en: "", ua: "" };
+    }
+    const title = m[1].trim();
+    if (locale === "ua") return { ua: title.indexOf(" / ") >= 0 ? title.split(" / ").slice(1).join(" / ").trim() : title };
+    if (locale === "en") return { en: title.indexOf(" / ") >= 0 ? title.split(" / ")[0].trim() : title };
     if (title.indexOf(" / ") >= 0) {
       const parts = title.split(" / ");
       return { en: parts[0].trim(), ua: parts.slice(1).join(" / ").trim() };
@@ -112,12 +153,15 @@
     DM_NOTES_HEADINGS: DM_NOTES_HEADINGS,
     excludeDmNotes: excludeDmNotes,
     splitBilingual: splitBilingual,
+    stripLegacyBilingualWrapper: stripLegacyBilingualWrapper,
+    stripEnVersionHeader: stripEnVersionHeader,
     parseBoldFields: parseBoldFields,
     sectionByHeading: sectionByHeading,
     sectionAnyHeading: sectionAnyHeading,
     tableRows: tableRows,
     listItems: listItems,
     titleParts: titleParts,
+    titleForLocale: titleForLocale,
     inlineMarkdown: inlineMarkdown,
   };
 })(typeof window !== "undefined" ? window : this);

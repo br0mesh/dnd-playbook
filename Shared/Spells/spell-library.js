@@ -5,6 +5,8 @@
   const md = window.DnDCore.markdown;
   const mech = window.DnDCore.mechanical;
   const esc = shell.esc;
+  const locale = window.DnDCore.locale;
+  const headings = window.DnDCore.contentSchema.SPELL;
   const loader = window.DnDCore.loader.createLoader({
     indexGlobal: "SPELL_LIBRARY_INDEX",
     mdGlobal: "__SPELL_MD__",
@@ -65,35 +67,40 @@
     return { school_key: parts[parts.length - 1] || "unknown", level_key: LEVEL_SUFFIX[parts[parts.length - 2]] || parts[parts.length - 2] || "unknown" };
   }
 
-  function parseSpellLang(text, ua) {
-    const headerBlock = md.parseBoldFields(md.sectionByHeading(text, "Header") || text.split("---")[0]);
-    const castingBlock = md.parseBoldFields(ua ? md.sectionAnyHeading(text, "Casting", "Накладання") : md.sectionByHeading(text, "Casting"));
-    const desc = ua ? md.sectionAnyHeading(text, "Description", "Опис") : md.sectionByHeading(text, "Description");
-    const higher = ua ? md.sectionAnyHeading(text, "At Higher Levels", "На вищих рівнях") : md.sectionByHeading(text, "At Higher Levels");
-    const titleM = text.match(/^#\s+(.+)$/m);
-    const name = headerBlock.Name || headerBlock["Назва"] || (titleM ? titleM[1].trim() : "");
+  function section(text, key) {
+    const args = [text].concat(headings[key] || []);
+    return md.sectionAnyHeading.apply(md, args);
+  }
+
+  function parseSpellLang(text, lang) {
+    const headerBlock = md.parseBoldFields(section(text, "header") || text.split("---")[0]);
+    const castingBlock = md.parseBoldFields(section(text, "casting"));
+    const desc = section(text, "description");
+    const higher = section(text, "atHigherLevels");
+    const name = headerBlock.Name || headerBlock["Назва"] || md.titleForLocale(text, lang);
     const rangeRaw = castingBlock.Range || castingBlock["Дальність"] || "";
     return {
       name: name,
       level: headerBlock.Level || headerBlock["Рівень"] || "",
       school: headerBlock.School || headerBlock["Школа"] || "",
       casting_time: castingBlock.Time || castingBlock["Час"] || "",
-      range: mech.formatDistance(rangeRaw, ua),
+      range: mech.formatDistance(rangeRaw, lang === "ua"),
       components: castingBlock.Components || castingBlock["Компоненти"] || "",
       duration: castingBlock.Duration || castingBlock["Тривалість"] || "",
-      description: mech.formatDistancesInText(desc.trim(), ua),
-      at_higher_levels: mech.formatDistancesInText(higher.trim(), ua),
+      description: mech.formatDistancesInText(desc.trim(), lang === "ua"),
+      at_higher_levels: mech.formatDistancesInText(higher.trim(), lang === "ua"),
     };
   }
 
-  function parseSpellMarkdown(slug, raw) {
-    const cleaned = md.excludeDmNotes(raw);
-    const split = md.splitBilingual(cleaned);
+  function assembleSpell(slug, texts) {
     const keys = keysFromSlug(slug);
+    const en = parseSpellLang(md.excludeDmNotes(texts.en), "en");
+    const ua = texts.ua.trim()
+      ? parseSpellLang(md.excludeDmNotes(texts.ua), "ua")
+      : locale.mergeWithFallback(en, {});
     return {
       slug: slug, school_key: keys.school_key, level_key: keys.level_key,
-      en: parseSpellLang(split.enText, false),
-      ua: split.hasUa ? parseSpellLang(split.uaText, true) : {},
+      en: en, ua: ua,
     };
   }
 
@@ -244,14 +251,14 @@
     bindUiOnce();
     setControlsEnabled(false);
     try {
-      spells = await loader.loadData(loadConfig, false, parseSpellMarkdown);
+      spells = await loader.loadData(loadConfig, false, assembleSpell);
       if (!spells.length) throw new Error("No spells in index");
       setControlsEnabled(true);
       renderPage();
       if (loadConfig.poll) {
         setInterval(async function () {
           try {
-            const refreshed = await loader.loadData(loadConfig, true, parseSpellMarkdown);
+            const refreshed = await loader.loadData(loadConfig, true, assembleSpell);
             if (loader.fingerprint(refreshed) !== dataFingerprint) {
               dataFingerprint = loader.fingerprint(refreshed);
               spells = refreshed;

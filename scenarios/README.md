@@ -16,6 +16,13 @@ python -m http.server 8080
 
 Open http://localhost:8080/index.html?scenario=test-adventure
 
+### Content files (locales)
+
+Each entity uses `{slug}.en.md` and optional `{slug}.ua.md`; indexes list slugs only. See [docs/content-locales.md](../docs/content-locales.md).
+
+- **HTTP preview** (above): no build step.
+- **`file://` preview**: run `scripts\build-sources.cmd` after editing `.md` files.
+
 Legacy scenarios require migration to the new folder layout before HTML preview works — see [docs/pdf-html-migration.md](../docs/pdf-html-migration.md).
 
 ## Checkout a scenario branch

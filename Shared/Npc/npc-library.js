@@ -4,6 +4,8 @@
   const mech = window.DnDCore.mechanical;
   const shell = window.DnDCore.shell;
   const ui = window.DnDCore.entityUi;
+  const locale = window.DnDCore.locale;
+  const headings = window.DnDCore.contentSchema.NPC;
   const esc = shell.esc;
   const loader = window.DnDCore.loader.createLoader({
     indexGlobal: "NPC_LIBRARY_INDEX", mdGlobal: "__NPC_MD__",
@@ -13,28 +15,36 @@
   const state = { lang: "en", mode: "player", page: 1 };
   let raws = [];
 
-  function parseLang(text, ua, dm) {
+  function section(text, key) {
+    const args = [text].concat(headings[key] || []);
+    return md.sectionAnyHeading.apply(md, args);
+  }
+
+  function parseLang(text, lang, dm) {
     let body = text;
     if (!dm) {
       body = md.excludeDmNotes(body);
       body = body.replace(/### Quick Roleplay[\s\S]*?(?=###|##|$)/i, "");
       body = body.replace(/### Scene Reference[\s\S]*?(?=###|##|$)/i, "");
     }
-    const titles = md.titleParts(body);
-    const roleplay = md.parseBoldFields(md.sectionAnyHeading(body, "Quick Roleplay", "Швидка гра"));
-    const lines = md.sectionAnyHeading(body, "Sample Lines", "Приклади реплік");
-    const dmNotes = dm ? md.sectionAnyHeading(body, "DM Notes", "Нотатки Майстра") : "";
+    const roleplay = md.parseBoldFields(section(body, "quickRoleplay"));
+    const lines = section(body, "sampleLines");
+    const dmNotes = dm ? section(body, "dmNotes") : "";
     return {
-      name: ua ? titles.ua : titles.en,
+      name: md.titleForLocale(body, lang),
       voice: roleplay.Voice || roleplay["Голос"] || "",
       goal: roleplay.Goal || roleplay["Мета"] || "",
       lines: lines, dm: dmNotes,
     };
   }
 
-  function parseEntry(slug, raw, dm) {
-    const split = md.splitBilingual(raw);
-    return { slug: slug, en: parseLang(split.enText, false, dm), ua: split.hasUa ? parseLang(split.uaText, true, dm) : {} };
+  function assembleEntry(slug, texts) {
+    const dm = state.mode === "dm";
+    const en = parseLang(texts.en, "en", dm);
+    const ua = texts.ua.trim()
+      ? parseLang(texts.ua, "ua", dm)
+      : locale.mergeWithFallback(en, {});
+    return { slug: slug, en: en, ua: ua };
   }
 
   function renderEntry(entry) {
@@ -56,7 +66,7 @@
     return html + "</article>";
   }
 
-  function entries() { return raws.map(function (r) { return parseEntry(r.slug, r.raw, state.mode === "dm"); }); }
+  function entries() { return raws.map(function (r) { return assembleEntry(r.slug, r); }); }
 
   function renderPage() {
     const list = entries();
@@ -81,7 +91,9 @@
         rootEl: uiEl.root, scenarioFolder: "npc", indexFileName: "npc-index.json",
         demoIndex: "demo/npc-index.json", sourcesJs: "demo/npc-sources.js",
       });
-      raws = await loader.loadData(config, false, function (slug, text) { return { slug: slug, raw: text }; });
+      raws = await loader.loadData(config, false, function (slug, texts) {
+        return { slug: slug, en: texts.en, ua: texts.ua };
+      });
       document.getElementById("list-nav").innerHTML = entries().map(function (e, i) {
         return '<button type="button" class="bookmark-btn">' + esc((e[state.lang] || e.en).name) + "</button>";
       }).join("");

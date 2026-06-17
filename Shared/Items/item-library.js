@@ -4,6 +4,8 @@
   const mech = window.DnDCore.mechanical;
   const shell = window.DnDCore.shell;
   const ui = window.DnDCore.entityUi;
+  const locale = window.DnDCore.locale;
+  const headings = window.DnDCore.contentSchema.ITEM;
   const esc = shell.esc;
   const loader = window.DnDCore.loader.createLoader({
     indexGlobal: "ITEMS_LIBRARY_INDEX", mdGlobal: "__ITEMS_MD__",
@@ -20,25 +22,33 @@
     return { rarity_key: p[p.length - 2] || "unknown", type_key: p[p.length - 1] || "unknown" };
   }
 
-  function parseItem(slug, raw) {
-    const split = md.splitBilingual(md.excludeDmNotes(raw));
-    function langBlock(text, ua) {
-      const h = md.parseBoldFields(md.sectionByHeading(text, "Header") || text);
-      const props = md.parseBoldFields(md.sectionAnyHeading(text, "Properties", "Властивості"));
-      const desc = md.sectionAnyHeading(text, "Description", "Опис");
-      return {
-        name: h.Name || h["Назва"] || md.titleParts(text).en,
-        rarity: h.Rarity || h["Рідкість"] || "",
-        type: h.Type || h["Тип"] || "",
-        attunement: props.Attunement || props["Налаштування"] || "",
-        description: mech.formatDistancesInText(desc, ua),
-      };
-    }
+  function section(text, key) {
+    const args = [text].concat(headings[key] || []);
+    return md.sectionAnyHeading.apply(md, args);
+  }
+
+  function parseLang(text, lang) {
+    const h = md.parseBoldFields(section(text, "header") || text);
+    const props = md.parseBoldFields(section(text, "properties"));
+    const desc = section(text, "description");
+    return {
+      name: h.Name || h["Назва"] || md.titleForLocale(text, lang),
+      rarity: h.Rarity || h["Рідкість"] || "",
+      type: h.Type || h["Тип"] || "",
+      attunement: props.Attunement || props["Налаштування"] || "",
+      description: mech.formatDistancesInText(desc, lang === "ua"),
+    };
+  }
+
+  function assembleItem(slug, texts) {
     const keys = keysFromSlug(slug);
+    const en = parseLang(md.excludeDmNotes(texts.en), "en");
+    const ua = texts.ua.trim()
+      ? parseLang(md.excludeDmNotes(texts.ua), "ua")
+      : locale.mergeWithFallback(en, {});
     return {
       slug: slug, rarity_key: keys.rarity_key, type_key: keys.type_key,
-      en: langBlock(split.enText, false),
-      ua: split.hasUa ? langBlock(split.uaText, true) : {},
+      en: en, ua: ua,
     };
   }
 
@@ -83,7 +93,7 @@
         rootEl: uiEl.root, scenarioFolder: "items", indexFileName: "items-index.json",
         demoIndex: "demo/items-index.json", sourcesJs: "demo/items-sources.js",
       });
-      entries = await loader.loadData(config, false, parseItem);
+      entries = await loader.loadData(config, false, assembleItem);
       document.getElementById("search").addEventListener("input", function (e) { state.search = e.target.value; state.page = 1; renderPage(); });
       renderPage();
       ui.bindPagination(state, uiEl, renderPage, function () { return filtered().length; });
