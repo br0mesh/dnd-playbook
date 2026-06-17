@@ -22,6 +22,25 @@ python -m http.server 8080
 
 Open http://localhost:8080/index.html?scenario=test-adventure
 
+## Branch previews (GitHub Pages)
+
+Every push to a `scenario/*` branch deploys a public preview on GitHub Pages. Production at the repo root is unchanged.
+
+| Item | Value |
+|------|-------|
+| URL pattern | `https://<owner>.github.io/dnd-playbook/preview/<sanitized-branch>/` |
+| Sanitization | `scenario/wild-sheep-chase` → `scenario-wild-sheep-chase` (lowercase, `/` → `-`, strip unsafe chars) |
+| Open a scenario | `…/preview/scenario-wild-sheep-chase/index.html?scenario=wild-sheep-chase` |
+
+**Lifecycle**
+
+- **Deploy:** automatic on push to `scenario/*` (or manual *Deploy scenario preview* workflow).
+- **Discover:** preview link appears in the Actions job summary and on open PRs targeting `main`.
+- **Index:** active previews are listed in `previews-index.json` at the site root.
+- **Cleanup:** deleting a `scenario/*` branch removes its preview folder from the live site.
+
+A scenario can appear in `scenarios-index.json` before its content folder exists on `main` — the branch preview serves the scenario branch’s full tree, so `?scenario=<slug>` works there once `scenarios/<slug>/` exists on that branch.
+
 ### Content files (locales)
 
 Each entity uses `{slug}.en.md` and optional `{slug}.ua.md`; indexes list slugs only. See [docs/content-locales.md](../docs/content-locales.md).

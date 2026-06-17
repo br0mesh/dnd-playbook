@@ -1,0 +1,185 @@
+name: Deploy scenario preview
+
+on:
+  push:
+    branches:
+      - "scenario/**"
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: "Scenario branch to preview (e.g. scenario/wild-sheep-chase)"
+        required: true
+        type: string
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+  pull-requests: write
+
+concurrency:
+  group: preview-${{ github.event_name == 'workflow_dispatch' && inputs.branch || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  deploy-preview:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout CI helpers from main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          path: _ci
+
+      - name: Resolve branch name
+        id: branch
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            BRANCH="${{ inputs.branch }}"
+          else
+            BRANCH="${{ github.ref_name }}"
+          fi
+          SANITIZED=$(echo "${BRANCH}" | tr '[:upper:]' '[:lower:]' | tr '/' '-' | sed 's/[^a-z0-9-]//g' | sed 's/--*/-/g' | sed 's/^-//;s/-$//')
+          echo "name=${BRANCH}" >> "$GITHUB_OUTPUT"
+          echo "sanitized=${SANITIZED}" >> "$GITHUB_OUTPUT"
+          echo "preview_dir=preview/${SANITIZED}" >> "$GITHUB_OUTPUT"
+
+      - name: Checkout scenario branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ steps.branch.outputs.name }}
+          path: scenario-site
+
+      - name: Checkout gh-pages storage
+        id: gh_pages_checkout
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          path: gh-pages-work
+        continue-on-error: true
+
+      - name: Init gh-pages branch
+        if: steps.gh_pages_checkout.outcome == 'failure'
+        run: |
+          mkdir -p gh-pages-work/preview
+          cd gh-pages-work
+          git init
+          git checkout -b gh-pages
+          git remote add origin "${{ github.server_url }}/${{ github.repository }}.git"
+          touch .nojekyll
+
+      - name: Copy scenario site to gh-pages preview folder
+        run: |
+          PREVIEW_DIR="${{ steps.branch.outputs.preview_dir }}"
+          rm -rf "gh-pages-work/${PREVIEW_DIR}"
+          mkdir -p "gh-pages-work/${PREVIEW_DIR}"
+          rsync -a --exclude '.git' scenario-site/ "gh-pages-work/${PREVIEW_DIR}/"
+          node -e "require('fs').writeFileSync('gh-pages-work/${PREVIEW_DIR}/.preview-meta.json', JSON.stringify({
+            branch: '${{ steps.branch.outputs.name }}',
+            sanitized: '${{ steps.branch.outputs.sanitized }}',
+            updatedAt: new Date().toISOString()
+          }, null, 2) + '\n')"
+
+      - name: Regenerate previews-index.json
+        run: node _ci/.github/scripts/regenerate-previews-index.js gh-pages-work/preview gh-pages-work/previews-index.json
+
+      - name: Push gh-pages storage
+        run: |
+          cd gh-pages-work
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          touch .nojekyll
+          git add -A
+          if git diff --staged --quiet; then
+            echo "No changes to gh-pages"
+          else
+            git commit -m "preview: ${{ steps.branch.outputs.name }} [skip ci]"
+            git push origin HEAD:gh-pages
+          fi
+
+      - name: Checkout main for production root
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Merge branch previews
+        uses: ./.github/actions/assemble-pages-site
+
+      - name: Upload site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: Write job summary
+        run: |
+          PREVIEW_URL="${{ steps.deployment.outputs.page_url }}preview/${{ steps.branch.outputs.sanitized }}/"
+          {
+            echo "## Scenario preview deployed"
+            echo ""
+            echo "**Branch:** \`${{ steps.branch.outputs.name }}\`"
+            echo ""
+            echo "**Preview URL:** ${PREVIEW_URL}"
+            echo ""
+            echo "Open a scenario: \`${PREVIEW_URL}index.html?scenario=<slug>\`"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Comment preview URL on PR
+        uses: actions/github-script@v7
+        env:
+          BRANCH_NAME: ${{ steps.branch.outputs.name }}
+          SANITIZED: ${{ steps.branch.outputs.sanitized }}
+          PAGE_URL: ${{ steps.deployment.outputs.page_url }}
+        with:
+          script: |
+            const branch = process.env.BRANCH_NAME;
+            const previewUrl = `${process.env.PAGE_URL}preview/${process.env.SANITIZED}/`;
+            const { data: pulls } = await github.rest.pulls.list({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: "open",
+              base: "main",
+              head: `${context.repo.owner}:${branch}`,
+            });
+            if (pulls.length === 0) return;
+
+            const prNumber = pulls[0].number;
+            const marker = "<!-- scenario-preview -->";
+            const body = [
+              marker,
+              "## Scenario preview deployed",
+              "",
+              `**Preview URL:** ${previewUrl}`,
+              "",
+              `Open a scenario: \`${previewUrl}index.html?scenario=<slug>\``,
+              "",
+              `_Updated: ${new Date().toISOString()}_`,
+            ].join("\n");
+
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: prNumber,
+            });
+            const existing = comments.find((c) => c.body && c.body.includes(marker));
+            if (existing) {
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: existing.id,
+                body,
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: prNumber,
+                body,
+              });
+            }
