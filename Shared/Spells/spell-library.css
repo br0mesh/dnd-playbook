@@ -1,0 +1,124 @@
+/* Spell-specific styles (extends book.css) */
+
+#spell-page {
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+#spell-page.grid-mode {
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.65rem;
+  align-content: start;
+}
+
+#spell-page.grid-mode .spell-card.compact {
+  padding: 0.55rem 0.6rem 0.45rem;
+  font-size: 0.72rem;
+  line-height: 1.35;
+  cursor: pointer;
+}
+
+#spell-page.page-turn-out {
+  opacity: 0;
+  transform: translateX(-8px);
+}
+
+.spell-card-header {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  margin-bottom: 0.75rem;
+}
+
+.school-icon {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.school-icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.school-abjuration .school-icon { color: var(--school-abjuration); }
+.school-conjuration .school-icon { color: var(--school-conjuration); }
+.school-divination .school-icon { color: var(--school-divination); }
+.school-enchantment .school-icon { color: var(--school-enchantment); }
+.school-evocation .school-icon { color: var(--school-evocation); }
+.school-illusion .school-icon { color: var(--school-illusion); }
+.school-necromancy .school-icon { color: var(--school-necromancy); }
+.school-transmutation .school-icon { color: var(--school-transmutation); }
+.school-unknown .school-icon { color: var(--school-unknown); }
+
+.bookmark-btn.school-abjuration[aria-pressed="true"] { border-left-color: var(--school-abjuration); }
+.bookmark-btn.school-conjuration[aria-pressed="true"] { border-left-color: var(--school-conjuration); }
+.bookmark-btn.school-divination[aria-pressed="true"] { border-left-color: var(--school-divination); }
+.bookmark-btn.school-enchantment[aria-pressed="true"] { border-left-color: var(--school-enchantment); }
+.bookmark-btn.school-evocation[aria-pressed="true"] { border-left-color: var(--school-evocation); }
+.bookmark-btn.school-illusion[aria-pressed="true"] { border-left-color: var(--school-illusion); }
+.bookmark-btn.school-necromancy[aria-pressed="true"] { border-left-color: var(--school-necromancy); }
+.bookmark-btn.school-transmutation[aria-pressed="true"] { border-left-color: var(--school-transmutation); }
+
+.spell-name {
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.spell-meta {
+  margin: 0.2rem 0 0;
+  font-size: 0.85rem;
+  color: #5a4a38;
+  font-style: italic;
+}
+
+.spell-description {
+  margin-bottom: 0.75rem;
+}
+
+.spell-description p {
+  margin: 0;
+}
+
+.spell-rules {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid #d4c9b0;
+  font-size: 0.8rem;
+}
+
+.spell-rules .rule small {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 0.65rem;
+  color: #7a6a55;
+  font-family: var(--font-sans);
+}
+
+.higher-levels {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px dashed #d4c9b0;
+}
+
+@media (max-width: 768px) {
+  #spell-page.grid-mode {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #spell-page {
+    transition: none;
+  }
+}

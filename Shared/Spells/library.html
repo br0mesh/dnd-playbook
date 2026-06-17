@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Spell Library — DnD Book</title>
+  <link rel="stylesheet" href="../Styles/tokens.css"/>
+  <link rel="stylesheet" href="../Styles/book.css"/>
+  <link rel="stylesheet" href="spell-library.css"/>
+</head>
+<body>
+  <div id="spell-library" class="book-chrome" data-scenario="demo">
+    <header class="book-header" id="book-nav"></header>
+    <header class="top-bar">
+      <h1>Spell Library</h1>
+      <div class="search-wrap">
+        <label for="search" class="visually-hidden">Search spells</label>
+        <input type="search" id="search" autocomplete="off" spellcheck="false" disabled/>
+      </div>
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button type="button" id="lang-en" aria-pressed="true" disabled>EN</button>
+        <button type="button" id="lang-ua" aria-pressed="false" disabled>UA</button>
+      </div>
+      <div class="view-toggle" role="group" aria-label="Spells per page">
+        <button type="button" id="view-1" aria-pressed="true" aria-label="1 spell per page" disabled>1</button>
+        <button type="button" id="view-16" aria-pressed="false" aria-label="16 spells per page" disabled>16</button>
+      </div>
+    </header>
+    <div class="library-main">
+      <aside class="sidebar sidebar-schools" aria-label="Filter by school">
+        <nav id="school-nav"></nav>
+      </aside>
+      <main class="book-center">
+        <div id="empty-state" aria-live="polite">
+          <strong>Loading spells…</strong>
+        </div>
+        <div id="spell-page" class="content-page" aria-live="polite" hidden></div>
+      </main>
+      <aside class="sidebar sidebar-levels" aria-label="Filter by level">
+        <nav id="level-nav"></nav>
+      </aside>
+    </div>
+    <footer class="pagination">
+      <button type="button" id="prev-page" aria-label="Previous page" disabled>&#9664; Prev</button>
+      <span id="page-info">Page 1 of 1</span>
+      <button type="button" id="next-page" aria-label="Next page" disabled>Next &#9654;</button>
+    </footer>
+  </div>
+  <script src="../Core/library-shell.js"></script>
+  <script src="../Core/markdown.js"></script>
+  <script src="../Core/mechanical.js"></script>
+  <script src="../Core/book-nav.js"></script>
+  <script src="../Core/library-loader.js"></script>
+  <script src="spell-library.js"></script>
+</body>
+</html>
