@@ -21,7 +21,7 @@ Section indexes (`*-index.json`) list **slugs only** (no `.md` suffix):
 ["01_sample_wolf_monster"]
 ```
 
-The loader resolves `{slug}.en.md` and `{slug}.ua.md` next to the index file.
+The loader fetches `{slug}.en.md` and `{slug}.ua.md` next to the index file over HTTP.
 
 ## Markdown shape
 
@@ -31,33 +31,45 @@ Each locale file is a normal single-language document:
 - No `## English Version` or `## Українська Версія` wrappers
 - Shared preamble (Encounter Reference, Quick Tactics, etc.) lives **inside each locale file** (duplicate or translate)
 
-## HTTP vs file://
+## Preview (HTTP only)
 
-| Preview | Build step |
-|---------|------------|
-| `python -m http.server` or GitHub Pages | None — `.md` files are fetched directly |
-| Opening `library.html` via `file://` | Run `scripts\build-sources.cmd` after editing `.md` |
+All library pages require an HTTP server. `file://` is not supported.
 
-The build script regenerates `*-sources.js` and `*-index.js` for offline use.
+| Method | Command |
+|--------|---------|
+| Windows one-click | `preview.cmd` (starts server on port 8080, opens hub) |
+| Manual | `python -m http.server 8080` → `http://localhost:8080/index.html` |
+| GitHub Pages | Deploy repo root; no build step |
+
+Example: `http://localhost:8080/Shared/Characters/library.html?scenario=test-adventure`
+
+## Spell closure
+
+Every spell referenced in scenario play content must be indexed under `scenarios/<slug>/spells/` using semantic slugs. See [spell-closure.md](spell-closure.md) for the rule, `--sync-spells`, and validation errors.
 
 ## Build commands
 
+`scripts\build-sources.cmd` validates content — it does **not** generate JS bundles.
+
 ```powershell
-# Regenerate offline bundles (Node or Python)
+# Validate every index slug has .en.md; warn on missing .ua.md; check spell closure
 scripts\build-sources.cmd
 
-# Validate every index slug has .en.md; warn on missing .ua.md
+# Same as default
 scripts\build-sources.cmd --validate-only
 
-# One-time split of legacy bilingual .md (already done on main)
-scripts\build-sources.cmd --split-legacy --build
+# Sync missing scenario spells from demo/stubs (Node required)
+scripts\build-sources.cmd --sync-spells
+
+# One-time split of legacy bilingual .md
+scripts\build-sources.cmd --split-legacy
 ```
 
 ## Breaking changes for scenario authors
 
 1. Replace bilingual `foo.md` with `foo.en.md` + optional `foo.ua.md`
 2. Index entries are slugs: `"01_hook"` not `"01_hook.md"`
-3. Run `build-sources` when testing via `file://`
+3. Character spell lists use comma-separated spell slugs (see spell-closure.md)
 4. UA file optional — EN is always required
 
 ## Character distances (tiles)
@@ -110,11 +122,13 @@ Casters only. Standard spell slots (not DMG spell points unless noted in prose):
 | **Slots** | 4 | 3 | 2 |
 | **Used** | ○○○○ | ○○○ | ○○ |
 
-**Cantrips:** Fire Bolt, Light, Mage Hand
-**Prepared spells:** Magic Missile, Shield, Misty Step
+**Cantrips:** fire_bolt_cantrip_evocation, light_cantrip_evocation
+**Prepared spells:** magic_missile_1st_evocation, shield_1st_abjuration
 ```
 
-UA field labels: `СЛ заклинань`, `Атака заклинанням`, `Заговори`, `Підготовлені заклинання`.
+Spell lists use **semantic slugs** (not display names). The character library renders localized names as links to the spell book.
+
+UA field labels: `СЛ заклинань`, `Атака заклинанням`, `Заговори`, `Підготовлені заклинання` (slug values stay EN).
 
 ### Recharge shorthand (inline tags)
 

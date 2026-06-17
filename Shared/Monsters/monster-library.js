@@ -7,11 +7,7 @@
   const locale = window.DnDCore.locale;
   const headings = window.DnDCore.contentSchema.MONSTER;
   const esc = shell.esc;
-  const loader = window.DnDCore.loader.createLoader({
-    indexGlobal: "MONSTERS_LIBRARY_INDEX", mdGlobal: "__MONSTERS_MD__",
-    defaultSourcesJs: "demo/monsters-sources.js",
-    clearGlobals: function () { delete window.MONSTERS_LIBRARY_INDEX; delete window.__MONSTERS_MD__; },
-  });
+  const loader = window.DnDCore.loader.createLoader();
 
   const state = { lang: "en", mode: "player", search: "", page: 1, slug: null };
   let raws = [];
@@ -143,7 +139,7 @@
     try {
       const config = shell.resolveModuleConfig({
         rootEl: uiEl.root, scenarioFolder: "monsters", indexFileName: "monsters-index.json",
-        demoIndex: "demo/monsters-index.json", sourcesJs: "demo/monsters-sources.js",
+        demoIndex: "demo/monsters-index.json",
       });
       raws = await loader.loadData(config, false, function (slug, texts) {
         return { slug: slug, en: texts.en, ua: texts.ua };

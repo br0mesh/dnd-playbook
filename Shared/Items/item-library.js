@@ -7,11 +7,7 @@
   const locale = window.DnDCore.locale;
   const headings = window.DnDCore.contentSchema.ITEM;
   const esc = shell.esc;
-  const loader = window.DnDCore.loader.createLoader({
-    indexGlobal: "ITEMS_LIBRARY_INDEX", mdGlobal: "__ITEMS_MD__",
-    defaultSourcesJs: "demo/items-sources.js",
-    clearGlobals: function () { delete window.ITEMS_LIBRARY_INDEX; delete window.__ITEMS_MD__; },
-  });
+  const loader = window.DnDCore.loader.createLoader();
   const RARITIES = [["all", "All"], ["common", "Common"], ["uncommon", "Uncommon"], ["rare", "Rare"]];
   const TYPES = [["all", "All"], ["consumable", "Consumable"], ["wondrous", "Wondrous"]];
   const state = { lang: "en", rarity: "all", type: "all", search: "", page: 1 };
@@ -91,7 +87,7 @@
     try {
       const config = shell.resolveModuleConfig({
         rootEl: uiEl.root, scenarioFolder: "items", indexFileName: "items-index.json",
-        demoIndex: "demo/items-index.json", sourcesJs: "demo/items-sources.js",
+        demoIndex: "demo/items-index.json",
       });
       entries = await loader.loadData(config, false, assembleItem);
       document.getElementById("search").addEventListener("input", function (e) { state.search = e.target.value; state.page = 1; renderPage(); });

@@ -6,11 +6,7 @@
   const locale = window.DnDCore.locale;
   const headings = window.DnDCore.contentSchema.MAP;
   const esc = shell.esc;
-  const loader = window.DnDCore.loader.createLoader({
-    indexGlobal: "MAPS_LIBRARY_INDEX", mdGlobal: "__MAPS_MD__",
-    defaultSourcesJs: "demo/maps-sources.js",
-    clearGlobals: function () { delete window.MAPS_LIBRARY_INDEX; delete window.__MAPS_MD__; },
-  });
+  const loader = window.DnDCore.loader.createLoader();
   const state = { lang: "en", page: 1, grid: "" };
   let entries = [];
 
@@ -77,7 +73,7 @@
     try {
       const config = shell.resolveModuleConfig({
         rootEl: uiEl.root, scenarioFolder: "maps", indexFileName: "maps-index.json",
-        demoIndex: "demo/maps-index.json", sourcesJs: "demo/maps-sources.js",
+        demoIndex: "demo/maps-index.json",
       });
       entries = await loader.loadData(config, false, assembleMap);
       document.getElementById("list-nav").innerHTML = entries.map(function (e, i) {

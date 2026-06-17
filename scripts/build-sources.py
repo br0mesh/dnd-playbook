@@ -1,23 +1,25 @@
 #!/usr/bin/env python3
-"""Regenerate *-sources.js / *-index.js and split legacy bilingual markdown."""
+"""Validate content indexes and spell closure; split legacy bilingual markdown."""
 
 import json
 import os
 import re
+import shutil
+import subprocess
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 UA_SPLIT = re.compile(r"##\s+Українська\s+Версія", re.I)
 EN_VERSION = re.compile(r"##\s+English\s+Version\s*", re.I)
 
-MODULE_MAP = {
-    "characters-index.json": ("CHARACTERS_LIBRARY_INDEX", "__CHARACTERS_MD__"),
-    "spells-index.json": ("SPELL_LIBRARY_INDEX", "__SPELL_MD__"),
-    "monsters-index.json": ("MONSTERS_LIBRARY_INDEX", "__MONSTERS_MD__"),
-    "npc-index.json": ("NPC_LIBRARY_INDEX", "__NPC_MD__"),
-    "items-index.json": ("ITEMS_LIBRARY_INDEX", "__ITEMS_MD__"),
-    "maps-index.json": ("MAPS_LIBRARY_INDEX", "__MAPS_MD__"),
-    "dm-script-index.json": ("DMSCRIPT_LIBRARY_INDEX", "__DMSCRIPT_MD__"),
+INDEX_BASENAMES = {
+    "characters-index.json",
+    "spells-index.json",
+    "monsters-index.json",
+    "npc-index.json",
+    "items-index.json",
+    "maps-index.json",
+    "dm-script-index.json",
 }
 
 
@@ -30,8 +32,7 @@ def walk_md_dirs():
 
 def find_index_files():
     for path in walk_md_dirs():
-        base = os.path.basename(path)
-        if base.endswith("-index.json") and base in MODULE_MAP:
+        if os.path.basename(path) in INDEX_BASENAMES:
             yield path
 
 
@@ -49,12 +50,6 @@ def read_index(index_path):
     if not isinstance(raw, list):
         raise ValueError("Index must be array: " + index_path)
     return [slug_from_index_entry(x) for x in raw]
-
-
-def write_index(index_path, slugs):
-    with open(index_path, "w", encoding="utf-8") as f:
-        json.dump(slugs, f, indent=2)
-        f.write("\n")
 
 
 def split_legacy_file(content, default_slug):
@@ -145,55 +140,38 @@ def validate():
         sys.exit(1)
 
 
-def build_sources():
-    for index_path in find_index_files():
-        base = os.path.basename(index_path)
-        index_global, md_global = MODULE_MAP[base]
-        dir_name = os.path.dirname(index_path)
-        slugs = read_index(index_path)
-        write_index(index_path, slugs)
+def run_spell_closure():
+    node = shutil.which("node")
+    if not node:
+        print("Spell closure validation requires Node.js. Install Node or run: node scripts/build-sources.js")
+        sys.exit(1)
+    script = os.path.join(os.path.dirname(os.path.abspath(__file__)), "spell-cli.js")
+    result = subprocess.run([node, script, "validate"], cwd=ROOT)
+    if result.returncode:
+        sys.exit(result.returncode)
 
-        sources_name = base.replace("-index.json", "-sources.js")
-        index_js_name = base.replace(".json", ".js")
-        sources_path = os.path.join(dir_name, sources_name)
-        index_js_path = os.path.join(dir_name, index_js_name)
 
-        lines = ["window." + md_global + " = window." + md_global + " || {};"]
-        for slug in slugs:
-            en_path = os.path.join(dir_name, slug + ".en.md")
-            ua_path = os.path.join(dir_name, slug + ".ua.md")
-            if not os.path.exists(en_path):
-                print("Skip sources for missing EN:", en_path)
-                continue
-            with open(en_path, encoding="utf-8") as f:
-                en = f.read()
-            ua = ""
-            if os.path.exists(ua_path):
-                with open(ua_path, encoding="utf-8") as f:
-                    ua = f.read()
-            entry = "window." + md_global + '["' + slug + '"] = { en: ' + json.dumps(en, ensure_ascii=True)
-            if ua:
-                entry += ", ua: " + json.dumps(ua, ensure_ascii=True)
-            entry += " };"
-            lines.append(entry)
-
-        with open(sources_path, "w", encoding="utf-8") as f:
-            f.write("\n".join(lines) + "\n")
-
-        with open(index_js_path, "w", encoding="utf-8") as f:
-            f.write("window." + index_global + " = " + json.dumps(slugs) + ";\n")
-
-        print("built:", os.path.relpath(sources_path, ROOT), ",", os.path.relpath(index_js_path, ROOT))
+def run_spell_sync():
+    node = shutil.which("node")
+    if not node:
+        print("Sync spells requires Node.js. Install Node or run: node scripts/build-sources.js --sync-spells")
+        sys.exit(1)
+    script = os.path.join(os.path.dirname(os.path.abspath(__file__)), "spell-cli.js")
+    result = subprocess.run([node, script, "sync"], cwd=ROOT)
+    if result.returncode:
+        sys.exit(result.returncode)
 
 
 def main():
     args = sys.argv[1:]
     if "--split-legacy" in args:
         split_legacy()
-    if "--validate-only" not in args:
-        build_sources()
-    if "--validate" in args or "--validate-only" in args:
+    if "--sync-spells" in args:
+        run_spell_sync()
+    only_split_legacy = len(args) == 1 and args[0] == "--split-legacy"
+    if not only_split_legacy:
         validate()
+        run_spell_closure()
 
 
 if __name__ == "__main__":

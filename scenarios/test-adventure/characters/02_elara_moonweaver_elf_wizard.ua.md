@@ -48,15 +48,15 @@
 | **Комірки** | 4 | 3 | 2 |
 | **Використано** | ○○○○ | ○○○ | ○○ |
 
-**Заговори:** Вогняний заряд, Світло, Магічна рука, Престидигітація
-**Підготовлені заклинання:** Магічна стріла, Щит, Туманний крок, Палючий промінь, Дзеркальний образ, Контрзаклинання, Вогняна куля
+**Заговори:** fire_bolt_cantrip_evocation, light_cantrip_evocation, mage_hand_cantrip_transmutation, prestidigitation_cantrip_transmutation
+**Підготовлені заклинання:** magic_missile_1st_evocation, shield_1st_abjuration, misty_step_2nd_conjuration, scorching_ray_2nd_evocation, mirror_image_2nd_illusion, counterspell_3rd_abjuration, fireball_3rd_evocation
 
 ### Атаки
 
 | Атака | Бонус | Шкода | Нотатки |
 |---|---|---|---|
 | Бойовий посох | +2 | 1d6−1 дробляча | Дворучна 1d8−1 |
-| Вогняний заряд | +7 | 2d10 вогонь | Заговір, 120 фт./24 клітинки |
+| fire_bolt_cantrip_evocation | +7 | 2d10 вогонь | Заговір, 120 фт./24 клітинки |
 
 ### Сильні навички
 

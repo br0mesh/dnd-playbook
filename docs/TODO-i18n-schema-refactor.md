@@ -197,5 +197,4 @@ Do **not** start until a third locale is actually required.
 - [ ] Open character library via HTTP (`preview.cmd`) with `?lang=en` and `?lang=ua`.
 - [ ] Verify scenario `test-adventure` characters load and render all sections.
 - [ ] Verify demo character `01_aria_storm_human_fighter` EN + UA files parse (including spellcasting, resources, skills).
-- [ ] Offline `file://` after `scripts\build-sources.cmd` if loader or paths change.
 - [ ] Spot-check one other entity library (monster or spell) if `content-schema.js` or shared helpers change.

@@ -7,11 +7,7 @@
   const locale = window.DnDCore.locale;
   const headings = window.DnDCore.contentSchema.NPC;
   const esc = shell.esc;
-  const loader = window.DnDCore.loader.createLoader({
-    indexGlobal: "NPC_LIBRARY_INDEX", mdGlobal: "__NPC_MD__",
-    defaultSourcesJs: "demo/npc-sources.js",
-    clearGlobals: function () { delete window.NPC_LIBRARY_INDEX; delete window.__NPC_MD__; },
-  });
+  const loader = window.DnDCore.loader.createLoader();
   const state = { lang: "en", mode: "player", page: 1 };
   let raws = [];
 
@@ -89,7 +85,7 @@
     try {
       const config = shell.resolveModuleConfig({
         rootEl: uiEl.root, scenarioFolder: "npc", indexFileName: "npc-index.json",
-        demoIndex: "demo/npc-index.json", sourcesJs: "demo/npc-sources.js",
+        demoIndex: "demo/npc-index.json",
       });
       raws = await loader.loadData(config, false, function (slug, texts) {
         return { slug: slug, en: texts.en, ua: texts.ua };

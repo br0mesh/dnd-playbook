@@ -12,6 +12,13 @@
     return param === "ua" ? "ua" : "en";
   }
 
+  function pickLabel(aliases, lang) {
+    if (!aliases) return "";
+    if (typeof aliases === "string") return aliases;
+    if (!aliases.length) return "";
+    return lang === "ua" ? (aliases[1] || aliases[0]) : aliases[0];
+  }
+
   function mergeWithFallback(enObj, uaObj) {
     const out = {};
     const keys = Object.keys(enObj || {});
@@ -38,6 +45,7 @@
     SUPPORTED_LOCALES: SUPPORTED_LOCALES,
     localeFileName: localeFileName,
     resolveLocale: resolveLocale,
+    pickLabel: pickLabel,
     mergeWithFallback: mergeWithFallback,
   };
 })(typeof window !== "undefined" ? window : this);

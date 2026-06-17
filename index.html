@@ -45,6 +45,7 @@
     <div class="section-links" id="section-links" hidden></div>
   </div>
   <script src="Shared/Core/library-shell.js"></script>
+  <script src="Shared/Core/locale.js"></script>
   <script src="Shared/Core/book-nav.js"></script>
   <script>
     (function () {
@@ -75,7 +76,7 @@
         links.innerHTML = nav.SECTIONS.map(function (sec) {
           const q = nav.buildQuery({ scenario: params.scenario });
           const path = SECTION_PATHS[sec.id] || "#";
-          return '<a href="' + path + q + '">' + esc(sec.label) + "</a>";
+          return '<a href="' + path + q + '">' + esc(nav.sectionLabel(sec, params.lang)) + "</a>";
         }).join("");
       }
 

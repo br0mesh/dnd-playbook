@@ -9,3 +9,13 @@
 .entity-card .prose-block .prose-line:last-child {
   margin-bottom: 0;
 }
+
+.entity-card a.spell-link {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
+}
+
+.entity-card a.spell-link:hover {
+  filter: brightness(0.85);
+}

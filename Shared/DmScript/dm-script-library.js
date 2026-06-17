@@ -7,11 +7,7 @@
   const locale = window.DnDCore.locale;
   const headings = window.DnDCore.contentSchema.DM_SCRIPT;
   const esc = shell.esc;
-  const loader = window.DnDCore.loader.createLoader({
-    indexGlobal: "DMSCRIPT_LIBRARY_INDEX", mdGlobal: "__DMSCRIPT_MD__",
-    defaultSourcesJs: "demo/dm-script-sources.js",
-    clearGlobals: function () { delete window.DMSCRIPT_LIBRARY_INDEX; delete window.__DMSCRIPT_MD__; },
-  });
+  const loader = window.DnDCore.loader.createLoader();
   const state = { lang: "en", page: 1 };
   let raws = [];
 
@@ -91,7 +87,7 @@
     try {
       const config = shell.resolveModuleConfig({
         rootEl: uiEl.root, scenarioFolder: "dm-script", indexFileName: "dm-script-index.json",
-        demoIndex: "demo/dm-script-index.json", sourcesJs: "demo/dm-script-sources.js",
+        demoIndex: "demo/dm-script-index.json",
       });
       raws = await loader.loadData(config, false, function (slug, texts) {
         return { slug: slug, en: texts.en, ua: texts.ua };

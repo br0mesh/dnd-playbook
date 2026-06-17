@@ -3,20 +3,21 @@
 
 const fs = require("fs");
 const path = require("path");
+const spellSync = require("./spell-sync");
 
 const ROOT = path.resolve(__dirname, "..");
 const UA_SPLIT = /##\s+Українська\s+Версія/i;
 const EN_VERSION = /##\s+English\s+Version\s*/i;
 
-const MODULE_MAP = {
-  "characters-index.json": { indexGlobal: "CHARACTERS_LIBRARY_INDEX", mdGlobal: "__CHARACTERS_MD__" },
-  "spells-index.json": { indexGlobal: "SPELL_LIBRARY_INDEX", mdGlobal: "__SPELL_MD__" },
-  "monsters-index.json": { indexGlobal: "MONSTERS_LIBRARY_INDEX", mdGlobal: "__MONSTERS_MD__" },
-  "npc-index.json": { indexGlobal: "NPC_LIBRARY_INDEX", mdGlobal: "__NPC_MD__" },
-  "items-index.json": { indexGlobal: "ITEMS_LIBRARY_INDEX", mdGlobal: "__ITEMS_MD__" },
-  "maps-index.json": { indexGlobal: "MAPS_LIBRARY_INDEX", mdGlobal: "__MAPS_MD__" },
-  "dm-script-index.json": { indexGlobal: "DMSCRIPT_LIBRARY_INDEX", mdGlobal: "__DMSCRIPT_MD__" },
-};
+const INDEX_BASENAMES = new Set([
+  "characters-index.json",
+  "spells-index.json",
+  "monsters-index.json",
+  "npc-index.json",
+  "items-index.json",
+  "maps-index.json",
+  "dm-script-index.json",
+]);
 
 function walkDir(dir, out) {
   if (!fs.existsSync(dir)) return;
@@ -32,8 +33,7 @@ function findIndexFiles() {
   walkDir(path.join(ROOT, "Shared"), files);
   walkDir(path.join(ROOT, "scenarios"), files);
   return files.filter(function (f) {
-    const base = path.basename(f);
-    return base.endsWith("-index.json") && MODULE_MAP[base];
+    return INDEX_BASENAMES.has(path.basename(f));
   });
 }
 
@@ -48,14 +48,6 @@ function readIndex(indexPath) {
   const raw = JSON.parse(fs.readFileSync(indexPath, "utf8"));
   if (!Array.isArray(raw)) throw new Error("Index must be array: " + indexPath);
   return raw.map(slugFromIndexEntry);
-}
-
-function writeIndex(indexPath, slugs) {
-  fs.writeFileSync(indexPath, JSON.stringify(slugs, null, 2) + "\n", "utf8");
-}
-
-function escapeJsString(s) {
-  return JSON.stringify(s);
 }
 
 function splitLegacyFile(filePath) {
@@ -136,7 +128,7 @@ function validate() {
   findIndexFiles().forEach(function (indexPath) {
     const dir = path.dirname(indexPath);
     const slugs = readIndex(indexPath);
-    normalized.forEach(function (slug) {
+    slugs.forEach(function (slug) {
       const enPath = path.join(dir, slug + ".en.md");
       const uaPath = path.join(dir, slug + ".ua.md");
       if (!fs.existsSync(enPath)) {
@@ -153,49 +145,17 @@ function validate() {
   if (errors) process.exit(1);
 }
 
-function buildSources() {
-  findIndexFiles().forEach(function (indexPath) {
-    const base = path.basename(indexPath);
-    const mod = MODULE_MAP[base];
-    const dir = path.dirname(indexPath);
-    const slugs = readIndex(indexPath);
-    writeIndex(indexPath, slugs);
-
-    const sourcesName = base.replace("-index.json", "-sources.js");
-    const indexJsName = base.replace(".json", ".js");
-    const sourcesPath = path.join(dir, sourcesName);
-    const indexJsPath = path.join(dir, indexJsName);
-
-    let sources = "window." + mod.mdGlobal + " = window." + mod.mdGlobal + " || {};\n";
-    slugs.forEach(function (slug) {
-      const enPath = path.join(dir, slug + ".en.md");
-      const uaPath = path.join(dir, slug + ".ua.md");
-      if (!fs.existsSync(enPath)) {
-        console.error("Skip sources for missing EN: " + enPath);
-        return;
-      }
-      const en = fs.readFileSync(enPath, "utf8");
-      const ua = fs.existsSync(uaPath) ? fs.readFileSync(uaPath, "utf8") : "";
-      sources += "window." + mod.mdGlobal + '["' + slug + '"] = { en: ' + escapeJsString(en);
-      if (ua) sources += ", ua: " + escapeJsString(ua);
-      sources += " };\n";
-    });
-
-    const indexJs = "window." + mod.indexGlobal + " = " + JSON.stringify(slugs) + ";\n";
-
-    fs.writeFileSync(sourcesPath, sources, "utf8");
-    fs.writeFileSync(indexJsPath, indexJs, "utf8");
-    console.log("built: " + path.relative(ROOT, sourcesPath) + ", " + path.relative(ROOT, indexJsPath));
-  });
-}
-
 const args = process.argv.slice(2);
 if (args.includes("--split-legacy")) {
   splitLegacy();
 }
-if (!args.includes("--validate-only")) {
-  buildSources();
+if (args.includes("--sync-spells")) {
+  const syncCode = spellSync.syncAllScenarios();
+  if (syncCode) process.exit(syncCode);
 }
-if (args.includes("--validate") || args.includes("--validate-only")) {
+const onlySplitLegacy = args.length === 1 && args[0] === "--split-legacy";
+if (!onlySplitLegacy) {
   validate();
+  const spellCode = spellSync.validateAllSpellClosure();
+  if (spellCode) process.exit(spellCode);
 }

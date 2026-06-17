@@ -10,7 +10,13 @@ Adventure content lives on long-lived branches. The `main` branch holds platform
 
 ## Preview (HTML)
 
+Preview requires HTTP — `file://` is not supported.
+
 ```powershell
+# Windows one-click (repo root)
+preview.cmd
+
+# Or manual
 python -m http.server 8080
 ```
 
@@ -20,10 +26,9 @@ Open http://localhost:8080/index.html?scenario=test-adventure
 
 Each entity uses `{slug}.en.md` and optional `{slug}.ua.md`; indexes list slugs only. See [docs/content-locales.md](../docs/content-locales.md).
 
-- **HTTP preview** (above): no build step.
-- **`file://` preview**: run `scripts\build-sources.cmd` after editing `.md` files.
+Spell references in character sheets use semantic slugs — see [docs/spell-closure.md](../docs/spell-closure.md).
 
-Legacy scenarios require migration to the new folder layout before HTML preview works — see [docs/pdf-html-migration.md](../docs/pdf-html-migration.md).
+Validate before commit: `scripts\build-sources.cmd --validate-only`
 
 ## Checkout a scenario branch
 

@@ -48,15 +48,15 @@
 | **Slots** | 4 | 3 | 2 |
 | **Used** | ○○○○ | ○○○ | ○○ |
 
-**Cantrips:** Fire Bolt, Light, Mage Hand, Prestidigitation
-**Prepared spells:** Magic Missile, Shield, Misty Step, Scorching Ray, Mirror Image, Counterspell, Fireball
+**Cantrips:** fire_bolt_cantrip_evocation, light_cantrip_evocation, mage_hand_cantrip_transmutation, prestidigitation_cantrip_transmutation
+**Prepared spells:** magic_missile_1st_evocation, shield_1st_abjuration, misty_step_2nd_conjuration, scorching_ray_2nd_evocation, mirror_image_2nd_illusion, counterspell_3rd_abjuration, fireball_3rd_evocation
 
 ### Attacks
 
 | Attack | Bonus | Damage | Notes |
 |---|---|---|---|
 | Quarterstaff | +2 | 1d6−1 bludgeoning | Two-handed 1d8−1 |
-| Fire Bolt | +7 | 2d10 fire | Cantrip, 120 ft/24 tiles |
+| fire_bolt_cantrip_evocation | +7 | 2d10 fire | Cantrip, 120 ft/24 tiles |
 
 ### Good Skills
 

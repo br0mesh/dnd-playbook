@@ -7,27 +7,31 @@
   const esc = shell.esc;
   const locale = window.DnDCore.locale;
   const headings = window.DnDCore.contentSchema.SPELL;
-  const loader = window.DnDCore.loader.createLoader({
-    indexGlobal: "SPELL_LIBRARY_INDEX",
-    mdGlobal: "__SPELL_MD__",
-    jsonOfflineGlobal: "SPELL_LIBRARY_SPELLS",
-    defaultSourcesJs: "demo/spells-sources.js",
-    defaultOfflineJs: "demo/spells-offline.js",
-    clearGlobals: function () {
-      delete window.SPELL_LIBRARY_SPELLS;
-      delete window.__SPELL_MD__;
-      delete window.SPELL_LIBRARY_INDEX;
-    },
-  });
+  const loader = window.DnDCore.loader.createLoader();
 
   const SCHOOL_BOOKMARKS = [
-    ["all", "All schools"], ["abjuration", "Abjuration"], ["conjuration", "Conjuration"],
-    ["divination", "Divination"], ["enchantment", "Enchantment"], ["evocation", "Evocation"],
-    ["illusion", "Illusion"], ["necromancy", "Necromancy"], ["transmutation", "Transmutation"],
+    ["all", ["All schools", "Усі школи"]],
+    ["abjuration", ["Abjuration", "Оборона"]],
+    ["conjuration", ["Conjuration", "Виклик"]],
+    ["divination", ["Divination", "Ворожіння"]],
+    ["enchantment", ["Enchantment", "Зачарування"]],
+    ["evocation", ["Evocation", "Втілення"]],
+    ["illusion", ["Illusion", "Ілюзія"]],
+    ["necromancy", ["Necromancy", "Некромантія"]],
+    ["transmutation", ["Transmutation", "Перетворення"]],
   ];
   const LEVEL_BOOKMARKS = [
-    ["all", "All levels"], ["cantrip", "Cantrip"], ["1", "1st"], ["2", "2nd"],
-    ["3", "3rd"], ["4", "4th"], ["5", "5th"], ["6", "6th"], ["7", "7th"], ["8", "8th"], ["9", "9th"],
+    ["all", ["All levels", "Усі рівні"]],
+    ["cantrip", ["Cantrip", "Заговір"]],
+    ["1", ["1st", "1-й"]],
+    ["2", ["2nd", "2-й"]],
+    ["3", ["3rd", "3-й"]],
+    ["4", ["4th", "4-й"]],
+    ["5", ["5th", "5-й"]],
+    ["6", ["6th", "6-й"]],
+    ["7", ["7th", "7-й"]],
+    ["8", ["8th", "8-й"]],
+    ["9", ["9th", "9-й"]],
   ];
   const SCHOOL_CLASS = {
     abjuration: "school-abjuration", conjuration: "school-conjuration", divination: "school-divination",
@@ -50,6 +54,18 @@
     ua: { time: "Час", range: "Дальність", components: "Компоненти", duration: "Тривалість", higher: "На вищих рівнях" },
   };
   const SEARCH_PLACEHOLDER = { en: "Search spell by name…", ua: "Пошук за назвою…" };
+  const UI_LABELS = {
+    title: ["Spell Library", "Заклинання"],
+    empty: ["No spells match", "Немає заклинань"],
+    page: ["Page {n} of {total}", "Сторінка {n} з {total}"],
+    pageZero: ["Page 0 of 0", "Сторінка 0 з 0"],
+    loading: ["Loading spells…", "Завантаження заклинань…"],
+    loadError: ["Failed to load spells", "Не вдалося завантажити заклинання"],
+    prev: ["◀ Prev", "◀ Назад"],
+    next: ["Next ▶", "Далі ▶"],
+    filterSchool: ["Filter by school", "Фільтр за школою"],
+    filterLevel: ["Filter by level", "Фільтр за рівнем"],
+  };
   const LEVEL_SUFFIX = { cantrip: "cantrip", "1st": "1", "2nd": "2", "3rd": "3", "4th": "4", "5th": "5", "6th": "6", "7th": "7", "8th": "8", "9th": "9" };
   const POLL_MS = 3000;
   const PER_PAGE = { single: 1, grid: 16 };
@@ -61,6 +77,15 @@
   let uiReady = false;
   let dataFingerprint = "";
   let loadConfig = null;
+  let focusHighlightSlug = null;
+
+  function uiLabel(key) {
+    return locale.pickLabel(UI_LABELS[key], state.lang);
+  }
+
+  function formatPageInfo(page, total) {
+    return uiLabel("page").replace("{n}", String(page)).replace("{total}", String(total));
+  }
 
   function keysFromSlug(slug) {
     const parts = slug.split("_");
@@ -106,18 +131,12 @@
 
   function resolveConfig() {
     const root = document.getElementById("spell-library");
-    const params = shell.parseUrlParams();
-    const spellsParam = new URLSearchParams(window.location.search).get("spells");
-    const cfg = shell.resolveModuleConfig({
+    return shell.resolveModuleConfig({
       rootEl: root,
       scenarioFolder: "spells",
       indexFileName: "spells-index.json",
       demoIndex: "demo/spells-index.json",
-      sourcesJs: "demo/spells-sources.js",
-      dataJsonParam: "spells",
     });
-    if (spellsParam) cfg.jsonUrl = spellsParam;
-    return cfg;
   }
 
   function schoolIconHtml(schoolKey) {
@@ -141,7 +160,8 @@
       '<div class="rule"><small>' + esc(labels.components) + "</small><span>" + esc(block.components) + "</span></div>" +
       '<div class="rule"><small>' + esc(labels.duration) + "</small><span>" + esc(block.duration) + "</span></div></footer>";
     const interact = compact ? ' data-slug="' + esc(spell.slug) + '" tabindex="0" role="button"' : "";
-    return '<article class="spell-card ' + cls + (compact ? " compact" : "") + '"' + interact + ">" +
+    const focused = focusHighlightSlug && spell.slug === focusHighlightSlug && !compact ? " spell-card-focused" : "";
+    return '<article class="spell-card ' + cls + (compact ? " compact" : "") + focused + '"' + interact + ">" +
       '<header class="spell-card-header">' + schoolIconHtml(spell.school_key) +
       '<div><h2 class="spell-name">' + esc(block.name) + '</h2><p class="spell-meta">' + esc(meta) + "</p></div></header>" +
       '<div class="spell-description"><p>' + mech.highlightDice(block.description) + "</p></div>" + rules + higher + "</article>";
@@ -164,19 +184,57 @@
     if (state.page < 1) state.page = 1;
   }
 
+  function focusSpellFromUrl() {
+    const slug = new URLSearchParams(window.location.search).get("spell");
+    if (!slug) return;
+    state.focusSlug = slug;
+    state.school = "all";
+    state.level = "all";
+    state.search = "";
+    const search = document.getElementById("search");
+    if (search) search.value = "";
+    const idx = spells.findIndex(function (s) { return s.slug === slug; });
+    if (idx < 0) {
+      console.warn("[spell-library] Spell not found:", slug);
+      return;
+    }
+    state.perPage = PER_PAGE.single;
+    state.page = idx + 1;
+  }
+
+  function syncViewToggle() {
+    const single = state.perPage === PER_PAGE.single;
+    const view1 = document.getElementById("view-1");
+    const view16 = document.getElementById("view-16");
+    if (view1) view1.setAttribute("aria-pressed", single ? "true" : "false");
+    if (view16) view16.setAttribute("aria-pressed", single ? "false" : "true");
+  }
+
   function renderPage() {
     applyFilters();
+    const slugToFocus = state.focusSlug;
+    state.focusSlug = null;
+    focusHighlightSlug = slugToFocus;
+    if (slugToFocus) {
+      const idx = filtered.findIndex(function (s) { return s.slug === slugToFocus; });
+      if (idx >= 0) {
+        state.perPage = PER_PAGE.single;
+        state.page = idx + 1;
+      }
+    }
     const pageEl = document.getElementById("spell-page");
     const emptyEl = document.getElementById("empty-state");
     const pageInfo = document.getElementById("page-info");
     const prevBtn = document.getElementById("prev-page");
     const nextBtn = document.getElementById("next-page");
     if (!filtered.length) {
+      focusHighlightSlug = null;
       pageEl.hidden = true;
       emptyEl.hidden = false;
-      emptyEl.innerHTML = "<strong>No spells match</strong>";
-      pageInfo.textContent = "Page 0 of 0";
+      emptyEl.innerHTML = "<strong>" + esc(uiLabel("empty")) + "</strong>";
+      pageInfo.textContent = uiLabel("pageZero");
       prevBtn.disabled = nextBtn.disabled = true;
+      syncViewToggle();
       return;
     }
     emptyEl.hidden = true;
@@ -184,10 +242,16 @@
     const compact = state.perPage > 1;
     pageEl.classList.toggle("grid-mode", compact);
     pageEl.innerHTML = spellsOnPage().map(function (s) { return renderSpellCard(s, state.lang, compact); }).join("");
+    if (slugToFocus && !compact) {
+      const card = pageEl.querySelector('.spell-card[data-slug="' + slugToFocus + '"], .spell-card-focused');
+      if (card) card.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+    focusHighlightSlug = null;
     const pages = totalPages();
-    pageInfo.textContent = "Page " + state.page + " of " + pages;
+    pageInfo.textContent = formatPageInfo(state.page, pages);
     prevBtn.disabled = state.page <= 1;
     nextBtn.disabled = state.page >= pages;
+    syncViewToggle();
   }
 
   function buildBookmarks(containerId, bookmarks, filterKey, cssPrefix) {
@@ -197,7 +261,7 @@
       const btn = document.createElement("button");
       btn.type = "button";
       btn.className = "bookmark-btn" + (pair[0] !== "all" && cssPrefix === "school" ? " school-" + pair[0] : "");
-      btn.textContent = pair[1];
+      btn.textContent = locale.pickLabel(pair[1], state.lang);
       btn.setAttribute("aria-pressed", state[filterKey] === pair[0] ? "true" : "false");
       btn.addEventListener("click", function () {
         state[filterKey] = pair[0];
@@ -211,6 +275,37 @@
     });
   }
 
+  function refreshSidebarBookmarks() {
+    buildBookmarks("school-nav", SCHOOL_BOOKMARKS, "school", "school");
+    buildBookmarks("level-nav", LEVEL_BOOKMARKS, "level", "level");
+  }
+
+  function refreshChrome() {
+    const title = document.querySelector(".top-bar h1");
+    if (title) title.textContent = uiLabel("title");
+    const prevBtn = document.getElementById("prev-page");
+    const nextBtn = document.getElementById("next-page");
+    if (prevBtn) prevBtn.innerHTML = uiLabel("prev");
+    if (nextBtn) nextBtn.innerHTML = uiLabel("next");
+    const schoolAside = document.querySelector(".sidebar-schools");
+    const levelAside = document.querySelector(".sidebar-levels");
+    if (schoolAside) schoolAside.setAttribute("aria-label", uiLabel("filterSchool"));
+    if (levelAside) levelAside.setAttribute("aria-label", uiLabel("filterLevel"));
+    const emptyEl = document.getElementById("empty-state");
+    if (emptyEl && !emptyEl.classList.contains("load-error") && emptyEl.hidden === false && spells.length === 0) {
+      emptyEl.innerHTML = "<strong>" + esc(uiLabel("loading")) + "</strong>";
+    }
+  }
+
+  function onLangChange(lang) {
+    state.lang = lang;
+    const search = document.getElementById("search");
+    if (search) search.placeholder = SEARCH_PLACEHOLDER[lang];
+    refreshSidebarBookmarks();
+    refreshChrome();
+    renderPage();
+  }
+
   function setControlsEnabled(enabled) {
     ["search", "lang-en", "lang-ua", "view-1", "view-16", "prev-page", "next-page"].forEach(function (id) {
       const el = document.getElementById(id);
@@ -221,18 +316,24 @@
   function bindUiOnce() {
     if (uiReady) return;
     uiReady = true;
-    buildBookmarks("school-nav", SCHOOL_BOOKMARKS, "school", "school");
-    buildBookmarks("level-nav", LEVEL_BOOKMARKS, "level", "level");
+    refreshSidebarBookmarks();
+    refreshChrome();
     const search = document.getElementById("search");
     search.placeholder = SEARCH_PLACEHOLDER[state.lang];
     search.addEventListener("input", function () {
       clearTimeout(searchTimer);
       searchTimer = setTimeout(function () { state.search = search.value; state.page = 1; renderPage(); }, 200);
     });
-    document.getElementById("lang-en").addEventListener("click", function () { state.lang = "en"; search.placeholder = SEARCH_PLACEHOLDER.en; renderPage(); });
-    document.getElementById("lang-ua").addEventListener("click", function () { state.lang = "ua"; search.placeholder = SEARCH_PLACEHOLDER.ua; renderPage(); });
-    document.getElementById("view-1").addEventListener("click", function () { state.perPage = PER_PAGE.single; state.page = 1; renderPage(); });
-    document.getElementById("view-16").addEventListener("click", function () { state.perPage = PER_PAGE.grid; state.page = 1; renderPage(); });
+    document.getElementById("view-1").addEventListener("click", function () {
+      state.perPage = PER_PAGE.single;
+      state.page = 1;
+      renderPage();
+    });
+    document.getElementById("view-16").addEventListener("click", function () {
+      state.perPage = PER_PAGE.grid;
+      state.page = 1;
+      renderPage();
+    });
     document.getElementById("prev-page").addEventListener("click", function () { if (state.page > 1) { state.page--; renderPage(); } });
     document.getElementById("next-page").addEventListener("click", function () { if (state.page < totalPages()) { state.page++; renderPage(); } });
     document.getElementById("spell-page").addEventListener("click", function (e) {
@@ -246,13 +347,14 @@
 
   async function bootstrap() {
     window.DnDCore.bookNav.renderTopNav("book-nav", "spells", { showHome: true });
-    state.lang = window.DnDCore.bookNav.bindLangToggle(function (lang) { state.lang = lang; renderPage(); });
+    state.lang = window.DnDCore.bookNav.bindLangToggle(onLangChange);
     loadConfig = resolveConfig();
     bindUiOnce();
     setControlsEnabled(false);
     try {
       spells = await loader.loadData(loadConfig, false, assembleSpell);
       if (!spells.length) throw new Error("No spells in index");
+      focusSpellFromUrl();
       setControlsEnabled(true);
       renderPage();
       if (loadConfig.poll) {
@@ -270,7 +372,7 @@
       dataFingerprint = loader.fingerprint(spells);
     } catch (err) {
       document.getElementById("empty-state").classList.add("load-error");
-      document.getElementById("empty-state").innerHTML = "<strong>Failed to load spells</strong><p>" + esc(err.message) + "</p>";
+      document.getElementById("empty-state").innerHTML = "<strong>" + esc(uiLabel("loadError")) + "</strong><p>" + esc(err.message) + "</p>";
     }
   }
 

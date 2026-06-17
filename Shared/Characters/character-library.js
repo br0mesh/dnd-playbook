@@ -6,13 +6,14 @@
   const ui = window.DnDCore.entityUi;
   const locale = window.DnDCore.locale;
   const esc = shell.esc;
-  const loader = window.DnDCore.loader.createLoader({
-    indexGlobal: "CHARACTERS_LIBRARY_INDEX", mdGlobal: "__CHARACTERS_MD__",
-    defaultSourcesJs: "demo/characters-sources.js",
-    clearGlobals: function () { delete window.CHARACTERS_LIBRARY_INDEX; delete window.__CHARACTERS_MD__; },
-  });
+  const loader = window.DnDCore.loader.createLoader();
+  const SPELL_SLUG_RE = /^[a-z0-9]+(?:_[a-z0-9]+)*_(cantrip|\d+(?:st|nd|rd|th))_[a-z]+$/;
   const state = { lang: "en", page: 1, slug: null };
   let raws = [];
+  let loadConfig = null;
+  let spellNameMap = {};
+  let nameToSlugEn = {};
+  let nameToSlugUa = {};
 
   const DEFAULT_HEADINGS = {
     basicInfo: ["Basic Info", "Основна інформація"],
@@ -73,6 +74,118 @@
     "Prepared spells": "prepared",
     "Підготовлені заклинання": "prepared",
   };
+
+  function isSpellSlug(token) {
+    return SPELL_SLUG_RE.test(String(token || "").trim());
+  }
+
+  function normalizeSpellName(name) {
+    return String(name || "")
+      .toLowerCase()
+      .trim()
+      .replace(/[^a-z0-9а-яіїєґ\s]/gi, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+  }
+
+  function parseSpellNameFromMd(text, lang) {
+    const headerMatch = text.match(/###\s+Header\s*\n([\s\S]*?)(?=\n### |\n---|$)/i);
+    const headerBlock = headerMatch ? headerMatch[1] : text.split("---")[0];
+    const nameKey = lang === "ua" ? "Назва" : "Name";
+    const fieldRe = new RegExp("\\*\\*" + nameKey + ":\\*\\*\\s*(.+)", "i");
+    const fieldMatch = headerBlock.match(fieldRe);
+    if (fieldMatch) return fieldMatch[1].trim();
+    const h1 = text.match(/^#\s+(.+)$/m);
+    return h1 ? h1[1].trim() : null;
+  }
+
+  async function loadSpellNameMap(scenario) {
+    spellNameMap = {};
+    nameToSlugEn = {};
+    nameToSlugUa = {};
+    const indexUrl = scenario
+      ? "../../scenarios/" + scenario + "/spells/spells-index.json"
+      : "../Spells/demo/spells-index.json";
+    try {
+      const indexText = await shell.fetchText(new URL(indexUrl, shell.pageBaseUrl()).href, false);
+      const slugs = JSON.parse(indexText);
+      if (!Array.isArray(slugs)) return;
+      const base = shell.indexBaseUrl(indexUrl);
+      await Promise.all(slugs.map(async function (entry) {
+        const slug = shell.slugFromIndexPath(entry);
+        try {
+          const enUrl = new URL(slug + ".en.md", base).href;
+          const uaUrl = new URL(slug + ".ua.md", base).href;
+          const enText = await shell.fetchText(enUrl, false);
+          let uaText = null;
+          try {
+            uaText = await shell.fetchTextOptional(uaUrl, false);
+          } catch (_uaErr) {
+            /* UA locale is optional */
+          }
+          const enName = parseSpellNameFromMd(enText, "en") || slug;
+          const uaName = uaText ? (parseSpellNameFromMd(uaText, "ua") || enName) : "";
+          spellNameMap[slug] = { en: enName, ua: uaName };
+          const normEn = normalizeSpellName(enName);
+          if (normEn) nameToSlugEn[normEn] = slug;
+          if (uaName) {
+            const normUa = normalizeSpellName(uaName);
+            if (normUa) nameToSlugUa[normUa] = slug;
+          }
+        } catch (err) {
+          console.warn("[character-library] Failed to load spell:", slug, err);
+        }
+      }));
+    } catch (err) {
+      console.warn("[character-library] Failed to load spell name map:", err);
+    }
+  }
+
+  function spellLibraryHref(slug) {
+    const q = new URLSearchParams();
+    if (loadConfig && loadConfig.scenario) q.set("scenario", loadConfig.scenario);
+    q.set("spell", slug);
+    if (state.lang === "ua") q.set("lang", "ua");
+    return "../Spells/library.html?" + q.toString();
+  }
+
+  function resolveSpellSlug(token) {
+    const t = String(token || "").trim();
+    if (isSpellSlug(t)) return t;
+    const norm = normalizeSpellName(t);
+    if (state.lang === "ua" && nameToSlugUa[norm]) return nameToSlugUa[norm];
+    if (nameToSlugEn[norm]) return nameToSlugEn[norm];
+    if (nameToSlugUa[norm]) return nameToSlugUa[norm];
+    return null;
+  }
+
+  function renderSpellToken(token) {
+    const t = String(token || "").trim();
+    const slug = resolveSpellSlug(t);
+    if (!slug) return esc(t);
+    const names = spellNameMap[slug];
+    const label = names
+      ? (state.lang === "ua" && names.ua ? names.ua : names.en)
+      : t;
+    if (!names) console.warn("[character-library] Unknown spell slug:", slug);
+    return '<a class="spell-link" href="' + esc(spellLibraryHref(slug)) + '">' + esc(label) + "</a>";
+  }
+
+  function renderSpellSlugList(text) {
+    if (!text) return "";
+    return text.split(",").map(function (part) {
+      return renderSpellToken(part.trim());
+    }).filter(Boolean).join(", ");
+  }
+
+  function attackCellTransform(c, j, row) {
+    if (j !== 0) return withTiles(c);
+    const cell = stripCellBold(String(c || "").trim());
+    if (!cell) return "";
+    const slug = resolveSpellSlug(cell);
+    if (slug) return renderSpellToken(cell);
+    return esc(cell);
+  }
 
   function section(text, key) {
     const args = [md.normalizeNewlines(text)].concat(headingAliases(key));
@@ -238,8 +351,8 @@
         return enrichCell(c);
       }, true);
     }
-    if (sc.cantrips) html += "<p><strong>" + esc(uiLabel("cantrips")) + ":</strong> " + enrichCell(sc.cantrips) + "</p>";
-    if (sc.prepared) html += "<p><strong>" + esc(uiLabel("preparedSpells")) + ":</strong> " + enrichCell(sc.prepared) + "</p>";
+    if (sc.cantrips) html += "<p><strong>" + esc(uiLabel("cantrips")) + ":</strong> " + renderSpellSlugList(sc.cantrips) + "</p>";
+    if (sc.prepared) html += "<p><strong>" + esc(uiLabel("preparedSpells")) + ":</strong> " + renderSpellSlugList(sc.prepared) + "</p>";
     return html;
   }
 
@@ -262,7 +375,7 @@
       }, true);
     }
     if (b.spellcasting) html += renderSpellcasting(b.spellcasting);
-    if (b.attacks) html += "<h3>" + esc(sectionLabel("attacks")) + "</h3>" + renderTable(md.tableRows(b.attacks), withTiles);
+    if (b.attacks) html += "<h3>" + esc(sectionLabel("attacks")) + "</h3>" + renderTable(md.tableRows(b.attacks), attackCellTransform, true);
     if (b.skills) html += "<h3>" + esc(sectionLabel("skills")) + "</h3><div class=\"prose-block\">" + renderProseBlock(b.skills) + "</div>";
     if (b.abilities) html += "<h3>" + esc(sectionLabel("abilities")) + "</h3><div class=\"prose-block\">" + renderProseBlock(b.abilities) + "</div>";
     if (b.equipment) html += "<h3>" + esc(sectionLabel("equipment")) + "</h3><div class=\"prose-block\">" + renderProseBlock(b.equipment) + "</div>";
@@ -306,11 +419,12 @@
     const uiEl = ui.defaultUi("character-library");
     ui.setLoading(uiEl);
     try {
-      const config = shell.resolveModuleConfig({
+      loadConfig = shell.resolveModuleConfig({
         rootEl: uiEl.root, scenarioFolder: "characters", indexFileName: "characters-index.json",
-        demoIndex: "demo/characters-index.json", sourcesJs: "demo/characters-sources.js",
+        demoIndex: "demo/characters-index.json",
       });
-      raws = await loader.loadData(config, false, function (slug, texts) {
+      await loadSpellNameMap(loadConfig.scenario);
+      raws = await loader.loadData(loadConfig, false, function (slug, texts) {
         return { slug: slug, en: texts.en, ua: texts.ua };
       });
       ui.setReady(uiEl);

@@ -19,6 +19,11 @@
   cursor: pointer;
 }
 
+.spell-card-focused {
+  outline: 2px solid var(--accent, #8b6914);
+  outline-offset: 2px;
+}
+
 #spell-page.page-turn-out {
   opacity: 0;
   transform: translateX(-8px);
