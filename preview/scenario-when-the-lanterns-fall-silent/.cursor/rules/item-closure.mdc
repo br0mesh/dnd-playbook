@@ -1,0 +1,21 @@
+---
+description: Item closure — every referenced magic item must be in the scenario item stash
+globs: scenarios/**/*
+alwaysApply: false
+---
+
+# Item closure
+
+When editing scenario content under `scenarios/<slug>/`:
+
+1. **Rule:** Every item slug in indexed play content (characters, monsters, dm-script, npc) must appear in `items/items-index.json` with `{slug}.en.md` (and `.ua.md` if the scenario uses UA elsewhere).
+
+2. **Authoring:** Use comma-separated **semantic slugs** in `.en.md` character equipment (`**Magic items:**` / `**Чарівні предмети:**`). Format: `{ordinal}_{name}_{rarity}_{type}` (e.g. `02_wand_war_mage_uncommon_wand`).
+
+3. **Before commit:** Run `scripts\build-sources.cmd --validate-only`.
+
+4. **Adding items:** Run `scripts\build-sources.cmd --sync-items` to copy from `Shared/Items/demo/`. Edit `items-index.json` only via sync or deliberate manual adds.
+
+5. **Spells on items:** Item descriptions that cast/store spells are validated by spell closure, not item closure.
+
+See `docs/item-closure.md` for full scan scope, URL params, and resolution rules.

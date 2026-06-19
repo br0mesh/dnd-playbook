@@ -1,0 +1,87 @@
+name: Cleanup scenario preview
+
+on:
+  delete:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  cleanup:
+    if: github.event.ref_type == 'branch' && startsWith(github.event.ref, 'scenario/')
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout CI helpers from main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          path: _ci
+
+      - name: Sanitize deleted branch name
+        id: branch
+        run: |
+          BRANCH="${{ github.event.ref }}"
+          SANITIZED=$(echo "${BRANCH}" | tr '[:upper:]' '[:lower:]' | tr '/' '-' | sed 's/[^a-z0-9-]//g' | sed 's/--*/-/g' | sed 's/^-//;s/-$//')
+          echo "name=${BRANCH}" >> "$GITHUB_OUTPUT"
+          echo "sanitized=${SANITIZED}" >> "$GITHUB_OUTPUT"
+          echo "preview_dir=preview/${SANITIZED}" >> "$GITHUB_OUTPUT"
+
+      - name: Checkout gh-pages storage
+        id: gh_pages_checkout
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+        continue-on-error: true
+
+      - name: Remove preview folder from gh-pages
+        if: steps.gh_pages_checkout.outcome == 'success'
+        run: |
+          PREVIEW_DIR="${{ steps.branch.outputs.preview_dir }}"
+          if [ -d "${PREVIEW_DIR}" ]; then
+            rm -rf "${PREVIEW_DIR}"
+            node _ci/.github/scripts/regenerate-previews-index.js preview previews-index.json
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            touch .nojekyll
+            git add -A
+            if git diff --staged --quiet; then
+              echo "No gh-pages changes after removal"
+            else
+              git commit -m "preview: remove ${{ steps.branch.outputs.name }} [skip ci]"
+              git push origin HEAD:gh-pages
+            fi
+          else
+            echo "Preview folder ${PREVIEW_DIR} not found — nothing to remove"
+          fi
+
+      - name: Checkout main for production root
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Merge branch previews
+        uses: ./.github/actions/assemble-pages-site
+
+      - name: Upload site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: Write job summary
+        run: |
+          {
+            echo "## Scenario preview removed"
+            echo ""
+            echo "**Deleted branch:** \`${{ steps.branch.outputs.name }}\`"
+            echo ""
+            echo "Preview path \`preview/${{ steps.branch.outputs.sanitized }}/\` has been removed from the live site."
+          } >> "$GITHUB_STEP_SUMMARY"

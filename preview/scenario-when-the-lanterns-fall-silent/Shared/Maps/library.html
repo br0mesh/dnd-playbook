@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Maps — DnD Book</title>
+  <link rel="stylesheet" href="../Styles/tokens.css"/>
+  <link rel="stylesheet" href="../Styles/book.css"/>
+  <link rel="stylesheet" href="map-library.css"/>
+</head>
+<body>
+  <div id="map-library" class="book-chrome">
+    <header class="book-header" id="book-nav"></header>
+    <header class="top-bar">
+      <h1>Maps Holder</h1>
+      <div class="lang-toggle"><button type="button" id="lang-en" aria-pressed="true">EN</button><button type="button" id="lang-ua">UA</button></div>
+      <label for="grid-select">Grid overlay</label>
+      <select id="grid-select">
+        <option value="">None</option>
+        <option value="../../../_shared/battlefield-templates/a4_landscape_square_grid.svg">A4 landscape</option>
+        <option value="../../../_shared/battlefield-templates/a4_portrait_square_grid.svg">A4 portrait</option>
+      </select>
+    </header>
+    <div class="library-main no-right-sidebar">
+      <aside class="sidebar sidebar-list"><nav id="list-nav"></nav></aside>
+      <main class="book-center">
+        <div id="empty-state"><strong>Loading…</strong></div>
+        <div id="content-page" class="content-page wide" hidden></div>
+      </main>
+    </div>
+    <footer class="pagination">
+      <button type="button" id="prev-page">&#9664; Prev</button>
+      <span id="page-info">1 of 1</span>
+      <button type="button" id="next-page">Next &#9654;</button>
+    </footer>
+  </div>
+  <script src="../Core/library-shell.js"></script>
+  <script src="../Core/locale.js"></script>
+  <script src="../Core/markdown.js"></script>
+  <script src="../Core/content-schema.js"></script>
+  <script src="../Core/mechanical.js"></script>
+  <script src="../Core/book-nav.js"></script>
+  <script src="../Core/library-loader.js"></script>
+  <script src="../Core/entity-library.js"></script>
+  <script src="map-library.js"></script>
+</body>
+</html>

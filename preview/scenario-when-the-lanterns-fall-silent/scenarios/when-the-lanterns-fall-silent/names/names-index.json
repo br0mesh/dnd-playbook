@@ -1,0 +1,66 @@
+[
+  {
+    "slug": "briarford",
+    "type": "settlement",
+    "en": "Briarford",
+    "ua": "Терновбрід",
+    "declension_ua": {
+      "nominative": "Терновбрід",
+      "genitive": "Терновброду",
+      "dative": "Терновброду",
+      "accusative": "Терновбрід",
+      "instrumental": "Терновбродом",
+      "locative": "Терновброді"
+    },
+    "aliases_en": ["Briarford's"]
+  },
+  {
+    "slug": "the_last_lamp",
+    "type": "tavern",
+    "en": "The Last Lamp",
+    "ua": "Останній ліхтар",
+    "aliases_en": ["Last Lamp"]
+  },
+  {
+    "slug": "the_blue_wick",
+    "type": "tavern",
+    "en": "The Blue Wick",
+    "ua": "Синій гніт"
+  },
+  {
+    "slug": "mayor_alden",
+    "type": "npc",
+    "en": "Mayor Alden",
+    "ua": "мер Алден",
+    "aliases_en": ["Alden"]
+  },
+  {
+    "slug": "vex",
+    "type": "pc",
+    "en": "Vex",
+    "ua": "Векс",
+    "declension_ua": {
+      "nominative": "Векс",
+      "genitive": "Векса",
+      "dative": "Вексу",
+      "accusative": "Векса",
+      "instrumental": "Вексом",
+      "locative": "Вексу"
+    }
+  },
+  {
+    "slug": "ashmere_lot",
+    "type": "organization",
+    "en": "Ashmere lot",
+    "ua": "«Ашмер»",
+    "declension_ua": {
+      "nominative": "«Ашмер»",
+      "genitive": "«Ашмера»",
+      "dative": "«Ашмеру»",
+      "accusative": "«Ашмер»",
+      "instrumental": "«Ашмером»",
+      "locative": "«Ашмері»"
+    },
+    "aliases_en": ["Ashmere", "Ashmere string"]
+  }
+]

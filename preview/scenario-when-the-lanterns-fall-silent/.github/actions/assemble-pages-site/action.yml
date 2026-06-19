@@ -1,0 +1,24 @@
+name: Assemble Pages site with previews
+description: Merge preview folders from the gh-pages storage branch into the working tree
+
+runs:
+  using: composite
+  steps:
+    - name: Fetch gh-pages previews
+      uses: actions/checkout@v4
+      with:
+        ref: gh-pages
+        path: _gh-pages
+      continue-on-error: true
+
+    - name: Merge preview folders
+      shell: bash
+      run: |
+        if [ -d _gh-pages/preview ]; then
+          mkdir -p preview
+          cp -r _gh-pages/preview/. preview/
+        fi
+        if [ -f _gh-pages/previews-index.json ]; then
+          cp _gh-pages/previews-index.json previews-index.json
+        fi
+        touch .nojekyll

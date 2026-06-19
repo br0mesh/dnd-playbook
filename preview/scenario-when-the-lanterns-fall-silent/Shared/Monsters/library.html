@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Monsters — DnD Book</title>
+  <link rel="stylesheet" href="../Styles/tokens.css"/>
+  <link rel="stylesheet" href="../Styles/book.css"/>
+  <link rel="stylesheet" href="monster-library.css"/>
+</head>
+<body>
+  <div id="monster-library" class="book-chrome" data-scenario="demo">
+    <header class="book-header" id="book-nav"></header>
+    <header class="top-bar">
+      <h1>Monsters Almanac</h1>
+      <div class="search-wrap">
+        <label for="search" class="visually-hidden">Search monsters</label>
+        <input type="search" id="search" autocomplete="off" spellcheck="false"/>
+      </div>
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button type="button" id="lang-en" aria-pressed="true">EN</button>
+        <button type="button" id="lang-ua" aria-pressed="false">UA</button>
+      </div>
+      <div class="mode-toggle" role="group" aria-label="View mode">
+        <button type="button" id="mode-dm" aria-pressed="false" hidden>Player view</button>
+      </div>
+    </header>
+    <div class="library-main no-right-sidebar">
+      <aside class="sidebar sidebar-list" aria-label="Monster list">
+        <nav id="list-nav"></nav>
+      </aside>
+      <main class="book-center">
+        <div id="empty-state" aria-live="polite"><strong>Loading…</strong></div>
+        <div id="content-page" class="content-page wide" aria-live="polite" hidden></div>
+      </main>
+    </div>
+    <footer class="pagination">
+      <button type="button" id="prev-page" aria-label="Previous">&#9664; Prev</button>
+      <span id="page-info">Page 1 of 1</span>
+      <button type="button" id="next-page" aria-label="Next">Next &#9654;</button>
+    </footer>
+  </div>
+  <script src="../Core/library-shell.js"></script>
+  <script src="../Core/locale.js"></script>
+  <script src="../Core/markdown.js"></script>
+  <script src="../Core/content-schema.js"></script>
+  <script src="../Core/mechanical.js"></script>
+  <script src="../Core/book-nav.js"></script>
+  <script src="../Core/library-loader.js"></script>
+  <script src="../Core/entity-library.js"></script>
+  <script src="monster-library.js"></script>
+</body>
+</html>
