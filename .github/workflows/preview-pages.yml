@@ -64,8 +64,12 @@ jobs:
           mkdir -p gh-pages-work/preview
           cd gh-pages-work
           git init
-          git checkout -b gh-pages
-          git remote add origin "${{ github.server_url }}/${{ github.repository }}.git"
+          git checkout -B gh-pages
+          if git remote get-url origin >/dev/null 2>&1; then
+            git remote set-url origin "${{ github.server_url }}/${{ github.repository }}.git"
+          else
+            git remote add origin "${{ github.server_url }}/${{ github.repository }}.git"
+          fi
           touch .nojekyll
 
       - name: Copy scenario site to gh-pages preview folder
