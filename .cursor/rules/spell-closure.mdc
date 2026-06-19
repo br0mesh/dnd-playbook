@@ -18,4 +18,6 @@ When editing scenario content under `scenarios/<slug>/`:
 
 5. **Out of scope:** "spellbook", "spell slots", class features (Arcane Recovery), equipment "shield" unless it is the Shield spell in a spell list.
 
+6. **After adding spell mentions:** Search for bare spell names in recent edits; replace with an existing demo slug or add the spell to `Shared/Spells/demo/` and sync into the scenario. See [AGENTS.md](../../AGENTS.md) § Spell references.
+
 See `docs/spell-closure.md` for full scan scope and resolution rules.

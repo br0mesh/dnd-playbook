@@ -1,0 +1,23 @@
+---
+description: Name closure — UA content must use registered Ukrainian forms for invented proper nouns
+globs: scenarios/**/*
+alwaysApply: false
+---
+
+# Name closure
+
+When editing scenario content under `scenarios/<slug>/`:
+
+1. **Rule:** Every invented proper noun (settlements, taverns, organizations, titled NPCs) must have an entry in `names/names-index.json`. `.ua.md` files must not contain the English `en` form or `aliases_en` when a registry entry exists.
+
+2. **Authoring:** Use human-readable Ukrainian in prose with correct declension. Do **not** insert name slugs into dm-script or character text (unlike spells and items).
+
+3. **Before commit:** Run `scripts\build-sources.cmd --validate-only`.
+
+4. **Adding names:** Edit `names/names-index.json` in the scenario folder. Add `declension_ua` for settlements and similar. Register PC secret real names (e.g. **Векс**) when they differ from the public sheet name.
+
+5. **PC names:** Match character `.ua.md` H1 / `**Ім'я персонажа:**`. Fix spelling drift (e.g. Мордейн, not Мордайн).
+
+6. **Out of scope:** D&D mechanics terms, spell slugs, item slugs, class feature names in DM notes.
+
+See `docs/name-closure.md` for registry format, scan scope, and translation policy.

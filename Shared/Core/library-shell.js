@@ -15,14 +15,24 @@
     return new URL("./", new URL(indexUrl, pageBaseUrl())).href;
   }
 
+  function isLocalDevHost() {
+    const h = global.location && global.location.hostname;
+    return h === "localhost" || h === "127.0.0.1" || h === "[::1]";
+  }
+
+  function effectiveCacheBust(bustCache) {
+    return bustCache || isLocalDevHost();
+  }
+
   function withCacheBust(url, bust) {
-    if (!bust) return url;
+    if (!effectiveCacheBust(bust)) return url;
     const sep = url.indexOf("?") >= 0 ? "&" : "?";
     return url + sep + "t=" + Date.now();
   }
 
   async function fetchText(url, bustCache) {
-    const resp = await fetch(withCacheBust(url, bustCache), { cache: bustCache ? "no-store" : "default" });
+    const bust = effectiveCacheBust(bustCache);
+    const resp = await fetch(withCacheBust(url, bust), { cache: bust ? "no-store" : "default" });
     if (!resp.ok) {
       throw new Error("HTTP " + resp.status + " loading " + url);
     }
@@ -59,6 +69,9 @@
       character: params.get("character") || "",
       monster: params.get("monster") || "",
       npc: params.get("npc") || "",
+      scene: params.get("scene") || "",
+      branch: params.get("branch") || "",
+      option: params.get("option") || "",
     };
   }
 

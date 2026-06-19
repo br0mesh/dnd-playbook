@@ -85,6 +85,16 @@
     });
   }
 
+  function highlightDicePreservingHtml(html) {
+    if (html == null || html === "") return "";
+    const s = String(html);
+    if (s.indexOf("<") < 0) return highlightDice(s);
+    return s.replace(/(<[^>]+>)|([^<]+)/g, function (_match, tag, text) {
+      if (tag) return tag;
+      return text ? highlightDice(text) : "";
+    });
+  }
+
   function highlightRestTags(text) {
     return highlightPatterns(text, REST_PATTERNS, function (match, cls) {
       const esc = global.DnDCore && global.DnDCore.shell ? global.DnDCore.shell.esc : function (s) { return String(s); };
@@ -109,6 +119,7 @@
     formatDistance: formatDistance,
     formatDistancesInText: formatDistancesInText,
     highlightDice: highlightDice,
+    highlightDicePreservingHtml: highlightDicePreservingHtml,
     highlightRestTags: highlightRestTags,
     highlightMechanical: highlightMechanical,
   };

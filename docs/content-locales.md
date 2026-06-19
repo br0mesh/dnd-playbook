@@ -31,6 +31,10 @@ Each locale file is a normal single-language document:
 - No `## English Version` or `## Українська Версія` wrappers
 - Shared preamble (Encounter Reference, Quick Tactics, etc.) lives **inside each locale file** (duplicate or translate)
 
+### DM Script branches
+
+Scenes with player-path forks use `#### Branch A/B` and `**Option N — …**` markers inside the five standard sections (not as extra `###` headings). See [dm-script-branches.md](dm-script-branches.md).
+
 ## Preview (HTTP only)
 
 All library pages require an HTTP server. `file://` is not supported.
@@ -46,6 +50,8 @@ Example: `http://localhost:8080/Shared/Characters/library.html?scenario=test-adv
 ## Spell closure
 
 Every spell referenced in scenario play content must be indexed under `scenarios/<slug>/spells/` using semantic slugs. See [spell-closure.md](spell-closure.md) for the rule, `--sync-spells`, and validation errors.
+
+Invented proper nouns in `.ua.md` content use `scenarios/<slug>/names/names-index.json`. See [name-closure.md](name-closure.md).
 
 ## Build commands
 

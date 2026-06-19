@@ -7,11 +7,13 @@
   const locale = window.DnDCore.locale;
   const esc = shell.esc;
   const loader = window.DnDCore.loader.createLoader();
+  const POLL_MS = 3000;
   const spellLinks = window.DnDCore.spellLinks;
   const itemLinks = window.DnDCore.itemLinks;
   const state = { lang: "en", page: 1, slug: null };
   let raws = [];
   let loadConfig = null;
+  let dataFingerprint = "";
 
   const DEFAULT_HEADINGS = {
     basicInfo: ["Basic Info", "Основна інформація"],
@@ -217,17 +219,45 @@
     return esc(text);
   }
 
+  function linkProsePlain(text) {
+    const linkOpts = { highlightDice: false };
+    return spellLinks.renderSpellProse(
+      itemLinks.renderItemProse(text, state.lang, linkOpts),
+      state.lang,
+      linkOpts
+    );
+  }
+
+  function enrichProseSegment(text) {
+    if (!text) return "";
+    let out = "";
+    const slugRe = /\b([a-z0-9]+(?:_[a-z0-9]+)*_(?:cantrip|\d+(?:st|nd|rd|th))_[a-z]+)\b/g;
+    let last = 0;
+    let m;
+    while ((m = slugRe.exec(text)) !== null) {
+      if (m.index > last) {
+        out += mech.highlightDicePreservingHtml(linkProsePlain(text.slice(last, m.index)));
+      }
+      out += spellLinks.isSpellSlug(m[1])
+        ? spellLinks.renderSpellToken(m[1], state.lang)
+        : esc(m[1]);
+      last = m.index + m[0].length;
+    }
+    out += mech.highlightDicePreservingHtml(linkProsePlain(text.slice(last)));
+    return out;
+  }
+
   function formatProseLine(raw) {
     let out = "";
     let last = 0;
     const re = /\*\*(.+?)\*\*/g;
     let m;
     while ((m = re.exec(raw)) !== null) {
-      if (m.index > last) out += itemLinks.renderItemProse(raw.slice(last, m.index), state.lang);
+      if (m.index > last) out += enrichProseSegment(raw.slice(last, m.index));
       out += "<strong>" + esc(m[1]) + "</strong>";
       last = m.index + m[0].length;
     }
-    out += itemLinks.renderItemProse(raw.slice(last), state.lang);
+    out += enrichProseSegment(raw.slice(last));
     return out;
   }
 
@@ -371,11 +401,27 @@
       raws = await loader.loadData(loadConfig, false, function (slug, texts) {
         return { slug: slug, en: texts.en, ua: texts.ua };
       });
+      dataFingerprint = loader.fingerprint(raws);
       ui.setReady(uiEl);
       focusCharacterFromUrl();
       buildListNav();
       renderPage();
       ui.bindPagination(state, uiEl, renderPage, function () { return raws.length; });
+      if (loadConfig.poll) {
+        setInterval(async function () {
+          try {
+            const refreshed = await loader.loadData(loadConfig, true, function (slug, texts) {
+              return { slug: slug, en: texts.en, ua: texts.ua };
+            });
+            if (loader.fingerprint(refreshed) !== dataFingerprint) {
+              dataFingerprint = loader.fingerprint(refreshed);
+              raws = refreshed;
+              buildListNav();
+              renderPage();
+            }
+          } catch (_e) { /* keep last good data */ }
+        }, POLL_MS);
+      }
     } catch (err) { ui.setError(uiEl, "Failed to load characters", esc(err.message)); }
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", bootstrap);

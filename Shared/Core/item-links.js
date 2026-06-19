@@ -173,7 +173,7 @@
     const highlightDice = !opts || opts.highlightDice !== false;
     const names = allItemDisplayNames();
     const hits = findItemPhrasesInText(text, names);
-    if (!hits.length) return highlightDice ? mech.highlightDice(text) : esc(text);
+    if (!hits.length) return highlightDice ? mech.highlightDice(text) : text;
 
     let out = "";
     let last = 0;

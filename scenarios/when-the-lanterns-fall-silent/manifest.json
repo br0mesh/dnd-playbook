@@ -3,7 +3,8 @@
   "level": "TBD",
   "partySize": "TBD",
   "language": [
-    "en"
+    "en",
+    "ua"
   ],
   "sections": {
     "dm-script": "dm-script/dm-script-index.json",

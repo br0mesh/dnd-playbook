@@ -97,13 +97,21 @@ function scanCharacterFile(relPath, text, locale, refs, reg, scenarioSpellsDir) 
   const sc = md.parseSpellcasting(spellBlock);
   if (sc) {
     if (sc.cantrips) {
-      md.splitSpellList(sc.cantrips).forEach(function (slug) {
-        addSlugRef(refs, slug, relPath, md.SECTION_LABELS.cantrips);
+      md.splitSpellList(sc.cantrips).forEach(function (token) {
+        if (isSpellSlug(token)) {
+          addSlugRef(refs, token, relPath, md.SECTION_LABELS.cantrips);
+        } else {
+          addRef(refs, token, relPath, md.SECTION_LABELS.cantrips, null, reg, scenarioSpellsDir);
+        }
       });
     }
     if (sc.prepared) {
-      md.splitSpellList(sc.prepared).forEach(function (slug) {
-        addSlugRef(refs, slug, relPath, md.SECTION_LABELS.prepared);
+      md.splitSpellList(sc.prepared).forEach(function (token) {
+        if (isSpellSlug(token)) {
+          addSlugRef(refs, token, relPath, md.SECTION_LABELS.prepared);
+        } else {
+          addRef(refs, token, relPath, md.SECTION_LABELS.prepared, null, reg, scenarioSpellsDir);
+        }
       });
     }
   }

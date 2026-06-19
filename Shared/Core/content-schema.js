@@ -74,5 +74,9 @@
       contingencies: ["Contingencies", "Запасні варіанти"],
       dmNotes: ["DM Notes", "Нотатки Майстра"],
     },
+    DM_SCRIPT_UI: {
+      branchSwitcher: ["Scene branch", "Гілка сцени"],
+      optionSwitcher: ["Exit option", "Варіант виходу"],
+    },
   };
 })(typeof window !== "undefined" ? window : this);

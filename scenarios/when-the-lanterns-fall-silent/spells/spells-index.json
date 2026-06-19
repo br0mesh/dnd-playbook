@@ -1,1 +1,16 @@
-[]
+[
+  "detect_magic_1st_divination",
+  "disguise_self_1st_illusion",
+  "find_familiar_1st_conjuration",
+  "fire_bolt_cantrip_evocation",
+  "light_cantrip_evocation",
+  "mage_hand_cantrip_transmutation",
+  "magic_missile_1st_evocation",
+  "minor_illusion_cantrip_illusion",
+  "prestidigitation_cantrip_transmutation",
+  "ray_of_frost_cantrip_evocation",
+  "shield_1st_abjuration",
+  "sleep_1st_enchantment",
+  "thaumaturgy_cantrip_transmutation",
+  "thunderwave_1st_evocation"
+]
