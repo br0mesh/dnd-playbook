@@ -168,18 +168,21 @@
     }).filter(Boolean).join(", ");
   }
 
-  function renderItemProse(text, lang) {
+  function renderItemProse(text, lang, opts) {
     if (!text) return "";
+    const highlightDice = !opts || opts.highlightDice !== false;
     const names = allItemDisplayNames();
     const hits = findItemPhrasesInText(text, names);
-    if (!hits.length) return mech.highlightDice(text);
+    if (!hits.length) return highlightDice ? mech.highlightDice(text) : esc(text);
 
     let out = "";
     let last = 0;
     hits.forEach(function (hit) {
       const start = hit.start != null ? hit.start : 0;
       const end = hit.end != null ? hit.end : start + hit.spellName.length;
-      if (start > last) out += mech.highlightDice(text.slice(last, start));
+      if (start > last) {
+        out += highlightDice ? mech.highlightDice(text.slice(last, start)) : esc(text.slice(last, start));
+      }
       const fragment = text.slice(start, end);
       const slug = resolveItemSlug(hit.spellName, lang);
       if (slug) {
@@ -189,11 +192,11 @@
           : fragment;
         out += '<a class="item-link" href="' + esc(itemLibraryHref(slug, lang)) + '">' + esc(label) + "</a>";
       } else {
-        out += mech.highlightDice(fragment);
+        out += highlightDice ? mech.highlightDice(fragment) : esc(fragment);
       }
       last = end;
     });
-    if (last < text.length) out += mech.highlightDice(text.slice(last));
+    if (last < text.length) out += highlightDice ? mech.highlightDice(text.slice(last)) : esc(text.slice(last));
     return out;
   }
 
