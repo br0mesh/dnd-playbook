@@ -10,7 +10,7 @@ While she negotiates with thorns, a **blue glow** threads through the pines towa
 
 **Animal Handling** decides whether Ruta befriends the thief or watches it bolt toward the village. **Survival** and **Perception** place the clearing on the map: city-boot tracks, a contract notice on a downslope marker, and at least one blue porch lantern visible through the trees.
 
-**Ends when:** Ruta leaves the clearing for **Briarford** — at least two clues about the lanterns, a personal stake (coin for the cat sanctuary dream, curiosity, or the ginger tom tagging along), and the village tavern or mayor's hall close enough to ask questions.
+**Ends when:** Ruta leaves the clearing for **Briarford** — at least two clues about the lanterns, a personal stake (coin for the cat sanctuary dream, curiosity, or the ginger tom tagging along), overnight at **The Hearth & Horn**, and the **morning hall appointment** (`06_mayors_hall_convergence`).
 
 **Contract notice (trail marker — handout or paraphrase):**
 
@@ -121,14 +121,16 @@ While she negotiates with thorns, a **blue glow** threads through the pines towa
 - *(Optional)* Animals react to the pulse before humans — Ruta's ranger angle on the phenomenon.
 - *(Optional)* Hooded traveler on the downslope path — cross-thread with Vex or other road intros.
 
-**Arriving in Briarford (all branches):** Ruta reaches the **village tavern** in early evening — hearth lit, locals wary but not hostile. Mayor Alden may be at the hall or sent for when a ranger asks about the blue lights. If **Mordain**, **Lilith**, **Elias**, or **Harry Potter** arrive later, Ruta's story contrasts *"a cat stole my dinner and the light looked back"* with their research, divine pull, and tavern politics.
+**Arriving in Briarford (all branches):** Ruta reaches **The Hearth & Horn** in early evening — hearth lit, contract on the **hall board**, **no group briefing until first light**. At **`06_mayors_hall_convergence`**, her story contrasts *"a cat stole my dinner and the light looked back"* with others' research and divine pull.
+
+**Mayor's hall convergence hook:** The ginger tom may **reappear on the hall steps**; cite **animals reacting before people** when forest-trail rumors come up in `06`.
 
 ### Contingencies
 
 - **If Ruta skips all checks:** The pulse and contract notice are still two clues. Run the **Animal Handling** complication anyway — that is the teach moment.
 - **If Ruta attacks the cat:** Comedy dies; cat flees; no mechanical penalty. Point toward **Animal Handling** or chase.
 - **If Ruta shoots the blue glow:** No target — light is distant. **Perception DC 10** to realize the lantern is village-side, not in the bracken.
-- **If Ruta camps until dawn:** Fine — she can still reach the tavern at first light; other PCs may already be inside. Contract remains on the marker overnight.
+- **If Ruta camps until dawn:** She can still reach **`06`** on time; contract remains on the hall board overnight.
 - **If the player references Lilith's herb ring or Mordain's treeline watch:** Optional — at early evening Lilith may not be at the ring yet; Mordain may already be on the hillside at dusk. Keep intros independent unless the table runs same fictional hour.
 - **If Ruta declares the cat sanctuary plan to every NPC:** Locals laugh kindly; Mayor Alden remembers her as *"the cat woman"* — flavour hook only.
 
@@ -136,7 +138,7 @@ While she negotiates with thorns, a **blue glow** threads through the pines towa
 
 #### The ginger tom (DM only)
 
-Use him for comedy and compass. He is not magical. He **reacts** to the blue pulse one beat before Ruta's passive senses catch it — animals nervous first. If befriended, he tags along to the tavern door and may cause a second comic beat when locals react to a half-elf with a cat. If he bolts, Ruta may find him on the **tavern porch** later eating someone else's fish — no extra roll required.
+Use him for comedy and compass. He is not magical. He **reacts** to the blue pulse one beat before Ruta's passive senses catch it — animals nervous first. If befriended, he tags along to the **hall steps** at **`06`** for a comic beat. If he bolts, Ruta may find him on the **inn porch** overnight eating someone else's fish — no extra roll required.
 
 - **Spotlight rule:** Address the player directly; other PCs are not present. Solo screen time.
 - **Teaching moment — Animal Handling:** Calming or directing a **beast** — failure is comedy (cat bolt), not punishment.
@@ -144,10 +146,10 @@ Use him for comedy and compass. He is not magical. He **reacts** to the blue pul
 - **Tone:** Kind, curious, lightly comic — mishaps are warm, not cruel. The cat sanctuary dream is sincere; the "five hundred cats" line is character colour.
 - **Cross-thread with Lilith:** Same blue pulse phenomenon; Lilith **measures** at midnight, Ruta **feels animals react** at dusk.
 - **Cross-thread with Mordain:** Both outdoors at forest edge; Mordain feels divine pull, Ruta sees animal fear first.
-- **Cross-thread with Elias:** Scholarly pattern vs ranger instinct — tavern line: *"Your notes say breath. My cat said run."*
+- **Cross-thread with Elias:** Scholarly pattern vs ranger instinct — hall line: *"Your notes say breath. My cat said run."*
 - **Cross-thread with Vex:** City-boot prints in the clearing; optional hooded figure on downslope path.
-- **Timing:** Ruta can arrive **early evening** while Lilith's intro is after midnight — hand-wave overlap or run Ruta first.
-- **Next scene:** Briarford tavern — Mayor Alden, other PCs, contract recognition.
+- **Timing:** Ruta can arrive **early evening** while Lilith's intro is after midnight — all meet at **`06`**.
+- **Next scene:** **`06_mayors_hall_convergence`** at first light — Mayor Alden, other PCs, contract recognition.
 - **Poster prop:** Same contract text as `01_intro_vex.en.md`, `02_intro_lilith.en.md`, `03_intro_elias.en.md`, and `04_intro_mordain.en.md`.
 
 ---

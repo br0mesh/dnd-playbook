@@ -15,7 +15,8 @@ and that the strongest trail leads into the forest.
 Recommended pacing for a new group:
 
 1. Run short individual intro spotlights.
-2. Converge at the Briarford tavern with Mayor Alden present or quickly summoned.
+2. Converge in the morning at Mayor Alden's hall with Alden present for the
+   contract briefing.
 3. Offer a small investigation menu, not every possible node.
 4. End once the party chooses the forest lead.
 
@@ -31,7 +32,7 @@ Recommended pacing for a new group:
   Briarford seeks help with unnatural lantern behavior and recent
   disappearances; speak with Mayor Alden; fair payment offered.
 - Explain that the first few scenes are short personal spotlights and everyone
-  will meet in the village tavern.
+  will meet the next morning at Mayor Alden's hall.
 - Keep the "captured souls" truth hidden. At this point the problem is rumors,
   fear, and a paid job.
 
@@ -68,8 +69,9 @@ optional unarmed strike, and Stealth.
 - Briarford's contract has city/guild money behind it.
 - The Ashmere/ledger thread may connect to sealed city records later.
 
-**Tavern convergence hook:** In Briarford, "Harry Potter" recognizes the same
-contract notice and may stay guarded if anyone mentions whispered names.
+**Mayor's hall convergence hook:** In Briarford, "Harry Potter" recognizes the
+same contract notice on the hall door and may stay guarded if anyone mentions
+whispered names.
 
 ### Scene 1B - Ruta: The Cat and the Blue Light
 
@@ -99,7 +101,7 @@ Survival, and Perception.
 - Fresh city-boot tracks cross the forest-edge clearing.
 - Optional second out-of-sync lantern matches other PCs' observations.
 
-**Tavern convergence hook:** The cat can reappear on the tavern porch for a
+**Mayor's hall convergence hook:** The cat can reappear on the hall steps for a
 small social beat.
 
 ### Scene 1C - Mordain: Before the Threshold
@@ -120,8 +122,8 @@ plus Divine Sense.
   simple certainty.
 - Optional teach moment: Divine Sense halfway down the hill can reveal undead
   tied to the blue lantern and desecrated ground on the approach road.
-- Exit state: Mordain reaches the tavern or mayor's hall with the sense that
-  the light and his calling overlap dangerously.
+- Exit state: Mordain reaches the mayor's hall at dawn with the sense that the
+  light and his calling overlap dangerously.
 
 **Clues to carry forward:**
 
@@ -131,8 +133,8 @@ plus Divine Sense.
   yet.
 - Old way-shrine phrase: "Dead light sees the road."
 
-**Tavern convergence hook:** Mordain can contrast his certainty/pull with the
-scholars' measurements and Vex's name-whisper rumor.
+**Mayor's hall convergence hook:** Mordain can contrast his certainty/pull with
+the scholars' measurements and Vex's name-whisper rumor.
 
 ### Scene 1D - Lilith: Blue Measurements
 
@@ -152,8 +154,8 @@ Investigation, and careful reagent handling.
 - Main checks: Investigation DC 12 or Arcana DC 13 for herb gathering; Arcana
   DC 12 on the flare.
 - Let careful play earn at least one sample without blocking the hook.
-- Exit state: Lilith enters the tavern with samples, notes, and evidence that
-  the village is broadcasting something.
+- Exit state: Lilith arrives at the mayor's hall with samples, notes, and
+  evidence that the village is broadcasting something.
 
 **Clues to carry forward:**
 
@@ -162,8 +164,8 @@ Investigation, and careful reagent handling.
 - The pulse carries information shaped like a name.
 - Optional second lantern flickers out of sync.
 
-**Tavern convergence hook:** Lilith can compare notes with Elias and test
-whether tavern rumors match her measured pulse.
+**Mayor's hall convergence hook:** Lilith can compare notes with Elias and test
+whether village rumors match her measured pulse.
 
 ### Scene 1E - Elias: The Same Colour Twice
 
@@ -193,26 +195,35 @@ History, and optional social investigation.
 - City guild posting fees connect to Mayor Alden's contract.
 - Optional name-shaped whispers match Vex and Lilith.
 
-**Tavern convergence hook:** Elias and Lilith should quickly realize they are
-describing the same impossible blue from different angles.
+**Mayor's hall convergence hook:** Elias and Lilith should quickly realize they
+are describing the same impossible blue from different angles.
 
-### Scene 2 - Briarford tavern convergence
+### Scene 2 - Morning convergence at Mayor's hall
 
-**Type:** Group scene.
+**Type:** Group scene and social investigation.
 
-**Purpose:** Put all PCs at the same table, introduce Mayor Alden, and turn
-personal clues into a shared investigation.
+**Purpose:** Put all PCs in one place, introduce Mayor Alden, establish job
+terms, and turn personal clues into a shared investigation.
 
 **Draft notes:**
 
-- Location: village tavern, warm but nervous. Contract copied on the wall.
-- Mayor Alden can already be present, drinking while pretending not to worry,
-  or summoned by the barkeep once armed strangers ask about the contract.
+- Location: Mayor Alden's hall at first light. Briarford is a village, so this
+  is a modest timber-and-stone house with a public room, not a proper town
+  hall. Contract copied on the door or notice board outside.
+- All PCs arrive for the same morning appointment. Alden is already there,
+  tired and trying to look in control.
 - Let each PC share one clue from their intro. Do not require all secrets to be
   public; Vex can keep the real name hidden, Mordain can keep the divine pull
   private, Elias can conceal his wilderness memory.
-- Introduce the map writer as a tavern regular if possible. This plants the
-  later shrine/diary support without making him solve session 1.
+- Introduce the map writer as Alden's clerk or a villager waiting with records
+  if possible. This plants the later shrine/diary support without making him
+  solve session 1.
+- Alden gives payment terms and basic facts: unnatural lantern behavior,
+  recent disappearances, a previous volunteer group, and a missing herbalist.
+- He downplays how many people are missing. Let Insight catch the evasion.
+- If the party is respectful, he points them to affected homes and the
+  herbalist. If they pressure him, he admits the previous volunteers asked
+  about the herbalist and/or hunter.
 
 **Mayor Alden draft notes:**
 
@@ -229,26 +240,6 @@ personal clues into a shared investigation.
 - "The herbalist kept walking toward the forest at night."
 - "Some folk are using this panic as an excuse to rob empty homes."
 
-**Decision point:** Ask where the party investigates first. Offer 2-3 obvious
-options: affected homes, herbalist's house, mill, mayor's hall.
-
-### Scene 3 - Mayor's hall / official briefing
-
-**Type:** Social investigation.
-
-**Purpose:** Establish the job terms, Alden's evasiveness, and the missing
-people stakes.
-
-**Draft notes:**
-
-- This can happen before or after the tavern depending on player choices.
-- Alden gives payment terms and basic facts: unnatural lantern behavior,
-  recent disappearances, a previous volunteer group, and a missing herbalist.
-- He downplays how many people are missing. Let Insight catch the evasion.
-- If the party is respectful, he points them to affected homes and the
-  herbalist. If they pressure him, he admits the previous volunteers asked
-  about the herbalist and/or hunter.
-
 **Possible checks:**
 
 - Insight to notice he is minimizing the scale.
@@ -263,7 +254,10 @@ people stakes.
 - First affected lantern was near the forest-facing road.
 - Alden is hiding scale, not orchestrating the crisis.
 
-### Scene 4 - Affected homes: real lantern evidence
+**Decision point:** Ask where the party investigates first. Offer 2-3 obvious
+options: affected homes, herbalist's house, mill.
+
+### Scene 3 - Affected homes: real lantern evidence
 
 **Type:** Investigation scene.
 
@@ -292,7 +286,7 @@ fake-lantern subplot.
 - The lights behave like coordinated signals, not isolated bad oil.
 - Missing people leave ordinary homes without signs of forced entry.
 
-### Scene 5 - Fake lantern house and local thieves
+### Scene 4 - Fake lantern house and local thieves
 
 **Type:** Investigation/social confrontation, optional short non-lethal fight.
 
@@ -330,7 +324,7 @@ real mystery alive.
 - Local panic is spreading fast enough for opportunists to profit.
 - The real lantern problem is still unresolved.
 
-### Scene 6 - Herbalist's house and diary
+### Scene 5 - Herbalist's house and diary
 
 **Type:** Core clue scene.
 
@@ -368,7 +362,7 @@ real mystery alive.
 - The herbalist followed the lights and did not return.
 - The source is probably outside the village.
 
-### Scene 7 - Miller's mill and rat problem
+### Scene 6 - Miller's mill and rat problem
 
 **Type:** Optional combat/tutorial side quest.
 
@@ -397,9 +391,9 @@ clues without replacing the investigation.
 - Tracks led toward the forest edge.
 - The mine lantern can foreshadow darkness and lantern tools in later sessions.
 
-### Scene 8 - Volunteer group trail
+### Scene 7 - Volunteer group trail
 
-**Type:** Flexible clue beat, can attach to tavern, mayor, herbalist, or forest
+**Type:** Flexible clue beat, can attach to mayor's hall, herbalist, or forest
 road.
 
 **Purpose:** Connect Session 1 rumors to the Session 2 mine discovery.
@@ -413,7 +407,7 @@ road.
 
 **Possible placements:**
 
-- Bedroll or unpaid tab at the tavern.
+- Bedroll or unpaid contract fee left at the mayor's hall.
 - Stablehand saw them heading toward the herbalist's home.
 - Alden admits they asked about the hunter.
 - Their initials or symbol appear on a post near the forest road.
@@ -424,7 +418,7 @@ road.
 - The forest route is dangerous.
 - The coal mine/session 2 discovery will feel earned.
 
-### Scene 9 - Mayor follow-up and choice to leave
+### Scene 8 - Mayor follow-up and choice to leave
 
 **Type:** Social decision point.
 
@@ -432,8 +426,8 @@ road.
 
 **Draft notes:**
 
-- Once the party has 2-3 forest-pointing clues, have Alden or the tavern crowd
-  react to what they found.
+- Once the party has 2-3 forest-pointing clues, have Alden or worried villagers
+  at the hall react to what they found.
 - If they exposed the fake lantern thieves, Alden may try to claim that solves
   the issue. Let players push back with evidence from real lanterns and the
   herbalist diary.
@@ -448,7 +442,7 @@ road.
 - Affected homes/real lantern evidence points to the forest road, plus
 - Any lead that the volunteer group followed the same trail.
 
-### Scene 10 - Closing image: forest edge
+### Scene 9 - Closing image: forest edge
 
 **Type:** Session ending / cliffhanger.
 
@@ -472,15 +466,14 @@ Use this if running the session as one table night:
 
 1. Scene 0 - framing and contract handout.
 2. Scenes 1A-1E - solo intros, in whichever order fits player attention.
-3. Scene 2 - tavern convergence.
-4. Scene 3 - mayor briefing, if not folded into tavern.
-5. Choose 2-3 investigation nodes:
+3. Scene 2 - morning convergence at Mayor's hall.
+4. Choose 2-3 investigation nodes:
    - affected homes,
    - herbalist's house,
    - fake lantern house,
    - mill if combat tutorial is desired.
-6. Scene 9 - clue consolidation and decision.
-7. Scene 10 - forest-edge closing image.
+5. Scene 8 - clue consolidation and decision.
+6. Scene 9 - forest-edge closing image.
 
 ## Draft pacing notes
 
@@ -501,8 +494,8 @@ Use this if running the session as one table night:
 ## Open prep notes
 
 - Define 1-2 named affected homes once the village map exists.
-- Choose whether the map writer appears in the tavern by default or only if
-  players seek maps/records.
+- Choose whether the map writer appears at the mayor's hall by default or only
+  if players seek maps/records.
 - Decide whether to run the mill in session 1 or save combat for the forest.
 - Pick a simple stat block for rats if the mill is used.
 - Decide whether any named missing villager appears in rumors now and as a

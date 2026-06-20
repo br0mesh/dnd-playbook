@@ -130,14 +130,16 @@ No roll to leave — gesture Tomas to the **rain barrel side** of the building.
 - Tomas (or stolen chit) ties **ledger copies** to the **Briarford toll-road**.
 - Speaker wears **city boots** but **forest mud** to the knee.
 
-**Arriving in Briarford (all branches):** Vex introduces himself as **Harry Potter** — village tavern, mayor's hall, other adventurers. Horns under the hood when he can. **Vex** stays buried unless someone from the city road recognizes him.
+**Arriving in Briarford (all branches):** Vex reaches **The Hearth & Horn** by evening — bed, wary locals, same contract on the **hall board outside**. **No group briefing tonight.** At **first light**, he presents himself as **Harry Potter** at **Mayor Alden's hall** (`06_mayors_hall_convergence`). Horns under the hood when he can. **Vex** stays buried unless someone from the city road recognizes him.
+
+**Mayor's hall convergence hook:** **Harry Potter** recognizes the **identical contract** on the hall door; stay guarded if anyone mentions **whispered names** — matches the carter rumor from Tomas.
 
 ### Contingencies
 
 - **If Vex never engages:** Tomas eventually leaves without confrontation. Vex can still read the poster and depart for Briarford at dusk — lose the crew clue unless he eavesdrops (**Perception DC 13**).
 - **If Vex kills Tomas:** Mira locks the tavern; caravan guards pursue to the tree line. **Murder warrant** flavor in the city — Briarford becomes urgent refuge. Keep combat short; Tomas is not a boss fight.
 - **If Vex talks to the clerk:** Assayer's clerk knows nothing about Ashmere — **Perception DC 14** notices he flinches at "sealed records." Part 2 hook only.
-- **If the player wants to stay in the city:** Session 1 convergence assumes Vex reaches Briarford before the shared tavern scene. Nudge with rain, gate curfew, or Mira refusing service after a brawl.
+- **If the player wants to stay in the city:** Session 1 assumes Vex reaches Briarford overnight before the **morning hall** scene (`06`). Nudge with rain, gate curfew, or Mira refusing service after a brawl.
 - **If Insight fails:** Run Branch A — optional fist attack, then flee toward Briarford as **Harry Potter**.
 - **If Insight succeeds:** Player picks Bluff, Slip away, Follow outside, or Rob; all paths end on the road to Briarford.
 
@@ -148,7 +150,7 @@ No roll to leave — gesture Tomas to the **rain barrel side** of the building.
 - **Old crew:** Do **not** reveal Ashmere's fate here. Tomas is wrong, scared, or incomplete.
 - **Teaching moment:** Insight = "reading people, not facts" — failure is a **false read**, not bad luck.
 - **Fist attack on failure:** One roll only; goal is **escape**, not winning a bar fight at level 1.
-- **Next scene:** Vex on the road to Briarford, or arriving at the **Briarford tavern** where the party converges (Mayor Alden).
-- **Poster prop:** Pin the same contract text in Briarford later so players recognize it.
+- **Next scene:** Road to Briarford, overnight at **The Hearth & Horn**, then **`06_mayors_hall_convergence`** at first light — Alden's first full-party briefing.
+- **Poster prop:** Same contract on the hall door in `06` so **Harry Potter** recognizes the wording.
 
 ---

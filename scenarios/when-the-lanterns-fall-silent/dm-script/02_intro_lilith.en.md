@@ -10,7 +10,7 @@ She is not afraid yet. She is fascinated.
 
 Before dawn bleaches the samples, Lilith can **gather starwort** from the ring and **interpret the lantern's magical signature**. When a porch lantern flares and a whisper shaped like a name rides the pulse, an **Arcana** check decides whether she misreads the event as harmless resonance or acts in time to protect her focus and her notes.
 
-**Ends when:** Lilith leaves the hillside with at least one herb sample, at least two clues about Briarford's lanterns, and a reason to enter the village — usually the **Briarford tavern** at first light, where the contract is posted and other hirelings may already be gathering.
+**Ends when:** Lilith leaves the hillside with at least one herb sample, at least two clues about Briarford's lanterns, overnight lodging at **The Hearth & Horn**, and the **morning hall appointment** (`06_mayors_hall_convergence`).
 
 **Contract notice (trail marker — handout or paraphrase):**
 
@@ -174,16 +174,18 @@ Lilith acts in time. Player chooses one:
 - *(Optional)* Second blue lantern **out of sync** with the first.
 - *(Optional)* **Pulse-weed** sample reacts to detect magic near active blue lanterns.
 
-**Arriving in Briarford (all branches):** Lilith enters the **village tavern** at first light — warm hearth, nervous locals, contract posted or copied from the trail marker. Mayor Alden may be present or sent for. She introduces herself as a field scholar; starwort samples stay wrapped until she chooses to share them.
+**Arriving in Briarford (all branches):** Lilith beds down at **The Hearth & Horn** after midnight — same contract on the **hall board**, no mayor briefing until **first light**. She introduces herself as a field scholar at **`06_mayors_hall_convergence`**; starwort samples stay wrapped until she chooses to share them.
+
+**Mayor's hall convergence hook:** Compare pulse notes and herb samples with **Elias**; offer the **name-shaped waveform sketch** if she recorded it — elders in `06` may confirm porch whispers.
 
 ### Contingencies
 
 - **If Lilith skips herb gathering:** She still has notebook readings and the contract hook. Grant one clue from Arcana on the flare only — she arrives with knowledge but no physical reagents.
 - **If Lilith casts detect_magic_1st_divination:** The blue lantern reads as **evocation** with a faint **necromancy** undertone (DM only — do not label necromancy aloud unless she succeeds **Arcana DC 14**). The herb ring reads as **transmutation** while the blue light is active.
 - **If Lilith casts find_familiar_1st_conjuration before the scene:** Familiar can **Help** on one harvest or Perception check; still one harvest attempt before the flare unless she delays the complication by choice.
-- **If the player wants combat:** No fight required. Perception success might hint at a watcher; do not force an encounter. Session 1 convergence assumes Lilith reaches the tavern.
-- **If Arcana fails twice:** Focus cracked but usable; herbs partially spoiled; she still reaches the tavern with the contract and one strong clue — failure teaches the rule without blocking the session.
-- **If Lilith tries to enter a home at night:** Neighbor suspicion only — no burglary needed. Point her to the tavern and mayor.
+- **If the player wants combat:** No fight required. Perception success might hint at a watcher; do not force an encounter. Session 1 assumes Lilith reaches the inn, then the **morning hall** (`06`).
+- **If Arcana fails twice:** Focus cracked but usable; herbs partially spoiled; she still reaches the inn with the contract and one strong clue — failure teaches the rule without blocking the session.
+- **If Lilith tries to enter a home at night:** Neighbor suspicion only — no burglary needed. Point her to the inn and **morning hall appointment**.
 
 ### DM Notes
 
@@ -192,7 +194,7 @@ Lilith acts in time. Player chooses one:
 - **Herb rewards:** Doses are **story reagents**, not combat loot. They can justify detect magic readings in the tavern, impress an herbalist NPC later, or echo session 3 shrine herbs — do not require item cards unless you add them to the scenario stash later.
 - **Cross-thread with Vex:** The name-whisper matches what Tomas heard on the road. Lilith **experiences** the phenomenon; Vex **hears about** it.
 - **Cross-thread with Elias:** Same impossible blue. Elias compares accounts; Lilith measures one.
-- **Next scene:** Briarford tavern convergence — Mayor Alden, other PCs, contract recognition.
-- **Poster prop:** Same contract text as `01_intro_vex.en.md` so players recognize it.
+- **Next scene:** Overnight at **The Hearth & Horn**, then **`06_mayors_hall_convergence`** — compare notes with Elias and other hirelings.
+- **Poster prop:** Same contract text as `01_intro_vex.en.md` on the hall door in `06`.
 
 ---

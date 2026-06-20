@@ -15,6 +15,20 @@
     "aliases_en": ["Briarford's"]
   },
   {
+    "slug": "ashmere",
+    "type": "settlement",
+    "en": "Ashmere",
+    "ua": "Ешмер",
+    "declension_ua": {
+      "nominative": "Ешмер",
+      "genitive": "Ешмера",
+      "dative": "Ешмеру",
+      "accusative": "Ешмер",
+      "instrumental": "Ешмером",
+      "locative": "Ешмері"
+    }
+  },
+  {
     "slug": "the_last_lamp",
     "type": "tavern",
     "en": "The Last Lamp",
@@ -28,11 +42,152 @@
     "ua": "Синій гніт"
   },
   {
+    "slug": "the_hearth_and_horn",
+    "type": "tavern",
+    "en": "The Hearth & Horn",
+    "ua": "Очаг і ріг"
+  },
+  {
+    "slug": "mayors_hall",
+    "type": "location",
+    "en": "Mayor Alden's hall",
+    "ua": "будинок мера Алдена",
+    "aliases_en": ["village hall", "hall board"]
+  },
+  {
+    "slug": "silas_thornwicks_house",
+    "type": "location",
+    "en": "Silas Thornwick's house",
+    "ua": "будинок Сайласа Торнвіка"
+  },
+  {
+    "slug": "garrick_moss_mill",
+    "type": "location",
+    "en": "Garrick Moss's mill",
+    "ua": "млин Гарріка Мосса"
+  },
+  {
+    "slug": "coopers_yard",
+    "type": "location",
+    "en": "Cooper's yard",
+    "ua": "бочарний двір"
+  },
+  {
+    "slug": "coopers_lane",
+    "type": "location",
+    "en": "Cooper's Lane",
+    "ua": "бочарний провулок",
+    "aliases_en": ["Cooper's lane", "cooper's lane"]
+  },
+  {
+    "slug": "old_forest_trail",
+    "type": "location",
+    "en": "old forest trail",
+    "ua": "старий лісовий стежок"
+  },
+  {
+    "slug": "widow_coyles_cottage",
+    "type": "location",
+    "en": "Widow Coyle's cottage",
+    "ua": "хатина вдови Койл"
+  },
+  {
+    "slug": "the_fenwick_porch",
+    "type": "location",
+    "en": "the Fenwick porch",
+    "ua": "ґанок Фенвіка"
+  },
+  {
+    "slug": "briarford_toll_house",
+    "type": "location",
+    "en": "Briarford toll-house",
+    "ua": "Терновбрідська митниця"
+  },
+  {
     "slug": "mayor_alden",
     "type": "npc",
     "en": "Mayor Alden",
     "ua": "мер Алден",
     "aliases_en": ["Alden"]
+  },
+  {
+    "slug": "fenwick_cropp",
+    "type": "npc",
+    "en": "Fenwick Cropp",
+    "ua": "Фенвік Кропп"
+  },
+  {
+    "slug": "silas_thornwick",
+    "type": "npc",
+    "en": "Silas Thornwick",
+    "ua": "Сайлас Торнвік"
+  },
+  {
+    "slug": "mara_kell",
+    "type": "npc",
+    "en": "Mara Kell",
+    "ua": "Мара Келл"
+  },
+  {
+    "slug": "garrick_moss",
+    "type": "npc",
+    "en": "Garrick Moss",
+    "ua": "Гаррік Мосс"
+  },
+  {
+    "slug": "bram_keswick",
+    "type": "npc",
+    "en": "Bram Keswick",
+    "ua": "Брам Кесвік"
+  },
+  {
+    "slug": "tessa_aldridge",
+    "type": "npc",
+    "en": "Tessa Aldridge",
+    "ua": "Тесса Олдрідж"
+  },
+  {
+    "slug": "old_henk",
+    "type": "npc",
+    "en": "Old Henk",
+    "ua": "Старий Генк"
+  },
+  {
+    "slug": "wren_holloway",
+    "type": "npc",
+    "en": "Wren Holloway",
+    "ua": "Рен Голлоуей"
+  },
+  {
+    "slug": "widow_coyle",
+    "type": "npc",
+    "en": "Widow Coyle",
+    "ua": "вдова Койл"
+  },
+  {
+    "slug": "margaret_coyle",
+    "type": "npc",
+    "en": "Margaret",
+    "ua": "Маргарет",
+    "aliases_en": ["Margaret Coyle"]
+  },
+  {
+    "slug": "tomas_grull",
+    "type": "npc",
+    "en": "Tomas Grull",
+    "ua": "Томас Грулл"
+  },
+  {
+    "slug": "mira",
+    "type": "npc",
+    "en": "Mira",
+    "ua": "Міра"
+  },
+  {
+    "slug": "corwin",
+    "type": "npc",
+    "en": "Corwin",
+    "ua": "Корвін"
   },
   {
     "slug": "vex",
@@ -49,6 +204,12 @@
     }
   },
   {
+    "slug": "harry_potter",
+    "type": "pc",
+    "en": "Harry Potter",
+    "ua": "Гаррі Поттер"
+  },
+  {
     "slug": "ashmere_lot",
     "type": "organization",
     "en": "Ashmere lot",
@@ -61,6 +222,6 @@
       "instrumental": "«Ашмером»",
       "locative": "«Ашмері»"
     },
-    "aliases_en": ["Ashmere", "Ashmere string"]
+    "aliases_en": ["Ashmere string"]
   }
 ]
