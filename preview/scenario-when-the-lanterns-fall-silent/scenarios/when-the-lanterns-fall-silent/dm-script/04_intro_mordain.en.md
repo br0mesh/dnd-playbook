@@ -14,7 +14,7 @@ When the blue lantern **pulses once** — slow, like a breath — the force insi
 
 An **Insight** check decides whether he reads that sensation correctly — guidance, warning, or something wearing the shape of both — or misreads it as **certainty** and commits before he has watched the village long enough. On a clear read, he may **test the pull**, descend openly, or spend his **Divine Sense** to learn whether anything unholy is tied to the light.
 
-**Ends when:** Mordain leaves the treeline for **Briarford** — at least one clue about the lanterns, a personal stake in what chose him, and the village tavern (or mayor's hall) close enough to ask questions before the lanterns change again.
+**Ends when:** Mordain leaves the treeline for **Briarford** — at least one clue about the lanterns, a personal stake in what chose him, overnight lodging secured, and the **morning hall appointment** (`06_mayors_hall_convergence`) ahead.
 
 **Contract notice (village hall board — visible from the hillside):**
 
@@ -165,7 +165,9 @@ If **Insight succeeded by 5+**, Mordain also feels his symbol **cool** when he f
 - *(Optional)* Way-shrine verse — *"Dead light sees the road"* — **Religion** hook toward seal lore (campaign part 2).
 - *(Optional)* Hooded traveler on the downslope path — cross-thread with Vex or other road intros.
 
-**Arriving in Briarford (all branches):** Mordain reaches the **village tavern** at dusk or full evening — hearth lit, a few locals, contract copied on the wall if the hall board is closed. Mayor Alden may be at the hall or sent for when a **half-orc in mail** asks about the blue lights. He introduces himself by name; the force that chose him stays **private** until he trusts the table. If **Elias**, **Lilith**, or **Harry Potter** arrive later, Mordain's story contrasts *"the light pulled me"* with their research and measurements.
+**Arriving in Briarford (all branches):** Mordain beds at **The Hearth & Horn** after dusk — contract on the **hall board**, no Alden briefing until **first light**. At **`06_mayors_hall_convergence`** he introduces himself by name; the force that chose him stays **private** until he trusts the table. Contrast *"the light pulled me"* with **Elias's** and **Lilith's** research.
+
+**Mayor's hall convergence hook:** Quote **"Dead light sees the road"** against **Fenwick Cropp's** shrine note on the hall records; offer **Divine Sense** findings only if Mordain shares them.
 
 ### Contingencies
 
@@ -192,10 +194,10 @@ He has no temple story. No sworn oath. No name for the power except *the thing t
 - **Teaching moment — Divine Sense:** **Bonus action**, **1/LR**, **60 ft/12 tiles**, celestials/fiends/**undead**, consecrated/desecrated ground. Let the player declare it; narrate sensations, not stat blocks. Undead ping on the blue lantern is the **hook** — do not explain bound souls yet.
 - **Paladin without oath:** Mordain has class features but no sworn order. Divine Sense working **despite** doubt is intentional — mechanics prove something is real even when trust is not.
 - **Cross-thread with Lilith:** Same hillside, different hour — Lilith **measures**; Mordain **feels**. Second out-of-sync lantern appears in both scenes.
-- **Cross-thread with Elias:** Scholarly pattern vs divine pull — tavern line: *"Your notes match what my chest already knew."*
-- **Cross-thread with Vex:** Hooded figure on downslope path; Mordain may enter tavern **before** Harry Potter arrives.
-- **Timing:** Mordain can be **first at the tavern** (dusk) while other intros end at first light — hand-wave a meal and wait, or run his intro last so the party converges together.
-- **Next scene:** Briarford tavern — Mayor Alden, other PCs, contract recognition.
+- **Cross-thread with Elias:** Scholarly pattern vs divine pull — hall line: *"Your notes match what my chest already knew."*
+- **Cross-thread with Vex:** Hooded figure on downslope path; Mordain may reach the inn **before** Harry Potter.
+- **Timing:** Mordain can arrive **dusk** while Lilith's intro is after midnight — hand-wave overnight at the inn; all PCs meet at **`06`**.
+- **Next scene:** **`06_mayors_hall_convergence`** at first light — Mayor Alden, other PCs, contract recognition.
 - **Poster prop:** Same contract text as `01_intro_vex.en.md`, `02_intro_lilith.en.md`, and `03_intro_elias.en.md`.
 
 ---

@@ -30,9 +30,35 @@
     return url + sep + "t=" + Date.now();
   }
 
+  const FETCH_RETRIES = 3;
+  const FETCH_RETRY_MS = 150;
+
+  function fetchRetryDelay(attempt) {
+    return new Promise(function (resolve) {
+      global.setTimeout(resolve, FETCH_RETRY_MS * attempt);
+    });
+  }
+
+  async function fetchResponse(url, bustCache) {
+    let lastErr = null;
+    for (let attempt = 1; attempt <= FETCH_RETRIES; attempt += 1) {
+      try {
+        const resp = await fetch(withCacheBust(url, bustCache), {
+          cache: bustCache ? "no-store" : "default",
+        });
+        if (resp.ok || resp.status === 404) return resp;
+        lastErr = new Error("HTTP " + resp.status + " loading " + url);
+      } catch (err) {
+        lastErr = err;
+      }
+      if (attempt < FETCH_RETRIES) await fetchRetryDelay(attempt);
+    }
+    throw lastErr || new Error("Failed to load " + url);
+  }
+
   async function fetchText(url, bustCache) {
     const bust = effectiveCacheBust(bustCache);
-    const resp = await fetch(withCacheBust(url, bust), { cache: bust ? "no-store" : "default" });
+    const resp = await fetchResponse(url, bust);
     if (!resp.ok) {
       throw new Error("HTTP " + resp.status + " loading " + url);
     }
@@ -40,7 +66,7 @@
   }
 
   async function fetchTextOptional(url, bustCache) {
-    const resp = await fetch(withCacheBust(url, bustCache), { cache: bustCache ? "no-store" : "default" });
+    const resp = await fetchResponse(url, bustCache);
     if (resp.status === 404) return null;
     if (!resp.ok) {
       throw new Error("HTTP " + resp.status + " loading " + url);

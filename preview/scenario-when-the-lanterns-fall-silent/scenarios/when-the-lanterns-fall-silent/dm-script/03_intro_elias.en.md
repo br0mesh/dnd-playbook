@@ -10,7 +10,7 @@ Elias sits at a corner table with half-finished notes and a cold cup of tea. He 
 
 A travelling peddler insists the lights are **dragon omens** and tries to sell a cheap bronze trinket. When Elias scoffs, the peddler's pack lantern gutters — and for one heartbeat the flame turns the same impossible blue. **History** or **Arcana** checks on the accounts decide what lore Elias connects; **Arcana** on the flare decides whether he recognizes the colour as the same one that awakened his power in the wilderness.
 
-**Ends when:** Elias leaves for **Briarford** before dawn with at least two clues about the lanterns, his notes reconciled enough to trust the contract, and a personal stake — research, reckoning, or both — to carry into the village tavern where **Mayor Alden** and other hirelings may already be gathering.
+**Ends when:** Elias leaves for **Briarford** before dawn with at least two clues about the lanterns, his notes reconciled enough to trust the contract, and a personal stake — research, reckoning, or both — to carry into **`06_mayors_hall_convergence`** at first light with other hirelings.
 
 **Contract poster (hearth — handout or paraphrase):**
 
@@ -187,7 +187,9 @@ Elias reads the flare correctly. Player chooses one:
 - *(Optional)* Window or pack lantern **answered Elias's name** — personal reckoning, not just research.
 - *(Optional)* *"Dead light"* in old songs — **History** hook toward seal lore (campaign part 2).
 
-**Arriving in Briarford (all branches):** Elias reaches the **village tavern** at first light — contract on the wall, nervous locals, Mayor Alden present or sent for. He introduces himself as a scholar; wilderness notes stay private until he trusts the table. If **Lilith** is already there with wrapped herb samples, the word **blue** is enough to start a conversation.
+**Arriving in Briarford (all branches):** Elias reaches **The Hearth & Horn** before dawn — contract on the **hall board**, inn hearth lit. **Mayor Alden's briefing waits until first light** at the hall (`06_mayors_hall_convergence`). He introduces himself as a scholar; wilderness notes stay private until he trusts the table. If **Lilith** is already at the morning appointment with wrapped herb samples, the word **blue** is enough to start a conversation.
+
+**Mayor's hall convergence hook:** Match breath-pulse accounts to **Lilith's** measurements; cite guild posting fees on **Investigation** of the hall notice board in `06`.
 
 ### Contingencies
 
@@ -213,8 +215,8 @@ He has never told anyone the full sequence. The Briarford accounts are the first
 - **Bronze dragon bloodline:** Peddler's *"dragon omens"* pitch is **misdirection**. Elias may joke about it; the real phenomenon is older and uglier (bound-soul lanterns — reveal later).
 - **Cross-thread with Vex:** Name-whisper rumour on the road. Elias **reads about** it; Vex **heard** it from Tomas; Lilith **measures** it.
 - **Cross-thread with Lilith:** Same impossible blue. Elias compares accounts; Lilith measures one. If both succeed on notation, their notebooks match.
-- **Cross-thread with Mordain:** Divine pull vs scholarly pattern — tavern convergence can contrast *"the light chose me"* vs *"the light matches my notes."*
-- **Next scene:** Briarford tavern — Mayor Alden, other PCs, contract recognition.
+- **Cross-thread with Mordain:** Divine pull vs scholarly pattern — at the hall: *"The light chose me"* vs *"The light matches my notes."*
+- **Next scene:** **`06_mayors_hall_convergence`** at first light — Mayor Alden, other PCs, contract recognition.
 - **Poster prop:** Same contract text as `01_intro_vex.en.md` and `02_intro_lilith.en.md`.
 
 ---

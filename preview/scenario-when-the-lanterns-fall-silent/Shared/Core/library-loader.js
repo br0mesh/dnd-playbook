@@ -14,6 +14,22 @@
     return list.map(function (e) { return e.slug; }).sort().join("|");
   }
 
+  const DEFAULT_BATCH_SIZE = 4;
+
+  async function mapInBatches(items, batchSize, fn) {
+    const results = new Array(items.length);
+    let next = 0;
+    async function worker() {
+      while (next < items.length) {
+        const i = next++;
+        results[i] = await fn(items[i], i);
+      }
+    }
+    const workers = Math.min(batchSize, items.length);
+    await Promise.all(Array.from({ length: workers }, worker));
+    return results;
+  }
+
   function createLoader(opts) {
     const isObject = (opts && opts.isParsedObject) || function (e) {
       return e && typeof e === "object" && typeof e.slug === "string";
@@ -38,13 +54,12 @@
       if (index.length && isObject(index[0])) return sortBySlug(index);
 
       const base = shell.indexBaseUrl(indexUrl);
-      const parsed = await Promise.all(
-        index.map(async function (relPath) {
-          const slug = shell.slugFromIndexPath(relPath);
-          const texts = await loadLocaleTexts(slug, base, bustCache);
-          return assembleFn(slug, texts);
-        })
-      );
+      const batchSize = (opts && opts.batchSize) || DEFAULT_BATCH_SIZE;
+      const parsed = await mapInBatches(index, batchSize, async function (relPath) {
+        const slug = shell.slugFromIndexPath(relPath);
+        const texts = await loadLocaleTexts(slug, base, bustCache);
+        return assembleFn(slug, texts);
+      });
       return sortBySlug(parsed);
     }
 

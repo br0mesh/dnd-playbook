@@ -1,7 +1,15 @@
 [
+  "00_session_framing",
   "01_intro_vex",
   "02_intro_lilith",
   "03_intro_elias",
   "04_intro_mordain",
-  "05_intro_ruta"
+  "05_intro_ruta",
+  "06_mayors_hall_convergence",
+  "07_affected_homes",
+  "08_fake_lantern_house",
+  "09_herbalist_house",
+  "10_mill_rat_problem",
+  "11_mayor_followup",
+  "12_forest_edge_closing"
 ]
