@@ -78,8 +78,9 @@
   }
 
   function renderPage() {
-    const list = entries();
     const uiEl = ui.defaultUi("npc-library");
+    if (window.DnDCore.accessGate.isGateActive(uiEl.root)) return;
+    const list = entries();
     const idx = Math.min(Math.max(state.page - 1, 0), Math.max(list.length - 1, 0));
     state.page = idx + 1;
     if (list[idx]) state.slug = list[idx].slug;
@@ -120,6 +121,7 @@
         rootEl: uiEl.root, scenarioFolder: "npc", indexFileName: "npc-index.json",
         demoIndex: "demo/npc-index.json",
       });
+      if (!(await window.DnDCore.accessGate.ensureUnlocked("npc", config.scenario, uiEl))) return;
       raws = await loader.loadData(config, false, function (slug, texts) {
         return { slug: slug, en: texts.en, ua: texts.ua };
       });

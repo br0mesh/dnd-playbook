@@ -47,6 +47,7 @@
   <script src="Shared/Core/library-shell.js"></script>
   <script src="Shared/Core/locale.js"></script>
   <script src="Shared/Core/book-nav.js"></script>
+  <script src="Shared/Core/access-gate.js"></script>
   <script>
     (function () {
       "use strict";
@@ -72,11 +73,15 @@
 
       if (params.scenario && !params.section) {
         const links = document.getElementById("section-links");
+        const accessGate = window.DnDCore.accessGate;
         links.hidden = false;
         links.innerHTML = nav.SECTIONS.map(function (sec) {
           const q = nav.buildQuery({ scenario: params.scenario });
           const path = SECTION_PATHS[sec.id] || "#";
-          return '<a href="' + path + q + '">' + esc(nav.sectionLabel(sec, params.lang)) + "</a>";
+          const lock = accessGate.isProtectedSection(sec.id)
+            ? '<span class="section-link-lock" aria-hidden="true" title="Password required">&#128274;</span>'
+            : "";
+          return '<a href="' + path + q + '">' + esc(nav.sectionLabel(sec, params.lang)) + lock + "</a>";
         }).join("");
       }
 
