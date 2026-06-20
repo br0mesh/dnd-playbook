@@ -108,8 +108,9 @@
   }
 
   function renderPage() {
-    const list = filtered();
     const uiEl = ui.defaultUi("monster-library");
+    if (window.DnDCore.accessGate.isGateActive(uiEl.root)) return;
+    const list = filtered();
     if (!list.length) {
       uiEl.page.hidden = true;
       uiEl.empty.hidden = false;
@@ -157,6 +158,7 @@
         rootEl: uiEl.root, scenarioFolder: "monsters", indexFileName: "monsters-index.json",
         demoIndex: "demo/monsters-index.json",
       });
+      if (!(await window.DnDCore.accessGate.ensureUnlocked("monsters", config.scenario, uiEl))) return;
       raws = await loader.loadData(config, false, function (slug, texts) {
         return { slug: slug, en: texts.en, ua: texts.ua };
       });

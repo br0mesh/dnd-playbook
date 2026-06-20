@@ -53,6 +53,7 @@
 
   function renderPage() {
     const uiEl = ui.defaultUi("map-library");
+    if (window.DnDCore.accessGate.isGateActive(uiEl.root)) return;
     const idx = Math.max(0, state.page - 1);
     uiEl.empty.hidden = true;
     uiEl.page.hidden = false;
@@ -75,6 +76,7 @@
         rootEl: uiEl.root, scenarioFolder: "maps", indexFileName: "maps-index.json",
         demoIndex: "demo/maps-index.json",
       });
+      if (!(await window.DnDCore.accessGate.ensureUnlocked("maps", config.scenario, uiEl))) return;
       entries = await loader.loadData(config, false, assembleMap);
       document.getElementById("list-nav").innerHTML = entries.map(function (e, i) {
         return '<button type="button" class="bookmark-btn">' + esc((e[state.lang] || e.en).title) + "</button>";

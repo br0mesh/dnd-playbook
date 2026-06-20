@@ -477,8 +477,9 @@
   }
 
   function renderPage() {
-    const list = entries();
     const uiEl = ui.defaultUi("dm-script-library");
+    if (window.DnDCore.accessGate.isGateActive(uiEl.root)) return;
+    const list = entries();
     if (!uiEl.page || !uiEl.empty) return;
     const idx = Math.max(0, state.page - 1);
     const entry = list[idx] || { slug: "", en: {}, ua: {} };
@@ -522,7 +523,13 @@
   }
 
   async function bootstrap() {
-    ui.initBookChrome("dm-script", function (l) { state.lang = l; buildListNav(); renderPage(); });
+    ui.initBookChrome("dm-script", function (l) {
+      state.lang = l;
+      const uiEl = ui.defaultUi("dm-script-library");
+      if (window.DnDCore.accessGate.isGateActive(uiEl.root)) return;
+      buildListNav();
+      renderPage();
+    });
     state.lang = shell.parseUrlParams().lang;
     const uiEl = ui.defaultUi("dm-script-library");
     try {
@@ -531,6 +538,7 @@
         demoIndex: "demo/dm-script-index.json",
       });
       scenarioSlug = loadConfig.scenario || "";
+      if (!(await window.DnDCore.accessGate.ensureUnlocked("dm-script", loadConfig.scenario, uiEl))) return;
       raws = await loader.loadData(loadConfig, false, function (slug, texts) {
         return { slug: slug, en: texts.en, ua: texts.ua };
       });
