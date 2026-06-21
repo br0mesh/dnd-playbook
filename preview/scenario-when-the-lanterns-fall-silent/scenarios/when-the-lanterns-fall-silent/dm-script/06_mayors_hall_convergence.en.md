@@ -163,7 +163,7 @@ Invite each PC to offer **one** intro observation. Match explicitly:
 - **Mandatory:** Yes — first group scene of session 1.
 - **Fenwick Cropp:** Ink-stained clerk; **not** a linguist; terrified of old shrine verses; session 5 city hook. Name him consistently — he writes the map, he does not solve the woods.
 - **Truth to hide:** No "bound souls" reveal. Undead sense, whispers, and blue light are **symptoms**.
-- **Cat:** Flavour only — reappears on hall steps if Ruta succeeded on Animal Handling.
+- **Cat:** Flavour on hall steps if Ruta succeeded on Animal Handling — full ally rules and combat stat block on NPC **`14_ginger_tom_cat`** (mill fight in `10` if befriended).
 - **Next scenes:** Player-chosen nodes `07`–`10`, then `11_mayor_followup`, then `12_forest_edge_closing`.
 
 ---
