@@ -36,6 +36,8 @@
 
 Use monster sheet **`01_giant_rat_ember_eyes_monster`** — default **3** for 4–5 PCs; **2** for 3 PCs; **4–5** if table wants longer tutorial. Cosmetic: **faint glowing eyes**, coordinated **swarm** movement toward the wheel shadow.
 
+**Optional ally:** If Ruta befriended the ginger tom in `05`, NPC **`14_ginger_tom_cat`** may join — see his sheet for ally rules. Stats and attacks: **`04_ginger_tom_cat_monster`**. He does not change rat counts.
+
 | Teaching beat | DM tip |
 |---------------|--------|
 | **Initiative** | "Roll initiative — who acts first?" |

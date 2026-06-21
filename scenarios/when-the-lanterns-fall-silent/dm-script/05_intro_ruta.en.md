@@ -138,7 +138,7 @@ While she negotiates with thorns, a **blue glow** threads through the pines towa
 
 #### The ginger tom (DM only)
 
-Use him for comedy and compass. He is not magical. He **reacts** to the blue pulse one beat before Ruta's passive senses catch it — animals nervous first. If befriended, he tags along to the **hall steps** at **`06`** for a comic beat. If he bolts, Ruta may find him on the **inn porch** overnight eating someone else's fish — no extra roll required.
+Use him for comedy and compass. He is not magical. He **reacts** to the blue pulse one beat before Ruta's passive senses catch it — animals nervous first. If befriended, he tags along to the **hall steps** at **`06`** for a comic beat. If he bolts, Ruta may find him on the **inn porch** overnight eating someone else's fish — no extra roll required. **Combat:** NPC sheet **`14_ginger_tom_cat`** — optional ally at **`10_mill_rat_problem`** (Help, Claws, flee at 1 HP).
 
 - **Spotlight rule:** Address the player directly; other PCs are not present. Solo screen time.
 - **Teaching moment — Animal Handling:** Calming or directing a **beast** — failure is comedy (cat bolt), not punishment.
