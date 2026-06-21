@@ -29,7 +29,13 @@ By the end of **mine-only Session 2**, players should:
 8. Leave with a clear pull toward the **old shrine** (Session 3) without visiting it yet.
 
 Keep **bound souls** and the necromancer as DM truth. Players see: blue pulse,
-prophecy bark, spear-displayed bodies, blue-edged mine lantern, amulet pull.
+prophecy bark, ash-eyed wolves, humanoid-killed volunteers, blockaded mine mouth,
+blasting powder problem, blue-edged mine lantern, amulet pull.
+
+**Mine road context:** Briarford's **coal forest road** is **disused** — freight
+now ships to **Kettlebrook**, a bigger coal settlement east. The road is
+**collapsed and overgrown**; the party must **find a passable route**, not follow
+a maintained wagon track.
 
 ---
 
@@ -62,8 +68,8 @@ flowchart TD
 
 | Block | 5-session track | 4-session track | Stop point |
 |-------|-----------------|-----------------|------------|
-| Forest trail + fork | Session 2 open | Session 2 open | — |
-| Volunteer remains | Session 2 | Session 2 | — |
+| Forest trail + collapsed coal road | Session 2 open | Session 2 open | — |
+| Mine arrival (blockade, cabin, blast) | Session 2 | Session 2 | — |
 | Coal mine crawl + boss | Session 2 | Session 2 | **5-track: END here** |
 | Forgotten shrine | **Session 3** | Same night as mine | Rune map revealed |
 
@@ -79,167 +85,49 @@ flowchart TD
 
 ### Scene 0 — Session 2 framing and trail travel
 
-**Type:** Table framing · travel montage · **Pacing:** ~10–15 minutes
+**Type:** Table framing · travel bridge · **Pacing:** ~10 minutes
 
-**Purpose:** Bridge Session 1 cliffhanger to actionable forest play. Recap
-hireling status, confirm what they carry, establish **first hour on the trail**
-without a new investigation loop.
+**Purpose:** Pick up one step past `12` — blue light retreats, hireling recap, walk
+toward the disused **coal forest road**.
 
-**Proposed slug:** `13_session_2_framing`
+**Proposed slug:** `13_session_2_framing` — **authored**
 
-**Draft notes:**
-
-- Open **one step past** `12` closing — blue light still ahead, not reached.
-- Short recap prompt: *volunteers, Silas, Mara, diary, Fenwick's sketch*.
-- **No initiative** at the answering blue light — it **retreats** or **winks out**
-  when approached (soul-lantern behaviour; do not explain).
-- Travel color: briars, coal-smell on the wind, distant crow silence.
-- Ginger tom (`14_ginger_tom_cat`) may tag along if befriended in `05` — comic
-  beats only.
-
-**Checks (optional color):**
-
-| Roll | DC | Detail |
-|------|-----|--------|
-| **Survival** | 11 | Stay on Silas/Mara trail without losing the sketch landmark |
-| **Perception** | 12 | Three blue flickers **parallel** the party — not circling |
-| **Religion / Arcana** | 13 | Pulse matches Session 1 breath-rhythm (Elias/Lilith callback) |
-
-**Ends when:** Party reaches the **path fork** (`14`) — roughly 1–2 hours in-fiction.
+**Ends when:** Party reaches `14_collapsed_coal_road`.
 
 ---
 
-### Scene 1 — Forest path fork: road vs mine
+### Scene 1 — Collapsed coal road: herbs and ash-eyed wolves
 
-**Type:** Navigation decision · **Pacing:** ~10–15 minutes
+**Type:** Travel · navigation · optional combat · **Pacing:** ~25–35 minutes
 
-**Purpose:** Teach that the **main forest road toward Ashmere** is a red herring.
-Point toward coal mines via **Mara's dropped notes**, tracks, and blue lights.
+**Purpose:** Navigate the **collapsed, disused coal forest road** (ore now ships to
+**Kettlebrook**). Gather **yarrow** and **bittercap moss**. Fight or scare off
+**ash-eyed wolves** — ambient wrongness like mill rats, not necromancer pets.
 
-**Proposed slug:** `14_forest_path_fork`
+**Proposed slug:** `14_collapsed_coal_road` — **authored**
 
-**Read-aloud seed:**
+**Monster:** `05_ash_eyed_wolf_monster` (3 default)
 
-> The trail widens where an older **coal road** cuts across the forest track.
-> Wheel ruts lead east — toward the city. Fresh **small clawed prints** and a
-> scrap of oiled leather mark the north bend, where the pines grow black.
-
-**Ways to point north (need any 2):**
-
-| Source | Clue |
-|--------|------|
-| **Fenwick's sketch** | Margin **"mine?"** beside forest trail |
-| **Mara's notes** (found here or at fork post) | See excerpt below |
-| **Survival / Perception** | Prints too small for wolves; boot line overlaps Mara's size |
-| **Blue lantern flicker** | Between pines on the **mine** bearing, not the road east |
-| **Silas diary callback** | "When forest lights gathered near the old trail" |
-
-**Mara Kell note excerpt (handout — waterproof wrap on a trail post or in a tin):**
-
-> Tracks behind the mill are wrong. Too many small feet. Not rats, not children.
-> Old prints near the coal road too.
->
-> Lantern-light seen between the pines, but no human steps beside it.
->
-> Coal mine first. Shrine after, if I still have daylight.
-
-**Decision:**
-
-- **East (main road):** Faster travel, wrong problem — optional **single** scene of
-  ordinary traffic / toll-house distance before doubling back, or soft gate with
-  Survival DC 12 "this smells like city mud, not coal."
-- **North (mine road):** Correct vector — proceed to `15` / `16`.
-
-**Ends when:** Party commits to the **mine bearing**.
+**Ends when:** Party reaches mine hill (`16`).
 
 ---
 
-### Scene 2 — Volunteer remains
+### Scene 2 — Coal mine arrival: blockade, volunteers, cabin, explosives
 
-**Type:** Discovery beat · horror without combat · **Pacing:** ~10 minutes
+**Type:** Investigation · problem-solving · **Pacing:** ~30–40 minutes
 
-**Purpose:** Pay off Session 1 volunteer layer. Raise stakes before mine entrance.
-Connect J.R. / S.M. / P.L. initials to **named bodies**.
+**Purpose:** Main entrance **blockaded**; goblin gap too narrow for humans.
+**Volunteers** in surroundings — **humanoid** kills, loot rusty swords / holed
+armor. **Miner storage cabin** — lock pickable, not forceable. **Blasting charges**
+inside — one charge clears blockade (alerts goblins in `17`).
 
-**Proposed slug:** `15_volunteer_remains`
+**Proposed slug:** `16_coal_mine_arrival` — **authored** (no standalone `15`)
 
-**Placement:** En route to mine mouth **or** 50–100 yards before entrance —
-not inside goblin-held tunnels (goblins did not drag them deep).
-
-**Read-aloud seed:**
-
-> Three shapes off the path — wrong angles, wrong stillness. Bedroll straps,
-> guild-stamped chits, Briarford clay on their boots. The forest is quiet
-> around them.
-
-**Default volunteer identities (match Session 1 initials):**
-
-| Initials | Full name | Gear tell |
-|----------|-----------|-----------|
-| **J.R.** | **Jonas Reed** | Bedroll strap matches `06` hall prop |
-| **S.M.** | **Sera Marsh** | Cheap shortsword, city mercenary patch |
-| **P.L.** | **Pell Linden** | Clerk's ink-stained satchel; copied Silas map |
-
-**Investigation beats:**
-
-| Roll | DC | Reveal |
-|------|-----|--------|
-| **Medicine** | 10 | Dead **2–4 days** — before party took the job |
-| **Investigation** | 11 | No looting — killed **fast**; claw and spear wounds |
-| **Insight** | 10 | They died **running toward** the mine, not fleeing it |
-
-**Contingencies:**
-
-- If Session 1 skipped volunteer clues: initials still on gear — Fenwick's names
-  in `11` retroactively match.
-- Do **not** run combat here — predators already gone.
-- Allow brief roleplay — Mordain, Vex, Ruta each get a hook if they share intro
-  threads.
-
-**Ends when:** Party acknowledges danger and continues to mine entrance.
+**Ends when:** Party enters breached mine (`17`).
 
 ---
 
-### Scene 3 — Coal mine entrance
-
-**Type:** Investigation · first combat tease · **Pacing:** ~15–20 minutes
-
-**Purpose:** Establish mine set-piece, goblin presence, **blue-edged broken
-lantern**, impaled miner display. First goblin scouts optional.
-
-**Proposed slug:** `16_coal_mine_entrance`
-
-**Read-aloud (campaign image):**
-
-> The trees thin around a black wound in the hillside. The mine entrance stands
-> half-collapsed, its support beams hacked and splintered. A few miners have been
-> piled on crude improvised spears, their lanterns broken at their feet.
-
-**Investigation details:**
-
-| Roll | DC | Reveal |
-|------|-----|--------|
-| **Investigation** | 10 | Spears are **warning display**, not battlefield |
-| **Survival** | 11 | Small clawed prints; **many**; recent |
-| **Arcana / Perception** | 12 | Broken mining lantern — faint **blue edge** before dark |
-| **History** | 11 | Goblins not seen in Briarford region for **generations** |
-
-**Optional encounter:** 2 **goblin scouts** arguing over stolen food — flee toward
-`17` if one escapes (noise alarm in crawl).
-
-**Mara Kell layer (choose one):**
-
-| Placement | Detail |
-|-----------|--------|
-| **Near entrance** | Boot prints deeper than volunteers — Mara **entered** mine |
-| **Inside storage (`17`)** | Her **chalk arrows** on beams — still missing |
-| **Grim** | Body in side tunnel — only if table wants harder tone; default **missing** |
-
-**Ends when:** Party enters mine or establishes camp at mouth (push inside).
-
----
-
-### Scene 4 — Mine crawl
+### Scene 3 — Mine crawl
 
 **Type:** Exploration · 1–2 short combats · trap · **Pacing:** ~45–60 minutes
 
@@ -247,6 +135,9 @@ lantern**, impaled miner display. First goblin scouts optional.
 space. Rescue hook for trapped miners.
 
 **Proposed slug:** `17_mine_crawl`
+
+**Entry note:** Party enters through **breached main entrance** — goblins may be
+**alerted**. Impaled miner display is **inside** goblin tunnels, not at mouth.
 
 **Areas (run 3–4 if time short):**
 
@@ -273,6 +164,10 @@ space. Rescue hook for trapped miners.
 - Something **older** than goblins may have driven them south (fear only)
 
 **Skip list if table is slow:** Drop area 2 **or** merge gallery + storage.
+
+**Entry note:** Party arrives through **breached main entrance** after blast or
+long labour — goblins may be **alerted**. Impaled miner display moves **inside**
+goblin-held tunnels (`17`/`18`), not at the blocked mouth.
 
 **Ends when:** Party reaches deep chamber approach (`18`).
 
@@ -377,12 +272,11 @@ See campaign draft § Old Forgotten Shrine for herb/riddle/map detail.
 **5-session track (default):**
 
 1. `13_session_2_framing` — trail travel, blue light retreats
-2. `14_forest_path_fork` — Mara's notes, mine bearing
-3. `15_volunteer_remains` — J.R. / S.M. / P.L. bodies
-4. `16_coal_mine_entrance` — horror image, investigation, optional scouts
-5. `17_mine_crawl` — 3–4 areas, trapped miners, short fights
-6. `18_goblin_leader_chamber` — boss + rescue
-7. `19_mine_amulet_closing` — amulet checks, debrief, **stop**
+2. `14_collapsed_coal_road` — collapsed road, herbs, ash-eyed wolves
+3. `16_coal_mine_arrival` — blockade, volunteers, cabin, explosives
+4. `17_mine_crawl` — 3–4 areas, trapped miners, short fights
+5. `18_goblin_leader_chamber` — boss + rescue
+6. `19_mine_amulet_closing` — amulet checks, debrief, **stop**
 
 **4-session compressed:** Add `20`–`22` same night after a **5-minute** break.
 
@@ -409,9 +303,8 @@ Append after `12_forest_edge_closing`:
 ```json
 [
   "13_session_2_framing",
-  "14_forest_path_fork",
-  "15_volunteer_remains",
-  "16_coal_mine_entrance",
+  "14_collapsed_coal_road",
+  "16_coal_mine_arrival",
   "17_mine_crawl",
   "18_goblin_leader_chamber",
   "19_mine_amulet_closing"
@@ -461,6 +354,7 @@ Guild of Magic, doom servants, necromancer name, ruin proper name.
 
 | Asset | Proposed slug | Notes |
 |-------|---------------|-------|
+| Ash-eyed wolf | `05_ash_eyed_wolf_monster` | **Authored** — MM Wolf cosmetic |
 | Goblin scout | `05_goblin_scout_monster` | MM Goblin — cosmetic coal dust |
 | Goblin doom-speaker (leader) | `06_goblin_doom_speaker_monster` | Reskin Goblin Boss |
 | Strange amulet | `01_strange_carved_amulet_uncommon_wondrous` | Investigate object; part 2 guild hook |
@@ -479,7 +373,9 @@ Run `scripts\build-sources.cmd --sync-items` / `--sync-spells` when stubs exist.
 | **Goblin leader name** | Named or role only? | **Skrit Ironwhine** — DM can stay generic in read-aloud |
 | **Mine name** | Proper noun | **Briarford coal mines** |
 | **Shrine in Session 2?** | Combined or split? | **Split** — shrine is Session 3 (`20`–`22`) |
-| **Main road fork** | Punish wrong turn? | **Soft gate** — one scene max, then loop back |
+| **Main road fork** | Punish wrong turn? | **Collapsed road** — Kettlebrook wagons east; mine via ruined coal track |
+| **Mine entrance** | Open or blocked? | **Blockaded** — blast or labour; goblin gap too small |
+| **Volunteer placement** | Where? | **Mine surroundings** — loot + humanoid kill evidence |
 | **Miner survivors** | Count | **2–3** if crawl completed under ~90 min |
 | **Prophecy couplet** | Canonical goblin chant? | Use leader sample lines; full prophecy = part 2 |
 | **Combat tuning** | CR for 4–5 L1 PCs | 3–4 goblins total across crawl + 1 boss + 2 adds |
@@ -490,12 +386,13 @@ Run `scripts\build-sources.cmd --sync-items` / `--sync-spells` when stubs exist.
 
 | Session 1 clue | Session 2 payoff scene |
 |----------------|------------------------|
-| Volunteer bedroll J.R. | `15` — Jonas Reed body |
-| Post initials J.R./S.M./P.L. | `15` — gear confirmation |
-| Fenwick **"mine?"** margin | `14` — fork validation |
-| Silas diary forest lights | `14` — blue flicker bearing |
-| Mara mill tracks | `14` — her note handout |
-| Mill mine lantern scratches | `16` — blue edge lantern |
+| Volunteer bedroll J.R. | `16` — Jonas Reed body + rusty sword |
+| Post initials J.R./S.M./P.L. | `16` — gear confirmation |
+| Fenwick **"mine?"** margin | `14` — collapsed coal road bearing |
+| Silas diary forest lights | `14` — ambient wrongness on herbs |
+| Mara mill tracks | `14` — note on split rail |
+| Mill rats ember eyes | `14` — wolf pack same wrongness |
+| Mill mine lantern scratches | `16` — blue edge lantern in cabin |
 | **Dead light** verse (Mordain/Fenwick) | `18` — goblin leader lines |
 | `12` blue light answers | `13` — retreats, does not fight |
 
@@ -503,14 +400,15 @@ Run `scripts\build-sources.cmd --sync-items` / `--sync-spells` when stubs exist.
 
 ## Recommended next steps (authoring)
 
-1. **Add `13_session_2_framing`** — bridge from `12`; no combat.
-2. **Add `14_forest_path_fork`** — Mara note handout text; fork decision.
-3. **Add `15_volunteer_remains`** — volunteer payoff; keep short.
-4. **Author mine block `16`–`19`** — highest writing effort; boss + amulet end.
-5. **Expand `names-index.json`** — volunteers, mine, shrine, goblin leader.
-6. **Add goblin monster sheets** — scout + doom-speaker.
-7. **Add amulet item stub** — sync from Shared/Items or scenario-local.
-8. **Session 3 pass** — `20`–`22` shrine when mine playtests clean.
+1. ~~**Add `13_session_2_framing`**~~ — **done**
+2. ~~**Add `14_collapsed_coal_road`**~~ — **done**
+3. ~~**Add `16_coal_mine_arrival`**~~ — **done** (volunteers + cabin + blast)
+4. **Author mine block `17`–`19`** — crawl, boss, amulet end
+5. ~~**Expand `names-index.json`**~~ — Kettlebrook, mine, volunteers (**done**)
+6. ~~**Add ash-eyed wolf monster**~~ — **done**
+7. **Add goblin monster sheets** — scout + doom-speaker
+8. **Add amulet item stub** — sync from Shared/Items or scenario-local
+9. **UA pass** — `13`, `14`, `16` when EN playtests clean
 
 ---
 

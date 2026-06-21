@@ -223,5 +223,62 @@
       "locative": "«Ашмері»"
     },
     "aliases_en": ["Ashmere string"]
+  },
+  {
+    "slug": "kettlebrook",
+    "type": "settlement",
+    "en": "Kettlebrook",
+    "ua": "Кетлбрук",
+    "declension_ua": {
+      "nominative": "Кетлбрук",
+      "genitive": "Кетлбрука",
+      "dative": "Кетлбруку",
+      "accusative": "Кетлбрук",
+      "instrumental": "Кетлбруком",
+      "locative": "Кетлбруку"
+    }
+  },
+  {
+    "slug": "briarford_coal_mines",
+    "type": "location",
+    "en": "Briarford coal mines",
+    "ua": "вугільні шахти Терновброду",
+    "aliases_en": ["Briarford colliery", "Briarford's old pit"]
+  },
+  {
+    "slug": "coal_forest_road",
+    "type": "location",
+    "en": "coal forest road",
+    "ua": "лісовий вугільний шлях"
+  },
+  {
+    "slug": "miner_storage_cabin",
+    "type": "location",
+    "en": "miner storage cabin",
+    "ua": "комірська хатина шахтарів"
+  },
+  {
+    "slug": "forgotten_shrine",
+    "type": "location",
+    "en": "forgotten shrine",
+    "ua": "забуте святилище"
+  },
+  {
+    "slug": "jonas_reed",
+    "type": "npc",
+    "en": "Jonas Reed",
+    "ua": "Джонас Рід"
+  },
+  {
+    "slug": "sera_marsh",
+    "type": "npc",
+    "en": "Sera Marsh",
+    "ua": "Сера Марш"
+  },
+  {
+    "slug": "pell_linden",
+    "type": "npc",
+    "en": "Pell Linden",
+    "ua": "Пелл Лінден"
   }
 ]
