@@ -9,6 +9,7 @@
     { id: "spells", label: ["Spells", "Заклинання"], path: "../Spells/library.html" },
     { id: "items", label: ["Items", "Предмети"], path: "../Items/library.html" },
     { id: "maps", label: ["Maps", "Карти"], path: "../Maps/library.html", dmOnly: true },
+    { id: "battle", label: ["Battle Mode", "Бій"], path: "../Battle/library.html", dmOnly: true },
   ];
 
   const MODE_LABELS = {

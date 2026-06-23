@@ -1,7 +1,7 @@
 (function (global) {
   "use strict";
 
-  const PROTECTED_SECTIONS = ["dm-script", "monsters", "npc", "maps"];
+  const PROTECTED_SECTIONS = ["dm-script", "monsters", "npc", "maps", "battle"];
   const STORAGE_KEY = "dndbook:access:unlocked";
   const CONFIG_URL = "../Core/access-config.json";
 
@@ -86,21 +86,23 @@
     const esc = shell.esc;
     const L = labels(lang);
     if (uiEl.root) uiEl.root.setAttribute("data-access-gate", "true");
-    uiEl.empty.hidden = false;
-    uiEl.page.hidden = true;
-    uiEl.empty.classList.remove("load-error");
-    uiEl.empty.classList.add("access-gate");
-    uiEl.empty.innerHTML =
-      '<div class="access-gate-form">' +
-      "<strong>" + esc(L.title) + "</strong>" +
-      "<p>" + esc(L.hint) + "</p>" +
-      '<form id="access-gate-form">' +
-      '<input type="password" id="access-gate-password" autocomplete="current-password" placeholder="' +
-      esc(L.placeholder) +
-      '" />' +
-      '<button type="submit">' + esc(L.unlock) + "</button>" +
-      '<p class="access-gate-error" id="access-gate-error" hidden>' + esc(L.wrong) + "</p>" +
-      "</form></div>";
+    if (uiEl.empty) {
+      uiEl.empty.hidden = false;
+      uiEl.empty.classList.remove("load-error");
+      uiEl.empty.classList.add("access-gate");
+      uiEl.empty.innerHTML =
+        '<div class="access-gate-form">' +
+        "<strong>" + esc(L.title) + "</strong>" +
+        "<p>" + esc(L.hint) + "</p>" +
+        '<form id="access-gate-form">' +
+        '<input type="password" id="access-gate-password" autocomplete="current-password" placeholder="' +
+        esc(L.placeholder) +
+        '" />' +
+        '<button type="submit">' + esc(L.unlock) + "</button>" +
+        '<p class="access-gate-error" id="access-gate-error" hidden>' + esc(L.wrong) + "</p>" +
+        "</form></div>";
+    }
+    if (uiEl.page) uiEl.page.hidden = true;
 
     const form = document.getElementById("access-gate-form");
     const input = document.getElementById("access-gate-password");
@@ -133,8 +135,10 @@
         if (ok) {
           setUnlocked();
           if (uiEl.root) uiEl.root.removeAttribute("data-access-gate");
-          uiEl.empty.classList.remove("access-gate");
-          uiEl.empty.innerHTML = "<strong>Loading…</strong>";
+          if (uiEl.empty) {
+            uiEl.empty.classList.remove("access-gate");
+            uiEl.empty.innerHTML = "<strong>Loading…</strong>";
+          }
           resolve(true);
           return true;
         }
