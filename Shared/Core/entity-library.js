@@ -18,23 +18,27 @@
 
   function setLoading(ui, msg) {
     if (ui.root) ui.root.setAttribute("data-loading", "true");
-    ui.empty.hidden = false;
-    ui.page.hidden = true;
-    ui.empty.classList.remove("load-error");
-    ui.empty.innerHTML = "<strong>" + esc(msg || "Loading…") + "</strong>";
+    if (ui.empty) {
+      ui.empty.hidden = false;
+      ui.empty.classList.remove("load-error");
+      ui.empty.innerHTML = "<strong>" + esc(msg || "Loading…") + "</strong>";
+    }
+    if (ui.page) ui.page.hidden = true;
   }
 
   function setError(ui, title, detail) {
     if (ui.root) ui.root.removeAttribute("data-loading");
-    ui.empty.hidden = false;
-    ui.page.hidden = true;
-    ui.empty.classList.add("load-error");
-    ui.empty.innerHTML = "<strong>" + esc(title) + "</strong>" + (detail ? "<p>" + detail + "</p>" : "");
+    if (ui.empty) {
+      ui.empty.hidden = false;
+      ui.empty.classList.add("load-error");
+      ui.empty.innerHTML = "<strong>" + esc(title) + "</strong>" + (detail ? "<p>" + detail + "</p>" : "");
+    }
+    if (ui.page) ui.page.hidden = true;
   }
 
   function setReady(ui) {
     if (ui.root) ui.root.removeAttribute("data-loading");
-    ui.empty.classList.remove("load-error");
+    if (ui.empty) ui.empty.classList.remove("load-error");
   }
 
   function bindPagination(state, ui, renderPage, totalPagesFn) {
