@@ -38,5 +38,6 @@ No Blackpine Hollow NPC source material is present in this repository snapshot.
 1. Locate the actual Blackpine Hollow source adventure or draft.
 2. Extract each named NPC into its own `{slug}.en.md` file.
 3. Add each slug to `npc-index.json`.
-4. Register supporting proper names in `../names/names-index.json` if Ukrainian localization is added.
-5. Run `scripts/build-sources.cmd --validate-only`.
+4. Register supporting proper names in `../names/names-index.json`.
+5. Add Ukrainian name forms and declensions when Ukrainian localization is added.
+6. Run `scripts/build-sources.cmd --validate-only`.
