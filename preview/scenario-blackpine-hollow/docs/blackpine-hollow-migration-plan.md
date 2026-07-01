@@ -18,7 +18,8 @@ Current result:
 - source PDF now available at `docs/source/blackpine-hollow.pdf`
 - all five pregenerated characters have been extracted from the PDF in `en` and `ua`
 - the current monster and NPC/reference sets have been extracted from the PDF in `en` and `ua`
-- supporting character spell references have been synced into `scenarios/blackpine-hollow/spells/`
+- the DM script has been extracted from the PDF in `en` and `ua`
+- supporting spell references have been synced into `scenarios/blackpine-hollow/spells/`
 - the remaining scenario sections still need to be converted
 
 ## Current scaffold
@@ -56,7 +57,27 @@ Current extracted content:
 - `npc/01_mosswick_fey_trickster.ua.md`
 - `npc/02_lantern_spirits.en.md`
 - `npc/02_lantern_spirits.ua.md`
-- synced spell book entries required by the character set
+- `dm-script/00_session_framing.en.md`
+- `dm-script/00_session_framing.ua.md`
+- `dm-script/01_camping_clearing.en.md`
+- `dm-script/01_camping_clearing.ua.md`
+- `dm-script/02_following_the_lanterns.en.md`
+- `dm-script/02_following_the_lanterns.ua.md`
+- `dm-script/03_whispering_pines.en.md`
+- `dm-script/03_whispering_pines.ua.md`
+- `dm-script/04_abandoned_campsite.en.md`
+- `dm-script/04_abandoned_campsite.ua.md`
+- `dm-script/05_moonlit_creek.en.md`
+- `dm-script/05_moonlit_creek.ua.md`
+- `dm-script/06_small_combat.en.md`
+- `dm-script/06_small_combat.ua.md`
+- `dm-script/07_ruined_shrine.en.md`
+- `dm-script/07_ruined_shrine.ua.md`
+- `dm-script/08_endings.en.md`
+- `dm-script/08_endings.ua.md`
+- `dm-script/09_quick_dm_reference.en.md`
+- `dm-script/09_quick_dm_reference.ua.md`
+- synced spell book entries required by the character and DM-script content
 - names registry entries for Blackpine Hollow, Mosswick, and Vesper
 
 `manifest.json` now lists `en` and `ua`.
@@ -85,9 +106,9 @@ Current extracted content:
 
 ### 4. DM script
 
-- split the adventure flow into numbered scene files under `scenarios/blackpine-hollow/dm-script/`
-- keep the five standard sections used by the current renderer
-- add branch markers only where player-path forks exist
+- complete initial extraction of the adventure flow into numbered scene files under `scenarios/blackpine-hollow/dm-script/`
+- review scene wording and pacing notes against the PDF
+- keep branch markers and outcome splits readable in the renderer
 
 ### 5. Supporting content
 
@@ -111,4 +132,4 @@ Current extracted content:
 
 ## Blockers
 
-- DM script scenes, maps, items, and any extra support content still need to be extracted from the source PDF
+- maps, items, and any extra support content still need to be extracted from the source PDF
