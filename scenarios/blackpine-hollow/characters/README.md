@@ -2,13 +2,13 @@
 
 ## Status
 
-Character extraction is now in progress from the source PDF at `docs/source/blackpine-hollow.pdf`.
+Character extraction is now underway from the source PDF at `docs/source/blackpine-hollow.pdf`.
 
 Current result:
 
-- `characters-index.json` now includes `01_rowan_ashford_human_fighter`
-- Rowan Ashford has been added in both `.en.md` and `.ua.md`
-- the remaining pregenerated characters still need to be extracted from the PDF
+- `characters-index.json` now includes the full pregen party
+- all five pregenerated characters have been added in both `.en.md` and `.ua.md`
+- supporting spell references for the extracted characters have been synced into `../spells/`
 
 ## Expected file naming and index format
 
@@ -36,10 +36,7 @@ Those index entries must map to:
 
 ## Next steps
 
-1. Extract each remaining player character into `scenarios/blackpine-hollow/characters/NN_descriptive_slug.en.md`.
-2. Add `.ua.md` counterparts from the bilingual PDF where available.
-3. Preserve source mechanics exactly and convert character distances to the repository style, such as `30 ft/6 tiles`.
-4. Replace any spell references in character spell lists or abilities with spell slugs, and register required spells in the scenario spell book if needed.
-5. Replace any indexed magic item references with item slugs, and register required items in the scenario item index if needed.
-6. Update `characters-index.json` so it lists every converted character slug in order.
-7. Run `scripts/build-sources.cmd --validate-only`.
+1. Review the extracted sheets against the PDF for any remaining formatting or wording drift.
+2. Keep character distances in the repository style, such as `30 ft/6 tiles`.
+3. Add item slugs if future character revisions introduce indexed magic items.
+4. Run `scripts/build-sources.cmd --validate-only`.

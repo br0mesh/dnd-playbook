@@ -14,14 +14,6 @@
 **Background:** Outlander
 **Alignment:** Neutral Good
 
-### Roleplay Notes
-
-**Appearance:** Broad-shouldered, sun-browned, practical clothes, old green cloak.
-**Personality:** Calm, reliable, protective, likes simple jokes.
-**Goal:** Keep the group safe and prove that courage matters more than fear.
-**Fear / Weakness:** Hates feeling helpless when friends are in danger.
-**Backstory:** Rowan grew up near a dangerous trade road and learned early how to stand guard. He has guided travelers through bad weather, wolves, and worse. He joined this camping trip because the group needed someone dependable. Rowan does not talk much about heroism, but when danger appears, he is usually the first to move.
-
 ### Main Stats
 
 | Stat | Score | Modifier |
@@ -66,6 +58,11 @@
 
 ### Special Abilities
 
+- **Appearance** — Broad-shouldered, sun-browned, practical clothes, old green cloak.
+- **Personality** — Calm, reliable, protective, likes simple jokes.
+- **Goal** — Keep the group safe and prove that courage matters more than fear.
+- **Fear / Weakness** — Hates feeling helpless when friends are in danger.
+- **Backstory** — Rowan grew up near a dangerous trade road and learned early how to stand guard. He has guided travelers through bad weather, wolves, and worse. He joined this camping trip because the group needed someone dependable. Rowan does not talk much about heroism, but when danger appears, he is usually the first to move.
 - **Second Wind** · 1/SR — Bonus action; regain 1d10+3 HP.
 - **Action Surge** · 1/SR — Take one extra action on your turn.
 - **Improved Critical** — Your weapon attacks score a critical hit on a roll of 19 or 20.

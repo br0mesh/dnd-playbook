@@ -16,7 +16,8 @@ Completed checks:
 Current result:
 
 - source PDF now available at `docs/source/blackpine-hollow.pdf`
-- character extraction has started from the PDF
+- all five pregenerated characters have been extracted from the PDF in `en` and `ua`
+- supporting character spell references have been synced into `scenarios/blackpine-hollow/spells/`
 - the remaining scenario sections still need to be converted
 
 ## Current scaffold
@@ -32,6 +33,15 @@ Current extracted content:
 
 - `characters/01_rowan_ashford_human_fighter.en.md`
 - `characters/01_rowan_ashford_human_fighter.ua.md`
+- `characters/02_lira_moonbrook_wood_elf_ranger.en.md`
+- `characters/02_lira_moonbrook_wood_elf_ranger.ua.md`
+- `characters/03_milo_underbough_lightfoot_halfling_rogue.en.md`
+- `characters/03_milo_underbough_lightfoot_halfling_rogue.ua.md`
+- `characters/04_brunna_stonekeep_hill_dwarf_cleric.en.md`
+- `characters/04_brunna_stonekeep_hill_dwarf_cleric.ua.md`
+- `characters/05_nyx_embervale_tiefling_warlock.en.md`
+- `characters/05_nyx_embervale_tiefling_warlock.ua.md`
+- synced spell book entries required by the character set
 
 `manifest.json` now lists `en` and `ua`.
 
@@ -39,11 +49,10 @@ Current extracted content:
 
 ### 1. Characters
 
-- extract each player character into `scenarios/blackpine-hollow/characters/`
-- name files with ordinal + descriptive slug, e.g. `01_name_species_class.en.md`
-- include tile conversions for character distances
-- add spell and item slugs where referenced
-- add `.ua.md` counterparts only when Ukrainian text exists
+- complete initial extraction of each player character into `scenarios/blackpine-hollow/characters/`
+- review wording and formatting drift against the PDF
+- keep tile conversions for character distances
+- maintain spell and item closure as future edits change the sheets
 
 ### 2. Monsters
 
@@ -86,4 +95,4 @@ Current extracted content:
 
 ## Blockers
 
-- remaining characters, monsters, NPCs, DM script scenes, and supporting content still need to be extracted from the source PDF
+- monsters, NPCs, DM script scenes, and supporting content still need to be extracted from the source PDF
