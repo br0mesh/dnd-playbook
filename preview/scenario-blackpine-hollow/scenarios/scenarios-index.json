@@ -1,0 +1,34 @@
+[
+  {
+    "slug": "test-adventure",
+    "title": "Test Adventure",
+    "level": "3",
+    "partySize": "4-5",
+    "description": "Minimal demo scenario with one file per section",
+    "migrated": true
+  },
+  {
+    "slug": "wild-sheep-chase",
+    "title": "A Wild Sheep Chase",
+    "level": "4-5",
+    "partySize": "3-6",
+    "description": "Comedy one-shot (Winghorn Press)",
+    "migrated": false
+  },
+  {
+    "slug": "blackpine-hollow",
+    "title": "Blackpine Hollow",
+    "level": "3",
+    "partySize": "4-5",
+    "description": "Camping one-shot, one evening",
+    "migrated": false
+  },
+  {
+    "slug": "when-the-lanterns-fall-silent",
+    "title": "When the Lanterns Fall Silent",
+    "level": "TBD",
+    "partySize": "TBD",
+    "description": "Homebrew campaign",
+    "migrated": true
+  }
+]

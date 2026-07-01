@@ -1,6 +1,11 @@
 {
   "previews": [
     {
+      "branch": "scenario/blackpine-hollow",
+      "slug": "scenario-blackpine-hollow",
+      "updatedAt": "2026-07-01T18:52:17.524Z"
+    },
+    {
       "branch": "scenario/when-the-lanterns-fall-silent",
       "slug": "scenario-when-the-lanterns-fall-silent",
       "updatedAt": "2026-06-23T03:15:25.249Z"

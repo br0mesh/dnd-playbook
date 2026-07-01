@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Battle Mode — DnD Book</title>
+  <link rel="stylesheet" href="../Styles/tokens.css"/>
+  <link rel="stylesheet" href="../Styles/book.css"/>
+  <link rel="stylesheet" href="battle-tracker.css"/>
+</head>
+<body>
+  <div id="battle-tracker" class="book-chrome" data-scenario="demo">
+    <header class="book-header" id="book-nav"></header>
+    <header class="top-bar battle-top-bar">
+      <h1 id="battle-title">Battle Mode</h1>
+      <div class="battle-round-bar">
+        <span id="round-label" aria-live="polite">
+          <span class="round-text">Round: <strong id="round-value">1</strong></span>
+        </span>
+        <div class="round-actions" role="group" aria-label="Round controls">
+          <button type="button" id="prev-round" class="btn-secondary">&#9664; Prev</button>
+          <button type="button" id="next-round" class="btn-primary">Next &#9654;</button>
+        </div>
+      </div>
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button type="button" id="lang-en" aria-pressed="true">EN</button>
+        <button type="button" id="lang-ua" aria-pressed="false">UA</button>
+      </div>
+      <div class="mode-toggle" role="group" aria-label="View mode">
+        <button type="button" id="mode-dm" aria-pressed="false" hidden>Player view</button>
+      </div>
+    </header>
+    <div class="library-main no-right-sidebar battle-main">
+      <aside class="sidebar sidebar-list battle-sidebar" aria-labelledby="scenes-heading">
+        <div class="battle-scenes-header">
+          <span id="scenes-heading">Scenes</span>
+        </div>
+        <nav id="scene-list-nav" aria-label="Saved battle scenes"></nav>
+        <div class="battle-scenes-actions">
+          <button type="button" id="new-scene" class="battle-scene-action">+ New scene</button>
+          <button type="button" id="rename-scene" class="battle-scene-action">Rename</button>
+          <button type="button" id="delete-scene" class="battle-scene-action battle-scene-action--danger">Delete</button>
+        </div>
+      </aside>
+      <main class="book-center">
+        <div id="empty-state" aria-live="polite"><strong>Loading…</strong></div>
+        <div id="battle-content" class="content-page wide" hidden>
+          <section class="battle-add-panel" aria-labelledby="add-combatant-heading">
+            <h2 id="add-combatant-heading" class="visually-hidden">Add combatant</h2>
+            <p class="panel-label" id="add-combatant-label">Add combatant</p>
+            <div class="add-type-toggle" role="radiogroup" aria-label="Combatant type">
+              <label class="type-radio">
+                <input type="radio" name="add-type" value="character" checked/>
+                <span id="type-character-label">Character</span>
+              </label>
+              <label class="type-radio">
+                <input type="radio" name="add-type" value="monster"/>
+                <span id="type-monster-label">Monster</span>
+              </label>
+            </div>
+            <div class="add-row">
+              <select id="catalog-select" aria-labelledby="add-combatant-label"></select>
+              <button type="button" id="add-combatant" class="btn-primary">+ Add</button>
+              <button type="button" id="add-multiple" class="btn-secondary" hidden>+ Add ×</button>
+            </div>
+          </section>
+          <div class="battle-toolbar">
+            <button type="button" id="clear-encounter" class="btn-secondary btn-danger">Clear encounter</button>
+          </div>
+          <div id="encounter-empty" class="encounter-empty" hidden></div>
+          <div class="encounter-table-wrap">
+            <table id="encounter-table" class="encounter-table">
+              <thead>
+                <tr>
+                  <th scope="col" id="th-init">Init</th>
+                  <th scope="col" id="th-name">Name</th>
+                  <th scope="col" id="th-type">Type</th>
+                  <th scope="col" id="th-ac">AC</th>
+                  <th scope="col" id="th-hp">HP</th>
+                  <th scope="col" id="th-status">Status</th>
+                  <th scope="col" id="th-actions">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="encounter-body"></tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+  <script src="../Core/library-shell.js"></script>
+  <script src="../Core/locale.js"></script>
+  <script src="../Core/markdown.js"></script>
+  <script src="../Core/content-schema.js"></script>
+  <script src="../Core/combat-stats.js"></script>
+  <script src="../Core/book-nav.js"></script>
+  <script src="../Core/library-loader.js"></script>
+  <script src="../Core/entity-library.js"></script>
+  <script src="../Core/access-gate.js"></script>
+  <script src="battle-tracker.js"></script>
+</body>
+</html>

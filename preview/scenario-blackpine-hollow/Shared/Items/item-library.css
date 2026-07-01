@@ -1,0 +1,54 @@
+.item-meta-link {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: var(--accent);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
+}
+
+.item-meta-link:hover {
+  filter: brightness(0.85);
+}
+
+.item-card-focused {
+  outline: 2px solid var(--accent, #8b6914);
+  outline-offset: 2px;
+}
+
+.entity-card a.spell-link,
+.entity-card a.item-link {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
+}
+
+.entity-card a.spell-link:hover,
+.entity-card a.item-link:hover {
+  filter: brightness(0.85);
+}
+
+.item-held-by {
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border, #ddd);
+}
+
+.item-held-by h3 {
+  font-size: 0.85rem;
+  margin: 0 0 0.35rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted, #666);
+}
+
+.item-held-by ul {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.item-held-by li {
+  margin: 0.2rem 0;
+}

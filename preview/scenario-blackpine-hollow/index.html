@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>DnD Book</title>
+  <link rel="stylesheet" href="Shared/Styles/tokens.css"/>
+  <link rel="stylesheet" href="Shared/Styles/book.css"/>
+  <style>
+    body { margin: 0; min-height: 100vh; background: var(--bg-outer); color: var(--text-light); font-family: var(--font-sans); }
+    .home-wrap { max-width: 640px; margin: 0 auto; padding: 2rem 1.25rem; }
+    .home-wrap h1 { font-family: var(--font-serif); color: var(--accent); font-weight: normal; font-size: 1.75rem; }
+    .home-wrap p { color: var(--text-muted); line-height: 1.5; }
+    .scenario-list { list-style: none; padding: 0; margin: 1.5rem 0; }
+    .scenario-list li { margin-bottom: 0.5rem; }
+    .scenario-list a {
+      display: block; padding: 0.75rem 1rem; background: var(--bg-sidebar);
+      border: 1px solid var(--border); border-radius: 6px; color: var(--text-light);
+      text-decoration: none;
+    }
+    .scenario-list a:hover { border-color: var(--accent); }
+    .scenario-list .meta { font-size: 0.78rem; color: var(--text-muted); margin-top: 0.25rem; }
+    .scenario-list .badge {
+      font-size: 0.65rem; padding: 0.1rem 0.35rem; border-radius: 3px;
+      background: var(--bg-outer); border: 1px solid var(--border); margin-left: 0.5rem;
+    }
+    .demo-link { margin-top: 1.5rem; }
+    .demo-link a { color: var(--accent); }
+    .section-links { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 1rem; }
+    .section-links a {
+      font-size: 0.78rem; padding: 0.3rem 0.55rem; background: var(--bg-sidebar);
+      border: 1px solid var(--border); border-radius: 4px; color: var(--text-muted); text-decoration: none;
+    }
+    .section-links a:hover { color: var(--text-light); }
+  </style>
+</head>
+<body>
+  <div class="home-wrap">
+    <h1>DnD Book</h1>
+    <p>Interactive session prep — pick a scenario or browse demo content.</p>
+    <ul class="scenario-list" id="scenario-list" aria-live="polite">
+      <li><strong>Loading scenarios…</strong></li>
+    </ul>
+    <p class="demo-link">Or open demo content: <a href="Shared/Spells/library.html">Spell Library</a></p>
+    <div class="section-links" id="section-links" hidden></div>
+  </div>
+  <script src="Shared/Core/library-shell.js"></script>
+  <script src="Shared/Core/locale.js"></script>
+  <script src="Shared/Core/book-nav.js"></script>
+  <script src="Shared/Core/access-gate.js"></script>
+  <script>
+    (function () {
+      "use strict";
+      const shell = window.DnDCore.shell;
+      const nav = window.DnDCore.bookNav;
+      const esc = shell.esc;
+      const params = nav.parseParams();
+
+      if (params.scenario && params.section) {
+        window.location.href = nav.sectionUrl(params.section, params) || "Shared/Spells/library.html" + nav.buildQuery(params);
+        return;
+      }
+
+      const SECTION_PATHS = {
+        "dm-script": "Shared/DmScript/library.html",
+        characters: "Shared/Characters/library.html",
+        monsters: "Shared/Monsters/library.html",
+        npc: "Shared/Npc/library.html",
+        spells: "Shared/Spells/library.html",
+        items: "Shared/Items/library.html",
+        maps: "Shared/Maps/library.html",
+        battle: "Shared/Battle/library.html",
+      };
+
+      if (params.scenario && !params.section) {
+        const links = document.getElementById("section-links");
+        const accessGate = window.DnDCore.accessGate;
+        links.hidden = false;
+        links.innerHTML = nav.SECTIONS.map(function (sec) {
+          const q = nav.buildQuery({ scenario: params.scenario });
+          const path = SECTION_PATHS[sec.id] || "#";
+          const lock = accessGate.isProtectedSection(sec.id)
+            ? '<span class="section-link-lock" aria-hidden="true" title="Password required">&#128274;</span>'
+            : "";
+          return '<a href="' + path + q + '">' + esc(nav.sectionLabel(sec, params.lang)) + lock + "</a>";
+        }).join("");
+      }
+
+      async function loadScenarios() {
+        const list = document.getElementById("scenario-list");
+        try {
+          const text = await shell.fetchText("scenarios/scenarios-index.json", false);
+          const scenarios = JSON.parse(text);
+          list.innerHTML = scenarios.map(function (s) {
+            const q = nav.buildQuery({ scenario: s.slug });
+            const badge = s.migrated
+              ? '<span class="badge">HTML ready</span>'
+              : '<span class="badge">PDF only</span>';
+            return '<li><a href="?' + esc("scenario=" + s.slug) + '">' + esc(s.title) + badge +
+              '<div class="meta">Level ' + esc(s.level) + " · " + esc(s.partySize) + " players · " + esc(s.description) + "</div></a></li>";
+          }).join("");
+        } catch (err) {
+          list.innerHTML = "<li>Could not load scenarios-index.json</li>";
+        }
+      }
+
+      if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", loadScenarios);
+      else loadScenarios();
+    })();
+  </script>
+</body>
+</html>

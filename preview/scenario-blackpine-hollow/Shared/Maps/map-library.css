@@ -1,0 +1,9 @@
+.map-viewport { position: relative; max-width: 100%; margin: 1rem 0; }
+.map-viewport img { max-width: 100%; display: block; border-radius: 4px; }
+.map-viewport .grid-overlay {
+  position: absolute; inset: 0; pointer-events: none; opacity: 0.45;
+}
+#grid-select {
+  background: var(--bg-outer); color: var(--text-light); border: 1px solid var(--border);
+  padding: 0.35rem 0.5rem; border-radius: 4px;
+}

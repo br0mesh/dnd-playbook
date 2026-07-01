@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Characters — DnD Book</title>
+  <link rel="stylesheet" href="../Styles/tokens.css"/>
+  <link rel="stylesheet" href="../Styles/book.css"/>
+  <link rel="stylesheet" href="character-library.css?v=2"/>
+</head>
+<body>
+  <div id="character-library" class="book-chrome">
+    <header class="book-header" id="book-nav"></header>
+    <header class="top-bar">
+      <h1>Character Pages</h1>
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button type="button" id="lang-en" aria-pressed="true">EN</button>
+        <button type="button" id="lang-ua" aria-pressed="false">UA</button>
+      </div>
+    </header>
+    <div class="library-main no-right-sidebar">
+      <aside class="sidebar sidebar-list" aria-label="Party"><nav id="list-nav"></nav></aside>
+      <main class="book-center">
+        <div id="empty-state" aria-live="polite"><strong>Loading…</strong></div>
+        <div id="content-page" class="content-page wide" hidden></div>
+      </main>
+    </div>
+    <footer class="pagination">
+      <button type="button" id="prev-page">&#9664; Prev</button>
+      <span id="page-info">1 of 1</span>
+      <button type="button" id="next-page">Next &#9654;</button>
+    </footer>
+  </div>
+  <script src="../Core/library-shell.js"></script>
+  <script src="../Core/locale.js"></script>
+  <script src="../Core/markdown.js"></script>
+  <script src="../Core/content-schema.js"></script>
+  <script src="../Core/mechanical.js?v=2"></script>
+  <script src="../Core/book-nav.js"></script>
+  <script src="../Core/library-loader.js"></script>
+  <script src="../Core/entity-library.js"></script>
+  <script src="../Core/spell-links.js?v=3"></script>
+  <script src="../Core/item-links.js?v=3"></script>
+  <script src="character-library.js?v=7"></script>
+</body>
+</html>
