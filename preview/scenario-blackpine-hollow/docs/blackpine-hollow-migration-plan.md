@@ -13,18 +13,27 @@ Completed checks:
 - searched local git history for Blackpine-related files
 - checked visible GitHub refs and pull requests for Blackpine work
 
-Current result: no Blackpine Hollow source PDF, PD, or prior converted content is present in this repository snapshot.
+Current result:
+
+- source PDF now available at `docs/source/blackpine-hollow.pdf`
+- character extraction has started from the PDF
+- the remaining scenario sections still need to be converted
 
 ## Current scaffold
 
 Created:
 
 - `scenarios/blackpine-hollow/manifest.json`
-- empty section indexes for characters, monsters, NPCs, DM script, spells, items, maps
+- section indexes for characters, monsters, NPCs, DM script, spells, items, maps
 - `scenarios/blackpine-hollow/names/names-index.json`
 - scenario README with status and next steps
 
-`manifest.json` currently lists only `en`, because no Ukrainian source files are present yet.
+Current extracted content:
+
+- `characters/01_rowan_ashford_human_fighter.en.md`
+- `characters/01_rowan_ashford_human_fighter.ua.md`
+
+`manifest.json` now lists `en` and `ua`.
 
 ## Conversion workflow once source files are available
 
@@ -77,5 +86,4 @@ Created:
 
 ## Blockers
 
-- Blackpine Hollow source materials are missing from the current repository state
-- without those source documents, only scaffolding and migration planning can be completed safely
+- remaining characters, monsters, NPCs, DM script scenes, and supporting content still need to be extracted from the source PDF
