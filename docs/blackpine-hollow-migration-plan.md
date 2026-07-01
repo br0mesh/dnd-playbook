@@ -17,6 +17,7 @@ Current result:
 
 - source PDF now available at `docs/source/blackpine-hollow.pdf`
 - all five pregenerated characters have been extracted from the PDF in `en` and `ua`
+- the current monster and NPC/reference sets have been extracted from the PDF in `en` and `ua`
 - supporting character spell references have been synced into `scenarios/blackpine-hollow/spells/`
 - the remaining scenario sections still need to be converted
 
@@ -41,7 +42,22 @@ Current extracted content:
 - `characters/04_brunna_stonekeep_hill_dwarf_cleric.ua.md`
 - `characters/05_nyx_embervale_tiefling_warlock.en.md`
 - `characters/05_nyx_embervale_tiefling_warlock.ua.md`
+- `monsters/01_twig_blight_monster.en.md`
+- `monsters/01_twig_blight_monster.ua.md`
+- `monsters/02_fey_wolf_monster.en.md`
+- `monsters/02_fey_wolf_monster.ua.md`
+- `monsters/03_animated_bedroll_monster.en.md`
+- `monsters/03_animated_bedroll_monster.ua.md`
+- `monsters/04_angry_cooking_pan_monster.en.md`
+- `monsters/04_angry_cooking_pan_monster.ua.md`
+- `monsters/05_mosswick_fey_trickster_monster.en.md`
+- `monsters/05_mosswick_fey_trickster_monster.ua.md`
+- `npc/01_mosswick_fey_trickster.en.md`
+- `npc/01_mosswick_fey_trickster.ua.md`
+- `npc/02_lantern_spirits.en.md`
+- `npc/02_lantern_spirits.ua.md`
 - synced spell book entries required by the character set
+- names registry entries for Blackpine Hollow, Mosswick, and Vesper
 
 `manifest.json` now lists `en` and `ua`.
 
@@ -56,16 +72,16 @@ Current extracted content:
 
 ### 2. Monsters
 
-- extract each stat block into `scenarios/blackpine-hollow/monsters/`
-- preserve encounter references, tactics, traits, actions, and DM notes
-- register any spell or item dependencies
+- complete initial extraction of each current stat block into `scenarios/blackpine-hollow/monsters/`
+- review encounter references, tactics, traits, actions, and DM notes against the PDF
+- register any future spell or item dependencies introduced by edits
 
 ### 3. NPCs
 
-- extract named social/supporting characters into `scenarios/blackpine-hollow/npc/`
-- keep roleplay notes, sample lines, and scene references
-- register invented proper nouns in `names/names-index.json`
-- add Ukrainian declension data when Ukrainian localization is added
+- complete initial extraction of named social/reference characters into `scenarios/blackpine-hollow/npc/`
+- keep roleplay notes, sample lines, and scene references aligned with the PDF
+- maintain invented proper nouns in `names/names-index.json`
+- add more Ukrainian declension data as new localized names appear
 
 ### 4. DM script
 
@@ -95,4 +111,4 @@ Current extracted content:
 
 ## Blockers
 
-- monsters, NPCs, DM script scenes, and supporting content still need to be extracted from the source PDF
+- DM script scenes, maps, items, and any extra support content still need to be extracted from the source PDF

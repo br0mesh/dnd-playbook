@@ -12,5 +12,17 @@
       "instrumental": "Чорнососновою улоговиною",
       "locative": "Чорнососновій улоговині"
     }
+  },
+  {
+    "slug": "mosswick",
+    "type": "npc",
+    "en": "Mosswick",
+    "ua": "Моссвік"
+  },
+  {
+    "slug": "vesper",
+    "type": "npc",
+    "en": "Vesper",
+    "ua": "Веспер"
   }
 ]
