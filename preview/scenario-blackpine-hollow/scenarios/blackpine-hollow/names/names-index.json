@@ -1,1 +1,16 @@
-[]
+[
+  {
+    "slug": "blackpine-hollow",
+    "type": "settlement",
+    "en": "Blackpine Hollow",
+    "ua": "Чорнососнова улоговина",
+    "declension_ua": {
+      "nominative": "Чорнососнова улоговина",
+      "genitive": "Чорнососнової улоговини",
+      "dative": "Чорнососновій улоговині",
+      "accusative": "Чорнососнову улоговину",
+      "instrumental": "Чорнососновою улоговиною",
+      "locative": "Чорнососновій улоговині"
+    }
+  }
+]
