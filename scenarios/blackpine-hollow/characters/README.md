@@ -2,20 +2,13 @@
 
 ## Status
 
-No source character material was found for Blackpine Hollow in the current repository state.
+Character extraction is now in progress from the source PDF at `docs/source/blackpine-hollow.pdf`.
 
-Re-check completed on 2026-07-01:
+Current result:
 
-- searched repo text for `Blackpine Hollow`, `blackpine-hollow`, and `blackpine`
-- searched the Blackpine Hollow scaffold for any character, NPC, pregen, or sheet content
-- checked filename matches for `*blackpine*` / `*Blackpine*`
-- inspected `scenarios/blackpine-hollow/characters/`
-- checked local git history for Blackpine-related files
-
-Result:
-
-- `scenarios/blackpine-hollow/characters/characters-index.json` exists and is empty (`[]`)
-- no player character sheets, pregenerated character files, markdown drafts, or other character source content were found in this repository snapshot
+- `characters-index.json` now includes `01_rowan_ashford_human_fighter`
+- Rowan Ashford has been added in both `.en.md` and `.ua.md`
+- the remaining pregenerated characters still need to be extracted from the PDF
 
 ## Expected file naming and index format
 
@@ -41,14 +34,12 @@ Those index entries must map to:
 - `01_example_human_fighter.en.md`
 - `02_example_elf_wizard.en.md`
 
-## Next steps once source docs are available
+## Next steps
 
-1. Locate and add the real Blackpine Hollow player character source documents.
-2. Extract each player character into `scenarios/blackpine-hollow/characters/NN_descriptive_slug.en.md`.
-3. Preserve source mechanics exactly; do not invent missing character details.
-4. Convert distance notation to the repository style, such as `30 ft/6 tiles`.
-5. Replace any spell references in character spell lists or abilities with spell slugs, and register required spells in the scenario spell book if needed.
-6. Replace any indexed magic item references with item slugs, and register required items in the scenario item index if needed.
-7. Update `characters-index.json` so it lists every converted character slug in order.
-8. Add `.ua.md` counterparts only if real Ukrainian character text is available.
-9. Run `scripts/build-sources.cmd --validate-only`.
+1. Extract each remaining player character into `scenarios/blackpine-hollow/characters/NN_descriptive_slug.en.md`.
+2. Add `.ua.md` counterparts from the bilingual PDF where available.
+3. Preserve source mechanics exactly and convert character distances to the repository style, such as `30 ft/6 tiles`.
+4. Replace any spell references in character spell lists or abilities with spell slugs, and register required spells in the scenario spell book if needed.
+5. Replace any indexed magic item references with item slugs, and register required items in the scenario item index if needed.
+6. Update `characters-index.json` so it lists every converted character slug in order.
+7. Run `scripts/build-sources.cmd --validate-only`.

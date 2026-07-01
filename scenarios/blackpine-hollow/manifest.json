@@ -3,7 +3,8 @@
   "level": "3",
   "partySize": "4-5",
   "language": [
-    "en"
+    "en",
+    "ua"
   ],
   "sections": {
     "dm-script": "dm-script/dm-script-index.json",
