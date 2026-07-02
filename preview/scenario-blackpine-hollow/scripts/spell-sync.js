@@ -47,6 +47,15 @@ function createStubFromSlug(slug, spellDir, needsUa) {
   return { slug: slug, created: created };
 }
 
+function ensureSpellFiles(slug, spellDir, needsUa) {
+  const demoPath = path.join(DEMO_SPELLS, slug + ".en.md");
+  if (fs.existsSync(demoPath)) {
+    copySpellFromDemo(slug, spellDir, needsUa);
+    return { slug: slug };
+  }
+  return createStubFromSlug(slug, spellDir, needsUa);
+}
+
 function syncScenarioSpells(scenarioDir) {
   const spellDir = path.join(scenarioDir, "spells");
   if (!fs.existsSync(spellDir)) fs.mkdirSync(spellDir, { recursive: true });
@@ -64,17 +73,10 @@ function syncScenarioSpells(scenarioDir) {
   });
 
   needed.forEach(function (slug) {
-    if (slugs.includes(slug)) return;
-
-    const demoPath = path.join(DEMO_SPELLS, slug + ".en.md");
-    if (fs.existsSync(demoPath)) {
-      copySpellFromDemo(slug, spellDir, usesUa);
-    } else {
-      const stub = createStubFromSlug(slug, spellDir, usesUa);
-      if (stub.error) {
-        errors.push(stub.error);
-        return;
-      }
+    const spell = ensureSpellFiles(slug, spellDir, usesUa);
+    if (spell.error) {
+      errors.push(spell.error);
+      return;
     }
 
     if (!slugs.includes(slug)) {

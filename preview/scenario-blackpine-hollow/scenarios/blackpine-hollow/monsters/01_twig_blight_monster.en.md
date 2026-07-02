@@ -5,7 +5,7 @@
 ### Encounter Reference
 
 **Default quantity:** 4-6 (see scaling)
-**Wave:** Moonlit creek (Scene 6)
+**Wave:** Moonlit creek (Scene 5), combat begins in Scene 6
 **Challenge Rating CR:** —
 **Stat source:** Homebrew
 
@@ -52,7 +52,7 @@
 
 ### DM Notes
 
-- Scene: `06` — Moonlit Creek fight.
+- Scene anchor: `05_moonlit_creek` leads into `06_small_combat`.
 - **Scaling:** 3 players -> 4 twig blights; 4 players -> 5 twig blights; 5 players -> 6 twig blights.
 - When half the blights are defeated, the rest can flee or collapse into ordinary sticks if pacing feels slow.
 - Use fire weakness only if you want a dramatic beginner-friendly moment.

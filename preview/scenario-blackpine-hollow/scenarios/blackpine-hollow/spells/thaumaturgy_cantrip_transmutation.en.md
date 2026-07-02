@@ -9,7 +9,7 @@
 ### Casting
 
 **Time:** 1 action
-**Range:** 30 ft/6 tiles
+**Range:** 30 ft.
 **Components:** V
 **Duration:** 1 minute
 
