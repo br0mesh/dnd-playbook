@@ -117,7 +117,8 @@
       uiEl.empty.innerHTML = "<strong>No monsters found</strong>";
       return;
     }
-    const idx = Math.min(state.page - 1, list.length - 1);
+    const idx = Math.max(0, Math.min(state.page - 1, list.length - 1));
+    state.page = idx + 1;
     state.slug = list[idx].slug;
     uiEl.empty.hidden = true;
     uiEl.page.hidden = false;
@@ -136,13 +137,19 @@
       const name = (e[state.lang] || e.en || {}).name || e.slug;
       return '<button type="button" class="bookmark-btn" data-slug="' + esc(e.slug) + '">' + esc(name) + "</button>";
     }).join("");
-    nav.addEventListener("click", function (ev) {
-      const btn = ev.target.closest("[data-slug]");
-      if (!btn) return;
-      state.slug = btn.getAttribute("data-slug");
-      const list = filtered();
-      state.page = list.findIndex(function (e) { return e.slug === state.slug; }) + 1;
-      renderPage();
+    nav.querySelectorAll(".bookmark-btn").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        state.slug = btn.getAttribute("data-slug");
+        if (state.search) {
+          state.search = "";
+          const search = document.getElementById("search");
+          if (search) search.value = "";
+        }
+        const list = filtered();
+        const idx = list.findIndex(function (e) { return e.slug === state.slug; });
+        state.page = idx >= 0 ? idx + 1 : 1;
+        renderPage();
+      });
     });
   }
 
@@ -166,6 +173,7 @@
       buildListNav();
       focusMonsterFromUrl();
       renderPage();
+      ui.bindPagination(state, uiEl, renderPage, function () { return filtered().length; });
       document.getElementById("search").addEventListener("input", function (e) {
         state.search = e.target.value;
         state.page = 1;
