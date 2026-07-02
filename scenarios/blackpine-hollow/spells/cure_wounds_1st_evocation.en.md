@@ -1,0 +1,24 @@
+# Cure Wounds
+
+### Header
+
+**Name:** Cure Wounds
+**Level:** 1st
+**School:** Evocation
+
+### Casting
+
+**Time:** 1 action
+**Range:** Touch
+**Components:** V, S
+**Duration:** Instantaneous
+
+### Description
+
+A creature you touch regains hit points equal to 1d8 + your spellcasting ability modifier. This spell has no effect on undead or constructs.
+
+### At Higher Levels
+
+When you cast this spell using a slot of 2nd level or higher, the healing increases by 1d8 for each slot level above 1st.
+
+---

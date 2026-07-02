@@ -1,0 +1,18 @@
+{
+  "title": "Blackpine Hollow",
+  "level": "3",
+  "partySize": "4-5",
+  "language": [
+    "en",
+    "ua"
+  ],
+  "sections": {
+    "dm-script": "dm-script/dm-script-index.json",
+    "characters": "characters/characters-index.json",
+    "monsters": "monsters/monsters-index.json",
+    "npc": "npc/npc-index.json",
+    "spells": "spells/spells-index.json",
+    "items": "items/items-index.json",
+    "maps": "maps/maps-index.json"
+  }
+}

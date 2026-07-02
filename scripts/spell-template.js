@@ -17,9 +17,19 @@ function capitalize(s) {
   return s.charAt(0).toUpperCase() + s.slice(1);
 }
 
+function metaField(meta, key, fallback) {
+  return meta && meta[key] ? meta[key] : fallback;
+}
+
 function renderStubEn(name, meta) {
   const level = LEVEL_LABEL[meta.level] || meta.level;
   const school = capitalize(meta.school);
+  const time = metaField(meta, "timeEn", "TODO");
+  const range = metaField(meta, "rangeEn", "TODO");
+  const components = metaField(meta, "componentsEn", "TODO");
+  const duration = metaField(meta, "durationEn", "TODO");
+  const description = metaField(meta, "descriptionEn", "TODO — add spell description.");
+  const atHigher = metaField(meta, "atHigherEn", "");
   return (
     "# " +
     name +
@@ -29,11 +39,28 @@ function renderStubEn(name, meta) {
     level +
     "\n**School:** " +
     school +
-    "\n\n### Casting\n\n**Time:** TODO\n**Range:** TODO\n**Components:** TODO\n**Duration:** TODO\n\n### Description\n\nTODO — add spell description.\n\n---\n"
+    "\n\n### Casting\n\n**Time:** " +
+    time +
+    "\n**Range:** " +
+    range +
+    "\n**Components:** " +
+    components +
+    "\n**Duration:** " +
+    duration +
+    "\n\n### Description\n\n" +
+    description +
+    (atHigher ? "\n\n### At Higher Levels\n\n" + atHigher : "") +
+    "\n\n---\n"
   );
 }
 
 function renderStubUa(nameUa, meta) {
+  const time = metaField(meta, "timeUa", "TODO");
+  const range = metaField(meta, "rangeUa", "TODO");
+  const components = metaField(meta, "componentsUa", "TODO");
+  const duration = metaField(meta, "durationUa", "TODO");
+  const description = metaField(meta, "descriptionUa", "TODO — додайте опис заклинання.");
+  const atHigher = metaField(meta, "atHigherUa", "");
   return (
     "# " +
     nameUa +
@@ -43,7 +70,18 @@ function renderStubUa(nameUa, meta) {
     meta.levelUa +
     "\n**Школа:** " +
     meta.schoolUa +
-    "\n\n### Накладання\n\n**Час:** TODO\n**Дальність:** TODO\n**Компоненти:** TODO\n**Тривалість:** TODO\n\n### Опис\n\nTODO — додайте опис заклинання.\n\n---\n"
+    "\n\n### Накладання\n\n**Час:** " +
+    time +
+    "\n**Дальність:** " +
+    range +
+    "\n**Компоненти:** " +
+    components +
+    "\n**Тривалість:** " +
+    duration +
+    "\n\n### Опис\n\n" +
+    description +
+    (atHigher ? "\n\n### На вищих рівнях\n\n" + atHigher : "") +
+    "\n\n---\n"
   );
 }
 
