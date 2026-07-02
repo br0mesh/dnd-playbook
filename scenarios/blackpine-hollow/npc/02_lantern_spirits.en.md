@@ -17,13 +17,13 @@
 
 ### Sample Lines
 
-| Line | When | Notes |
-|---|---|---|
-| Slow pulse toward forest trail | Party hesitates at camp | Invitation to follow |
-| Quick flicker, drift back | Player insults the forest | Warning |
-| Five lights in a line | Blue campfire hook | Scene 1 lead into woods |
-| Circle shrine silently | Mosswick confrontation | Witness, no speech |
-| One light dips over fire | Epilogue | Calm return to camp |
+| Line | When |
+|---|---|
+| Slow pulse toward forest trail | Party hesitates at camp - invitation to follow |
+| Quick flicker, drift back | Player insults the forest - warning |
+| Five lights in a line | Blue campfire hook - Scene 1 lead into the woods |
+| Circle shrine silently | Mosswick confrontation - witness only, no speech |
+| One light dips over fire | Epilogue - calm return to camp |
 
 ---
 
@@ -35,6 +35,8 @@
 
 ### DM Notes
 
+- **Scene anchor:** Scene 1 hook through epilogue; 5 non-combat spirits; CR 0; homebrew reference entry.
+- **Stat snapshot:** Tiny fey spirit, neutral good; fly 30 ft.; Languages -.
 - **Appearance:** Small golden lights, size of campfire sparks; drift in lines and circles and never speak clearly.
 - **Slow pulsing:** Calm, safe — the party is on the right path.
 - **Quick flickering:** Warning — danger, a bad choice, or Mosswick's influence nearby.

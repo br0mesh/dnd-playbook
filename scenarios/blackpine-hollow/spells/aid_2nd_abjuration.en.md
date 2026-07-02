@@ -8,13 +8,17 @@
 
 ### Casting
 
-**Time:** TODO
-**Range:** TODO
-**Components:** TODO
-**Duration:** TODO
+**Time:** 1 action
+**Range:** 30 ft.
+**Components:** V, S, M (a tiny strip of white cloth)
+**Duration:** 8 hours
 
 ### Description
 
-TODO — add spell description.
+Choose up to three creatures within range. Each target's hit point maximum and current hit points increase by 5 for the duration.
+
+### At Higher Levels
+
+When you cast this spell using a slot of 3rd level or higher, a target's hit points increase by 5 for each slot level above 2nd.
 
 ---

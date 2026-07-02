@@ -8,13 +8,13 @@
 
 ### Casting
 
-**Time:** TODO
-**Range:** TODO
-**Components:** TODO
-**Duration:** TODO
+**Time:** 1 action
+**Range:** Touch
+**Components:** V, S
+**Duration:** Instantaneous
 
 ### Description
 
-TODO — add spell description.
+You touch a creature and can end either one disease or one condition afflicting it. The condition can be blinded, deafened, paralyzed, or poisoned.
 
 ---
