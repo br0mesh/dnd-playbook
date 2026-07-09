@@ -50,6 +50,10 @@ Spell references in character sheets use semantic slugs — see [docs/spell-clos
 
 Validate before commit: `scripts\build-sources.cmd --validate-only`
 
+### DM Script sessions (optional)
+
+Campaign scenarios may define `dmScriptSessions` in `manifest.json` to group scenes in the DM Script sidebar. Scene slugs still live in `dm-script/dm-script-index.json` as a flat array. See [docs/dm-script-branches.md](../docs/dm-script-branches.md).
+
 ## Checkout a scenario branch
 
 ```powershell

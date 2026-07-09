@@ -46,17 +46,23 @@ Then Tomas's good eye **flicks to your corner** — too long to be accidental. H
 
 **Vex knows:** "Ashmere lot" was your old string's name in Thieves' Cant. You do not know what happened to them after the ledger theft. Nobody has said your real name aloud in months.
 
-**Panic branch (failed Insight)**
+**Ask:** When Tomas's good eye flicks to your corner and the room tightens — what does Vex do?
+
+**Ask (example):** «I stay still and watch his hands.»
+
+<!-- check: insight-12 -->
+
+**On fail:** Short panic beat — chest says *run*; Tomas's hand goes to his belt.
+
+**On success:** You read the pause: frightened, not hunting. You have a beat to act.
+
+**On fail (read-aloud):**
 
 > The name hangs in the air like a noose. Your chest says *run*. The man at the bar is already standing. You do not wait to see whether he pulls steel or paper.
 
-**Flight ending**
+**On success (read-aloud):**
 
-> You leave the Last Lamp at a run where the road turns. Mud grabs at your boots. Behind you, someone shouts **Vex** once — not triumph, something closer to panic — and then the pines swallow it. The contract creases in your fist. Briarford is hours ahead. You already know what name they will get there: **Harry Potter**. Forward feels safer than back.
-
-**Talk outside (success branch, Option 3)**
-
-> "Gods — you *are* alive." Tomas's voice cracks. "I heard they took the whole string except runners. I didn't know if you got clear."
+> You have a beat to act before the room decides what you are.
 
 ### Checks
 
@@ -71,6 +77,8 @@ Then Tomas's good eye **flicks to your corner** — too long to be accidental. H
 
 #### Branch A — Failed Insight (panic)
 
+> The name hangs in the air like a noose. Your chest says *run*. The man at the bar is already standing. You do not wait to see whether he pulls steel or paper.
+
 Vex stands, chair scraping. Tomas's hand goes to his belt — **knife**, not a bounty badge.
 
 **Optional unarmed strike (if Vex attacks first):**
@@ -84,6 +92,8 @@ Vex stands, chair scraping. Tomas's hand goes to his belt — **knife**, not a b
 
 - **Stealth (DC 11)** — slip out the **back through the kitchen** before Tomas reaches the road. Advantage if you dropped something shiny as distraction (**Sleight of Hand DC 10**).
 - **Failure:** Tomas spots you on the road and **does not follow far** — he only wants to talk, but Vex does not know that yet. A thrown dagger (1d4+2) might clip a pack strap; no pursuit past the first bend.
+
+> You leave the Last Lamp at a run where the road turns. Mud grabs at your boots. Behind you, someone shouts **Vex** once — not triumph, something closer to panic — and then the pines swallow it. The contract creases in your fist. Briarford is hours ahead. You already know what name they will get there: **Harry Potter**. Forward feels safer than back.
 
 **Where Vex goes:** **Briarford.** Poster in pocket or pack. The village is work, coin, and a door before anyone learns your real name.
 
@@ -107,6 +117,8 @@ You have a beat to act before the room decides what you are.
 **Option 3 — Follow outside**
 
 No roll to leave — gesture Tomas to the **rain barrel side** of the building.
+
+> "Gods — you *are* alive." Tomas's voice cracks. "I heard they took the whole string except runners. I didn't know if you got clear."
 
 **What Tomas knows (share 1–2 clues):**
 
