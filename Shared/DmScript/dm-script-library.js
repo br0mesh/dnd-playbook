@@ -11,11 +11,9 @@
   const itemLinks = window.DnDCore.itemLinks;
   const esc = shell.esc;
   const loader = window.DnDCore.loader.createLoader();
-  const POLL_MS = 3000;
   const state = { lang: "en", page: 1, navFilter: "all", activeSessionId: null };
   let raws = [];
   let loadConfig = null;
-  let dataFingerprint = "";
   let scenarioSlug = "";
   let dmScriptSessions = [];
   let manifestData = null;
@@ -1283,7 +1281,6 @@
       raws = await loader.loadData(loadConfig, false, function (slug, texts) {
         return { slug: slug, en: texts.en, ua: texts.ua };
       });
-      dataFingerprint = loader.fingerprint(raws);
       buildListNav();
       focusSceneFromUrl();
       try {
@@ -1293,21 +1290,6 @@
         return;
       }
       ui.bindPagination(state, uiEl, renderPage, function () { return raws.length; });
-      if (loadConfig.poll) {
-        setInterval(async function () {
-          try {
-            const refreshed = await loader.loadData(loadConfig, true, function (slug, texts) {
-              return { slug: slug, en: texts.en, ua: texts.ua };
-            });
-            if (loader.fingerprint(refreshed) !== dataFingerprint) {
-              dataFingerprint = loader.fingerprint(refreshed);
-              raws = refreshed;
-              buildListNav();
-              renderPage();
-            }
-          } catch (_e) { /* keep last good data */ }
-        }, POLL_MS);
-      }
       Promise.all([
         spellLinks.loadSpellNameMap(loadConfig.scenario),
         itemLinks.loadItemNameMap(loadConfig.scenario),
