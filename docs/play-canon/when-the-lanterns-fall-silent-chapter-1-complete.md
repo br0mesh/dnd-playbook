@@ -6,7 +6,7 @@
 **Prior play:** [when-the-lanterns-fall-silent-chapter-1.md](./when-the-lanterns-fall-silent-chapter-1.md) · [world-setup-deltas-after-session-1.md](./world-setup-deltas-after-session-1.md)  
 **Related:** [world-setup-deltas-after-chapter-1.md](./world-setup-deltas-after-chapter-1.md)
 
-> Source: DM oral debrief (2026-07-18). Gaps marked **ASK**. Do not invent.
+> Source: DM oral debrief + follow-up answers (2026-07-18).
 
 ---
 
@@ -18,8 +18,9 @@
 | Campaign chapter | **Chapter 1 — complete** |
 | Pacing | Quick; mine + shrine + necromancer in one night |
 | Entry | Village exit → **old mine road** (after S1 LR) |
-| Ending | Shrine main hall after necromancer kill; **dark mist coats** the party (visual, no harm); intent: clear the mist and report to **Mayor Alden** for reward |
-| Next beat | Clear mist coating + return to Briarford for pay — **ASK** if mist clears before/at village |
+| Ending location | **Still in the shrine** (main hall after necromancer kill) |
+| Ending state | Dark mist **coats** the party (need a **cure**); job feels unfinished |
+| Next beat | Find mist cure → (optional) recover roped wolf on the lawn → Briarford / **Alden** reward |
 
 ---
 
@@ -28,49 +29,43 @@
 ### Road / wolves (≈ `14`)
 
 1. Left village exit on the **old mine road**.
-2. Found a **fork**: one way to the **mine**, one to **another village** — party chose the **mine**.
-3. At **dawn**, gathered some **herbs**.
-4. **Ruta** climbed a tree (**Acrobatics** success) and spotted a pack of **blue-eyed wolves**.
-5. **Combat:** most wolves killed; **one** left. Ruta **tamed** it, but control was **temporary** (blue-lantern magic). Party **tied the wolf with rope** and continued to the mine.
+2. Fork: **mine** vs **Kettlebrook** — party chose the **mine** (Kettlebrook unvisited).
+3. At **dawn**, gathered herbs.
+4. **Ruta** climbed a tree (**Acrobatics**) and spotted **blue-eyed wolves**.
+5. Combat: most wolves killed; one temporarily tamed (blue-lantern magic). Party **tied it with rope** on the **lawn** and continued to the mine **without** the wolf.
 
 ### Mine arrival / blast / trap (≈ `16`–`17`)
 
-6. **Collapsed entrance** at the mine.
-7. Found **miners’ tools & explosives** storage; **picklocked** the door; used explosives to **blow the collapsed entrance**.
-8. Chose **not** to rush in (occupants would know they were coming). Set a **trap near the exit**; waited in the tools/explosives store.
-9. Heard a loud **squeaky** noise; checked trap → **one goblin trapped**.
-10. **Negotiated:** free the goblin if he **leads them to the goblin leader**. He agreed.
+6. **Collapsed entrance**; found miners’ **tools & explosives**; **picklocked** store; **blew** the entrance.
+7. Did not rush in. Set a **trap** near the exit; waited in the store.
+8. Trap caught **Goblin A** (guide). Negotiated: free him if he leads to the **leader**. Agreed.
 
 ### Leader chamber / amulet (≈ `18`–`19`)
 
-11. Party (with guide) proceeded to the **main gallery**.
-12. Near the leader: leader **threw a bone into** the guiding goblin.
-13. Talk: leader spoke of a **prophecy**; party asked about **Kira** (huntress) **backpack** — leader named price **100 gp**.
-14. **Harry** used `thaumaturgy_cantrip_transmutation` (loud voice + fire scare). Leader took it as the **prophecy coming true** and ordered **attack**.
-15. Party **killed the leader quickly**; took his **amulet**; other goblins **scattered**.
-16. Party **caught one goblin**, got info: about the **amulet** and a **camp** where goblins are gathered by **some evil force**. Let him go; he **promised to help** when the party comes to that camp.
-17. Found **Kira’s backpack** with a **map to the old shrine** → headed there.
+9. At the main gallery, leader **killed Goblin A** by throwing a **bone** into him.
+10. Talk: **prophecy** (party later understands gist: *when the prophecy comes, evil will rule again*); huntress backpack priced at **100 gp**.
+11. **Harry**’s `thaumaturgy_cantrip_transmutation` scare → leader reads it as prophecy beginning → **attack**.
+12. Leader **killed quickly**; **Harry** takes the **amulet**; goblins **scatter**.
+13. Party catches **Goblin B** (different from A). Intel on amulet + **mountain goblin camp** gathered by an **evil force**. Freed; he heads to that camp and **promises help** if the party comes.
+14. Found huntress (**Mara Kell**) **backpack** with **map to the old shrine** → went there.
 
 ### Shrine surface / descent
 
-18. **Four columns** — must be faced correctly to activate something. After experimenting: **two columns to the east**, **[ASK: “wht” → one? / two?]** **to the west** → **passage unveils underneath**.
-19. Descended. **Dark mist** filled the place. One backpack **glowed blue** — the **magic lantern from the village** (Garrick’s). Someone cast a **familiar**; familiar **held the lantern**; party continued.
+15. **Four columns:** oriented **two east, two west** → passage opens underneath.
+16. Descent: **dark mist** everywhere. Village/Garrick lantern(s) glowed blue while ritual network was active; familiar briefly held a lantern (familiar **gone** by session end).
 
 ### Lab / potions
 
-20. At a fork, entered an **old lab**. One **magic cauldron** still working. **Rune** instructions not understood; other schematics clear enough to brew.
-21. **Lilith** had **3 empty bottles**.
-22. **Brew 1 — wolf blood:** blue glowing substance → **filled Garrick’s lantern**.
-23. **Brew 2 — Elias’s blood:** Elias took damage → **healing potion**.
-24. **Brew 3 — Harry’s “contribution”:** absurd/fun table moment → **slowing potion**.
+17. Old lab; working cauldron; rune text opaque, schematics usable.
+18. Lilith’s 3 bottles: **wolf blood** → blue brew into Garrick lantern; **Elias blood** → healing potion; Harry’s brew → **slowing potion**.
 
 ### Necromancer / ritual interrupt
 
-25. Moved to **main hall**; found a **necromancer**.
-26. Party **talked him down**; he believed they were there to **help**, not stop him. He spoke of **other shrines** and the **ritual**.
-27. **Lilith** tried to close for a sneak strike; initiative chaos (**necromancer rolled init 1**); party **killed him in one turn** → **ritual interrupted**.
-28. Afterward something felt **off**: all the **dark mist** flowed onto the party and **coated** them — **visual only, no harm**.
-29. Party knows they need to **get the coating off** and **report to the mayor** for their reward.
+19. Main hall: **necromancer**. Party convinces him they are helpers. He shows **locations of other shrines** forming a **pentagram**; **this shrine is one edge**.
+20. Lilith tries a sneak strike; necromancer **init 1**; party kills him **in one turn** → **ritual interrupted**.
+21. Party finds **Mara Kell’s body** in the shrine.
+22. Dark mist **coats** the party (visual; they must find a **cure**).
+23. Session ends **still in the shrine**. Intent: cure mist, report to mayor for reward.
 
 ---
 
@@ -78,38 +73,39 @@
 
 | Topic | Authored | Played |
 |-------|----------|--------|
-| Track | Split mine / shrine / ruins | Mine + shrine + **necromancer in shrine hall** same night |
-| Shrine end | Rune map → separate ruins | **Columns puzzle** → under-shrine; **no** separate ruins visit |
-| Necromancer site | Forgotten ruins climax | **Inside shrine** main hall |
-| Amulet stop | Cliffhanger before shrine | Amulet taken; **continued** to shrine via **Kira’s map** |
-| Navigation | Fenwick sketch + Mara notes | Fork + Kira backpack map (no Fenwick) |
-| Lantern | Rechargeable warm mine lantern | **Broken** Garrick lantern later **filled** with wolf-blood blue brew |
-| Prophecy trigger | Optional color | Harry’s **Thaumaturgy** scare → leader calls attack as prophecy |
-| Ritual | Timed climax with villagers | Interrupted by **assassination** after false “helpers” talk |
-| Chapter end hook | Ruins / seal mystery | **Mist coating** + return to Alden for pay |
+| Track | Split mine / shrine / ruins | Mine + shrine + necromancer same night |
+| Shrine end | Rune map → separate ruins | Columns (2E/2W) → under-shrine; necromancer **here** |
+| Necromancer site | Forgotten ruins | Shrine main hall |
+| Multi-shrine map | Later / ruins lore | Necromancer shows **pentagram of shrines** before death |
+| Huntress | Missing / tracks | **Mara Kell body** found in shrine; backpack map used earlier |
+| Fork village | Background (Kettlebrook freight) | Named fork to **Kettlebrook** (unvisited) |
+| Guide goblin | Optional color | Guide **slain by leader**; separate captive becomes mountain-camp ally hook |
+| Lanterns after ritual | — | Held lanterns **no longer blue** once ritual is gone |
+| Chapter end | Ruins hook | Mist **cure** needed; still in shrine |
 
 ---
 
 ## Per-PC quick memories
 
 ### Harry Potter / Vex
-- Thaumaturgy scare backfired into full goblin fight (prophecy reading).
-- Lab: third bottle brew → **slowing potion** (table comedy).
-- Present for necromancer talk → kill.
+- Thaumaturgy scare → goblin fight.
+- Carries the **strange carved amulet**.
+- Lab comedy → slowing potion.
+- Knows prophecy line: *when the prophecy comes, evil will rule again*.
 
 ### Lilith
-- Had **3 empty bottles**; lab brewing lead.
-- Tried sneak attack on necromancer after he trusted them; fight ended in one turn.
+- Lab brewing; tried to assassinate necromancer after gaining his trust.
 
 ### Elias Vale
-- Gave **blood** for healing potion brew (took damage).
+- Blood cost for healing potion.
 
 ### Mordain
-- **ASK:** any standout beats this session? (not named in debrief)
+- Present (no unique beat named in debrief).
 
 ### Ruta (+ ginger tom)
-- Tree climb → spotted wolves; **tamed** one (temporary / blue-lantern magic); wolf **roped** and taken toward mine.
-- **ASK:** wolf status at session end? Ginger tom still present?
+- Spotted/fought wolves; left **roped wolf on the lawn** (recoverable later → joins with cat if saved).
+- Holds **hides** from dead wolves.
+- Ginger tom still with her (joins wolf if rescued).
 
 ---
 
@@ -117,18 +113,34 @@
 
 | Thread | Status |
 |--------|--------|
-| **Dark mist coating** on party | Active visual; need to remove — next problem |
-| **Alden 40 gp unpaid** | Still owed; party intends to report for reward |
-| **Strange carved amulet** | Taken from goblin leader; held — **ASK** who carries / what they know |
-| **Goblin camp + evil force** | Captured goblin promised help if party goes there |
-| **Other shrines** | Necromancer mentioned before death — **ASK** exact words |
-| **Kira / huntress** | Backpack + shrine map found; Kira herself — **ASK** seen / dead / missing |
-| **Road fork → other village** | Not visited — **ASK** name / known? |
-| **Tied wolf** | **ASK** fate |
-| **Healing + slowing potions** | Brewed — **ASK** still held / used |
-| **Filled blue lantern** | Active after wolf-blood brew — **ASK** still held / familiar still carrying? |
-| Fake-lantern return-goods promise (S1) | Untouched this session |
-| What was sealed / full soul-lantern truth | Incomplete; ritual interrupted; mist aftermath |
+| **Mist coating** | Still on party; **must find a cure** |
+| Session pause | **Still in the shrine** |
+| **Alden 40 gp unpaid** | Intent to collect after / with cure path |
+| **Amulet** | **Harry** holds; prophecy: evil will rule again when it comes |
+| **Pentagram of shrines** | This shrine = one edge; other sites shown by necromancer |
+| **Goblin B** | Alive; going to **mountain goblin camp**; promised help |
+| **Goblin A** | Dead (killed by leader) |
+| **Roped wolf** | Still tied on the **lawn**; optional rescue → party animal with cat |
+| **Mara Kell** | **Dead** — body in shrine |
+| **Kettlebrook** | Fork known; not visited |
+| Fake-lantern return-goods (S1) | Still open |
+| What was sealed / mist meaning | Open — cure + part 2 |
+
+---
+
+## Party inventory (session end)
+
+| Item | Status |
+|------|--------|
+| Strange carved amulet | **Harry** |
+| Lanterns | **Two** held; **not blue anymore** (ritual gone) |
+| Healing potion | **1** |
+| Slowing potion | **1** |
+| Wolf hides | **Ruta** |
+| Familiar | **Gone** |
+| Mara backpack / shrine map | Used (map); pack fate incidental |
+| Diaries / volunteer list (S1) | Not contradicted — still assumed held |
+| Roped wolf | **Not** in inventory — on lawn |
 
 ---
 
@@ -136,24 +148,10 @@
 
 | Non-event | Confirmed |
 |-----------|-----------|
-| Did **not** take the fork to the other village | Yes |
-| Did **not** pay 100 gp for Kira’s pack (found after fight) | Yes |
-| Did **not** finish / complete the necromancer’s ritual | Yes — interrupted by killing him |
-| Did **not** visit a separate “ruins” site this session | Yes — climax was under/in shrine |
-| Named PC deaths | None reported |
-| Guild of Magic involvement | Not this session |
-
----
-
-## ASK DM (blocking continuity)
-
-1. **Columns:** “two east, **wht** west” — one west or two west? What about the fourth column?
-2. **Tied wolf** and **ginger tom** — with party at end, released, dead, or left behind?
-3. **Amulet** — who holds it; any properties noticed; prophecy wording they heard?
-4. **Necromancer’s spiel** — what exactly about *other shrines* and the *ritual*? Name?
-5. **Mist coating** — still on them now; any mechanical effect you want later; how can it come off?
-6. **Kira** = Mara Kell? Body / fate?
-7. **Other village** at the fork — name (Kettlebrook?) or unknown?
-8. **Guide goblin** vs **post-fight captive** — same goblin or two different? Any names?
-9. Session end location: still at shrine, or already traveling back toward Briarford?
-10. Potions / filled lantern / familiar — current inventory state?
+| Did not visit **Kettlebrook** | Yes |
+| Did not pay 100 gp for huntress pack | Yes |
+| Did not complete the ritual | Yes — interrupted |
+| Did not visit separate ruins site | Yes |
+| Did not bring roped wolf into mine/shrine | Yes — left on lawn |
+| Named PC deaths | None |
+| Guild of Magic | Not this session |

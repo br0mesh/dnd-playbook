@@ -39,25 +39,28 @@ Treat this file as a **historical planning scratchpad**.
 
 ---
 
-## Open questions (partially answered — see play-canon ASK)
+## Open questions (answered — see play-canon)
 
-- [x] Mine outcomes — blast, trap, guide goblin, leader dead, amulet taken, Kira pack map
-- [x] Shrine — columns, undercroft, lab potions, necromancer killed, mist coating
-- [ ] Remaining ASK list in play-canon (columns detail, wolf fate, mist mechanics, Kira identity, etc.)
-- [x] Chapter 2 open — **not** ruins first: clear mist + Briarford / Alden reward
+- [x] Mine / shrine / necromancer outcomes recorded
+- [x] Columns 2 east / 2 west; Mara body in shrine; Kettlebrook fork
+- [x] Two goblins (guide dead; camp ally alive); Harry has amulet
+- [x] Mist needs **cure**; session pause **in shrine**
+- [x] Inventory: 2 lanterns (not blue), heal + slow potions, wolf hides; familiar gone
+- [x] Roped wolf still on lawn (optional rescue)
 
 ---
 
 ## Idea scratchpad (next sessions)
 
-- Mist coating: how to remove; is it soul-residue / seal backlash / lantern network?
-- Alden payoff (40 gp) + what the party reports vs what they hide
-- Goblin camp ally promise + “evil force” gathering goblins
-- Necromancer’s “other shrines” → campaign part 2 geography
-- Amulet fate; guild later
-- Road fork other village still unexplored
+- Mist **cure** quest (where / who / cost?)
+- Optional wolf rescue on the lawn → companion with ginger tom
+- Alden 40 gp payoff + what they report
+- Mountain goblin camp + Goblin B ally + “evil force”
+- **Pentagram of shrines** — other four edges for campaign part 2
+- Amulet prophecy: *when it comes, evil will rule again*
+- Kettlebrook still unvisited
 
-**More ideas:** `TODO` after ASK answers
+**More ideas:** `TODO` when planning the cure beat
 
 ---
 
