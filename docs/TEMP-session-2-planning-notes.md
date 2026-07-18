@@ -17,6 +17,7 @@
 | Authored separate ruins site | **Not used** this chapter; necromancer faced under shrine |
 
 Live memory: [play-canon/when-the-lanterns-fall-silent-chapter-1-complete.md](./play-canon/when-the-lanterns-fall-silent-chapter-1-complete.md).  
+Next planning: [TEMP-chapter-2-planning-notes.md](./TEMP-chapter-2-planning-notes.md).  
 Treat this file as a **historical planning scratchpad**.
 
 ---

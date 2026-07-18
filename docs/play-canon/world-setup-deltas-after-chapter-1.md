@@ -69,8 +69,9 @@
 
 ### Docs
 - [x] Fill Chapter 1–complete play-canon + this delta from debrief/answers
-- [ ] TEMP-campaign **“After Chapter 1 (play)”** supersession block (pentagram shrines; Mara dead in shrine; mist cure; no separate ruins visit)
-- [ ] Keep TEMP S2 notes marked played / compressed / extended
+- [x] TEMP-campaign **“After Chapter 1 (play)”** supersession block (pointer + table; lore not silently rewritten)
+- [x] TEMP S2 notes marked played / compressed / extended
+- [x] Chapter 2 planning seed: `docs/TEMP-chapter-2-planning-notes.md`
 
 ### Scenario (later — not this pass)
 - [ ] Reconcile `wip/session-2-draft` with trap/wait, two goblins, Thaumaturgy prophecy trigger
