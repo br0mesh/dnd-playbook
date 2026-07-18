@@ -1,12 +1,12 @@
-# Play canon — Chapter 1 complete (table Session covering planned S2 + S3)
+# Play canon — Chapter 1 complete (table Session covering planned S2 + S3+)
 
 **Scenario:** `when-the-lanterns-fall-silent`  
-**Authored plan covered:** Session 2 (forest + coal mine) **and** Session 3 (forgotten shrine) — **compressed in one table night**  
-**Chapter status:** **Campaign Chapter 1 finished at the table** (village → mine → shrine → rune map / ruins hook)  
-**Prior play:** [when-the-lanterns-fall-silent-chapter-1.md](./when-the-lanterns-fall-silent-chapter-1.md) (village Session 1) · [world-setup-deltas-after-session-1.md](./world-setup-deltas-after-session-1.md)  
-**Related:** [world-setup-deltas-after-chapter-1.md](./world-setup-deltas-after-chapter-1.md), [TEMP-session-2-planning-notes.md](../TEMP-session-2-planning-notes.md)
+**Authored plan covered:** Session 2 (forest + coal mine) **and** Session 3 (forgotten shrine) — **plus necromancer confrontation inside the shrine** (authored ruins climax, relocated by play)  
+**Chapter status:** **Campaign Chapter 1 finished at the table**  
+**Prior play:** [when-the-lanterns-fall-silent-chapter-1.md](./when-the-lanterns-fall-silent-chapter-1.md) · [world-setup-deltas-after-session-1.md](./world-setup-deltas-after-session-1.md)  
+**Related:** [world-setup-deltas-after-chapter-1.md](./world-setup-deltas-after-chapter-1.md)
 
-> **Rule:** Do not invent table outcomes. Confirmed meta only below; scene outcomes stay `TODO` until notes are pasted.
+> Source: DM oral debrief (2026-07-18). Gaps marked **ASK**. Do not invent.
 
 ---
 
@@ -14,111 +14,146 @@
 
 | Field | Value |
 |-------|--------|
-| Table session label | Session after Briarford village night (planned S2 + S3) |
+| Table session | Post–Briarford village (planned S2 + S3 compressed; ritual fight included) |
 | Campaign chapter | **Chapter 1 — complete** |
-| Pacing note | Quick-paced; covered mine **and** shrine in one session (authored 4-track compressed) |
-| Play date | `TODO` |
-| Locale at table | `TODO` |
-| Players / PCs present | `TODO` (default party: Harry/Vex, Lilith, Elias, Mordain, Ruta) |
-| Entry state (from S1 play) | After LR at village exit / forest edge on **old mine road**; Mara tracks → mines; **no** Fenwick sketch; Silas + Mara diaries; **broken** lantern; 40 gp Alden deal unpaid; blue light unanswered |
-| Ending location (authored shrine end) | Rune map → necromancer ruins (Chapter 1 climax hook / Chapter 2 door) |
-| Ending location (actual) | `TODO` |
-| Next campaign beat | Forgotten ruins / ritual (authored Session 3/4) — **Chapter 2** |
+| Pacing | Quick; mine + shrine + necromancer in one night |
+| Entry | Village exit → **old mine road** (after S1 LR) |
+| Ending | Shrine main hall after necromancer kill; **dark mist coats** the party (visual, no harm); intent: clear the mist and report to **Mayor Alden** for reward |
+| Next beat | Clear mist coating + return to Briarford for pay — **ASK** if mist clears before/at village |
 
 ---
 
 ## Scene-by-scene — what happened
 
-Authored slugs from `wip/session-2-draft` + TEMP shrine block. Fill from notes.
+### Road / wolves (≈ `14`)
 
-### Planned Session 2 (mine track)
+1. Left village exit on the **old mine road**.
+2. Found a **fork**: one way to the **mine**, one to **another village** — party chose the **mine**.
+3. At **dawn**, gathered some **herbs**.
+4. **Ruta** climbed a tree (**Acrobatics** success) and spotted a pack of **blue-eyed wolves**.
+5. **Combat:** most wolves killed; **one** left. Ruta **tamed** it, but control was **temporary** (blue-lantern magic). Party **tied the wolf with rope** and continued to the mine.
 
-| Slug / beat | Authored | What happened | Canon vs script |
-|-------------|----------|---------------|-----------------|
-| `13_session_2_framing` | Trail travel after blue light | `TODO` | `TODO` |
-| `14_collapsed_coal_road` | Disused road; herbs; ash-eyed wolves | `TODO` | `TODO` |
-| `16_coal_mine_arrival` | Blockade; volunteers; cabin; blast | `TODO` | `TODO` |
-| `17_mine_crawl` | Beginner crawl; miners | `TODO` | `TODO` |
-| `18_goblin_leader_chamber` | Doom-speaker boss | `TODO` | `TODO` |
-| `19_mine_amulet_closing` | Amulet cold-pull cliffhanger | `TODO` — ran as mid-session beat if shrine continued? | `TODO` |
+### Mine arrival / blast / trap (≈ `16`–`17`)
 
-### Planned Session 3 (shrine track)
+6. **Collapsed entrance** at the mine.
+7. Found **miners’ tools & explosives** storage; **picklocked** the door; used explosives to **blow the collapsed entrance**.
+8. Chose **not** to rush in (occupants would know they were coming). Set a **trap near the exit**; waited in the tools/explosives store.
+9. Heard a loud **squeaky** noise; checked trap → **one goblin trapped**.
+10. **Negotiated:** free the goblin if he **leads them to the goblin leader**. He agreed.
 
-| Beat | Authored | What happened | Canon vs script |
-|------|----------|---------------|-----------------|
-| Travel to forgotten shrine | From amulet pull / herbalist notes | `TODO` | `TODO` |
-| Herb gathering | Magical herbs / poison treat | `TODO` | `TODO` |
-| Shrine riddle | Puzzle solved? | `TODO` | `TODO` |
-| Rune map reveal | Map to necromancer ruins | `TODO` | `TODO` |
-| Closing image | Lantern-without-flame mark | `TODO` | `TODO` |
+### Leader chamber / amulet (≈ `18`–`19`)
 
-**Scenes skipped / merged / out of order:** `TODO`  
-**Combat difficulty / PC downs:** `TODO`
+11. Party (with guide) proceeded to the **main gallery**.
+12. Near the leader: leader **threw a bone into** the guiding goblin.
+13. Talk: leader spoke of a **prophecy**; party asked about **Kira** (huntress) **backpack** — leader named price **100 gp**.
+14. **Harry** used `thaumaturgy_cantrip_transmutation` (loud voice + fire scare). Leader took it as the **prophecy coming true** and ordered **attack**.
+15. Party **killed the leader quickly**; took his **amulet**; other goblins **scattered**.
+16. Party **caught one goblin**, got info: about the **amulet** and a **camp** where goblins are gathered by **some evil force**. Let him go; he **promised to help** when the party comes to that camp.
+17. Found **Kira’s backpack** with a **map to the old shrine** → headed there.
+
+### Shrine surface / descent
+
+18. **Four columns** — must be faced correctly to activate something. After experimenting: **two columns to the east**, **[ASK: “wht” → one? / two?]** **to the west** → **passage unveils underneath**.
+19. Descended. **Dark mist** filled the place. One backpack **glowed blue** — the **magic lantern from the village** (Garrick’s). Someone cast a **familiar**; familiar **held the lantern**; party continued.
+
+### Lab / potions
+
+20. At a fork, entered an **old lab**. One **magic cauldron** still working. **Rune** instructions not understood; other schematics clear enough to brew.
+21. **Lilith** had **3 empty bottles**.
+22. **Brew 1 — wolf blood:** blue glowing substance → **filled Garrick’s lantern**.
+23. **Brew 2 — Elias’s blood:** Elias took damage → **healing potion**.
+24. **Brew 3 — Harry’s “contribution”:** absurd/fun table moment → **slowing potion**.
+
+### Necromancer / ritual interrupt
+
+25. Moved to **main hall**; found a **necromancer**.
+26. Party **talked him down**; he believed they were there to **help**, not stop him. He spoke of **other shrines** and the **ritual**.
+27. **Lilith** tried to close for a sneak strike; initiative chaos (**necromancer rolled init 1**); party **killed him in one turn** → **ritual interrupted**.
+28. Afterward something felt **off**: all the **dark mist** flowed onto the party and **coated** them — **visual only, no harm**.
+29. Party knows they need to **get the coating off** and **report to the mayor** for their reward.
 
 ---
 
 ## Canon deltas vs authored script
 
-| Topic | Authored | Played | Action |
-|-------|----------|--------|--------|
-| Track split | Default: mine one night, shrine next | **Combined** in one quick session | Mark 4-track compressed as **actual** |
-| Fenwick sketch | Expected compass | **Absent** (S1 play) | Roadfinding used Mara tracks / diaries / improvisation — `TODO` detail |
-| Mine lantern | Rechargeable warm light | **Broken** lantern from Garrick | Keep broken; do not assume authored light |
-| Partial pay | 5 gp each | **0 gp**; 40 gp deal unpaid | Alden debt still open unless paid this session — `TODO` |
-| Amulet stop | 5-track ends at amulet | Table continued to shrine | Amulet still found? `TODO` |
-| Bound souls / necromancer ID | Hidden through Chapter 1 | `TODO` what players learned | |
-
-**Additional deltas:** `TODO`
+| Topic | Authored | Played |
+|-------|----------|--------|
+| Track | Split mine / shrine / ruins | Mine + shrine + **necromancer in shrine hall** same night |
+| Shrine end | Rune map → separate ruins | **Columns puzzle** → under-shrine; **no** separate ruins visit |
+| Necromancer site | Forgotten ruins climax | **Inside shrine** main hall |
+| Amulet stop | Cliffhanger before shrine | Amulet taken; **continued** to shrine via **Kira’s map** |
+| Navigation | Fenwick sketch + Mara notes | Fork + Kira backpack map (no Fenwick) |
+| Lantern | Rechargeable warm mine lantern | **Broken** Garrick lantern later **filled** with wolf-blood blue brew |
+| Prophecy trigger | Optional color | Harry’s **Thaumaturgy** scare → leader calls attack as prophecy |
+| Ritual | Timed climax with villagers | Interrupted by **assassination** after false “helpers” talk |
+| Chapter end hook | Ruins / seal mystery | **Mist coating** + return to Alden for pay |
 
 ---
 
-## Per-PC quick memories (this table night)
+## Per-PC quick memories
 
 ### Harry Potter / Vex
-- `TODO`
+- Thaumaturgy scare backfired into full goblin fight (prophecy reading).
+- Lab: third bottle brew → **slowing potion** (table comedy).
+- Present for necromancer talk → kill.
 
 ### Lilith
-- `TODO`
+- Had **3 empty bottles**; lab brewing lead.
+- Tried sneak attack on necromancer after he trusted them; fight ended in one turn.
 
 ### Elias Vale
-- `TODO`
+- Gave **blood** for healing potion brew (took damage).
 
 ### Mordain
-- `TODO`
+- **ASK:** any standout beats this session? (not named in debrief)
 
 ### Ruta (+ ginger tom)
-- `TODO`
+- Tree climb → spotted wolves; **tamed** one (temporary / blue-lantern magic); wolf **roped** and taken toward mine.
+- **ASK:** wolf status at session end? Ginger tom still present?
 
 ---
 
-## Open threads for Chapter 2 (ruins / campaign part 2)
+## Open threads (post–Chapter 1)
 
-| Thread | Expected after shrine | Status after this session |
-|--------|----------------------|---------------------------|
-| Strange carved amulet | In party; guild interest later | `TODO` |
-| Shrine rune map → ruins | Party can navigate to ruins | `TODO` |
-| Missing villagers / volunteers / Mara / Silas | Leads into ruins ritual | `TODO` each |
-| Goblin prophecy fragments | Dead light / dead king | `TODO` |
-| Alden 40 gp unpaid | Village return or ignore | `TODO` |
-| Fake-lantern trio return-goods promise | Village beat | `TODO` |
-| What was sealed? | Campaign part 2 | Still open unless revealed — `TODO` |
+| Thread | Status |
+|--------|--------|
+| **Dark mist coating** on party | Active visual; need to remove — next problem |
+| **Alden 40 gp unpaid** | Still owed; party intends to report for reward |
+| **Strange carved amulet** | Taken from goblin leader; held — **ASK** who carries / what they know |
+| **Goblin camp + evil force** | Captured goblin promised help if party goes there |
+| **Other shrines** | Necromancer mentioned before death — **ASK** exact words |
+| **Kira / huntress** | Backpack + shrine map found; Kira herself — **ASK** seen / dead / missing |
+| **Road fork → other village** | Not visited — **ASK** name / known? |
+| **Tied wolf** | **ASK** fate |
+| **Healing + slowing potions** | Brewed — **ASK** still held / used |
+| **Filled blue lantern** | Active after wolf-blood brew — **ASK** still held / familiar still carrying? |
+| Fake-lantern return-goods promise (S1) | Untouched this session |
+| What was sealed / full soul-lantern truth | Incomplete; ritual interrupted; mist aftermath |
 
 ---
 
 ## Explicit non-events
 
-| Non-event | Confirmed? |
-|-----------|------------|
-| Party did **not** enter necromancer ruins yet | `TODO` (expected yes if Chapter 1 ended at shrine map) |
-| Ritual climax **not** resolved | `TODO` |
-| Guild of Magic **not** seized amulet | `TODO` |
-| Bound-souls full explanation **not** given | `TODO` |
-| Named PC deaths | `TODO` |
+| Non-event | Confirmed |
+|-----------|-----------|
+| Did **not** take the fork to the other village | Yes |
+| Did **not** pay 100 gp for Kira’s pack (found after fight) | Yes |
+| Did **not** finish / complete the necromancer’s ritual | Yes — interrupted by killing him |
+| Did **not** visit a separate “ruins” site this session | Yes — climax was under/in shrine |
+| Named PC deaths | None reported |
+| Guild of Magic involvement | Not this session |
 
 ---
 
-## Notes intake
+## ASK DM (blocking continuity)
 
-```
-TODO: paste raw notes for the Session 2+3 table night
-```
+1. **Columns:** “two east, **wht** west” — one west or two west? What about the fourth column?
+2. **Tied wolf** and **ginger tom** — with party at end, released, dead, or left behind?
+3. **Amulet** — who holds it; any properties noticed; prophecy wording they heard?
+4. **Necromancer’s spiel** — what exactly about *other shrines* and the *ritual*? Name?
+5. **Mist coating** — still on them now; any mechanical effect you want later; how can it come off?
+6. **Kira** = Mara Kell? Body / fate?
+7. **Other village** at the fork — name (Kettlebrook?) or unknown?
+8. **Guide goblin** vs **post-fight captive** — same goblin or two different? Any names?
+9. Session end location: still at shrine, or already traveling back toward Briarford?
+10. Potions / filled lantern / familiar — current inventory state?

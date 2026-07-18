@@ -11,11 +11,13 @@
 
 | Plan | Actual |
 |------|--------|
-| Default 5-track: mine one night, shrine next | **Compressed:** one quick table session covered **Session 2 + Session 3** plans |
-| Chapter 1 still open after mine cliffhanger | **Chapter 1 finished** at the table |
-| Next authoring: finish mine scenes | Next **planning:** Chapter 2 ruins / ritual — after notes |
+| Default 5-track: mine one night, shrine next | **Compressed + extended:** one night covered mine + shrine + **necromancer in shrine** |
+| Chapter 1 ends at shrine rune map → ruins | **Chapter 1 finished** with ritual interrupted; **mist coats** party |
+| Next: ruins / ritual climax | **Superseded** — next table beat is **clear mist + report to Alden** |
+| Authored separate ruins site | **Not used** this chapter; necromancer faced under shrine |
 
-Treat this file as a **historical planning scratchpad**, not the live run order.
+Live memory: [play-canon/when-the-lanterns-fall-silent-chapter-1-complete.md](./play-canon/when-the-lanterns-fall-silent-chapter-1-complete.md).  
+Treat this file as a **historical planning scratchpad**.
 
 ---
 
@@ -37,22 +39,25 @@ Treat this file as a **historical planning scratchpad**, not the live run order.
 
 ---
 
-## Open questions (need S2/S3 notes)
+## Open questions (partially answered — see play-canon ASK)
 
-- [ ] Mine outcomes: blockade, volunteers, miners, doom-speaker, amulet
-- [ ] Shrine outcomes: herbs, riddle, rune map, stop image
-- [ ] What the party believes vs DM truth
-- [ ] Chapter 2 open: straight to ruins, or Briarford return first?
+- [x] Mine outcomes — blast, trap, guide goblin, leader dead, amulet taken, Kira pack map
+- [x] Shrine — columns, undercroft, lab potions, necromancer killed, mist coating
+- [ ] Remaining ASK list in play-canon (columns detail, wolf fate, mist mechanics, Kira identity, etc.)
+- [x] Chapter 2 open — **not** ruins first: clear mist + Briarford / Alden reward
 
 ---
 
-## Idea scratchpad (Chapter 2 — ruins)
+## Idea scratchpad (next sessions)
 
-- Magical darkness; path riddle; library lore; timed ritual
-- Two valid climax vibes (fight necromancer vs watch seal burn) — see TEMP-campaign
-- Amulet / guild / “what was sealed?” → campaign part 2
+- Mist coating: how to remove; is it soul-residue / seal backlash / lantern network?
+- Alden payoff (40 gp) + what the party reports vs what they hide
+- Goblin camp ally promise + “evil force” gathering goblins
+- Necromancer’s “other shrines” → campaign part 2 geography
+- Amulet fate; guild later
+- Road fork other village still unexplored
 
-**More ideas from Session 2+3 notes:** `TODO`
+**More ideas:** `TODO` after ASK answers
 
 ---
 
