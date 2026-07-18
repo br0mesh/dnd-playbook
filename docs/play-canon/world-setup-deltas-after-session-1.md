@@ -13,17 +13,17 @@
 
 | Entity | Authored Session 1 end-state | Played end-state | Follow-up edit? |
 |--------|------------------------------|------------------|-----------------|
-| Briarford overall | Still afraid; hirelings heading forest | `TODO` | |
-| Mayor Alden | Briefed party; partial pay; forest push | `TODO` | NPC contingencies / attitude |
-| The Hearth & Horn | Overnight lodging default | `TODO` | |
-| Margaret Coyle / Widow Coyle | Affected-homes thread | `TODO` | |
-| Fake-lantern operator (`08`) | Exposed or not | `TODO` | |
-| Silas / herbalist house | Diary found or not | `TODO` | |
-| Mill / rats / ginger tom | Optional clear | `TODO` | |
-| Mara Kell | Tracks only unless notes say more | `TODO` | Alive / missing / unknown |
-| Volunteers (Jonas Reed, Sera Marsh, Pell Linden — authored initials) | Missing; trail toward forest/mine | `TODO` | Names registry already has S2 drafts on `wip/session-2-draft` |
+| Briarford overall | Still afraid; hirelings heading forest | Investigation advanced: fake-lantern marauder exposed; herbalist diary found; mayor pressed on story gaps and pay raised; mill rats (blue eyes) cleared; overnight long rest at village exit / forest edge on old mine road | |
+| Mayor Alden | Briefed party; partial pay; forest push | Party pressed story gaps; Alden defensive (nearly called guards); Harry threatened exposure of his lie to the city → Alden backed down and doubled pay deal to 40 gp (was 20; **no coin handed over yet**). Claimed huntress + herbalist missing, probably north forest/mine. Agreed party continue investigation incl. mill | Yes — contingencies / attitude (threatened, pay deal doubled, unpaid) |
+| The Hearth & Horn | Overnight lodging default | Skipped entirely; long rest at village exit / forest edge on old mine road instead | |
+| Margaret Coyle / Widow Coyle | Affected-homes thread | Never met / not discovered; party found a weird lantern with different lights, then the marauder (fake-lantern robber) — Coyle thread unused | Optional — leave as unused village lead |
+| Fake-lantern operator (`08`) | Exposed or not | Exposed: caught entering an affected house (Bram, Henk, Tessa — table forgot names / “maradeurus”). Party let them go for information + promise to return stolen goods | Yes — free but known; return-goods promise |
+| Silas / herbalist house | Diary found or not | Silas clearly missing. Road talk: random villager cleaning horse house (prev hirelings). Party took diary — mostly potion prep for sick villagers (little light lore); later on mine road combined mushrooms + herbs → healing potion (1d4−1), used once | Optional — Silas missing; diary in party (weak clue / potion notes) |
+| Mill / rats / ginger tom | Optional clear | Cleared: blue-eyed rats killed. Garrick Moss gave Mara diary + **broken** lantern (keep broken; not authored rechargeable mine lantern). Ginger tom present; continues with Ruta (+1 melee damage) | Yes — mill cleared; lantern broken variant |
+| Mara Kell | Tracks only unless notes say more | Missing (not met). Tracks lead to the mines. Party holds her diary (investigation notes; nothing specific recalled beyond that) | Missing → mines; diary in party |
+| Volunteers (Jonas Reed, Sera Marsh, Pell Linden — authored initials) | Missing; trail toward forest/mine | Prev hireling group mentioned (road villager at herbalist); missing / forest–mine implied. **Not confirmed at table:** three names/initials learned, or physical evidence | Confirm names later if needed |
 
-**Other NPC deltas:** `TODO`
+**Other NPC deltas:** None additional confirmed from notes (Garrick covered under mill; fake-lantern trio under `08`).
 
 ---
 
@@ -31,14 +31,14 @@
 
 | Asset | Authored source | In party inventory / notes? | Mechanical note |
 |-------|-----------------|----------------------------|-----------------|
-| Contract / job understanding | `00` / `06` | `TODO` | |
-| Fenwick’s sketch | `11` | `TODO` | Margin Silas X / mine? |
-| Silas diary excerpt | `09` | `TODO` | “Source not in village” |
-| Volunteer name list / initials | `06`–`07` | `TODO` | |
-| Mara track knowledge | `10` | `TODO` | |
-| Old mine lantern | `10` | `TODO` | `light_cantrip_evocation` warm vs forest blue |
-| Coin (partial pay) | `11` | `TODO` | |
-| Other loot / gifts | — | `TODO` | |
+| Contract / job understanding | `00` / `06` | Yes — verbal only with Alden; job still fuzzy. Deal: 40 gp (was 20), unpaid; investigate missing huntress/herbalist toward north forest/mine | Verbal deal, no written contract |
+| Fenwick’s sketch | `11` | No | Not obtained |
+| Silas diary excerpt | `09` | Yes — in party. Mostly potion prep for sick villagers; little/no “source not in village” light lore recalled. Used once on mine road (mushrooms + herbs → 1d4−1 heal) | Weak clue; potion notes |
+| Volunteer name list / initials | `06`–`07` | Yes — party has a name list; they do not treat it as important | Held but low priority to PCs |
+| Mara track knowledge | `10` | Yes — tracks lead to the mines (from mill) | Known; points to mines |
+| Old mine lantern | `10` | Yes — **broken** lantern from Garrick (not authored rechargeable warm/`light` mine lantern) | Broken variant; keep as-is |
+| Coin (partial pay) | `11` | No — 0 gp received; 40 gp deal only (unpaid) | Debt/promise, not inventory |
+| Other loot / gifts | — | No extras confirmed beyond: Silas diary, Mara diary, broken lantern, volunteer name list, ginger tom (Ruta) | |
 
 ---
 
@@ -46,9 +46,9 @@
 
 | Beat | Default (authored) | Actual |
 |------|--------------------|--------|
-| Session 1 clock end | Predawn / early morning at forest edge | `TODO` |
-| Rest taken? | Yes at Hearth & Horn before forest (typical) | `TODO` |
-| Session 2 open | On old forest trail; blue light still unanswered | `TODO` confirm |
+| Session 1 clock end | Predawn / early morning at forest edge | Evening at village exit / forest edge on old mine road; long rest begun (Session 2 after rest) |
+| Rest taken? | Yes at Hearth & Horn before forest (typical) | Yes — long rest at village exit / forest edge on old mine road (not Hearth & Horn) |
+| Session 2 open | On old forest trail; blue light still unanswered | After LR: old mine–forest road at village exit; **blue light still unanswered** (assumed default open hook) |
 | Session 2 intended arc (planning) | Trail → collapsed coal road → mine crawl → amulet cliffhanger (5-track) | Ideas only — see TEMP planning notes |
 | Shrine / ruins | Session 3 on 5-track | Do not author full scenes in this pass |
 
@@ -94,6 +94,9 @@ Do **not** implement Session 2 scenes here. Parked drafts live on branch `wip/se
 
 ## Ask DM (blockers)
 
-1. Paste raw Session 1 notes (or confirm “scaffold TODOs only” is enough for now).
-2. Confirm Session 2 entry: still forest-edge blue light?
-3. Confirm which of: Fenwick sketch, diary, mill lantern, Mara tracks, partial pay — the party actually has.
+1. Paste raw Session 1 notes (or confirm “scaffold TODOs only” is enough for now).  
+   → **Delta doc from this pass is enough for now** (no raw notes pasted).
+2. Confirm Session 2 entry: still forest-edge blue light?  
+   → **Assumed yes** (default open hook; not re-confirmed explicitly — change if wrong).
+3. Confirm which of: Fenwick sketch, diary, mill lantern, Mara tracks, partial pay — the party actually has.  
+   → **Fenwick sketch:** no · **Silas diary:** yes (weak) · **Mara diary:** yes · **Mill lantern:** yes (broken) · **Mara tracks:** yes → mines · **Partial pay:** no (40 gp deal unpaid) · **Volunteer name list:** yes (low priority)
