@@ -7,6 +7,7 @@ Adventure content lives on long-lived branches. The `main` branch holds platform
 | test-adventure | (on `main`) | Yes | Minimal acceptance scenario — one file per section |
 | wild-sheep-chase | `scenario/wild-sheep-chase` | PDF only | Comedy one-shot, levels 4–5 (Winghorn Press) |
 | blackpine-hollow | `scenario/blackpine-hollow` | PDF only | Camping one-shot, level 3 (homebrew) |
+| campaign-2 | `scenario/campaign-2` | Yes | Homebrew campaign (temporary title) |
 
 ## Preview (HTML)
 
