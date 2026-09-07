@@ -111,11 +111,11 @@ One image per row unless you say “skip” or “merge.” Slugs are for filena
 
 - [x] **Q1. Act 1 scope:** Intros + village + forest + mine + goblins + shrine + necromancer fight.
 - [x] **Q2. Solo intros:** All five ran (Vex, Lilith, Elias, Mordain, Ruta). **Visuals requested** for each intro beat.
+- [x] **Q3. Village scenes:** All ran (`00`–`12`, including mill rats). **Visuals requested** for village beats.
 
 ### B. Village & intros (table recap)
 
-- [ ] **Q2.** Which **solo intros** ran? All five or subset?
-- [ ] **Q3.** Which **village scenes** ran? Skipped mill? Fake lantern?
+- [ ] **Q4.** **Investigation order** after mayor's hall?
 - [ ] **Q4.** **Investigation order** after mayor’s hall?
 - [ ] **Q5.** **Standout village moments** worth illustrating?
 - [ ] **Q6.** **PC roster:** Vex/Harry Potter, Lilith, Elias, Mordain, Ruta — all present?
@@ -205,14 +205,14 @@ One image per row unless you say “skip” or “merge.” Slugs are for filena
 
 | Beat | Ran | Notes |
 |------|-----|-------|
-| Framing | | |
-| Mayor's hall | | |
-| Affected homes | | |
-| Fake lantern | | |
-| Herbalist / diary | | |
-| Mill rats | | |
-| Mayor follow-up | | |
-| Forest edge | | |
+| Framing | Yes | |
+| Mayor's hall | Yes | |
+| Affected homes | Yes | |
+| Fake lantern | Yes | |
+| Herbalist / diary | Yes | |
+| Mill rats | Yes | **Table moment:** Nervous fight — Mordain (paladin) held off rat attacks; near the end the rat swarm scored a **crit from behind** (ass side), left Mordain at **1 HP**. Strong candidate for `10_mill_rat_problem` visual. |
+| Mayor follow-up | Yes | |
+| Forest edge | Yes | |
 
 ### Part C — Forest & mine
 
