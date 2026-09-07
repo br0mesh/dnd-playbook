@@ -122,11 +122,9 @@ One image per row unless you say “skip” or “merge.” Slugs are for filena
   4. Fake-lantern **thieves** — convinced to return stolen goods (marauders, social not combat)
   5. Mill — rat problem (Mordain 1 HP crit moment)
   - *Not mentioned:* affected homes (`07`) — confirm later if skipped or folded into another beat.
-- [ ] **Q5.** **Standout village moments** worth illustrating?
+- [x] **Q5. Standout village moments:** No more beyond recorded beats (herbalist, pay raise, thieves talked down, mill crit). Mill + thieves + pay raise are the visual candidates.
 - [ ] **Q6.** **PC roster:** Vex/Harry Potter, Lilith, Elias, Mordain, Ruta — all present?
-- [ ] **Q7.** **Ginger tom** — named? Still with party in Act 1?
-
-### C. Forest trail & mine
+- [x] **Q7. Ginger tom:** Ruta **befriended** the cat during intro; **no name given**. Confirm if still with party through Act 1 (forest / mine / shrine / ruins)?
 
 - [ ] **Q8.** **Forest trail:** One travel beat or multiple? Blue lights visible how often?
 - [ ] **Q9.** **Mine entrance:** Match campaign image (speared miners, collapsed beams) or different?
@@ -204,7 +202,7 @@ One image per row unless you say “skip” or “merge.” Slugs are for filena
 | Lilith / Blue Measurements | Yes | Visual planned |
 | Elias / Same Colour Twice | Yes | Visual planned |
 | Mordain / Before the Threshold | Yes | Visual planned |
-| Ruta / Cat and Blue Light | Yes | Visual planned |
+| Ruta / Cat and Blue Light | Yes | Visual planned; **ginger tom befriended, unnamed** |
 
 ### Part B — Village
 
