@@ -223,7 +223,7 @@ One image per row unless you say “skip” or “merge.” Slugs are for filena
 
 | Beat | Ran | Notes |
 |------|-----|-------|
-| Forest trail | | |
+| Forest trail | Yes | Easy walk; wolf fight — most killed, **one wolf left tied** (plan: return after curse lifted) |
 | Mine discovery | | |
 | Volunteer bodies | | |
 | Mine crawl | | |
