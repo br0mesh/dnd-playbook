@@ -124,7 +124,7 @@ One image per row unless you say “skip” or “merge.” Slugs are for filena
   - *Not mentioned:* affected homes (`07`) — confirm later if skipped or folded into another beat.
 - [x] **Q5. Standout village moments:** No more beyond recorded beats (herbalist, pay raise, thieves talked down, mill crit). Mill + thieves + pay raise are the visual candidates.
 - [x] **Q6. PC roster:** All five present every session — Vex (Harry Potter), Lilith, Elias, Mordain, Ruta.
-- [x] **Q7. Ginger tom:** Ruta **befriended** the cat during intro; **no name given**. Confirm if still with party through Act 1 (forest / mine / shrine / ruins)?
+- [x] **Q7. Ginger tom:** Ruta befriended during intro; **no name**. Stayed with party **through entire Act 1** (village → forest → mine → shrine → necromancer).
 
 - [ ] **Q8.** **Forest trail:** One travel beat or multiple? Blue lights visible how often?
 - [ ] **Q9.** **Mine entrance:** Match campaign image (speared miners, collapsed beams) or different?
