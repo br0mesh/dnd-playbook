@@ -126,7 +126,9 @@ One image per row unless you say “skip” or “merge.” Slugs are for filena
 - [x] **Q6. PC roster:** All five present every session — Vex (Harry Potter), Lilith, Elias, Mordain, Ruta.
 - [x] **Q7. Ginger tom:** Ruta befriended during intro; **no name**. Stayed with party **through entire Act 1** (village → forest → mine → shrine → necromancer).
 
-- [ ] **Q8.** **Forest trail:** One travel beat or multiple? Blue lights visible how often?
+### C. Forest trail & mine
+
+- [x] **Q8. Forest trail:** Easy walk overall. **Wolf encounter** — party killed most wolves; **left one tied** to return to after the curse is lifted. Blue lights not mentioned.
 - [ ] **Q9.** **Mine entrance:** Match campaign image (speared miners, collapsed beams) or different?
 - [ ] **Q10.** **Volunteer bodies** — found? Where?
 - [ ] **Q11.** **Miners rescued?** How many? Any named?
