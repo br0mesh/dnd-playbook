@@ -123,7 +123,7 @@ One image per row unless you say “skip” or “merge.” Slugs are for filena
   5. Mill — rat problem (Mordain 1 HP crit moment)
   - *Not mentioned:* affected homes (`07`) — confirm later if skipped or folded into another beat.
 - [x] **Q5. Standout village moments:** No more beyond recorded beats (herbalist, pay raise, thieves talked down, mill crit). Mill + thieves + pay raise are the visual candidates.
-- [ ] **Q6.** **PC roster:** Vex/Harry Potter, Lilith, Elias, Mordain, Ruta — all present?
+- [x] **Q6. PC roster:** All five present every session — Vex (Harry Potter), Lilith, Elias, Mordain, Ruta.
 - [x] **Q7. Ginger tom:** Ruta **befriended** the cat during intro; **no name given**. Confirm if still with party through Act 1 (forest / mine / shrine / ruins)?
 
 - [ ] **Q8.** **Forest trail:** One travel beat or multiple? Blue lights visible how often?
