@@ -13,205 +13,252 @@ There are **planning and authoring notes**, but **no dedicated “what happened 
 
 | Source | Path | What it contains |
 |--------|------|------------------|
-| Campaign plan (draft) | `docs/TEMP-campaign-when-lanterns-fall-silent.md` | Full 4–5 session arc, lore, Session 1 goals, clue web, closing images |
-| Session 1 scene outline | `docs/TEMP-session-1-scenes-when-lanterns-fall-silent.md` | Scene-by-scene draft notes, pacing, recommended table order |
-| Scene coverage / authoring status | `docs/session-1-scene-coverage-when-lanterns-fall-silent.md` | EN+UA dm-script completion, NPC name defaults, clue matrix |
-| Playable dm-script (canonical) | `scenarios/when-the-lanterns-fall-silent/dm-script/` | 13 indexed scenes (`00`–`12`) with read-aloud, checks, branches |
+| Campaign plan (draft) | `docs/TEMP-campaign-when-lanterns-fall-silent.md` | Full arc: village → forest → mine → shrine → necromancer ruins |
+| Session 1 scene outline | `docs/TEMP-session-1-scenes-when-lanterns-fall-silent.md` | Village investigation pacing |
+| Scene coverage / authoring status | `docs/session-1-scene-coverage-when-lanterns-fall-silent.md` | Session 1 dm-script EN+UA status |
+| Playable dm-script (Session 1 only) | `scenarios/.../dm-script/` | Scenes `00`–`12` — **village arc only** |
 | Character intros | `scenarios/.../characters/*_intro.en.md` | Per-PC spotlight hooks |
-| Scene music TODO | `docs/TODO-scene-fight-music.md` | Future audio — unrelated to still images |
 
-**Gap:** We need **your table recap** (which scenes ran, what PCs did, tone, standout moments) before visuals can reflect *your* Act 1, not only the script.
-
----
-
-## Act 1 scope (confirm)
-
-In the campaign plan, **Act 1 = Session 1: Village Investigation** — from contract framing through the **forest-edge closing image** (`12_forest_edge_closing`).
-
-Please confirm:
-
-- [ ] **Q1.** You finished **Session 1 only** (village → forest edge), not Session 2 (mines/shrine)?
-- [ ] **Q2.** Or does “Act 1” mean something else for your table (e.g. solo intros only, or up to a different beat)?
+**Gap:** Forest trail, mine, shrine, and necromancer beats exist **only in the campaign draft** — not yet as separate dm-script files. Visuals and recap must come from **your table memory**.
 
 ---
 
-## Scene inventory (canonical order)
+## Act 1 scope — confirmed
 
-Use this list when we generate art **one scene at a time**.
+**Your table’s Act 1** = the full opening arc through the **necromancer fight**:
 
-| # | Slug | Scene title (working) | Type | Ran at table? |
-|---|------|----------------------|------|---------------|
-| 0 | `00_session_framing` | Contract & table framing | Group | ☐ Yes ☐ No ☐ Skipped |
-| 1A | `01_intro_vex` | The Wrong Name (Vex / Harry Potter) | Solo | ☐ Yes ☐ No ☐ Skipped |
-| 1B | `02_intro_lilith` | Blue Measurements | Solo | ☐ Yes ☐ No ☐ Skipped |
-| 1C | `03_intro_elias` | The Same Colour Twice | Solo | ☐ Yes ☐ No ☐ Skipped |
-| 1D | `04_intro_mordain` | Before the Threshold | Solo | ☐ Yes ☐ No ☐ Skipped |
-| 1E | `05_intro_ruta` | The Cat and the Blue Light | Solo | ☐ Yes ☐ No ☐ Skipped |
-| 2 | `06_mayors_hall_convergence` | Morning at Mayor Alden's hall | Group | ☐ Yes ☐ No ☐ Skipped |
-| 3 | `07_affected_homes` | Affected homes (real lanterns) | Investigation | ☐ Yes ☐ No ☐ Skipped |
-| 4 | `08_fake_lantern_house` | Fake lantern & thieves | Investigation | ☐ Yes ☐ No ☐ Skipped |
-| 5 | `09_herbalist_house` | Herbalist house & diary | Investigation | ☐ Yes ☐ No ☐ Skipped |
-| 6 | `10_mill_rat_problem` | Mill rats (optional combat) | Optional | ☐ Yes ☐ No ☐ Skipped |
-| 7 | `11_mayor_followup` | Mayor follow-up & forest choice | Social | ☐ Yes ☐ No ☐ Skipped |
-| 8 | `12_forest_edge_closing` | Forest edge closing image | Ending | ☐ Yes ☐ No ☐ Skipped |
+1. **Solo intros** (five PC spotlights)
+2. **Village** (Briarford investigation)
+3. **Forest trail** (entry, blue lights, hunter notes)
+4. **Abandoned coal mine** (discovery, crawl)
+5. **Goblin fight** (mine encounter + leader)
+6. **Forgotten shrine** (herbs, riddle, rune map)
+7. **Necromancer fight** (forgotten ruins, ritual chamber)
 
-**Volunteer trail** clues are a layer across `06`, `07`, `09`, `11` — not a separate scene file.
+This matches the campaign plan’s **compressed 4-session track** (Sessions 1–4), not “Session 1 only.”
+
+**Act 2** (if you continue the published plan) would be **return to Briarford** — reward, diary, village transformation / mist curse, hook to the city and Guild of Magic.
+
+---
+
+## Visual beat inventory (generation order)
+
+One image per row unless you say “skip” or “merge.” Slugs are for filenames; Part B uses existing dm-script slugs.
+
+### Part A — Solo intros
+
+| Slug | Beat | Script source | Ran? |
+|------|------|---------------|------|
+| `01_intro_vex` | The Wrong Name — Last Lamp, Tomas Grull | dm-script | ☐ |
+| `02_intro_lilith` | Blue Measurements — forest edge, herb ring | dm-script | ☐ |
+| `03_intro_elias` | The Same Colour Twice — Blue Wick inn | dm-script | ☐ |
+| `04_intro_mordain` | Before the Threshold — treeline, holy symbol | dm-script | ☐ |
+| `05_intro_ruta` | The Cat and the Blue Light — clearing, ginger tom | dm-script | ☐ |
+
+### Part B — Village (Briarford)
+
+| Slug | Beat | Script source | Ran? |
+|------|------|---------------|------|
+| `00_session_framing` | Contract handout & table framing | dm-script | ☐ |
+| `06_mayors_hall_convergence` | Morning briefing — Mayor Alden, hire terms | dm-script | ☐ |
+| `07_affected_homes` | Real lantern evidence — missing villagers | dm-script | ☐ |
+| `08_fake_lantern_house` | Fake lantern thieves (Bram, Tessa, Henk) | dm-script | ☐ |
+| `09_herbalist_house` | Silas Thornwick’s diary — forest lights | dm-script | ☐ |
+| `10_mill_rat_problem` | Mill rats *(optional)* | dm-script | ☐ |
+| `11_mayor_followup` | Clue consolidation — commit to forest | dm-script | ☐ |
+| `12_forest_edge_closing` | Village lanterns dim; blue light answers | dm-script | ☐ |
+
+### Part C — Forest trail & coal mine
+
+*Campaign draft only — no dm-script files yet.*
+
+| Slug | Beat | Ran? |
+|------|------|------|
+| `13_forest_trail` | Deep woods — blue lights between pines, leave city road | ☐ |
+| `14_mine_discovery` | Half-collapsed entrance, speared miners, blue-edged lantern | ☐ |
+| `15_volunteer_bodies` | Dead previous volunteer group *(if shown)* | ☐ |
+| `16_mine_crawl` | Tunnels — scouts, trap, or trapped miners | ☐ |
+| `17_goblin_leader_fight` | Deep chamber — panicked fanatic leader, prophecy lines | ☐ |
+| `18_strange_amulet` | Wizard-crafted amulet — lantern-without-flame runes | ☐ |
+
+### Part D — Forgotten shrine
+
+| Slug | Beat | Ran? |
+|------|------|------|
+| `19_shrine_arrival` | Broken arch, moss, old stones in deep woods | ☐ |
+| `20_silverleaf` | Gathering mature silverleaf *(or poison mistake)* | ☐ |
+| `21_shrine_riddle` | Riddle on stones — clean flame, weapon blessing | ☐ |
+| `22_rune_map` | Stones shift — map to necromancer ruins | ☐ |
+
+### Part E — Forgotten ruins & necromancer
+
+| Slug | Beat | Ran? |
+|------|------|------|
+| `23_ruins_approach` | Collapsed hillside, iron/ash air, hidden entrance | ☐ |
+| `24_magical_darkness` | Interior — torches fail; *light* or magic lantern | ☐ |
+| `25_path_riddle` | Junction — correct path vs skeleton/ghoul wing | ☐ |
+| `26_ruins_library` | Circle-of-mages lore, scrolls, unreadable books | ☐ |
+| `27_ritual_chamber` | **Finale** — necromancer, captives, seal, minions | ☐ |
+| `28_aftermath` | Ritual outcome — diary loot, seal broken or stopped | ☐ |
+
+**Suggested image count:** ~25–28 beats (fewer if you merge crawl/fight or skip optional mill/volunteers).
 
 ---
 
 ## Checklist — answer before generating images
 
-### A. Table recap (what actually happened)
+### A. Confirmed
 
-Fill in or reply in chat; we will paste answers here.
+- [x] **Q1. Act 1 scope:** Intros + village + forest + mine + goblins + shrine + necromancer fight.
 
-- [ ] **Q3.** Which scenes from the table above did you **actually run**?
-- [ ] **Q4.** Which scenes were **skipped or merged**?
-- [ ] **Q5.** **Investigation order** after the hall: affected homes / herbalist / fake lantern / mill — what did the party visit, in what order?
-- [ ] **Q6.** **Mill (`10`):** Did you run the rat fight? Outcome?
-- [ ] **Q7.** **Fake lantern (`08`):** Social only, fight, or skipped? Did they catch Bram / Tessa / Henk?
-- [ ] **Q8.** **Herbalist (`09`):** Did they find Silas Thornwick's diary? Any extra discoveries?
-- [ ] **Q9.** **Affected homes (`07`):** Which home(s) — Margaret Coyle's cottage, another, or improvised?
-- [ ] **Q10.** **Mayor Alden:** How did the party read him — trusted, pressured, hostile?
-- [ ] **Q11.** **Volunteer group:** Which volunteer clues surfaced (bedroll, initials J.R./S.M./P.L., stablehand, etc.)?
-- [ ] **Q12.** **Closing (`12`):** Exact end image — did village lanterns dim? Blue light in forest? Different beat?
-- [ ] **Q13.** **Standout moments** (1–3 per scene you care about): funny, scary, heroic, or player decisions worth showing in art.
-- [ ] **Q14.** **PC roster at table:** Confirm names/aliases — Vex as Harry Potter, Lilith, Elias, Mordain, Ruta. Anyone absent or replaced?
-- [ ] **Q15.** **Ginger tom:** Named? Did he follow Ruta to the hall / forest edge?
+### B. Village & intros (table recap)
 
-### B. Solo intro specifics (if run)
+- [ ] **Q2.** Which **solo intros** ran? All five or subset?
+- [ ] **Q3.** Which **village scenes** ran? Skipped mill? Fake lantern?
+- [ ] **Q4.** **Investigation order** after mayor’s hall?
+- [ ] **Q5.** **Standout village moments** worth illustrating?
+- [ ] **Q6.** **PC roster:** Vex/Harry Potter, Lilith, Elias, Mordain, Ruta — all present?
+- [ ] **Q7.** **Ginger tom** — named? Still with party in Act 1?
 
-- [ ] **Q16. Vex (`01`):** Flee, bluff, fight, or talk? Did Tomas Grull live?
-- [ ] **Q17. Lilith (`02`):** Did she harvest pulse-weed / crack her focus? Samples brought to hall?
-- [ ] **Q18. Elias (`03`):** Peddler confrontation? Personal wilderness callback shared with party?
-- [ ] **Q19. Mordain (`04`):** Divine Sense used? Did he share undead/desecration read with others?
-- [ ] **Q20. Ruta (`05`):** Cat befriended? Second out-of-sync lantern spotted?
+### C. Forest trail & mine
 
-### C. Visual format (decide once, then one scene at a time)
+- [ ] **Q8.** **Forest trail:** One travel beat or multiple? Blue lights visible how often?
+- [ ] **Q9.** **Mine entrance:** Match campaign image (speared miners, collapsed beams) or different?
+- [ ] **Q10.** **Volunteer bodies** — found? Where?
+- [ ] **Q11.** **Miners rescued?** How many? Any named?
+- [ ] **Q12.** **Goblin fight:** Leader killed or driven off? Memorable line or tactic?
+- [ ] **Q13.** **Amulet** — who holds it? Any Arcana/Religion reveal at table?
+- [ ] **Q14.** **Mine standout moment** (heroic save, funny scout moment, near-TPK)?
 
-**Do not generate until these are answered.**
+### D. Forgotten shrine
 
-- [ ] **Q21. Primary use:** Player handout? DM screen? Social post? Printed poster? Web scenario header?
-- [ ] **Q22. Style:** e.g. painterly fantasy illustration, gritty realism, storybook, comic panel, map vignette, charcoal sketch, etc.
-- [ ] **Q23. Color mood:** Warm hearth vs cold blue lantern horror vs balanced heroic fantasy?
-- [ ] **Q24. Aspect ratio default:** `16:9` (widescreen) · `3:4` (portrait) · `1:1` (square) · other?
-- [ ] **Q25. Include PCs in frame?** All scenes · only group scenes · never (locations/NPCs only) · case-by-case?
-- [ ] **Q26. PC depiction:** Match character sheet vibe · silhouettes only · generic adventurers · describe each PC look?
-- [ ] **Q27. Text on image:** None · scene title only · short quote from read-aloud · Ukrainian / English / both?
-- [ ] **Q28. Consistency:** Single “series look” for all Act 1 scenes, or allow style drift per scene?
-- [ ] **Q29. Spoilers:** OK to hint necromancer/soul-lantern truth, or keep Act 1 visuals symptom-only (blue light, fear, missing people)?
-- [ ] **Q30. Output location in repo:** e.g. `scenarios/when-the-lanterns-fall-silent/art/act1/` — confirm path and filename pattern (`01_intro_vex.png`)?
-- [ ] **Q31. Locale:** Art briefs in English; optional UA caption file alongside?
+- [ ] **Q15.** **Silverleaf** — gathered correctly, poison mistake, or skipped?
+- [ ] **Q16.** **Riddle** — solved cleanly, hint used, or failed?
+- [ ] **Q17.** **Weapon poison blessing** — used later in necromancer fight?
+- [ ] **Q18.** **Rune map** — party read it or need Fenwick later?
+- [ ] **Q19.** **Shrine standout moment?**
 
-### D. Generation workflow (agreed process)
+### E. Necromancer & ruins
 
-1. You answer checklist sections **A → C** (can be partial; we iterate).
-2. We agree **format** (section C) before **any** image.
-3. Generate **one scene at a time** in story order (or your preferred order).
-4. After each image: approve / revise prompt / skip scene.
-5. Optional: add 2–3 sentence **canon recap** per scene to this doc under [Act 1 table recap](#act-1-table-recap) once confirmed.
+- [ ] **Q20.** **Ruins entrance** — found via *detect magic*, Investigation, or stumbling?
+- [ ] **Q21.** **Darkness** — mill lantern, mine lantern, *light* cantrip, or other?
+- [ ] **Q22.** **Wrong-path encounter** — skeletons/ghoul happened?
+- [ ] **Q23.** **Library** — visited? What lore landed with players?
+- [ ] **Q24.** **Ritual outcome:** Concentration **broken** (fight necromancer) or ritual **completed** (seal opens, necromancer dies)?
+- [ ] **Q25.** **Captives** — any recognizable villagers (Silas, Mara, Wren)?
+- [ ] **Q26.** **Loot:** Necromancer diary? Uncommon item? What was it?
+- [ ] **Q27.** **Finale standout moment** — killing blow, clutch heal, moral choice, comedy?
+- [ ] **Q28.** **Where did Act 1 end?** Still in ruins · road back · already at village?
+
+### F. Visual format (decide once — **required before any image**)
+
+- [ ] **Q29. Primary use:** Player handout · DM screen · social · print · web header?
+- [ ] **Q30. Style:** Painterly fantasy · gritty realism · storybook · comic panel · other?
+- [ ] **Q31. Color mood:** Warm heroic · cold blue horror · mix (warm village / cold forest)?
+- [ ] **Q32. Aspect ratio default:** `16:9` · `3:4` · `1:1` · other?
+- [ ] **Q33. PCs in frame:** Every beat · group/fight only · locations/NPCs only · case-by-case?
+- [ ] **Q34. PC look:** Describe each PC’s appearance for consistency, or generic/silhouette?
+- [ ] **Q35. Text on image:** None · title · short quote · EN / UA / both?
+- [ ] **Q36. Series consistency:** One style all Act 1 · allow drift per arc?
+- [ ] **Q37. Spoilers in art:** Full soul-lantern/necromancer truth OK for recap images?
+- [ ] **Q38. Output path:** `scenarios/when-the-lanterns-fall-silent/art/act1/{slug}.png` — OK?
+- [ ] **Q39. Beat density:** One image per slug above, or merge (e.g. mine discovery + fight)?
+
+### G. Workflow
+
+1. Answer **B → E** (partial OK).
+2. Lock **F** (format) before first image.
+3. Generate **one beat at a time**; approve or revise each.
+4. Canon recap pasted under [Act 1 table recap](#act-1-table-recap) as we go.
 
 ---
 
 ## Act 1 table recap
 
-*To be filled from your answers — replaces generic script summary for visuals.*
+*Fill from your answers — this becomes the brief for each image.*
 
 ### Session metadata
 
 | Field | Your answer |
 |-------|-------------|
 | Date(s) played | |
-| Session length | |
-| Starting level | |
+| Sessions count (1 long arc or multiple nights?) | |
+| Ending level | |
 | Language at table | EN / UA / mixed |
 
 ### One-paragraph summary
 
-> *(Pending your input.)*
+> *(Pending — e.g. “Party hired in Briarford, exposed fake lanterns, followed Silas’s diary into the woods, cleared the coal mine of fleeing goblins, solved the shrine riddle, and interrupted the necromancer ritual with … outcome.”)*
 
-### Per-scene notes
+### Part A — Intros
 
-#### Scene 0 — Framing
+| Beat | Ran | Notes |
+|------|-----|-------|
+| Vex / Wrong Name | | |
+| Lilith / Blue Measurements | | |
+| Elias / Same Colour Twice | | |
+| Mordain / Before the Threshold | | |
+| Ruta / Cat and Blue Light | | |
 
-- **Ran:**  
-- **Notes:**  
+### Part B — Village
 
-#### Scene 1A — Vex / The Wrong Name
+| Beat | Ran | Notes |
+|------|-----|-------|
+| Framing | | |
+| Mayor's hall | | |
+| Affected homes | | |
+| Fake lantern | | |
+| Herbalist / diary | | |
+| Mill rats | | |
+| Mayor follow-up | | |
+| Forest edge | | |
 
-- **Ran:**  
-- **Notes:**  
+### Part C — Forest & mine
 
-#### Scene 1B — Lilith / Blue Measurements
+| Beat | Ran | Notes |
+|------|-----|-------|
+| Forest trail | | |
+| Mine discovery | | |
+| Volunteer bodies | | |
+| Mine crawl | | |
+| Goblin leader fight | | |
+| Strange amulet | | |
 
-- **Ran:**  
-- **Notes:**  
+### Part D — Shrine
 
-#### Scene 1C — Elias / The Same Colour Twice
+| Beat | Ran | Notes |
+|------|-----|-------|
+| Shrine arrival | | |
+| Silverleaf | | |
+| Shrine riddle | | |
+| Rune map | | |
 
-- **Ran:**  
-- **Notes:**  
+### Part E — Ruins & necromancer
 
-#### Scene 1D — Mordain / Before the Threshold
-
-- **Ran:**  
-- **Notes:**  
-
-#### Scene 1E — Ruta / The Cat and the Blue Light
-
-- **Ran:**  
-- **Notes:**  
-
-#### Scene 2 — Mayor's hall
-
-- **Ran:**  
-- **Notes:**  
-
-#### Scene 3 — Affected homes
-
-- **Ran:**  
-- **Notes:**  
-
-#### Scene 4 — Fake lantern house
-
-- **Ran:**  
-- **Notes:**  
-
-#### Scene 5 — Herbalist house
-
-- **Ran:**  
-- **Notes:**  
-
-#### Scene 6 — Mill (optional)
-
-- **Ran:**  
-- **Notes:**  
-
-#### Scene 7 — Mayor follow-up
-
-- **Ran:**  
-- **Notes:**  
-
-#### Scene 8 — Forest edge closing
-
-- **Ran:**  
-- **Notes:**  
+| Beat | Ran | Notes |
+|------|-----|-------|
+| Ruins approach | | |
+| Magical darkness | | |
+| Path riddle / wrong turn | | |
+| Library | | |
+| Ritual chamber / fight | | |
+| Aftermath & loot | | |
 
 ---
 
-## Script reference — Act 1 end state (if table matched plan)
+## Script reference — planned end state
 
-By design, Act 1 should leave the party knowing:
+If your table followed the campaign draft, Act 1 ends with:
 
-1. Lantern problem is **real** (not only panic) — some villagers also run **fake** lanterns.
-2. Multiple people are **missing** (herbalist, hunter, volunteers, affected homes).
-3. Strongest lead: **forest lights** answering each other (herbalist diary, tracks, real porch lanterns).
-4. Party **commits to the forest** — closing image: village lanterns dim; blue light answers ahead.
+- **Necromancer ritual resolved** (broken or completed — both valid).
+- **Captives dead** — souls drained; no last-minute rescue.
+- **Loot:** necromancer’s diary (unknown language), amulet from mine, possibly shrine boon used.
+- **Hook to Act 2:** return to Briarford — village transformed or mist curse, Fenwick → city / Guild.
 
 ---
 
 ## Next step
 
-Reply with answers to **Q1–Q2** and as many of **Q3–Q31** as you can. Partial answers are fine.
-
-When ready for the first image, say which **scene slug** to start with and confirm **Q21–Q30** (format block).
+1. Answer **Q2–Q28** (table recap — as much as you remember).
+2. Answer **Q29–Q39** (format — required before first image).
+3. Say which **slug** to generate first (default: `01_intro_vex` in story order).
