@@ -110,6 +110,7 @@ One image per row unless you say “skip” or “merge.” Slugs are for filena
 ### A. Confirmed
 
 - [x] **Q1. Act 1 scope:** Intros + village + forest + mine + goblins + shrine + necromancer fight.
+- [x] **Q2. Solo intros:** All five ran (Vex, Lilith, Elias, Mordain, Ruta). **Visuals requested** for each intro beat.
 
 ### B. Village & intros (table recap)
 
@@ -194,11 +195,11 @@ One image per row unless you say “skip” or “merge.” Slugs are for filena
 
 | Beat | Ran | Notes |
 |------|-----|-------|
-| Vex / Wrong Name | | |
-| Lilith / Blue Measurements | | |
-| Elias / Same Colour Twice | | |
-| Mordain / Before the Threshold | | |
-| Ruta / Cat and Blue Light | | |
+| Vex / Wrong Name | Yes | Visual planned |
+| Lilith / Blue Measurements | Yes | Visual planned |
+| Elias / Same Colour Twice | Yes | Visual planned |
+| Mordain / Before the Threshold | Yes | Visual planned |
+| Ruta / Cat and Blue Light | Yes | Visual planned |
 
 ### Part B — Village
 
