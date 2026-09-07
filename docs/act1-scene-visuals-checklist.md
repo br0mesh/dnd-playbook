@@ -115,8 +115,13 @@ One image per row unless you say “skip” or “merge.” Slugs are for filena
 
 ### B. Village & intros (table recap)
 
-- [ ] **Q4.** **Investigation order** after mayor's hall?
-- [ ] **Q4.** **Investigation order** after mayor’s hall?
+- [x] **Q4. Investigation order** (after mayor's hall briefing):
+  1. Herbalist hut — diary / forest lead
+  2. Discovery of **previous volunteer group** trail
+  3. Back to mayor — questions; **increased payment** for the job
+  4. Fake-lantern **thieves** — convinced to return stolen goods (marauders, social not combat)
+  5. Mill — rat problem (Mordain 1 HP crit moment)
+  - *Not mentioned:* affected homes (`07`) — confirm later if skipped or folded into another beat.
 - [ ] **Q5.** **Standout village moments** worth illustrating?
 - [ ] **Q6.** **PC roster:** Vex/Harry Potter, Lilith, Elias, Mordain, Ruta — all present?
 - [ ] **Q7.** **Ginger tom** — named? Still with party in Act 1?
@@ -206,12 +211,12 @@ One image per row unless you say “skip” or “merge.” Slugs are for filena
 | Beat | Ran | Notes |
 |------|-----|-------|
 | Framing | Yes | |
-| Mayor's hall | Yes | |
-| Affected homes | Yes | |
-| Fake lantern | Yes | |
-| Herbalist / diary | Yes | |
-| Mill rats | Yes | **Table moment:** Nervous fight — Mordain (paladin) held off rat attacks; near the end the rat swarm scored a **crit from behind** (ass side), left Mordain at **1 HP**. Strong candidate for `10_mill_rat_problem` visual. |
-| Mayor follow-up | Yes | |
+| Mayor's hall | Yes | Initial briefing |
+| Affected homes | ? | Not recalled in investigation order — confirm if skipped |
+| Fake lantern | Yes | Thieves convinced to return goods (marauders); no fight |
+| Herbalist / diary | Yes | First stop after hall; volunteer group clue found here |
+| Mill rats | Yes | **Table moment:** Mordain tanking; swarm crit from behind → 1 HP |
+| Mayor follow-up | Yes | Returned for questions; **payment increased** |
 | Forest edge | Yes | |
 
 ### Part C — Forest & mine
