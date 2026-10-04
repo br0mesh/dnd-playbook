@@ -141,7 +141,7 @@ One image per row unless you say “skip” or “merge.” Slugs are for filena
 ### D. Forgotten shrine / Cursed Temple
 
 - [x] **Q15. Temple approach puzzle:** Before entering — **four statues** must be turned correctly relative to the **sun** (two toward **sunset** / sun-down, two toward the **sun** — east/day direction). Party solved after **a couple of tries**; **hidden entrance revealed**.
-- [ ] **Q16.** **Inside the temple:** Herbs, inner riddle, rune map, loot, fights — what happened next?
+- [x] **Q16. Inside temple (partial):** **Black magic fog** — even **darkvision** poor; party **blue-glowing backpacks / village lanterns** to navigate. **Three-way crossroad:** (1) sleeping quarters, (2) laboratory, (3) main hall. Went toward **sleeping quarters** first — found **dead body** (looked, nothing useful); used ***mage hand*** to carry **lantern ahead** for safer scouting. **Turned back** → **laboratory:** mostly broken ancient apparatus; **one device still working** — party didn't know how to use it. *(User message cut off: "They discovered a…" — finish Q16.)*
 - [ ] **Q17.** **Silverleaf / herbs** — gathered correctly, poison mistake, or skipped?
 - [ ] **Q18.** **Weapon poison blessing** — used later in necromancer fight?
 - [ ] **Q19.** **Rune map / route to ruins** — found inside temple? Party read it?
@@ -149,29 +149,29 @@ One image per row unless you say “skip” or “merge.” Slugs are for filena
 
 ### E. Necromancer & ruins
 
-- [ ] **Q20.** **Ruins entrance** — found via *detect magic*, Investigation, or stumbling?
-- [ ] **Q21.** **Darkness** — mill lantern, mine lantern, *light* cantrip, or other?
-- [ ] **Q22.** **Wrong-path encounter** — skeletons/ghoul happened?
-- [ ] **Q23.** **Library** — visited? What lore landed with players?
-- [ ] **Q24.** **Ritual outcome:** Concentration **broken** (fight necromancer) or ritual **completed** (seal opens, necromancer dies)?
-- [ ] **Q25.** **Captives** — any recognizable villagers (Silas, Mara, Wren)?
-- [ ] **Q26.** **Loot:** Necromancer diary? Uncommon item? What was it?
-- [ ] **Q27.** **Finale standout moment** — killing blow, clutch heal, moral choice, comedy?
-- [ ] **Q28.** **Where did Act 1 end?** Still in ruins · road back · already at village?
+- [ ] **Q21.** **Ruins entrance** — found via *detect magic*, Investigation, or stumbling?
+- [ ] **Q22.** **Darkness** — mill lantern, mine lantern, *light* cantrip, or other?
+- [ ] **Q23.** **Wrong-path encounter** — skeletons/ghoul happened?
+- [ ] **Q24.** **Library** — visited? What lore landed with players?
+- [ ] **Q25.** **Ritual outcome:** Concentration **broken** (fight necromancer) or ritual **completed** (seal opens, necromancer dies)?
+- [ ] **Q26.** **Captives** — any recognizable villagers (Silas, Mara, Wren)?
+- [ ] **Q27.** **Loot:** Necromancer diary? Uncommon item? What was it?
+- [ ] **Q28.** **Finale standout moment** — killing blow, clutch heal, moral choice, comedy?
+- [ ] **Q29.** **Where did Act 1 end?** Still in ruins · road back · already at village?
 
 ### F. Visual format (decide once — **required before any image**)
 
-- [ ] **Q29. Primary use:** Player handout · DM screen · social · print · web header?
-- [ ] **Q30. Style:** Painterly fantasy · gritty realism · storybook · comic panel · other?
-- [ ] **Q31. Color mood:** Warm heroic · cold blue horror · mix (warm village / cold forest)?
-- [ ] **Q32. Aspect ratio default:** `16:9` · `3:4` · `1:1` · other?
-- [ ] **Q33. PCs in frame:** Every beat · group/fight only · locations/NPCs only · case-by-case?
-- [ ] **Q34. PC look:** Describe each PC’s appearance for consistency, or generic/silhouette?
-- [ ] **Q35. Text on image:** None · title · short quote · EN / UA / both?
-- [ ] **Q36. Series consistency:** One style all Act 1 · allow drift per arc?
-- [ ] **Q37. Spoilers in art:** Full soul-lantern/necromancer truth OK for recap images?
-- [ ] **Q38. Output path:** `scenarios/when-the-lanterns-fall-silent/art/act1/{slug}.png` — OK?
-- [ ] **Q39. Beat density:** One image per slug above, or merge (e.g. mine discovery + fight)?
+- [ ] **Q30. Primary use:** Player handout · DM screen · social · print · web header?
+- [ ] **Q31. Style:** Painterly fantasy · gritty realism · storybook · comic panel · other?
+- [ ] **Q32. Color mood:** Warm heroic · cold blue horror · mix (warm village / cold forest)?
+- [ ] **Q33. Aspect ratio default:** `16:9` · `3:4` · `1:1` · other?
+- [ ] **Q34. PCs in frame:** Every beat · group/fight only · locations/NPCs only · case-by-case?
+- [ ] **Q35. PC look:** Describe each PC’s appearance for consistency, or generic/silhouette?
+- [ ] **Q36. Text on image:** None · title · short quote · EN / UA / both?
+- [ ] **Q37. Series consistency:** One style all Act 1 · allow drift per arc?
+- [ ] **Q38. Spoilers in art:** Full soul-lantern/necromancer truth OK for recap images?
+- [ ] **Q39. Output path:** `scenarios/when-the-lanterns-fall-silent/art/act1/{slug}.png` — OK?
+- [ ] **Q40. Beat density:** One image per slug above, or merge (e.g. mine discovery + fight)?
 
 ### G. Workflow
 
