@@ -130,8 +130,8 @@ One image per row unless you say “skip” or “merge.” Slugs are for filena
 
 - [x] **Q8. Forest trail:** Easy walk overall. **Wolf encounter** — party killed most wolves; **left one tied** to return to after the curse is lifted. Blue lights not mentioned.
 - [x] **Q9. Mine entrance:** Collapsed entrance; dead previous volunteer group. Dynamite blast; workers' cabin; hunting trap → caught goblin hostage as guide (see prior note).
-- [x] **Q10. Volunteer bodies:** Yes — previous group dead at mine (with Q9).
-- [ ] **Q11.** **Miners rescued?** How many? Any named? *(Not mentioned yet — confirm.)*
+- [x] **Q10. Volunteer bodies:** Yes — **previous group dead before entrance**, bodies **impaled on wooden spikes** (grim display).
+- [x] **Q11. Miners:** **All dead** — found lying in a **corner deep in the mine**; **no rescues**.
 - [x] **Q12. Goblin leader:** **No fight** at parley — hostage led party to leader. Learned leader wears **cursed amulet** with **prophecy** (seal breaks → evil returns). Short talk; goblin promised future help at **Goblin Camp / Goblin City** if party **let him go** — party **released him**. *(Clarify: guide vs leader — see Q12b.)*
 - [x] **Q13. Amulet (lore):** Revealed via hostage/leader talk — cursed, prophecy tied to seal. **Who holds it now?** *(Open.)*
 - [x] **Q14. Mine standout:** Parley over combat; dynamite + trap; **Miraz's backpack** found with **map to the Cursed Temple** in the forest.
