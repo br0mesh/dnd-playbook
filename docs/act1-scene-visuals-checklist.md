@@ -138,13 +138,14 @@ One image per row unless you say “skip” or “merge.” Slugs are for filena
 - [x] **Q12b. Released goblin:** Not the leader — a **random goblin** (mine trap hostage / guide). **Table canon name:** **Skritch Wire-Tooth** — parleyed, promised help at Goblin Camp if freed; party let him go. *(Register in `names-index.json` for future scenes.)*
 - [x] **Q12c. Huntress backpack:** Village **huntress** went ahead tracing the **source** before the party; they found **her backpack** with map to **Cursed Temple**. At table she was called **Mira** — same story role as scenario **Mara Kell** (not barkeep Mira at The Last Lamp).
 
-### D. Forgotten shrine
+### D. Forgotten shrine / Cursed Temple
 
-- [ ] **Q15.** **Silverleaf** — gathered correctly, poison mistake, or skipped?
-- [ ] **Q16.** **Riddle** — solved cleanly, hint used, or failed?
-- [ ] **Q17.** **Weapon poison blessing** — used later in necromancer fight?
-- [ ] **Q18.** **Rune map** — party read it or need Fenwick later?
-- [ ] **Q19.** **Shrine standout moment?**
+- [x] **Q15. Temple approach puzzle:** Before entering — **four statues** must be turned correctly relative to the **sun** (two toward **sunset** / sun-down, two toward the **sun** — east/day direction). Party solved after **a couple of tries**; **hidden entrance revealed**.
+- [ ] **Q16.** **Inside the temple:** Herbs, inner riddle, rune map, loot, fights — what happened next?
+- [ ] **Q17.** **Silverleaf / herbs** — gathered correctly, poison mistake, or skipped?
+- [ ] **Q18.** **Weapon poison blessing** — used later in necromancer fight?
+- [ ] **Q19.** **Rune map / route to ruins** — found inside temple? Party read it?
+- [ ] **Q20.** **Shrine standout moment** (besides statue puzzle)?
 
 ### E. Necromancer & ruins
 
@@ -230,16 +231,16 @@ One image per row unless you say “skip” or “merge.” Slugs are for filena
 | Volunteer bodies | Yes | **Before entrance** — impaled on **wooden spikes** |
 | Mine crawl | Yes | **Skritch Wire-Tooth** (trap goblin) guided party; parley; miners dead in corner; Skritch **released** |
 | Goblin leader fight | Yes | **No combat** — negotiation instead |
-| Strange amulet | Partial | Lore: cursed + prophecy; possession TBD |
+| Strange amulet | Yes | In party **backpack**; **key to Goblin Camp**; not worn; PCs unaware of curse |
 | Mira's backpack / Cursed Temple map | Yes | Village **huntress Mira** went ahead; party found backpack + **map to Cursed Temple** |
 
 ### Part D — Shrine
 
 | Beat | Ran | Notes |
 |------|-----|-------|
-| Shrine arrival | | |
+| Shrine arrival | Yes | **Cursed Temple**; **four-statue sun puzzle** → secret entrance (few tries) |
 | Silverleaf | | |
-| Shrine riddle | | |
+| Shrine riddle | Yes | Statue orientation puzzle (exterior) |
 | Rune map | | |
 
 ### Part E — Ruins & necromancer
