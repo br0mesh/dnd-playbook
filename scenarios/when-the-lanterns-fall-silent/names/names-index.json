@@ -223,5 +223,21 @@
       "locative": "«Ашмері»"
     },
     "aliases_en": ["Ashmere string"]
+  },
+  {
+    "slug": "skritch_wire_tooth",
+    "type": "npc",
+    "en": "Skritch Wire-Tooth",
+    "ua": "Скріч Дротозуб",
+    "aliases_en": ["Skritch"],
+    "notes": "Table canon (Act 1): goblin caught in hunting trap at coal mine; guided party to leader; released with promise to aid party at Goblin Camp later."
+  },
+  {
+    "slug": "goblin_camp",
+    "type": "location",
+    "en": "Goblin Camp",
+    "ua": "Гоблінський табір",
+    "aliases_en": ["Goblin City"],
+    "notes": "Table canon hook — Skritch Wire-Tooth offered help here after release."
   }
 ]

@@ -135,7 +135,8 @@ One image per row unless you say “skip” or “merge.” Slugs are for filena
 - [x] **Q12. Goblin leader:** **No fight** at parley — hostage led party to leader. Learned leader wears **cursed amulet** with **prophecy** (seal breaks → evil returns). Short talk; goblin promised future help at **Goblin Camp / Goblin City** if party **let him go** — party **released him**. *(Clarify: guide vs leader — see Q12b.)*
 - [x] **Q13. Amulet (lore):** Revealed via hostage/leader talk — cursed, prophecy tied to seal. **Who holds it now?** *(Open.)*
 - [x] **Q14. Mine standout:** Parley over combat; dynamite + trap; **Miraz's backpack** found with **map to the Cursed Temple** in the forest.
-- [ ] **Q12b.** **Who was released?** Trapped guide · goblin leader · both? **Who is Miraz?** (volunteer, miner, other?)
+- [x] **Q12b. Released goblin:** Not the leader — a **random goblin** (mine trap hostage / guide). **Table canon name:** **Skritch Wire-Tooth** — parleyed, promised help at Goblin Camp if freed; party let him go. *(Register in `names-index.json` for future scenes.)*
+- [ ] **Q12c.** **Who is Miraz?** Backpack owner with Cursed Temple map — volunteer, miner, NPC?
 
 ### D. Forgotten shrine
 
@@ -226,8 +227,8 @@ One image per row unless you say “skip” or “merge.” Slugs are for filena
 |------|-----|-------|
 | Forest trail | Yes | Easy walk; wolf fight — most killed, **one wolf left tied** (plan: return after curse lifted) |
 | Mine discovery | Yes | Collapsed entrance; dynamite; cabin; trap-caught goblin guide |
-| Volunteer bodies | Yes | Dead previous group at mine |
-| Mine crawl | Yes | Guide → leader; parley, **let goblin go** (Camp ally hook) |
+| Volunteer bodies | Yes | **Before entrance** — impaled on **wooden spikes** |
+| Mine crawl | Yes | **Skritch Wire-Tooth** (trap goblin) guided party; parley; miners dead in corner; Skritch **released** |
 | Goblin leader fight | Yes | **No combat** — negotiation instead |
 | Strange amulet | Partial | Lore: cursed + prophecy; possession TBD |
 | Miraz backpack / Cursed Temple map | Yes | Map to **Cursed Temple** (table name; may = forgotten shrine) |
