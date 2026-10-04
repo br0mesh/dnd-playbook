@@ -133,7 +133,7 @@ One image per row unless you say “skip” or “merge.” Slugs are for filena
 - [x] **Q10. Volunteer bodies:** Yes — **previous group dead before entrance**, bodies **impaled on wooden spikes** (grim display).
 - [x] **Q11. Miners:** **All dead** — found lying in a **corner deep in the mine**; **no rescues**.
 - [x] **Q12. Goblin leader:** **No fight** at parley — hostage led party to leader. Learned leader wears **cursed amulet** with **prophecy** (seal breaks → evil returns). Short talk; goblin promised future help at **Goblin Camp / Goblin City** if party **let him go** — party **released him**. *(Clarify: guide vs leader — see Q12b.)*
-- [x] **Q13. Amulet (lore):** Revealed via hostage/leader talk — cursed, prophecy tied to seal. **Who holds it now?** *(Open.)*
+- [x] **Q13. Amulet:** Party **has it** — stored in a **backpack**, **not worn**. They treat it as a **key to enter Goblin Camp**; **do not know** it is cursed (prophecy/seal lore not known to PCs yet).
 - [x] **Q14. Mine standout:** Parley over combat; dynamite + trap; **Miraz's backpack** found with **map to the Cursed Temple** in the forest.
 - [x] **Q12b. Released goblin:** Not the leader — a **random goblin** (mine trap hostage / guide). **Table canon name:** **Skritch Wire-Tooth** — parleyed, promised help at Goblin Camp if freed; party let him go. *(Register in `names-index.json` for future scenes.)*
 - [x] **Q12c. Huntress backpack:** Village **huntress** went ahead tracing the **source** before the party; they found **her backpack** with map to **Cursed Temple**. At table she was called **Mira** — same story role as scenario **Mara Kell** (not barkeep Mira at The Last Lamp).
