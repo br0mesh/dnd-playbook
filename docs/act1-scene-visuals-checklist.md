@@ -136,7 +136,7 @@ One image per row unless you say “skip” or “merge.” Slugs are for filena
 - [x] **Q13. Amulet (lore):** Revealed via hostage/leader talk — cursed, prophecy tied to seal. **Who holds it now?** *(Open.)*
 - [x] **Q14. Mine standout:** Parley over combat; dynamite + trap; **Miraz's backpack** found with **map to the Cursed Temple** in the forest.
 - [x] **Q12b. Released goblin:** Not the leader — a **random goblin** (mine trap hostage / guide). **Table canon name:** **Skritch Wire-Tooth** — parleyed, promised help at Goblin Camp if freed; party let him go. *(Register in `names-index.json` for future scenes.)*
-- [ ] **Q12c.** **Who is Miraz?** Backpack owner with Cursed Temple map — volunteer, miner, NPC?
+- [x] **Q12c. Huntress backpack:** Village **huntress** went ahead tracing the **source** before the party; they found **her backpack** with map to **Cursed Temple**. At table she was called **Mira** — same story role as scenario **Mara Kell** (not barkeep Mira at The Last Lamp).
 
 ### D. Forgotten shrine
 
@@ -231,7 +231,7 @@ One image per row unless you say “skip” or “merge.” Slugs are for filena
 | Mine crawl | Yes | **Skritch Wire-Tooth** (trap goblin) guided party; parley; miners dead in corner; Skritch **released** |
 | Goblin leader fight | Yes | **No combat** — negotiation instead |
 | Strange amulet | Partial | Lore: cursed + prophecy; possession TBD |
-| Miraz backpack / Cursed Temple map | Yes | Map to **Cursed Temple** (table name; may = forgotten shrine) |
+| Mira's backpack / Cursed Temple map | Yes | Village **huntress Mira** went ahead; party found backpack + **map to Cursed Temple** |
 
 ### Part D — Shrine
 
