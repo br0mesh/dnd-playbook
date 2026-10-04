@@ -129,12 +129,13 @@ One image per row unless you say “skip” or “merge.” Slugs are for filena
 ### C. Forest trail & mine
 
 - [x] **Q8. Forest trail:** Easy walk overall. **Wolf encounter** — party killed most wolves; **left one tied** to return to after the curse is lifted. Blue lights not mentioned.
-- [ ] **Q9.** **Mine entrance:** Match campaign image (speared miners, collapsed beams) or different?
-- [ ] **Q10.** **Volunteer bodies** — found? Where?
-- [ ] **Q11.** **Miners rescued?** How many? Any named?
-- [ ] **Q12.** **Goblin fight:** Leader killed or driven off? Memorable line or tactic?
-- [ ] **Q13.** **Amulet** — who holds it? Any Arcana/Religion reveal at table?
-- [ ] **Q14.** **Mine standout moment** (heroic save, funny scout moment, near-TPK)?
+- [x] **Q9. Mine entrance:** Collapsed entrance; dead previous volunteer group. Dynamite blast; workers' cabin; hunting trap → caught goblin hostage as guide (see prior note).
+- [x] **Q10. Volunteer bodies:** Yes — previous group dead at mine (with Q9).
+- [ ] **Q11.** **Miners rescued?** How many? Any named? *(Not mentioned yet — confirm.)*
+- [x] **Q12. Goblin leader:** **No fight** at parley — hostage led party to leader. Learned leader wears **cursed amulet** with **prophecy** (seal breaks → evil returns). Short talk; goblin promised future help at **Goblin Camp / Goblin City** if party **let him go** — party **released him**. *(Clarify: guide vs leader — see Q12b.)*
+- [x] **Q13. Amulet (lore):** Revealed via hostage/leader talk — cursed, prophecy tied to seal. **Who holds it now?** *(Open.)*
+- [x] **Q14. Mine standout:** Parley over combat; dynamite + trap; **Miraz's backpack** found with **map to the Cursed Temple** in the forest.
+- [ ] **Q12b.** **Who was released?** Trapped guide · goblin leader · both? **Who is Miraz?** (volunteer, miner, other?)
 
 ### D. Forgotten shrine
 
@@ -224,11 +225,12 @@ One image per row unless you say “skip” or “merge.” Slugs are for filena
 | Beat | Ran | Notes |
 |------|-----|-------|
 | Forest trail | Yes | Easy walk; wolf fight — most killed, **one wolf left tied** (plan: return after curse lifted) |
-| Mine discovery | | |
-| Volunteer bodies | | |
-| Mine crawl | | |
-| Goblin leader fight | | |
-| Strange amulet | | |
+| Mine discovery | Yes | Collapsed entrance; dynamite; cabin; trap-caught goblin guide |
+| Volunteer bodies | Yes | Dead previous group at mine |
+| Mine crawl | Yes | Guide → leader; parley, **let goblin go** (Camp ally hook) |
+| Goblin leader fight | Yes | **No combat** — negotiation instead |
+| Strange amulet | Partial | Lore: cursed + prophecy; possession TBD |
+| Miraz backpack / Cursed Temple map | Yes | Map to **Cursed Temple** (table name; may = forgotten shrine) |
 
 ### Part D — Shrine
 
