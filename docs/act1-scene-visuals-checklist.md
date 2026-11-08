@@ -142,7 +142,8 @@ One image per row unless you say “skip” or “merge.” Slugs are for filena
 
 - [x] **Q15. Temple approach puzzle:** Before entering — **four statues** must be turned correctly relative to the **sun** (two toward **sunset** / sun-down, two toward the **sun** — east/day direction). Party solved after **a couple of tries**; **hidden entrance revealed**.
 - [x] **Q16. Inside temple:** Black fog; blue lantern/backpack light; three-way cross (quarters · lab · main hall). Quarters: dead body, nothing useful; *mage hand* lantern scout. **Laboratory:** instructions — **container + liquid + fire**. Three bottles: (1) **cursed wolf blood** + fire → **magic blue light**; (2) **PC blood** → **1d4 healing potion**; (3) **Vex (Harry Potter)** — table comedy: inappropriate sample → **super-glue-like sticky alchemical liquid**. Containers spent; copied **ancient wall symbols** (unreadable; maybe **Magic Guild** later). Proceeded to **central / main hall**.
-- [ ] **Q17.** **Silverleaf / herbs** — gathered correctly, poison mistake, or skipped?
+- [x] **Q17. Main hall & necromancer fight:** **Necromancer** center of hall; **seals** around. **Parley:** Vex **lied** (successful) — “here to help”; party cited **village curse**, **huntress** who opposed him; necromancer nearly done opening **ancient seal**. Called party closer; as they approached, **Lilith wild magic** flared and **struck** — **battle start**. Necromancer **last initiative**, tried **servant revival**; party **crits**; wild magic **broke his concentration** / dropped him. **Black fog lifted**; mood **not over**; **level-up** earned. **Lore beat:** interrupted ritual power seeks **nearest living vessels** — **the party**.
+- [ ] **Q18.** **After the fight:** Necromancer dead or fled? Loot (diary, etc.)? Captives in hall? Leave temple / return to village?
 - [ ] **Q18.** **Weapon poison blessing** — used later in necromancer fight?
 - [ ] **Q19.** **Rune map / route to ruins** — found inside temple? Party read it?
 - [ ] **Q20.** **Shrine standout moment** (besides statue puzzle)?
@@ -153,7 +154,7 @@ One image per row unless you say “skip” or “merge.” Slugs are for filena
 - [ ] **Q22.** **Darkness** — mill lantern, mine lantern, *light* cantrip, or other?
 - [ ] **Q23.** **Wrong-path encounter** — skeletons/ghoul happened?
 - [ ] **Q24.** **Library** — visited? What lore landed with players?
-- [ ] **Q25.** **Ritual outcome:** Concentration **broken** (fight necromancer) or ritual **completed** (seal opens, necromancer dies)?
+- [x] **Q25. Ritual outcome:** **Interrupted** — Lilith wild magic + crits; necromancer **disrupted** before seal fully opened; power **redirect** hook to PCs.
 - [ ] **Q26.** **Captives** — any recognizable villagers (Silas, Mara, Wren)?
 - [ ] **Q27.** **Loot:** Necromancer diary? Uncommon item? What was it?
 - [ ] **Q28.** **Finale standout moment** — killing blow, clutch heal, moral choice, comedy?
@@ -251,8 +252,8 @@ One image per row unless you say “skip” or “merge.” Slugs are for filena
 | Magical darkness | | |
 | Path riddle / wrong turn | | |
 | Library | | |
-| Ritual chamber / fight | | |
-| Aftermath & loot | | |
+| Ritual chamber / fight | Yes | Parley → Lilith wild magic opens fight; necromancer down; fog clears |
+| Aftermath & loot | Partial | Level-up; ritual power → party hook; details TBD (Q18) |
 
 ---
 
