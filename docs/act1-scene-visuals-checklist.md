@@ -2,8 +2,9 @@
 
 **Campaign:** When the Lanterns Fall Silent | Коли ліхтарі мовчать  
 **Branch:** `cursor/act1-scene-visuals-checklist-47c0`  
-**Status:** Questions phase — **no images generated yet**  
-**Last updated:** 2026-09-07
+**Status:** Table recap **complete** for Act 1 · visuals **not started** · loot **Chapter 2**  
+**Last updated:** 2026-11-10  
+**Full recap:** [`act1-table-recap-when-lanterns-fall-silent.md`](act1-table-recap-when-lanterns-fall-silent.md)
 
 ---
 
@@ -19,7 +20,7 @@ There are **planning and authoring notes**, but **no dedicated “what happened 
 | Playable dm-script (Session 1 only) | `scenarios/.../dm-script/` | Scenes `00`–`12` — **village arc only** |
 | Character intros | `scenarios/.../characters/*_intro.en.md` | Per-PC spotlight hooks |
 
-**Gap:** Forest trail, mine, shrine, and necromancer beats exist **only in the campaign draft** — not yet as separate dm-script files. Visuals and recap must come from **your table memory**.
+**Table canon** is now in [`act1-table-recap-when-lanterns-fall-silent.md`](act1-table-recap-when-lanterns-fall-silent.md). Forest/mine/temple/finale still have **no dm-script files** (table diverged from draft).
 
 ---
 
@@ -143,22 +144,18 @@ One image per row unless you say “skip” or “merge.” Slugs are for filena
 - [x] **Q15. Temple approach puzzle:** Before entering — **four statues** must be turned correctly relative to the **sun** (two toward **sunset** / sun-down, two toward the **sun** — east/day direction). Party solved after **a couple of tries**; **hidden entrance revealed**.
 - [x] **Q16. Inside temple:** Black fog; blue lantern/backpack light; three-way cross (quarters · lab · main hall). Quarters: dead body, nothing useful; *mage hand* lantern scout. **Laboratory:** instructions — **container + liquid + fire**. Three bottles: (1) **cursed wolf blood** + fire → **magic blue light**; (2) **PC blood** → **1d4 healing potion**; (3) **Vex (Harry Potter)** — table comedy: inappropriate sample → **super-glue-like sticky alchemical liquid**. Containers spent; copied **ancient wall symbols** (unreadable; maybe **Magic Guild** later). Proceeded to **central / main hall**.
 - [x] **Q17. Main hall & necromancer fight:** **Necromancer** center of hall; **seals** around. **Parley:** Vex **lied** (successful) — “here to help”; party cited **village curse**, **huntress** who opposed him; necromancer nearly done opening **ancient seal**. Called party closer; as they approached, **Lilith wild magic** flared and **struck** — **battle start**. Necromancer **last initiative**, tried **servant revival**; party **crits**; wild magic **broke his concentration** / dropped him. **Black fog lifted**; mood **not over**; **level-up** earned. **Lore beat:** interrupted ritual power seeks **nearest living vessels** — **the party**.
-- [ ] **Q18.** **After the fight:** Necromancer dead or fled? Loot (diary, etc.)? Captives in hall? Leave temple / return to village?
-- [ ] **Q18.** **Weapon poison blessing** — used later in necromancer fight?
-- [ ] **Q19.** **Rune map / route to ruins** — found inside temple? Party read it?
-- [ ] **Q20.** **Shrine standout moment** (besides statue puzzle)?
+- [x] **Q18. After the fight / end of Act 1:** Session ended **still inside the temple** after necromancer disrupted. **Loot not assigned** — **Chapter 2**. (Necromancer fate, bodies, diary — TBD.)
+- [ ] **Q19.** **Weapon poison blessing** — N/A at table (no campaign silverleaf path).
+- [ ] **Q20.** **Rune map** — N/A; used **Mira's map** to temple instead.
 
 ### E. Necromancer & ruins
 
-- [ ] **Q21.** **Ruins entrance** — found via *detect magic*, Investigation, or stumbling?
-- [ ] **Q22.** **Darkness** — mill lantern, mine lantern, *light* cantrip, or other?
-- [ ] **Q23.** **Wrong-path encounter** — skeletons/ghoul happened?
-- [ ] **Q24.** **Library** — visited? What lore landed with players?
+- [x] **Q21–Q24.** Merged into temple crawl (Q16–Q17); no separate ruins crawl at table.
 - [x] **Q25. Ritual outcome:** **Interrupted** — Lilith wild magic + crits; necromancer **disrupted** before seal fully opened; power **redirect** hook to PCs.
-- [ ] **Q26.** **Captives** — any recognizable villagers (Silas, Mara, Wren)?
-- [ ] **Q27.** **Loot:** Necromancer diary? Uncommon item? What was it?
-- [ ] **Q28.** **Finale standout moment** — killing blow, clutch heal, moral choice, comedy?
-- [ ] **Q29.** **Where did Act 1 end?** Still in ruins · road back · already at village?
+- [ ] **Q26.** **Captives** — TBD Chapter 2 (dead body in quarters noted).
+- [ ] **Q27.** **Loot** — **deferred to Chapter 2**.
+- [x] **Q28. Finale standout:** Vex bluff → Lilith wild magic opener → necromancer last initiative → crit storm.
+- [x] **Q29. Where Act 1 ended:** **Inside Cursed Temple** (main hall aftermath).
 
 ### F. Visual format (decide once — **required before any image**)
 
@@ -191,14 +188,15 @@ One image per row unless you say “skip” or “merge.” Slugs are for filena
 
 | Field | Your answer |
 |-------|-------------|
-| Date(s) played | |
-| Sessions count (1 long arc or multiple nights?) | |
-| Ending level | |
-| Language at table | EN / UA / mixed |
+| Date(s) played | *(fill on PC)* |
+| Sessions count | Full Act 1 arc (multi-session) |
+| Ending level | **Level up** at end of Act 1 |
+| Language at table | *(fill on PC)* |
+| Act 1 end location | **Cursed Temple** (inside) |
 
 ### One-paragraph summary
 
-> *(Pending — e.g. “Party hired in Briarford, exposed fake lanterns, followed Silas’s diary into the woods, cleared the coal mine of fleeing goblins, solved the shrine riddle, and interrupted the necromancer ritual with … outcome.”)*
+> See [`act1-table-recap-when-lanterns-fall-silent.md`](act1-table-recap-when-lanterns-fall-silent.md) § One-paragraph summary.
 
 ### Part A — Intros
 
@@ -240,20 +238,16 @@ One image per row unless you say “skip” or “merge.” Slugs are for filena
 | Beat | Ran | Notes |
 |------|-----|-------|
 | Shrine arrival | Yes | **Cursed Temple**; **four-statue sun puzzle** → secret entrance (few tries) |
-| Silverleaf | | |
+| Temple lab / fog | Yes | Black fog; blue lanterns; quarters; **alchemy machine** (3 bottles) |
 | Shrine riddle | Yes | Statue orientation puzzle (exterior) |
-| Rune map | | |
+| Rune map | N/A | **Mira's backpack map** instead |
 
 ### Part E — Ruins & necromancer
 
 | Beat | Ran | Notes |
 |------|-----|-------|
-| Ruins approach | | |
-| Magical darkness | | |
-| Path riddle / wrong turn | | |
-| Library | | |
-| Ritual chamber / fight | Yes | Parley → Lilith wild magic opens fight; necromancer down; fog clears |
-| Aftermath & loot | Partial | Level-up; ritual power → party hook; details TBD (Q18) |
+| Main hall / ritual fight | Yes | Parley → Lilith wild magic; crits; fog clears; ritual power → party |
+| Aftermath & loot | Partial | **End in temple**; loot **Chapter 2**; level-up |
 
 ---
 
@@ -268,8 +262,9 @@ If your table followed the campaign draft, Act 1 ends with:
 
 ---
 
-## Next step
+## Next step (on PC)
 
-1. Answer **Q2–Q28** (table recap — as much as you remember).
-2. Answer **Q29–Q39** (format — required before first image).
-3. Say which **slug** to generate first (default: `01_intro_vex` in story order).
+1. Read **`act1-table-recap-when-lanterns-fall-silent.md`** for Chapter 2 open hooks.
+2. Answer **Q30–Q40** (visual format) when ready to generate art.
+3. Pick first slug (default: `01_intro_vex`).
+4. Resolve **loot** and main-hall aftermath when starting Chapter 2.
