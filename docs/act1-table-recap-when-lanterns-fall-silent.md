@@ -25,7 +25,7 @@ All five present for every session.
 
 ## One-paragraph summary
 
-The party took Mayor Alden's contract in Briarford, followed the herbalist lead and volunteer trail, won better pay from the mayor, talked down lantern thieves, and survived a harrowing rat fight at the mill. They entered the forest (wolves — one **left tied** for after the curse lifts), reached a collapsed coal mine, found the **previous volunteers impaled** and **miners dead** in a cave corner, used **dynamite**, trapped and released **Skritch Wire-Tooth**, parleyed with the goblin leader, took the **amulet** as a supposed **Goblin Camp key** (not worn; **curse unknown to PCs**), and found village **huntress Mira's** backpack with a map to the **Cursed Temple**. At the temple they solved a **four-statue sun puzzle**, navigated **black fog** with **blue lantern light**, explored quarters and a **alchemy lab** (wolf-blood blue light, healing potion, comic third bottle → glue), then faced the **necromancer** in the main hall. **Vex bluffed**; **Lilith's wild magic** started the fight; **crits** stopped the ritual; **fog lifted**; **level up**; **interrupted ritual power** may flow into the party. Act 1 ended **in the temple**. **Loot not yet assigned** — defer to **Chapter 2**.
+The party took Mayor Alden's contract in Briarford, followed the herbalist lead and volunteer trail, won better pay from the mayor, talked down lantern thieves, and survived a harrowing rat fight at the mill. They entered the forest (wolves — one **left tied** for after the curse lifts), reached a collapsed coal mine, found the **previous volunteers impaled** and **miners dead** in a cave corner, used **dynamite**, trapped **Skritch Wire-Tooth**, faced the goblin leader (Vex **thaumaturgy** scare → prophecy misread → leader attacked → **one-turn kill**; goblins fled **except Skritch**), took the **amulet** as a supposed **Goblin Camp key** (not worn; **curse unknown to PCs**), and found village **huntress Mira's** backpack with a map to the **Cursed Temple**. At the temple they solved a **four-statue sun puzzle**, navigated **black fog** with **blue lantern light**, explored quarters and a **alchemy lab** (wolf-blood blue light, healing potion, comic third bottle → glue), then faced the **necromancer** in the main hall. **Vex bluffed**; **Lilith's wild magic** started the fight; **crits** stopped the ritual; **fog lifted**; **level up**; **interrupted ritual power** may flow into the party. Act 1 ended **in the temple**. **Loot not yet assigned** — defer to **Chapter 2**.
 
 ---
 
@@ -58,8 +58,8 @@ All village script scenes reportedly ran; **affected homes (`07`)** not recalled
 | Entrance | Collapsed; **volunteers impaled on wooden spikes** outside |
 | Miners | **All dead**, piled in a **corner** deeper in the mine |
 | Tactics | **Dynamite** on entrance; hid in **workers' cabin**; **hunting trap** |
-| Goblin guide | **Skritch Wire-Tooth** — trapped, led party toward leader, **released** after parley |
-| Leader | **No fight** — talked; learned of leader's amulet; released hostage goblin (not leader) |
+| Goblin guide | **Skritch Wire-Tooth** — trapped, led party to leader; **did not flee** when others ran; **released** after; promised Goblin Camp help |
+| Leader | Talk → Vex **thaumaturgy** (booming voice + glowing eyes + tremors) to scare → leader **misreads as prophecy** → **attacks** → **killed in one turn**; rest flee except Skritch |
 | Amulet | Taken; in **backpack**; treated as **key to Goblin Camp**; PCs **don't know** it's cursed |
 | Huntress | **Mira** (village huntress; scenario role ≈ **Mara Kell**) went ahead; party found **her backpack** + **map to Cursed Temple** |
 

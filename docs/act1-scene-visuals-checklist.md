@@ -133,10 +133,10 @@ One image per row unless you say “skip” or “merge.” Slugs are for filena
 - [x] **Q9. Mine entrance:** Collapsed entrance; dead previous volunteer group. Dynamite blast; workers' cabin; hunting trap → caught goblin hostage as guide (see prior note).
 - [x] **Q10. Volunteer bodies:** Yes — **previous group dead before entrance**, bodies **impaled on wooden spikes** (grim display).
 - [x] **Q11. Miners:** **All dead** — found lying in a **corner deep in the mine**; **no rescues**.
-- [x] **Q12. Goblin leader:** **No fight** at parley — hostage led party to leader. Learned leader wears **cursed amulet** with **prophecy** (seal breaks → evil returns). Short talk; goblin promised future help at **Goblin Camp / Goblin City** if party **let him go** — party **released him**. *(Clarify: guide vs leader — see Q12b.)*
+- [x] **Q12. Goblin leader:** Hostage (**Skritch**) led party to leader. Talk began; leader wore **cursed amulet** / **prophecy** lore. **Vex** cast **`thaumaturgy_cantrip_transmutation`** — **booming voice + glowing/black eyes + harmless tremors** — to scare them. Leader **misread it as prophecy coming true** and **attacked**. Fight started; party **killed the leader in one turn**; **other goblins fled** — **except one** (Skritch stayed / did not flee with the rest).
 - [x] **Q13. Amulet:** Party **has it** — stored in a **backpack**, **not worn**. They treat it as a **key to enter Goblin Camp**; **do not know** it is cursed (prophecy/seal lore not known to PCs yet).
-- [x] **Q14. Mine standout:** Parley over combat; dynamite + trap; **Miraz's backpack** found with **map to the Cursed Temple** in the forest.
-- [x] **Q12b. Released goblin:** Not the leader — a **random goblin** (mine trap hostage / guide). **Table canon name:** **Skritch Wire-Tooth** — parleyed, promised help at Goblin Camp if freed; party let him go. *(Register in `names-index.json` for future scenes.)*
+- [x] **Q14. Mine standout:** Dynamite + trap; **thaumaturgy scare → prophecy misread → one-round leader kill**; **Miraz/Mira's backpack** + **map to the Cursed Temple**.
+- [x] **Q12b. Remaining goblin:** **Skritch Wire-Tooth** — trap guide; **did not flee** with the others after the leader dropped; promised help at Goblin Camp; party let him go. *(Register in `names-index.json` for future scenes.)*
 - [x] **Q12c. Huntress backpack:** Village **huntress** went ahead tracing the **source** before the party; they found **her backpack** with map to **Cursed Temple**. At table she was called **Mira** — same story role as scenario **Mara Kell** (not barkeep Mira at The Last Lamp).
 
 ### D. Forgotten shrine / Cursed Temple
@@ -214,7 +214,7 @@ Prompt reminder for group frames: *exactly these five with correct genders + opt
 | `13_forest_trail` (rejected) | `art/act1/13_forest_trail_gnome_reject.jpg` | Rejected — invented gnome/dwarf |
 | `14_mine_discovery` (+ spiked volunteers) | `art/act1/14_mine_discovery.jpg` | **Approved** (merged with `15`) |
 | `16_mine_crawl` (Skritch trap) | `art/act1/16_mine_crawl.jpg` | **Approved** |
-| `17_goblin_parley` | `art/act1/17_goblin_parley.jpg` | Awaiting review (fun parley; no combat) |
+| `17_goblin_parley` | `art/act1/17_goblin_parley.jpg` (+ `_v1` prior talk-only) | Awaiting review — thaumaturgy scare → prophecy → 1-turn kill; Skritch stays |
 | `18_mira_backpack_map` (+ amulet in pack) | `art/act1/18_mira_backpack_map.jpg` | Kept — review after parley insert |
 
 ---
@@ -268,7 +268,7 @@ Prompt reminder for group frames: *exactly these five with correct genders + opt
 | Mine discovery | Yes | Collapsed entrance; dynamite; cabin; trap-caught goblin guide |
 | Volunteer bodies | Yes | **Before entrance** — impaled on **wooden spikes** |
 | Mine crawl | Yes | **Skritch Wire-Tooth** (trap goblin) guided party; parley; miners dead in corner; Skritch **released** |
-| Goblin leader fight | Yes | **No combat** — negotiation instead |
+| Goblin leader fight | Yes | Talk → Vex **thaumaturgy** (voice+eyes+tremors) scare → leader thinks **prophecy** → attacks → **leader dead in one turn** → goblins flee **except Skritch** |
 | Strange amulet | Yes | In party **backpack**; **key to Goblin Camp**; not worn; PCs unaware of curse |
 | Mira's backpack / Cursed Temple map | Yes | Village **huntress Mira** went ahead; party found backpack + **map to Cursed Temple** |
 
