@@ -223,6 +223,7 @@ Prompt reminder for group frames: *exactly these five with correct genders + opt
 | `21_temple_alchemy_lab` | `art/act1/21_temple_alchemy_lab.jpg` (+ `_v1`/`_v2`) | **Approved** (white glue; label style drifted — may fix later) |
 | `27_ritual_chamber` | `art/act1/27_ritual_chamber.jpg` | Awaiting review |
 | `28_aftermath` | `art/act1/28_aftermath.jpg` | Awaiting review (Act 1 end) |
+| `29_fog_chooses_living` | `art/act1/29_fog_chooses_living.jpg` | Awaiting review — post-fight black mist curls around party |
 
 ---
 
@@ -310,6 +311,6 @@ If your table followed the campaign draft, Act 1 ends with:
 
 ## Next step
 
-1. Review / revise `27_ritual_chamber` and `28_aftermath` (story arc visuals complete).
+1. Review / revise `27`–`29` (finale trio; `29` = black mist chooses the living).
 2. Optional: fix `21` label plaque to match series; mill v1 vs ass-bite pick later.
 3. Resolve **loot** when starting Chapter 2.
