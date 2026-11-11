@@ -184,7 +184,8 @@ One image per row unless you say “skip” or “merge.” Slugs are for filena
 |------|------|--------|
 | `01_intro_vex` | `art/act1/01_intro_vex.jpg` (+ `_storybook` / `_painterly` tests) | **Approved** (storybook) |
 | `02_intro_lilith` | `art/act1/02_intro_lilith.jpg` | **Approved** |
-| `03_intro_elias` | `art/act1/03_intro_elias.jpg` | Awaiting review |
+| `03_intro_elias` | `art/act1/03_intro_elias.jpg` | **Approved** |
+| `04_intro_mordain` | `art/act1/04_intro_mordain.jpg` | Awaiting review |
 
 ---
 
@@ -272,5 +273,5 @@ If your table followed the campaign draft, Act 1 ends with:
 
 ## Next step
 
-1. Review / revise `03_intro_elias`, then continue (`04_intro_mordain` next).
+1. Review / revise `04_intro_mordain`, then continue (`05_intro_ruta` next).
 2. Resolve **loot** and main-hall aftermath when starting Chapter 2.
