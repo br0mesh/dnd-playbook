@@ -191,7 +191,8 @@ One image per row unless you say “skip” or “merge.” Slugs are for filena
 | `06_mayors_hall_convergence` | `art/act1/06_mayors_hall_convergence.jpg` | **Approved** |
 | `09_herbalist_house` | `art/act1/09_herbalist_house.jpg` | **Approved** |
 | `11_mayor_followup` | `art/act1/11_mayor_followup.jpg` | **Approved** |
-| `08_fake_lantern_house` | `art/act1/08_fake_lantern_house.jpg` | Awaiting review |
+| `08_fake_lantern_house` | `art/act1/08_fake_lantern_house.jpg` | **Approved** |
+| `10_mill_rat_problem` | `art/act1/10_mill_rat_problem.jpg` | Awaiting review |
 
 ---
 
@@ -279,5 +280,5 @@ If your table followed the campaign draft, Act 1 ends with:
 
 ## Next step
 
-1. Review / revise `08_fake_lantern_house`, then continue (`10_mill_rat_problem`).
+1. Review / revise `10_mill_rat_problem`, then continue (`12_forest_edge_closing` or forest trail).
 2. Resolve **loot** and main-hall aftermath when starting Chapter 2.
