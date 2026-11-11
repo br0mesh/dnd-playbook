@@ -164,7 +164,7 @@ One image per row unless you say “skip” or “merge.” Slugs are for filena
 - [x] **Q32. Color mood:** **Mix** — warm village / colder forest+.
 - [x] **Q33. Aspect ratio default:** **`16:9`**
 - [x] **Q34. PCs in frame:** Agent discretion (story-first).
-- [x] **Q35. PC look:** **Generic for now** (no locked portraits).
+- [x] **Q35. PC look:** **Generic for now** (no locked portraits), but **fixed party cast** (see below). Never invent other races.
 - [x] **Q36. Text on image:** Try **UA title + short quote**; review after first beat.
 - [x] **Q37. Series consistency:** **One style for all Act 1** (after style pick).
 - [x] **Q38. Spoilers in art:** Act 1 truth OK; **no Chapter 2 / next-plot spoilers**.
@@ -177,6 +177,21 @@ One image per row unless you say “skip” or “merge.” Slugs are for filena
 2. Lock **F** (format) before first image. *(format + storybook locked 2026-11-11)*
 3. Generate **one beat at a time**; approve or revise each.
 4. Canon recap pasted under [Act 1 table recap](#act-1-table-recap) as we go.
+
+### Party cast — **required in every group shot**
+
+Do **not** invent gnome / dwarf / halfling / extra PCs. Generic looks OK; races fixed:
+
+| PC | Race / role | Visual cue |
+|----|-------------|------------|
+| **Vex** | Tiefling rogue | Hood, small horns (presents as Harry Potter in village) |
+| **Lilith** | Elf wizard | Pointed ears, arcane focus / staff |
+| **Elias** | Half-elf sorcerer | Pointed ears subtle; often lantern / notes |
+| **Mordain** | **Half-orc** paladin | Mild tusks, olive/grey-green — **not** full orc brute |
+| **Ruta** | Half-elf ranger | Bow / woods gear |
+| **Ginger tom** | Unnamed cat ally | With party for all of Act 1 |
+
+Prompt reminder for group frames: *exactly these five + optional ginger tom; no gnome, no dwarf, no halfling.*
 
 ### Visual progress
 
@@ -195,8 +210,9 @@ One image per row unless you say “skip” or “merge.” Slugs are for filena
 | `10_mill_rat_problem` | `art/act1/10_mill_rat_problem.jpg` | Kept (v1) — pick later |
 | `10_mill_rat_problem` (rear-bite accent) | `art/act1/10_mill_rat_problem_ass_bite.jpg` | Kept — pick later |
 | `12_forest_edge_closing` | `art/act1/12_forest_edge_closing.jpg` | **Approved** |
-| `13_forest_trail` | `art/act1/13_forest_trail.jpg` | Awaiting review (regen: no gnome/dwarf; party-only cast) |
+| `13_forest_trail` | `art/act1/13_forest_trail.jpg` | **Approved** (regen: party-only cast) |
 | `13_forest_trail` (rejected) | `art/act1/13_forest_trail_gnome_reject.jpg` | Rejected — invented gnome/dwarf |
+| `14_mine_discovery` (+ spiked volunteers) | `art/act1/14_mine_discovery.jpg` | Awaiting review (merged with `15`) |
 
 ---
 
@@ -284,6 +300,6 @@ If your table followed the campaign draft, Act 1 ends with:
 
 ## Next step
 
-1. Review / revise `13_forest_trail`, then continue (mine entrance / spiked volunteers).
+1. Review / revise `14_mine_discovery`, then continue (mine crawl / Skritch / dynamite).
 2. Mill variants: pick `10_mill_rat_problem.jpg` vs `_ass_bite.jpg` later.
 3. Resolve **loot** and main-hall aftermath when starting Chapter 2.
