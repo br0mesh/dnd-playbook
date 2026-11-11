@@ -218,7 +218,7 @@ Prompt reminder for group frames: *exactly these five with correct genders + opt
 | `18_mira_backpack_map` (+ amulet in pack) | `art/act1/18_mira_backpack_map.jpg` | **Approved** |
 | `19_temple_statue_puzzle` | `art/act1/19_temple_statue_puzzle.jpg` | **Approved** |
 | `20_temple_black_fog` | `art/act1/20_temple_black_fog.jpg` | **Approved** |
-| `21_temple_alchemy_lab` | `art/act1/21_temple_alchemy_lab.jpg` | Awaiting review |
+| `21_temple_alchemy_lab` | `art/act1/21_temple_alchemy_lab.jpg` (+ `_v1` yellow glue) | Awaiting review — white glue regen |
 
 ---
 
