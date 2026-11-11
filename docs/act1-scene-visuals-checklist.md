@@ -2,8 +2,8 @@
 
 **Campaign:** When the Lanterns Fall Silent | Коли ліхтарі мовчать  
 **Branch:** `cursor/act1-scene-visuals-checklist-47c0`  
-**Status:** Table recap **complete** for Act 1 · visuals **not started** · loot **Chapter 2**  
-**Last updated:** 2026-11-10  
+**Status:** Table recap **complete** for Act 1 · visuals **style test in progress** · loot **Chapter 2**  
+**Last updated:** 2026-11-11  
 **Full recap:** [`act1-table-recap-when-lanterns-fall-silent.md`](act1-table-recap-when-lanterns-fall-silent.md)
 
 ---
@@ -159,22 +159,22 @@ One image per row unless you say “skip” or “merge.” Slugs are for filena
 
 ### F. Visual format (decide once — **required before any image**)
 
-- [ ] **Q30. Primary use:** Player handout · DM screen · social · print · web header?
-- [ ] **Q31. Style:** Painterly fantasy · gritty realism · storybook · comic panel · other?
-- [ ] **Q32. Color mood:** Warm heroic · cold blue horror · mix (warm village / cold forest)?
-- [ ] **Q33. Aspect ratio default:** `16:9` · `3:4` · `1:1` · other?
-- [ ] **Q34. PCs in frame:** Every beat · group/fight only · locations/NPCs only · case-by-case?
-- [ ] **Q35. PC look:** Describe each PC’s appearance for consistency, or generic/silhouette?
-- [ ] **Q36. Text on image:** None · title · short quote · EN / UA / both?
-- [ ] **Q37. Series consistency:** One style all Act 1 · allow drift per arc?
-- [ ] **Q38. Spoilers in art:** Full soul-lantern/necromancer truth OK for recap images?
-- [ ] **Q39. Output path:** `scenarios/when-the-lanterns-fall-silent/art/act1/{slug}.png` — OK?
-- [ ] **Q40. Beat density:** One image per slug above, or merge (e.g. mine discovery + fight)?
+- [x] **Q30. Primary use:** **Player recap before Chapter 2** (long gap since last session).
+- [ ] **Q31. Style:** **A/B test on `01_intro_vex`** — painterly fantasy vs storybook; lock after pick.
+- [x] **Q32. Color mood:** **Mix** — warm village / colder forest+.
+- [x] **Q33. Aspect ratio default:** **`16:9`**
+- [x] **Q34. PCs in frame:** Agent discretion (story-first).
+- [x] **Q35. PC look:** **Generic for now** (no locked portraits).
+- [x] **Q36. Text on image:** Try **UA title + short quote**; review after first beat.
+- [x] **Q37. Series consistency:** **One style for all Act 1** (after style pick).
+- [x] **Q38. Spoilers in art:** Act 1 truth OK; **no Chapter 2 / next-plot spoilers**.
+- [x] **Q39. Output path:** `scenarios/when-the-lanterns-fall-silent/art/act1/{slug}.*` — OK.
+- [x] **Q40. Beat density:** Agent discretion / experiment (merge when a beat is thin).
 
 ### G. Workflow
 
 1. Answer **B → E** (partial OK).
-2. Lock **F** (format) before first image.
+2. Lock **F** (format) before first image. *(format locked 2026-11-11; style TBD)*
 3. Generate **one beat at a time**; approve or revise each.
 4. Canon recap pasted under [Act 1 table recap](#act-1-table-recap) as we go.
 
@@ -262,9 +262,8 @@ If your table followed the campaign draft, Act 1 ends with:
 
 ---
 
-## Next step (on PC)
+## Next step
 
-1. Read **`act1-table-recap-when-lanterns-fall-silent.md`** for Chapter 2 open hooks.
-2. Answer **Q30–Q40** (visual format) when ready to generate art.
-3. Pick first slug (default: `01_intro_vex`).
-4. Resolve **loot** and main-hall aftermath when starting Chapter 2.
+1. **Style pick:** approve painterly vs storybook for `01_intro_vex`, then continue one beat at a time.
+2. Files so far: `art/act1/01_intro_vex_painterly.jpg`, `art/act1/01_intro_vex_storybook.jpg`.
+3. Resolve **loot** and main-hall aftermath when starting Chapter 2.

@@ -126,11 +126,12 @@ Use this list when you sit down at the PC:
 
 ---
 
-## Visual generation (not started)
+## Visual generation (in progress)
 
-- **Intent:** Scene pictures for full Act 1 (intros through finale).
-- **Process:** One beat at a time after **format** questions answered (`act1-scene-visuals-checklist.md`).
-- **Suggested first slug:** `01_intro_vex` (story order).
+- **Intent:** Player recap images before Chapter 2 (long gap since last game).
+- **Format locked:** 16:9 · mix warm/cold · UA title+quote trial · generic PCs · Act 1 spoilers OK · no next-plot spoilers · path `art/act1/`.
+- **Style:** A/B on `01_intro_vex` — painterly vs storybook; lock one series style after pick.
+- **Process:** One beat at a time; show and wait before next.
 - **High-priority table beats:** mill rat crit, spiked volunteers, dynamite/trap goblin, statue puzzle, lab machine, Vex bottle (optional tone), necromancer parley + Lilith wild magic opener.
 
 ---
