@@ -192,8 +192,9 @@ One image per row unless you say “skip” or “merge.” Slugs are for filena
 | `09_herbalist_house` | `art/act1/09_herbalist_house.jpg` | **Approved** |
 | `11_mayor_followup` | `art/act1/11_mayor_followup.jpg` | **Approved** |
 | `08_fake_lantern_house` | `art/act1/08_fake_lantern_house.jpg` | **Approved** |
-| `10_mill_rat_problem` | `art/act1/10_mill_rat_problem.jpg` | Kept (v1) |
-| `10_mill_rat_problem` (rear-bite accent) | `art/act1/10_mill_rat_problem_ass_bite.jpg` | Awaiting pick (v1 vs rear-bite) |
+| `10_mill_rat_problem` | `art/act1/10_mill_rat_problem.jpg` | Kept (v1) — pick later |
+| `10_mill_rat_problem` (rear-bite accent) | `art/act1/10_mill_rat_problem_ass_bite.jpg` | Kept — pick later |
+| `12_forest_edge_closing` | `art/act1/12_forest_edge_closing.jpg` | Awaiting review |
 
 ---
 
@@ -281,5 +282,6 @@ If your table followed the campaign draft, Act 1 ends with:
 
 ## Next step
 
-1. Review / revise `10_mill_rat_problem`, then continue (`12_forest_edge_closing` or forest trail).
-2. Resolve **loot** and main-hall aftermath when starting Chapter 2.
+1. Review / revise `12_forest_edge_closing`, then continue (`13_forest_trail` wolves + tied wolf).
+2. Mill variants: pick `10_mill_rat_problem.jpg` vs `_ass_bite.jpg` later.
+3. Resolve **loot** and main-hall aftermath when starting Chapter 2.
