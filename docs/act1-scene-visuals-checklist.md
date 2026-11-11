@@ -188,7 +188,8 @@ One image per row unless you say “skip” or “merge.” Slugs are for filena
 | `04_intro_mordain` | `art/act1/04_intro_mordain.jpg` | **Approved** |
 | `05_intro_ruta` | `art/act1/05_intro_ruta.jpg` | **Approved** (Part A intros complete) |
 | `00_session_framing` | — | **Merged** into mayor hall (contract poster already exists as handout) |
-| `06_mayors_hall_convergence` | `art/act1/06_mayors_hall_convergence.jpg` | Awaiting review |
+| `06_mayors_hall_convergence` | `art/act1/06_mayors_hall_convergence.jpg` | **Approved** |
+| `09_herbalist_house` | `art/act1/09_herbalist_house.jpg` | Awaiting review |
 
 ---
 
@@ -276,5 +277,5 @@ If your table followed the campaign draft, Act 1 ends with:
 
 ## Next step
 
-1. Review / revise `06_mayors_hall_convergence`, then continue (table order: herbalist → mayor pay raise → thieves → mill).
+1. Review / revise `09_herbalist_house`, then continue (`11_mayor_followup` pay raise → thieves → mill).
 2. Resolve **loot** and main-hall aftermath when starting Chapter 2.
