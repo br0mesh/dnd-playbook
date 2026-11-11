@@ -184,14 +184,14 @@ Do **not** invent gnome / dwarf / halfling / extra PCs. Generic looks OK; races 
 
 | PC | Race / role | Visual cue |
 |----|-------------|------------|
-| **Vex** | Tiefling rogue | Hood, small horns (presents as Harry Potter in village) |
-| **Lilith** | Elf wizard | Pointed ears, arcane focus / staff |
-| **Elias** | Half-elf sorcerer | Pointed ears subtle; often lantern / notes |
-| **Mordain** | **Half-orc** paladin | Mild tusks, olive/grey-green — **not** full orc brute |
-| **Ruta** | Half-elf ranger | Bow / woods gear |
+| **Vex** | **Male** tiefling rogue | Hood, small horns (presents as Harry Potter in village) |
+| **Lilith** | **Female** elf wizard | Pointed ears, arcane focus / staff |
+| **Elias** | **Male** half-elf sorcerer | Pointed ears subtle; often lantern / notes |
+| **Mordain** | **Male half-orc** paladin | Mild tusks, olive/grey-green — **not** full orc brute |
+| **Ruta** | **Female** half-elf ranger | Bow / woods gear |
 | **Ginger tom** | Unnamed cat ally | With party for all of Act 1 |
 
-Prompt reminder for group frames: *exactly these five + optional ginger tom; no gnome, no dwarf, no halfling.*
+Prompt reminder for group frames: *exactly these five with correct genders + optional ginger tom; no gnome, no dwarf, no halfling, no extra mages.*
 
 ### Visual progress
 
@@ -212,7 +212,8 @@ Prompt reminder for group frames: *exactly these five + optional ginger tom; no 
 | `12_forest_edge_closing` | `art/act1/12_forest_edge_closing.jpg` | **Approved** |
 | `13_forest_trail` | `art/act1/13_forest_trail.jpg` | **Approved** (regen: party-only cast) |
 | `13_forest_trail` (rejected) | `art/act1/13_forest_trail_gnome_reject.jpg` | Rejected — invented gnome/dwarf |
-| `14_mine_discovery` (+ spiked volunteers) | `art/act1/14_mine_discovery.jpg` | Awaiting review (merged with `15`) |
+| `14_mine_discovery` (+ spiked volunteers) | `art/act1/14_mine_discovery.jpg` | **Approved** (merged with `15`) |
+| `16_mine_crawl` (Skritch trap) | `art/act1/16_mine_crawl.jpg` | Awaiting review |
 
 ---
 
@@ -300,6 +301,6 @@ If your table followed the campaign draft, Act 1 ends with:
 
 ## Next step
 
-1. Review / revise `14_mine_discovery`, then continue (mine crawl / Skritch / dynamite).
+1. Review / revise `16_mine_crawl`, then continue (amulet / Mira backpack map / temple).
 2. Mill variants: pick `10_mill_rat_problem.jpg` vs `_ass_bite.jpg` later.
 3. Resolve **loot** and main-hall aftermath when starting Chapter 2.
