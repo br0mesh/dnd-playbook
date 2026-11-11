@@ -192,7 +192,8 @@ One image per row unless you say “skip” or “merge.” Slugs are for filena
 | `09_herbalist_house` | `art/act1/09_herbalist_house.jpg` | **Approved** |
 | `11_mayor_followup` | `art/act1/11_mayor_followup.jpg` | **Approved** |
 | `08_fake_lantern_house` | `art/act1/08_fake_lantern_house.jpg` | **Approved** |
-| `10_mill_rat_problem` | `art/act1/10_mill_rat_problem.jpg` | Awaiting review |
+| `10_mill_rat_problem` | `art/act1/10_mill_rat_problem.jpg` | Kept (v1) |
+| `10_mill_rat_problem` (rear-bite accent) | `art/act1/10_mill_rat_problem_ass_bite.jpg` | Awaiting pick (v1 vs rear-bite) |
 
 ---
 
