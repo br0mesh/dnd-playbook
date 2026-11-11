@@ -214,8 +214,9 @@ Prompt reminder for group frames: *exactly these five with correct genders + opt
 | `13_forest_trail` (rejected) | `art/act1/13_forest_trail_gnome_reject.jpg` | Rejected — invented gnome/dwarf |
 | `14_mine_discovery` (+ spiked volunteers) | `art/act1/14_mine_discovery.jpg` | **Approved** (merged with `15`) |
 | `16_mine_crawl` (Skritch trap) | `art/act1/16_mine_crawl.jpg` | **Approved** |
-| `17_goblin_parley` | `art/act1/17_goblin_parley.jpg` (+ `_v1` prior talk-only) | Awaiting review — thaumaturgy scare → prophecy → 1-turn kill; Skritch stays |
-| `18_mira_backpack_map` (+ amulet in pack) | `art/act1/18_mira_backpack_map.jpg` | Kept — review after parley insert |
+| `17_goblin_parley` | `art/act1/17_goblin_parley.jpg` (+ `_v1` prior talk-only) | **Approved** (thaumaturgy → prophecy → 1-turn kill; Skritch stays) |
+| `18_mira_backpack_map` (+ amulet in pack) | `art/act1/18_mira_backpack_map.jpg` | **Approved** |
+| `19_temple_statue_puzzle` | `art/act1/19_temple_statue_puzzle.jpg` | Awaiting review |
 
 ---
 
@@ -303,6 +304,6 @@ If your table followed the campaign draft, Act 1 ends with:
 
 ## Next step
 
-1. Review / revise `17_goblin_parley`, then confirm `18_mira_backpack_map`, then temple statue puzzle.
+1. Review / revise `19_temple_statue_puzzle`, then continue (black fog / lab / necromancer).
 2. Mill variants: pick `10_mill_rat_problem.jpg` vs `_ass_bite.jpg` later.
 3. Resolve **loot** and main-hall aftermath when starting Chapter 2.
