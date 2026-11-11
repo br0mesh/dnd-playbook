@@ -213,7 +213,9 @@ Prompt reminder for group frames: *exactly these five with correct genders + opt
 | `13_forest_trail` | `art/act1/13_forest_trail.jpg` | **Approved** (regen: party-only cast) |
 | `13_forest_trail` (rejected) | `art/act1/13_forest_trail_gnome_reject.jpg` | Rejected — invented gnome/dwarf |
 | `14_mine_discovery` (+ spiked volunteers) | `art/act1/14_mine_discovery.jpg` | **Approved** (merged with `15`) |
-| `16_mine_crawl` (Skritch trap) | `art/act1/16_mine_crawl.jpg` | Awaiting review |
+| `16_mine_crawl` (Skritch trap) | `art/act1/16_mine_crawl.jpg` | **Approved** |
+| `17` goblin leader fight | — | **Skipped as combat** (table = parley; covered via Skritch + Mira map) |
+| `18_mira_backpack_map` (+ amulet in pack) | `art/act1/18_mira_backpack_map.jpg` | Awaiting review |
 
 ---
 
@@ -301,6 +303,6 @@ If your table followed the campaign draft, Act 1 ends with:
 
 ## Next step
 
-1. Review / revise `16_mine_crawl`, then continue (amulet / Mira backpack map / temple).
+1. Review / revise `18_mira_backpack_map`, then continue (Cursed Temple statue puzzle).
 2. Mill variants: pick `10_mill_rat_problem.jpg` vs `_ass_bite.jpg` later.
 3. Resolve **loot** and main-hall aftermath when starting Chapter 2.
