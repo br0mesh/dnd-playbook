@@ -130,7 +130,7 @@ Use this list when you sit down at the PC:
 
 - **Intent:** Player recap images before Chapter 2 (long gap since last game).
 - **Format locked:** 16:9 · mix warm/cold · UA title+quote trial · generic PCs · Act 1 spoilers OK · no next-plot spoilers · path `art/act1/`.
-- **Style:** A/B on `01_intro_vex` — painterly vs storybook; lock one series style after pick.
+- **Style:** **Storybook** locked for Act 1.
 - **Process:** One beat at a time; show and wait before next.
 - **High-priority table beats:** mill rat crit, spiked volunteers, dynamite/trap goblin, statue puzzle, lab machine, Vex bottle (optional tone), necromancer parley + Lilith wild magic opener.
 

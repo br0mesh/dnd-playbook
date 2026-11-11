@@ -2,7 +2,7 @@
 
 **Campaign:** When the Lanterns Fall Silent | Коли ліхтарі мовчать  
 **Branch:** `cursor/act1-scene-visuals-checklist-47c0`  
-**Status:** Table recap **complete** for Act 1 · visuals **style test in progress** · loot **Chapter 2**  
+**Status:** Table recap **complete** for Act 1 · visuals **in progress** (storybook locked) · loot **Chapter 2**  
 **Last updated:** 2026-11-11  
 **Full recap:** [`act1-table-recap-when-lanterns-fall-silent.md`](act1-table-recap-when-lanterns-fall-silent.md)
 
@@ -160,7 +160,7 @@ One image per row unless you say “skip” or “merge.” Slugs are for filena
 ### F. Visual format (decide once — **required before any image**)
 
 - [x] **Q30. Primary use:** **Player recap before Chapter 2** (long gap since last session).
-- [ ] **Q31. Style:** **A/B test on `01_intro_vex`** — painterly fantasy vs storybook; lock after pick.
+- [x] **Q31. Style:** **Storybook** locked for all Act 1 (painterly A/B rejected after `01_intro_vex`).
 - [x] **Q32. Color mood:** **Mix** — warm village / colder forest+.
 - [x] **Q33. Aspect ratio default:** **`16:9`**
 - [x] **Q34. PCs in frame:** Agent discretion (story-first).
@@ -174,9 +174,16 @@ One image per row unless you say “skip” or “merge.” Slugs are for filena
 ### G. Workflow
 
 1. Answer **B → E** (partial OK).
-2. Lock **F** (format) before first image. *(format locked 2026-11-11; style TBD)*
+2. Lock **F** (format) before first image. *(format + storybook locked 2026-11-11)*
 3. Generate **one beat at a time**; approve or revise each.
 4. Canon recap pasted under [Act 1 table recap](#act-1-table-recap) as we go.
+
+### Visual progress
+
+| Slug | File | Status |
+|------|------|--------|
+| `01_intro_vex` | `art/act1/01_intro_vex.jpg` (+ `_storybook` / `_painterly` tests) | **Approved** (storybook) |
+| `02_intro_lilith` | `art/act1/02_intro_lilith.jpg` | Awaiting review |
 
 ---
 
@@ -264,6 +271,5 @@ If your table followed the campaign draft, Act 1 ends with:
 
 ## Next step
 
-1. **Style pick:** approve painterly vs storybook for `01_intro_vex`, then continue one beat at a time.
-2. Files so far: `art/act1/01_intro_vex_painterly.jpg`, `art/act1/01_intro_vex_storybook.jpg`.
-3. Resolve **loot** and main-hall aftermath when starting Chapter 2.
+1. Review / revise `02_intro_lilith`, then continue (`03_intro_elias` next).
+2. Resolve **loot** and main-hall aftermath when starting Chapter 2.
