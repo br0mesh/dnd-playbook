@@ -217,7 +217,8 @@ Prompt reminder for group frames: *exactly these five with correct genders + opt
 | `17_goblin_parley` | `art/act1/17_goblin_parley.jpg` (+ `_v1` prior talk-only) | **Approved** (thaumaturgy → prophecy → 1-turn kill; Skritch stays) |
 | `18_mira_backpack_map` (+ amulet in pack) | `art/act1/18_mira_backpack_map.jpg` | **Approved** |
 | `19_temple_statue_puzzle` | `art/act1/19_temple_statue_puzzle.jpg` | **Approved** |
-| `20_temple_black_fog` | `art/act1/20_temple_black_fog.jpg` | Awaiting review |
+| `20_temple_black_fog` | `art/act1/20_temple_black_fog.jpg` | **Approved** |
+| `21_temple_alchemy_lab` | `art/act1/21_temple_alchemy_lab.jpg` | Awaiting review |
 
 ---
 
@@ -305,6 +306,6 @@ If your table followed the campaign draft, Act 1 ends with:
 
 ## Next step
 
-1. Review / revise `20_temple_black_fog`, then continue (alchemy lab → necromancer).
+1. Review / revise `21_temple_alchemy_lab`, then continue (necromancer main hall finale).
 2. Mill variants: pick `10_mill_rat_problem.jpg` vs `_ass_bite.jpg` later.
 3. Resolve **loot** and main-hall aftermath when starting Chapter 2.
