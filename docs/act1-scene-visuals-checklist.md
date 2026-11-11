@@ -193,6 +193,8 @@ Do **not** invent gnome / dwarf / halfling / extra PCs. Generic looks OK; races 
 
 Prompt reminder for group frames: *exactly these five with correct genders + optional ginger tom; no gnome, no dwarf, no halfling, no extra mages.*
 
+**Label style (locked):** soft **dark translucent plaque** bottom-left, light serif UA title + quote, thin gold flourish — painted into the image. **Not** parchment paper cards or hard black sticker borders.
+
 ### Visual progress
 
 | Slug | File | Status |
