@@ -197,9 +197,11 @@ Prompt reminder for group frames: *exactly these five with correct genders + opt
 
 ### Visual progress
 
+**Slideshow:** **23 slides** in [`scenarios/when-the-lanterns-fall-silent/art/act1-recap-index.json`](../scenarios/when-the-lanterns-fall-silent/art/act1-recap-index.json), shown on the player tab **Act 1 Recap**. Order follows the table, not the filenames. `00_session_framing` is omitted (merged into the mayor hall). `27`–`29` are in the deck and still awaiting art review.
+
 | Slug | File | Status |
 |------|------|--------|
-| `01_intro_vex` | `art/act1/01_intro_vex.jpg` (+ `_storybook` / `_painterly` tests) | **Approved** (storybook) |
+| `01_intro_vex` | `art/act1/01_intro_vex.jpg` | **Approved** (storybook). Tests archived: `_archive/01_intro_vex_storybook.jpg`, `_archive/01_intro_vex_painterly.jpg` |
 | `02_intro_lilith` | `art/act1/02_intro_lilith.jpg` | **Approved** |
 | `03_intro_elias` | `art/act1/03_intro_elias.jpg` | **Approved** |
 | `04_intro_mordain` | `art/act1/04_intro_mordain.jpg` | **Approved** |
@@ -209,21 +211,21 @@ Prompt reminder for group frames: *exactly these five with correct genders + opt
 | `09_herbalist_house` | `art/act1/09_herbalist_house.jpg` | **Approved** |
 | `11_mayor_followup` | `art/act1/11_mayor_followup.jpg` | **Approved** |
 | `08_fake_lantern_house` | `art/act1/08_fake_lantern_house.jpg` | **Approved** |
-| `10_mill_rat_problem` | `art/act1/10_mill_rat_problem.jpg` | Kept (v1) — pick later |
-| `10_mill_rat_problem` (rear-bite accent) | `art/act1/10_mill_rat_problem_ass_bite.jpg` | Kept — pick later |
+| `10_mill_rat_problem` | `art/act1/10_mill_rat_problem.jpg` | **In slideshow** — both mill slides, this one first |
+| `10_mill_rat_problem_ass_bite` | `art/act1/10_mill_rat_problem_ass_bite.jpg` | **In slideshow** — next slide (rear-bite accent) |
 | `12_forest_edge_closing` | `art/act1/12_forest_edge_closing.jpg` | **Approved** |
 | `13_forest_trail` | `art/act1/13_forest_trail.jpg` | **Approved** (regen: party-only cast) |
-| `13_forest_trail` (rejected) | `art/act1/13_forest_trail_gnome_reject.jpg` | Rejected — invented gnome/dwarf |
+| `13_forest_trail` (rejected) | `art/act1/_archive/13_forest_trail_gnome_reject.jpg` | Archived — invented gnome/dwarf |
 | `14_mine_discovery` (+ spiked volunteers) | `art/act1/14_mine_discovery.jpg` | **Approved** (merged with `15`) |
 | `16_mine_crawl` (Skritch trap) | `art/act1/16_mine_crawl.jpg` | **Approved** |
-| `17_goblin_parley` | `art/act1/17_goblin_parley.jpg` (+ `_v1` prior talk-only) | **Approved** (thaumaturgy → prophecy → 1-turn kill; Skritch stays) |
+| `17_goblin_parley` | `art/act1/17_goblin_parley.jpg` | **Approved** (thaumaturgy → prophecy → 1-turn kill; Skritch stays). Prior talk-only archived: `_archive/17_goblin_parley_v1.jpg` |
 | `18_mira_backpack_map` (+ amulet in pack) | `art/act1/18_mira_backpack_map.jpg` | **Approved** |
 | `19_temple_statue_puzzle` | `art/act1/19_temple_statue_puzzle.jpg` | **Approved** |
 | `20_temple_black_fog` | `art/act1/20_temple_black_fog.jpg` | **Approved** |
-| `21_temple_alchemy_lab` | `art/act1/21_temple_alchemy_lab.jpg` (+ `_v1`/`_v2`) | **Approved** (white glue; label style drifted — may fix later) |
-| `27_ritual_chamber` | `art/act1/27_ritual_chamber.jpg` | Awaiting review |
-| `28_aftermath` | `art/act1/28_aftermath.jpg` | Awaiting review (Act 1 end) |
-| `29_fog_chooses_living` | `art/act1/29_fog_chooses_living.jpg` | Awaiting review — post-fight black mist curls around party |
+| `21_temple_alchemy_lab` | `art/act1/21_temple_alchemy_lab.jpg` | **Approved** — opaque white glue (canonical). Label plaque drifted from the locked dark style; optional art fix later. Archived: `_archive/21_temple_alchemy_lab_v1.jpg` (yellow glue), `_archive/21_temple_alchemy_lab_v2.jpg` (earlier white-glue layout) |
+| `27_ritual_chamber` | `art/act1/27_ritual_chamber.jpg` | In slideshow — awaiting art review |
+| `28_aftermath` | `art/act1/28_aftermath.jpg` | In slideshow — awaiting art review (Act 1 end) |
+| `29_fog_chooses_living` | `art/act1/29_fog_chooses_living.jpg` | In slideshow — awaiting art review (black mist curls around the party) |
 
 ---
 
@@ -311,6 +313,6 @@ If your table followed the campaign draft, Act 1 ends with:
 
 ## Next step
 
-1. Review / revise `27`–`29` (finale trio; `29` = black mist chooses the living).
-2. Optional: fix `21` label plaque to match series; mill v1 vs ass-bite pick later.
+1. Review / revise `27`–`29` (finale trio is in the recap deck; art still awaiting review).
+2. Optional: restyle the `21` plaque to the locked dark translucent label. The file is locked: white-glue `21_temple_alchemy_lab.jpg`. Both mill images stay in the slideshow, in order.
 3. Resolve **loot** when starting Chapter 2.
