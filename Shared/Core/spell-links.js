@@ -94,6 +94,7 @@
       const slugs = JSON.parse(indexText);
       if (!Array.isArray(slugs)) return;
       const base = shell.indexBaseUrl(indexUrl);
+      const demoBase = new URL("../Spells/demo/", shell.pageBaseUrl()).href;
       await Promise.all(slugs.map(async function (entry) {
         const slug = shell.slugFromIndexPath(entry);
         try {
@@ -102,6 +103,11 @@
           try {
             uaText = await shell.fetchTextOptional(new URL(slug + ".ua.md", base).href, false);
           } catch (_uaErr) { /* optional */ }
+          if (!uaText) {
+            try {
+              uaText = await shell.fetchTextOptional(new URL(slug + ".ua.md", demoBase).href, false);
+            } catch (_demoUaErr) { /* optional */ }
+          }
           const enName = parseSpellNameFromMd(enText, "en") || slug;
           const uaName = uaText ? (parseSpellNameFromMd(uaText, "ua") || enName) : "";
           spellNameMap[slug] = { en: enName, ua: uaName };
@@ -148,6 +154,15 @@
     return null;
   }
 
+  function slugDisplayName(slug) {
+    if (!isSpellSlug(slug)) return slug;
+    const parts = String(slug).split("_");
+    if (parts.length < 3) return slug;
+    return parts.slice(0, -2).map(function (part) {
+      return part.charAt(0).toUpperCase() + part.slice(1);
+    }).join(" ");
+  }
+
   function renderSpellToken(token, lang) {
     const t = String(token || "").trim();
     const slug = resolveSpellSlug(t, lang);
@@ -155,7 +170,7 @@
     const names = spellNameMap[slug];
     const label = names
       ? (lang === "ua" && names.ua ? names.ua : names.en)
-      : t;
+      : slugDisplayName(slug);
     return '<a class="spell-link" href="' + esc(spellLibraryHref(slug, lang)) + '">' + esc(label) + "</a>";
   }
 
@@ -166,19 +181,20 @@
     }).filter(Boolean).join(", ");
   }
 
-  function renderSpellProse(text, lang) {
+  function renderSpellProse(text, lang, opts) {
     if (!text) return "";
+    const highlightDice = !opts || opts.highlightDice !== false;
     const names = allSpellDisplayNames();
     const hits = findSpellPhrasesInText(text, names).filter(function (hit) {
       return !isDeniedSpellContext(text, hit.start, hit.end);
     });
-    if (!hits.length) return mech.highlightDice(text);
+    if (!hits.length) return highlightDice ? mech.highlightDice(text) : text;
 
     let out = "";
     let last = 0;
     hits.forEach(function (hit) {
       if (hit.start > last) {
-        out += mech.highlightDice(text.slice(last, hit.start));
+        out += highlightDice ? mech.highlightDice(text.slice(last, hit.start)) : esc(text.slice(last, hit.start));
       }
       const fragment = text.slice(hit.start, hit.end);
       const slug = resolveSpellSlug(hit.spellName, lang);
@@ -189,11 +205,11 @@
           : fragment;
         out += '<a class="spell-link" href="' + esc(spellLibraryHref(slug, lang)) + '">' + esc(label) + "</a>";
       } else {
-        out += mech.highlightDice(fragment);
+        out += highlightDice ? mech.highlightDice(fragment) : esc(fragment);
       }
       last = hit.end;
     });
-    if (last < text.length) out += mech.highlightDice(text.slice(last));
+    if (last < text.length) out += highlightDice ? mech.highlightDice(text.slice(last)) : esc(text.slice(last));
     return out;
   }
 

@@ -184,6 +184,17 @@ def run_item_sync():
         sys.exit(result.returncode)
 
 
+def run_name_closure():
+    node = shutil.which("node")
+    if not node:
+        print("Name closure validation requires Node.js. Install Node or run: node scripts/build-sources.js")
+        sys.exit(1)
+    script = os.path.join(os.path.dirname(os.path.abspath(__file__)), "name-cli.js")
+    result = subprocess.run([node, script, "validate"], cwd=ROOT)
+    if result.returncode:
+        sys.exit(result.returncode)
+
+
 def main():
     args = sys.argv[1:]
     if "--split-legacy" in args:
@@ -197,6 +208,7 @@ def main():
         validate()
         run_spell_closure()
         run_item_closure()
+        run_name_closure()
 
 
 if __name__ == "__main__":

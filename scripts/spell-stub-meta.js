@@ -27,6 +27,14 @@ module.exports = {
     schoolUa: "Перетворення",
     nameUa: "Престидигітація",
   },
+  thaumaturgy_cantrip_transmutation: {
+    nameEn: "Thaumaturgy",
+    level: "cantrip",
+    school: "transmutation",
+    levelUa: "Заговір",
+    schoolUa: "Перетворення",
+    nameUa: "Таумаургія",
+  },
   misty_step_2nd_conjuration: {
     nameEn: "Misty Step",
     level: "2nd",

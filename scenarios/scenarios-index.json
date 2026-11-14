@@ -22,5 +22,13 @@
     "partySize": "4-5",
     "description": "Camping one-shot, one evening",
     "migrated": false
+  },
+  {
+    "slug": "when-the-lanterns-fall-silent",
+    "title": "When the Lanterns Fall Silent",
+    "level": "TBD",
+    "partySize": "TBD",
+    "description": "Homebrew campaign",
+    "migrated": true
   }
 ]

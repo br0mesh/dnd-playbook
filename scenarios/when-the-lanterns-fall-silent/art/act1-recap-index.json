@@ -1,0 +1,151 @@
+{
+  "title": ["Act 1 Recap", "Акт 1 — нагадування"],
+  "aspectRatio": "16:9",
+  "chapters": [
+    { "id": "intros", "label": ["Intros", "Інтро"] },
+    { "id": "village", "label": ["Briarford", "Брайрфорд"] },
+    { "id": "forest", "label": ["Forest", "Ліс"] },
+    { "id": "mine", "label": ["Mine", "Шахта"] },
+    { "id": "temple", "label": ["Temple", "Храм"] }
+  ],
+  "slides": [
+    {
+      "slug": "01_intro_vex",
+      "chapter": "intros",
+      "image": "art/act1/01_intro_vex.jpg",
+      "nav": ["The Wrong Name", "Не те ім'я"]
+    },
+    {
+      "slug": "02_intro_lilith",
+      "chapter": "intros",
+      "image": "art/act1/02_intro_lilith.jpg",
+      "nav": ["Blue Measurements", "Сині мірки"]
+    },
+    {
+      "slug": "03_intro_elias",
+      "chapter": "intros",
+      "image": "art/act1/03_intro_elias.jpg",
+      "nav": ["The Same Colour Twice", "Той самий колір двічі"]
+    },
+    {
+      "slug": "04_intro_mordain",
+      "chapter": "intros",
+      "image": "art/act1/04_intro_mordain.jpg",
+      "nav": ["Before the Threshold", "Перед порогом"]
+    },
+    {
+      "slug": "05_intro_ruta",
+      "chapter": "intros",
+      "image": "art/act1/05_intro_ruta.jpg",
+      "nav": ["The Cat and the Blue Light", "Кіт і синє світло"]
+    },
+    {
+      "slug": "06_mayors_hall_convergence",
+      "chapter": "village",
+      "image": "art/act1/06_mayors_hall_convergence.jpg",
+      "nav": ["Mayor's hall", "Зала мера"]
+    },
+    {
+      "slug": "09_herbalist_house",
+      "chapter": "village",
+      "image": "art/act1/09_herbalist_house.jpg",
+      "nav": ["Herbalist", "Хата травника"]
+    },
+    {
+      "slug": "11_mayor_followup",
+      "chapter": "village",
+      "image": "art/act1/11_mayor_followup.jpg",
+      "nav": ["Mayor follow-up", "Знову до мера"]
+    },
+    {
+      "slug": "08_fake_lantern_house",
+      "chapter": "village",
+      "image": "art/act1/08_fake_lantern_house.jpg",
+      "nav": ["Fake lantern", "Фальшивий ліхтар"]
+    },
+    {
+      "slug": "10_mill_rat_problem",
+      "chapter": "village",
+      "image": "art/act1/10_mill_rat_problem.jpg",
+      "nav": ["Mill rats", "Щури на млині"]
+    },
+    {
+      "slug": "10_mill_rat_problem_ass_bite",
+      "chapter": "village",
+      "image": "art/act1/10_mill_rat_problem_ass_bite.jpg",
+      "nav": ["Mill — from behind", "Млин — ззаду"]
+    },
+    {
+      "slug": "12_forest_edge_closing",
+      "chapter": "village",
+      "image": "art/act1/12_forest_edge_closing.jpg",
+      "nav": ["Forest edge", "Край лісу"]
+    },
+    {
+      "slug": "13_forest_trail",
+      "chapter": "forest",
+      "image": "art/act1/13_forest_trail.jpg",
+      "nav": ["Forest trail", "Лісова стежка"]
+    },
+    {
+      "slug": "14_mine_discovery",
+      "chapter": "mine",
+      "image": "art/act1/14_mine_discovery.jpg",
+      "nav": ["Mine discovery", "Вхід до шахти"]
+    },
+    {
+      "slug": "16_mine_crawl",
+      "chapter": "mine",
+      "image": "art/act1/16_mine_crawl.jpg",
+      "nav": ["Mine crawl", "Повзання шахтою"]
+    },
+    {
+      "slug": "17_goblin_parley",
+      "chapter": "mine",
+      "image": "art/act1/17_goblin_parley.jpg",
+      "nav": ["Goblin parley", "Переговори з гоблінами"]
+    },
+    {
+      "slug": "18_mira_backpack_map",
+      "chapter": "mine",
+      "image": "art/act1/18_mira_backpack_map.jpg",
+      "nav": ["Mira's map", "Мапа Міри"]
+    },
+    {
+      "slug": "19_temple_statue_puzzle",
+      "chapter": "temple",
+      "image": "art/act1/19_temple_statue_puzzle.jpg",
+      "nav": ["Statue puzzle", "Загадка статуй"]
+    },
+    {
+      "slug": "20_temple_black_fog",
+      "chapter": "temple",
+      "image": "art/act1/20_temple_black_fog.jpg",
+      "nav": ["Black fog", "Чорний туман"]
+    },
+    {
+      "slug": "21_temple_alchemy_lab",
+      "chapter": "temple",
+      "image": "art/act1/21_temple_alchemy_lab.jpg",
+      "nav": ["Alchemy lab", "Алхімічна машина"]
+    },
+    {
+      "slug": "27_ritual_chamber",
+      "chapter": "temple",
+      "image": "art/act1/27_ritual_chamber.jpg",
+      "nav": ["Ritual chamber", "Ритуальна зала"]
+    },
+    {
+      "slug": "28_aftermath",
+      "chapter": "temple",
+      "image": "art/act1/28_aftermath.jpg",
+      "nav": ["Aftermath", "Після бою"]
+    },
+    {
+      "slug": "29_fog_chooses_living",
+      "chapter": "temple",
+      "image": "art/act1/29_fog_chooses_living.jpg",
+      "nav": ["Fog chooses the living", "Туман обирає живих"]
+    }
+  ]
+}

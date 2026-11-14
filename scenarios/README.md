@@ -7,6 +7,7 @@ Adventure content lives on long-lived branches. The `main` branch holds platform
 | test-adventure | (on `main`) | Yes | Minimal acceptance scenario — one file per section |
 | wild-sheep-chase | `scenario/wild-sheep-chase` | PDF only | Comedy one-shot, levels 4–5 (Winghorn Press) |
 | blackpine-hollow | `scenario/blackpine-hollow` | PDF only | Camping one-shot, level 3 (homebrew) |
+| when-the-lanterns-fall-silent | `scenario/when-the-lanterns-fall-silent` | Yes | Homebrew campaign |
 
 ## Preview (HTML)
 
@@ -48,6 +49,10 @@ Each entity uses `{slug}.en.md` and optional `{slug}.ua.md`; indexes list slugs 
 Spell references in character sheets use semantic slugs — see [docs/spell-closure.md](../docs/spell-closure.md).
 
 Validate before commit: `scripts\build-sources.cmd --validate-only`
+
+### DM Script sessions (optional)
+
+Campaign scenarios may define `dmScriptSessions` in `manifest.json` to group scenes in the DM Script sidebar. Scene slugs still live in `dm-script/dm-script-index.json` as a flat array. See [docs/dm-script-branches.md](../docs/dm-script-branches.md).
 
 ## Checkout a scenario branch
 

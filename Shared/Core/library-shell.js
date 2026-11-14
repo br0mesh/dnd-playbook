@@ -15,14 +15,50 @@
     return new URL("./", new URL(indexUrl, pageBaseUrl())).href;
   }
 
+  function isLocalDevHost() {
+    const h = global.location && global.location.hostname;
+    return h === "localhost" || h === "127.0.0.1" || h === "[::1]";
+  }
+
+  function effectiveCacheBust(bustCache) {
+    return bustCache || isLocalDevHost();
+  }
+
   function withCacheBust(url, bust) {
-    if (!bust) return url;
+    if (!effectiveCacheBust(bust)) return url;
     const sep = url.indexOf("?") >= 0 ? "&" : "?";
     return url + sep + "t=" + Date.now();
   }
 
+  const FETCH_RETRIES = 3;
+  const FETCH_RETRY_MS = 150;
+
+  function fetchRetryDelay(attempt) {
+    return new Promise(function (resolve) {
+      global.setTimeout(resolve, FETCH_RETRY_MS * attempt);
+    });
+  }
+
+  async function fetchResponse(url, bustCache) {
+    let lastErr = null;
+    for (let attempt = 1; attempt <= FETCH_RETRIES; attempt += 1) {
+      try {
+        const resp = await fetch(withCacheBust(url, bustCache), {
+          cache: bustCache ? "no-store" : "default",
+        });
+        if (resp.ok || resp.status === 404) return resp;
+        lastErr = new Error("HTTP " + resp.status + " loading " + url);
+      } catch (err) {
+        lastErr = err;
+      }
+      if (attempt < FETCH_RETRIES) await fetchRetryDelay(attempt);
+    }
+    throw lastErr || new Error("Failed to load " + url);
+  }
+
   async function fetchText(url, bustCache) {
-    const resp = await fetch(withCacheBust(url, bustCache), { cache: bustCache ? "no-store" : "default" });
+    const bust = effectiveCacheBust(bustCache);
+    const resp = await fetchResponse(url, bust);
     if (!resp.ok) {
       throw new Error("HTTP " + resp.status + " loading " + url);
     }
@@ -30,7 +66,7 @@
   }
 
   async function fetchTextOptional(url, bustCache) {
-    const resp = await fetch(withCacheBust(url, bustCache), { cache: bustCache ? "no-store" : "default" });
+    const resp = await fetchResponse(url, bustCache);
     if (resp.status === 404) return null;
     if (!resp.ok) {
       throw new Error("HTTP " + resp.status + " loading " + url);
@@ -59,6 +95,9 @@
       character: params.get("character") || "",
       monster: params.get("monster") || "",
       npc: params.get("npc") || "",
+      scene: params.get("scene") || "",
+      branch: params.get("branch") || "",
+      option: params.get("option") || "",
     };
   }
 
@@ -83,8 +122,6 @@
     const params = new URLSearchParams(global.location.search);
     const indexParam = params.get("index") || (root && root.getAttribute("data-index"));
     const scenarioParam = params.get("scenario") || (root && root.getAttribute("data-scenario"));
-    const pollAttr = root && root.getAttribute("data-poll");
-
     let indexUrl = indexParam;
 
     if (!indexUrl && scenarioParam && scenarioParam !== "demo") {
@@ -94,10 +131,8 @@
       indexUrl = opts.demoIndex;
     }
 
-    const poll = pollAttr !== "false";
     return {
       indexUrl: indexUrl,
-      poll: poll,
       scenario: scenarioParam || "",
     };
   }

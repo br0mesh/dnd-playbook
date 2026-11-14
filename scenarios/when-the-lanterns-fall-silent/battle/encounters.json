@@ -1,0 +1,27 @@
+{
+  "scenes": [
+    {
+      "id": "sewer-ledge",
+      "name": { "en": "Sewer ledge", "ua": "Карниз у каналізації" },
+      "monsters": [
+        "05_sewer_ledge_hand_monster",
+        "06_sewer_ledge_leader_monster"
+      ]
+    },
+    {
+      "id": "sewer-rats",
+      "name": { "en": "Gutter rats", "ua": "Щури в жолобі" },
+      "monsters": [
+        "02_mature_rat_monster",
+        "02_mature_rat_monster"
+      ]
+    },
+    {
+      "id": "sewer-grate",
+      "name": { "en": "Grate guard", "ua": "Варта біля решітки" },
+      "monsters": [
+        "07_city_guard_monster"
+      ]
+    }
+  ]
+}

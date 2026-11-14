@@ -5,6 +5,7 @@ const fs = require("fs");
 const path = require("path");
 const spellSync = require("./spell-sync");
 const itemSync = require("./item-sync");
+const scanNameRefs = require("./scan-name-refs");
 
 const ROOT = path.resolve(__dirname, "..");
 const UA_SPLIT = /##\s+Українська\s+Версія/i;
@@ -165,4 +166,6 @@ if (!onlySplitLegacy) {
   if (spellCode) process.exit(spellCode);
   const itemCode = itemSync.validateAllItemClosure();
   if (itemCode) process.exit(itemCode);
+  const nameCode = scanNameRefs.validateAllNameClosure();
+  if (nameCode) process.exit(nameCode);
 }

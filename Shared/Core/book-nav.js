@@ -8,7 +8,9 @@
     { id: "npc", label: ["NPC", "НПК"], path: "../Npc/library.html" },
     { id: "spells", label: ["Spells", "Заклинання"], path: "../Spells/library.html" },
     { id: "items", label: ["Items", "Предмети"], path: "../Items/library.html" },
+    { id: "recap", label: ["Act 1 Recap", "Акт 1 — нагадування"], path: "../Recap/library.html" },
     { id: "maps", label: ["Maps", "Карти"], path: "../Maps/library.html", dmOnly: true },
+    { id: "battle", label: ["Battle Mode", "Бій"], path: "../Battle/library.html", dmOnly: true },
   ];
 
   const MODE_LABELS = {

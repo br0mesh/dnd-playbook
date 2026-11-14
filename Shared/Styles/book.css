@@ -250,6 +250,55 @@
   border-radius: 3px;
 }
 
+#empty-state.access-gate {
+  max-width: 360px;
+}
+
+.access-gate-form p {
+  margin: 0.5rem 0 1rem;
+  line-height: 1.45;
+}
+
+.access-gate-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.access-gate-form input[type="password"] {
+  padding: 0.55rem 0.65rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--bg-sidebar);
+  color: var(--text-light);
+  font: inherit;
+}
+
+.access-gate-form button[type="submit"] {
+  padding: 0.55rem 0.85rem;
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  background: var(--accent);
+  color: var(--bg-outer);
+  font: inherit;
+  cursor: pointer;
+}
+
+.access-gate-form button[type="submit"]:hover {
+  filter: brightness(1.08);
+}
+
+.access-gate-error {
+  margin: 0;
+  color: #e8a0a0;
+  font-size: 0.88rem;
+}
+
+.section-link-lock {
+  opacity: 0.75;
+  margin-left: 0.25rem;
+}
+
 [data-loading="true"] .library-main {
   opacity: 0.65;
   pointer-events: none;
