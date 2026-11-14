@@ -122,8 +122,6 @@
     const params = new URLSearchParams(global.location.search);
     const indexParam = params.get("index") || (root && root.getAttribute("data-index"));
     const scenarioParam = params.get("scenario") || (root && root.getAttribute("data-scenario"));
-    const pollAttr = root && root.getAttribute("data-poll");
-
     let indexUrl = indexParam;
 
     if (!indexUrl && scenarioParam && scenarioParam !== "demo") {
@@ -133,10 +131,8 @@
       indexUrl = opts.demoIndex;
     }
 
-    const poll = pollAttr !== "false";
     return {
       indexUrl: indexUrl,
-      poll: poll,
       scenario: scenarioParam || "",
     };
   }

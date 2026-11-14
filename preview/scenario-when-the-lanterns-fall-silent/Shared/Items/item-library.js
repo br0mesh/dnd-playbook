@@ -106,6 +106,7 @@
     const desc = section(text, "description");
     return {
       name: h.Name || h["Назва"] || md.titleForLocale(text, lang),
+      image: h.Image || h["Зображення"] || "",
       rarity: h.Rarity || h["Рідкість"] || "",
       type: h.Type || h["Тип"] || "",
       attunement: props.Attunement || props["Узгодження"] || props["Налаштування"] || "",
@@ -219,8 +220,11 @@
   function renderCard(e, focused) {
     const b = e[state.lang] || e.en;
     const focusClass = focused ? " item-card-focused" : "";
+    const portrait = b.image
+      ? '<img class="item-portrait" src="' + esc(b.image) + '" alt="' + esc(b.name) + '"/>'
+      : "";
     return '<article class="entity-card spell-card' + focusClass + '" data-slug="' + esc(e.slug) + '"><h2>' +
-      esc(b.name) + '</h2><p class="spell-meta">' + renderMeta(e) + "</p><p>" +
+      esc(b.name) + "</h2>" + portrait + '<p class="spell-meta">' + renderMeta(e) + "</p><p>" +
       spellLinks.renderSpellProse(b.description, state.lang) + "</p>" +
       renderAttunement(b.attunement) +
       renderHeldBy(e.slug) + "</article>";

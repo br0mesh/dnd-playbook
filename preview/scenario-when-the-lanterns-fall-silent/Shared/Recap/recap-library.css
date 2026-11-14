@@ -1,0 +1,53 @@
+#recap-library.book-chrome {
+  height: 100vh;
+  height: 100dvh;
+  min-height: 0;
+  overflow: hidden;
+}
+
+#recap-library .book-center {
+  justify-content: center;
+  padding: 0.5rem;
+}
+
+#recap-library .content-page.wide {
+  max-width: none;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.recap-stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: #0c0c0e;
+}
+
+.recap-stage img {
+  display: block;
+  max-width: 100%;
+  max-height: calc(100dvh - 11rem);
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.recap-chapter {
+  margin: 0.65rem 0.6rem 0.15rem;
+  font-size: 0.62rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+@media (max-width: 768px) {
+  #recap-library .recap-chapter {
+    align-self: center;
+    margin: 0 0.15rem 0 0.55rem;
+    white-space: nowrap;
+  }
+}

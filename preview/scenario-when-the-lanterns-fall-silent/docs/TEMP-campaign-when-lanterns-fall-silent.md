@@ -2,6 +2,24 @@
 
 > **Temporary draft** — working sketch for a 4–5 session beginner-friendly campaign.
 
+## After Chapter 1 (play) — superseded deltas
+
+> Do **not** treat the session numbering / site map below as live table truth without checking play-canon.  
+> Authority for what happened: [play-canon/when-the-lanterns-fall-silent-chapter-1-complete.md](./play-canon/when-the-lanterns-fall-silent-chapter-1-complete.md) · [play-canon/world-setup-deltas-after-chapter-1.md](./play-canon/world-setup-deltas-after-chapter-1.md)  
+> Next planning: [TEMP-chapter-2-planning-notes.md](./TEMP-chapter-2-planning-notes.md)
+
+| Authored (this draft) | Superseded by play |
+|-----------------------|--------------------|
+| Meet in a tavern first | Morning hall convergence; Hearth & Horn skipped |
+| Session 2 mine → Session 3 shrine → Session 3/4 ruins | Mine + shrine + **necromancer in shrine** in one night; **no** separate ruins visit |
+| Shrine ends on rune map to ruins | Columns **2 east / 2 west** → undercroft; Mara Kell **dead in shrine** |
+| Necromancer climax in forgotten ruins | Necromancer killed in shrine hall; ritual interrupted |
+| Chapter end → ruins | Party **mist-coated** (need cure); pause **in shrine**; then Alden pay |
+| Single shrine focus | Necromancer showed a **pentagram of shrines** (this site = one edge) |
+| Fenwick sketch / rechargeable mine lantern | No Fenwick sketch; lanterns held but **not blue** after ritual; optional roped wolf on lawn |
+
+Lore that remains DM truth unless later play changes it: bound souls / lantern network, seal / prophecy, guild interest in the amulet — see Campaign Lore below. Refine in Chapter 2+ planning; do not silent-rewrite these sections in place.
+
 ---
 
 ## Current Scope

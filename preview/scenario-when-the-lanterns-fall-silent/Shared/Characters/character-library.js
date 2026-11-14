@@ -7,13 +7,11 @@
   const locale = window.DnDCore.locale;
   const esc = shell.esc;
   const loader = window.DnDCore.loader.createLoader();
-  const POLL_MS = 3000;
   const spellLinks = window.DnDCore.spellLinks;
   const itemLinks = window.DnDCore.itemLinks;
   const state = { lang: "en", page: 1, slug: null };
   let raws = [];
   let loadConfig = null;
-  let dataFingerprint = "";
 
   const DEFAULT_HEADINGS = {
     basicInfo: ["Basic Info", "Основна інформація"],
@@ -401,27 +399,11 @@
       raws = await loader.loadData(loadConfig, false, function (slug, texts) {
         return { slug: slug, en: texts.en, ua: texts.ua };
       });
-      dataFingerprint = loader.fingerprint(raws);
       ui.setReady(uiEl);
       focusCharacterFromUrl();
       buildListNav();
       renderPage();
       ui.bindPagination(state, uiEl, renderPage, function () { return raws.length; });
-      if (loadConfig.poll) {
-        setInterval(async function () {
-          try {
-            const refreshed = await loader.loadData(loadConfig, true, function (slug, texts) {
-              return { slug: slug, en: texts.en, ua: texts.ua };
-            });
-            if (loader.fingerprint(refreshed) !== dataFingerprint) {
-              dataFingerprint = loader.fingerprint(refreshed);
-              raws = refreshed;
-              buildListNav();
-              renderPage();
-            }
-          } catch (_e) { /* keep last good data */ }
-        }, POLL_MS);
-      }
     } catch (err) { ui.setError(uiEl, "Failed to load characters", esc(err.message)); }
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", bootstrap);

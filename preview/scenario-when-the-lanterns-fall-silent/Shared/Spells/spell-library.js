@@ -67,7 +67,6 @@
     filterLevel: ["Filter by level", "Фільтр за рівнем"],
   };
   const LEVEL_SUFFIX = { cantrip: "cantrip", "1st": "1", "2nd": "2", "3rd": "3", "4th": "4", "5th": "5", "6th": "6", "7th": "7", "8th": "8", "9th": "9" };
-  const POLL_MS = 3000;
   const PER_PAGE = { single: 1, grid: 16 };
 
   const state = { lang: "en", school: "all", level: "all", search: "", page: 1, perPage: PER_PAGE.single, focusSlug: null };
@@ -75,7 +74,6 @@
   let filtered = [];
   let searchTimer = null;
   let uiReady = false;
-  let dataFingerprint = "";
   let loadConfig = null;
   let focusHighlightSlug = null;
 
@@ -357,19 +355,6 @@
       focusSpellFromUrl();
       setControlsEnabled(true);
       renderPage();
-      if (loadConfig.poll) {
-        setInterval(async function () {
-          try {
-            const refreshed = await loader.loadData(loadConfig, true, assembleSpell);
-            if (loader.fingerprint(refreshed) !== dataFingerprint) {
-              dataFingerprint = loader.fingerprint(refreshed);
-              spells = refreshed;
-              renderPage();
-            }
-          } catch (_e) { /* keep last good data */ }
-        }, POLL_MS);
-      }
-      dataFingerprint = loader.fingerprint(spells);
     } catch (err) {
       document.getElementById("empty-state").classList.add("load-error");
       document.getElementById("empty-state").innerHTML = "<strong>" + esc(uiLabel("loadError")) + "</strong><p>" + esc(err.message) + "</p>";

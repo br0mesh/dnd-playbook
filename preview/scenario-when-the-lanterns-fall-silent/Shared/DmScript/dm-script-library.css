@@ -142,6 +142,348 @@
   border-top: 1px dashed var(--border, #ccc);
 }
 
+/* Session sidebar groups */
+.dm-script-nav-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border, #ccc);
+}
+
+.dm-script-nav-toolbar button {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 0.3rem 0.45rem;
+  font-size: 0.75rem;
+  cursor: pointer;
+  border: 1px solid var(--border, #5a4a38);
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.dm-script-nav-toolbar button[aria-pressed="true"] {
+  background: var(--accent, #c9a227);
+  color: #1a1408;
+  font-weight: 600;
+}
+
+.session-group {
+  margin-bottom: 0.35rem;
+}
+
+.session-group-header {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  width: 100%;
+  padding: 0.35rem 0.45rem;
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--border, #ccc);
+  border-radius: 3px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.78rem;
+  text-align: left;
+  color: inherit;
+}
+
+.session-group-header .chevron {
+  font-size: 0.65rem;
+  transition: transform 0.15s;
+}
+
+.session-group.collapsed .chevron {
+  transform: rotate(-90deg);
+}
+
+.session-group.collapsed .session-scenes {
+  display: none;
+}
+
+.session-scenes {
+  padding: 0.25rem 0 0.25rem 0.35rem;
+}
+
+.session-scenes .bookmark-btn {
+  font-size: 0.82rem;
+}
+
+.bookmark-btn.scene-done {
+  opacity: 0.55;
+}
+
+.bookmark-btn.scene-done::after {
+  content: " ✓";
+}
+
+.bookmark-btn.scene-in-progress::before {
+  content: "• ";
+  color: var(--accent, #c9a227);
+}
+
+/* Collapsible prep sections */
+.scene-section.collapsible {
+  margin-top: 0.75rem;
+}
+
+.scene-section.collapsible .section-toggle {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.35rem 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 600;
+  font-size: 1rem;
+  color: inherit;
+}
+
+.scene-section.collapsible.collapsed .section-body {
+  display: none;
+}
+
+.scene-section.collapsible .section-chevron {
+  font-size: 0.75rem;
+  opacity: 0.6;
+}
+
+/* Beat stepper */
+.read-aloud.beat-stepper-wrap > strong:first-child {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-style: normal;
+}
+
+.beat-stepper {
+  margin-top: 0.35rem;
+}
+
+.beat-dots {
+  display: flex;
+  gap: 0.35rem;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.beat-dot {
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  border: 1px solid var(--accent, #8b6914);
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+
+.beat-dot[aria-current="true"] {
+  background: var(--accent, #c9a227);
+}
+
+.beat-dot:focus-visible {
+  outline: 2px solid var(--accent, #c9a227);
+  outline-offset: 2px;
+}
+
+.beat-panel[hidden] {
+  display: none;
+}
+
+.beat-panel-title {
+  font-style: normal;
+  font-weight: 600;
+  margin: 0 0 0.35rem;
+}
+
+.beat-nav {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin-top: 0.65rem;
+  font-style: normal;
+}
+
+.beat-nav button {
+  padding: 0.35rem 0.65rem;
+  cursor: pointer;
+  border: 1px solid var(--border, #5a4a38);
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.03);
+  font-size: 0.85rem;
+}
+
+.beat-nav button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.beat-of-label {
+  font-size: 0.85rem;
+  flex: 1;
+  text-align: center;
+}
+
+.check-callout {
+  margin-top: 0.75rem;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid var(--accent, #c9a227);
+  border-radius: 4px;
+  background: rgba(201, 162, 39, 0.12);
+  font-style: normal;
+}
+
+.check-callout-title {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+
+.check-callout-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 0.5rem;
+}
+
+.check-callout-actions button {
+  padding: 0.3rem 0.55rem;
+  font-size: 0.82rem;
+  cursor: pointer;
+  border: 1px solid var(--border, #5a4a38);
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.ask-callout {
+  margin-top: 0.75rem;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid #5a6a7a;
+  border-radius: 4px;
+  background: rgba(90, 106, 122, 0.1);
+  font-style: normal;
+}
+
+.ask-callout-label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.35rem;
+  opacity: 0.85;
+}
+
+.ask-callout-question {
+  margin: 0;
+  font-weight: 600;
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.ask-callout-example {
+  margin-top: 0.5rem;
+}
+
+.ask-callout-example-label {
+  display: block;
+  font-size: 0.78rem;
+  opacity: 0.75;
+  margin-bottom: 0.25rem;
+}
+
+.ask-callout .ask-example-quote {
+  margin: 0;
+  padding: 0.45rem 0.65rem;
+  font-size: 0.88rem;
+}
+
+.beat-results {
+  margin-top: 0.75rem;
+  font-style: normal;
+}
+
+.beat-result-panel {
+  margin-top: 0.5rem;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid var(--border, #5a4a38);
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.beat-result-panel[hidden] {
+  display: none;
+}
+
+.beat-result-panel.beat-result-fail {
+  border-left: 3px solid #a83232;
+  background: rgba(168, 50, 50, 0.06);
+}
+
+.beat-result-panel.beat-result-success {
+  border-left: 3px solid #3a7a4a;
+  background: rgba(58, 122, 74, 0.08);
+}
+
+.beat-result-label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.85rem;
+  margin-bottom: 0.35rem;
+}
+
+.beat-result-prose {
+  font-size: 0.92rem;
+}
+
+.beat-result-panel .beat-result-quote {
+  margin: 0.5rem 0 0;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.9rem;
+}
+
+.check-anchor-highlight {
+  animation: check-pulse 1.2s ease-out 2;
+}
+
+@keyframes check-pulse {
+  0%, 100% { background: transparent; }
+  50% { background: rgba(201, 162, 39, 0.25); }
+}
+
+.scene-chrome {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border, #ccc);
+  font-size: 0.85rem;
+  font-style: normal;
+}
+
+.scene-chrome button {
+  padding: 0.35rem 0.65rem;
+  cursor: pointer;
+  border: 1px solid var(--border, #5a4a38);
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.scene-chrome .session-badge {
+  opacity: 0.75;
+  margin-left: auto;
+}
+
+.read-aloud .prose-block,
+.read-aloud blockquote.scene-quote {
+  font-style: italic;
+}
+
 @media (max-width: 640px) {
   .branch-tab,
   .option-tab {

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>DM Script Run Mode — UI Spike</title>
+  <link rel="stylesheet" href="../../Styles/tokens.css"/>
+  <link rel="stylesheet" href="../../Styles/book.css"/>
+  <link rel="stylesheet" href="../dm-script-library.css?v=spike"/>
+  <style>
+    body { margin: 0; font-family: var(--font-serif, Georgia, serif); background: #f5f0e6; }
+    .spike-banner { background: #3d2e1a; color: #f5e6c8; padding: 0.5rem 1rem; font-size: 0.85rem; }
+    .spike-layout { display: grid; grid-template-columns: 220px 1fr; min-height: calc(100vh - 2rem); }
+    .spike-variant-toggle { display: flex; gap: 0.5rem; padding: 0.5rem 1rem; border-bottom: 1px solid #ccc; }
+    .spike-variant-toggle button { padding: 0.35rem 0.75rem; cursor: pointer; }
+    .spike-variant-toggle button[aria-pressed="true"] { background: #c9a227; border-color: #8b6914; }
+    #variant-tabs { display: none; }
+    #variant-tabs.active { display: block; }
+    .session-group { margin-bottom: 0.5rem; }
+    .session-group-header { display: flex; align-items: center; gap: 0.35rem; width: 100%; padding: 0.4rem 0.5rem; background: rgba(0,0,0,0.06); border: none; cursor: pointer; font-weight: 600; font-size: 0.82rem; text-align: left; }
+    .session-group-header .chevron { transition: transform 0.15s; }
+    .session-group.collapsed .chevron { transform: rotate(-90deg); }
+    .session-group.collapsed .session-scenes { display: none; }
+    .session-scenes .bookmark-btn { display: block; width: 100%; text-align: left; }
+    .bookmark-btn.done { opacity: 0.55; }
+    .bookmark-btn.done::after { content: " ✓"; }
+    .section-tabs { display: flex; border: 1px solid #5a4a38; border-radius: 4px; overflow: hidden; margin-bottom: 0.75rem; }
+    .section-tab { flex: 1; padding: 0.45rem; border: none; border-right: 1px solid #5a4a38; background: rgba(0,0,0,0.03); cursor: pointer; font-size: 0.8rem; }
+    .section-tab:last-child { border-right: none; }
+    .section-tab[aria-selected="true"] { background: #c9a227; color: #1a1408; font-weight: 600; }
+    .section-panel[hidden] { display: none; }
+    .beat-stepper { margin: 0.5rem 0; }
+    .beat-dots { display: flex; gap: 0.35rem; margin-bottom: 0.5rem; flex-wrap: wrap; }
+    .beat-dot { width: 0.55rem; height: 0.55rem; border-radius: 50%; border: 1px solid #8b6914; background: transparent; padding: 0; cursor: pointer; }
+    .beat-dot[aria-current="true"] { background: #c9a227; }
+    .beat-nav { display: flex; gap: 0.5rem; align-items: center; margin-top: 0.65rem; }
+    .beat-nav button { padding: 0.35rem 0.65rem; cursor: pointer; }
+    .check-callout { margin-top: 0.75rem; padding: 0.65rem 0.85rem; border: 1px solid #c9a227; border-radius: 4px; background: rgba(201,162,39,0.12); }
+    .check-callout strong { display: block; margin-bottom: 0.35rem; }
+    .check-callout .branch-quick { display: flex; gap: 0.35rem; margin-top: 0.5rem; flex-wrap: wrap; }
+    .ask-callout { margin-top: 0.75rem; padding: 0.65rem 0.85rem; border: 1px solid #5a6a7a; border-radius: 4px; background: rgba(90,106,122,0.1); }
+    .ask-callout-label { display: block; font-weight: 600; font-size: 0.82rem; margin-bottom: 0.35rem; }
+    .ask-callout-question { margin: 0; font-weight: 600; }
+    .beat-result-panel { margin-top: 0.5rem; padding: 0.65rem 0.85rem; border-radius: 4px; border: 1px solid #5a4a38; }
+    .beat-result-panel[hidden] { display: none; }
+    .beat-result-fail { border-left: 3px solid #a83232; background: rgba(168,50,50,0.06); }
+    .beat-result-success { border-left: 3px solid #3a7a4a; background: rgba(58,122,74,0.08); }
+    .scene-section.collapsible .section-toggle { display: flex; width: 100%; justify-content: space-between; align-items: center; padding: 0.4rem 0; border: none; background: none; cursor: pointer; font: inherit; font-weight: 600; }
+    .scene-section.collapsible.collapsed .section-body { display: none; }
+    .scene-chrome { display: flex; gap: 0.5rem; margin-top: 1rem; padding-top: 0.75rem; border-top: 1px solid #ccc; font-size: 0.85rem; }
+    main { padding: 1rem; max-width: 52rem; }
+    aside { padding: 0.75rem; border-right: 1px solid #ccc; background: rgba(0,0,0,0.02); }
+  </style>
+</head>
+<body>
+  <div class="spike-banner">Static spike — compare beat stepper (recommended) vs section tabs. Not wired to real content.</div>
+  <div class="spike-variant-toggle" role="group" aria-label="UI variant">
+    <button type="button" id="btn-stepper" aria-pressed="true">A: Beat stepper</button>
+    <button type="button" id="btn-tabs" aria-pressed="false">B: Section tabs</button>
+  </div>
+  <div class="spike-layout">
+    <aside aria-label="Scene list">
+      <div class="session-group collapsed" data-session="1">
+        <button type="button" class="session-group-header"><span class="chevron">▼</span> Session 1 — Briarford</button>
+        <div class="session-scenes">
+          <button type="button" class="bookmark-btn done">Session framing</button>
+          <button type="button" class="bookmark-btn" aria-pressed="true">Intro: Vex</button>
+          <button type="button" class="bookmark-btn">Intro: Lilith</button>
+        </div>
+      </div>
+      <div class="session-group" data-session="2">
+        <button type="button" class="session-group-header"><span class="chevron">▼</span> Session 2 — Forest depth</button>
+        <div class="session-scenes">
+          <button type="button" class="bookmark-btn">Forest edge (cont.)</button>
+          <button type="button" class="bookmark-btn">Coal mine</button>
+        </div>
+      </div>
+    </aside>
+    <main>
+      <article class="entity-card">
+        <h2>Intro: Vex — The Wrong Name</h2>
+
+        <div id="variant-stepper">
+          <div class="scene-section collapsible collapsed">
+            <button type="button" class="section-toggle">Summary <span>▸</span></button>
+            <div class="section-body"><p>Vex at The Last Lamp; Insight DC 12 gates panic vs calm exit.</p></div>
+          </div>
+
+          <div class="read-aloud beat-stepper">
+            <strong>Read-aloud</strong>
+            <div class="beat-dots" role="tablist">
+              <button type="button" class="beat-dot" aria-label="Beat 1" data-beat="0" aria-current="true"></button>
+              <button type="button" class="beat-dot" aria-label="Beat 2" data-beat="1"></button>
+            </div>
+            <div class="beat-panel" data-beat-panel="0">
+              <p><strong>Arrival</strong></p>
+              <blockquote class="scene-quote"><p>The Last Lamp smells of wet ash and fried onions…</p></blockquote>
+            </div>
+            <div class="beat-panel" data-beat-panel="1" hidden>
+              <p><strong>The name at the bar</strong></p>
+              <blockquote class="scene-quote"><p>…<strong>Vex</strong> was in on the ledger job…</p></blockquote>
+              <div class="ask-callout">
+                <span class="ask-callout-label">Ask the player</span>
+                <p class="ask-callout-question">When Tomas's eye flicks to your corner — what does Vex do?</p>
+              </div>
+              <div class="check-callout">
+                <strong>Roll Insight DC 12</strong>
+                <button type="button">Show check</button>
+                <div class="branch-quick">
+                  <button type="button" class="mock-roll-btn" data-result="fail">Rolled fail</button>
+                  <button type="button" class="mock-roll-btn" data-result="success">Rolled success</button>
+                </div>
+              </div>
+              <div class="beat-results">
+                <div class="beat-result-panel beat-result-fail" data-result="fail" hidden>
+                  <strong>On fail</strong>
+                  <p>Short panic beat — chest says <em>run</em>.</p>
+                </div>
+                <div class="beat-result-panel beat-result-success" data-result="success" hidden>
+                  <strong>On success</strong>
+                  <p>You read the pause: frightened, not hunting.</p>
+                </div>
+              </div>
+            </div>
+            <div class="beat-nav">
+              <button type="button" id="beat-prev" disabled>◀ Prev beat</button>
+              <span id="beat-of">Beat 1 of 2</span>
+              <button type="button" id="beat-next">Next beat ▶</button>
+            </div>
+          </div>
+
+          <div class="scene-block">
+            <h3>Checks</h3>
+            <div class="branch-switcher">
+              <div class="branch-tabs" role="tablist">
+                <button type="button" class="branch-tab" aria-selected="true">Branch A — Failed Insight</button>
+                <button type="button" class="branch-tab" aria-selected="false">Branch B — Success</button>
+              </div>
+              <div class="branch-panel"><p>Optional unarmed strike; Stealth DC 11 exit…</p></div>
+            </div>
+          </div>
+
+          <div class="scene-section collapsible collapsed">
+            <button type="button" class="section-toggle">Contingencies <span>▸</span></button>
+            <div class="section-body"><p>If Vex never engages…</p></div>
+          </div>
+        </div>
+
+        <div id="variant-tabs" hidden>
+          <div class="section-tabs" role="tablist">
+            <button type="button" class="section-tab" aria-selected="false">Summary</button>
+            <button type="button" class="section-tab" aria-selected="true">Read-aloud</button>
+            <button type="button" class="section-tab" aria-selected="false">Checks</button>
+            <button type="button" class="section-tab" aria-selected="false">Contingencies</button>
+            <button type="button" class="section-tab" aria-selected="false">DM Notes</button>
+          </div>
+          <div class="section-panel read-aloud"><p><em>All read-aloud beats in one scrollable panel…</em></p></div>
+        </div>
+
+        <div class="scene-chrome">
+          <button type="button">Mark scene done</button>
+          <span>Session 1 · Scene 2 of 13</span>
+        </div>
+      </article>
+    </main>
+  </div>
+  <script>
+    (function () {
+      var beat = 0;
+      var panels = document.querySelectorAll("[data-beat-panel]");
+      var dots = document.querySelectorAll(".beat-dot");
+      var prev = document.getElementById("beat-prev");
+      var next = document.getElementById("beat-next");
+      var beatOf = document.getElementById("beat-of");
+      function showBeat(i) {
+        beat = i;
+        panels.forEach(function (p, j) { p.hidden = j !== i; });
+        dots.forEach(function (d, j) { d.setAttribute("aria-current", j === i ? "true" : "false"); });
+        beatOf.textContent = "Beat " + (i + 1) + " of " + panels.length;
+        prev.disabled = i <= 0;
+        next.disabled = i >= panels.length - 1;
+      }
+      prev.addEventListener("click", function () { if (beat > 0) showBeat(beat - 1); });
+      next.addEventListener("click", function () { if (beat < panels.length - 1) showBeat(beat + 1); });
+      dots.forEach(function (d) {
+        d.addEventListener("click", function () { showBeat(parseInt(d.getAttribute("data-beat"), 10)); });
+      });
+      document.querySelectorAll(".mock-roll-btn").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var result = btn.getAttribute("data-result");
+          var panel = btn.closest(".beat-panel");
+          if (!panel) return;
+          panel.querySelectorAll(".beat-result-panel").forEach(function (rp) {
+            var match = rp.getAttribute("data-result") === result;
+            rp.hidden = !match;
+          });
+        });
+      });
+      document.querySelectorAll(".session-group-header").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          btn.closest(".session-group").classList.toggle("collapsed");
+        });
+      });
+      document.querySelectorAll(".section-toggle").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          btn.closest(".scene-section").classList.toggle("collapsed");
+        });
+      });
+      var btnStepper = document.getElementById("btn-stepper");
+      var btnTabs = document.getElementById("btn-tabs");
+      var vStepper = document.getElementById("variant-stepper");
+      var vTabs = document.getElementById("variant-tabs");
+      btnStepper.addEventListener("click", function () {
+        btnStepper.setAttribute("aria-pressed", "true");
+        btnTabs.setAttribute("aria-pressed", "false");
+        vStepper.hidden = false;
+        vTabs.hidden = true;
+      });
+      btnTabs.addEventListener("click", function () {
+        btnTabs.setAttribute("aria-pressed", "true");
+        btnStepper.setAttribute("aria-pressed", "false");
+        vStepper.hidden = true;
+        vTabs.hidden = false;
+        vTabs.classList.add("active");
+      });
+    })();
+  </script>
+</body>
+</html>
