@@ -1,3 +1,10 @@
+.item-portrait {
+  display: block;
+  width: min(100%, 320px);
+  margin: 0 0 0.75rem;
+  border-radius: 4px;
+}
+
 .item-meta-link {
   background: none;
   border: none;

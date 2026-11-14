@@ -131,6 +131,48 @@
     } catch (_e) { /* quota / private mode */ }
   }
 
+  async function loadPresetScenes() {
+    if (!state.scenario || state.scenario === "demo" || !battleStore) return;
+    const url = new URL("../../scenarios/" + state.scenario + "/battle/encounters.json", globalThis.location.href).href;
+    let data = null;
+    try {
+      const text = await shell.fetchTextOptional(url, false);
+      if (!text) return;
+      data = JSON.parse(text);
+    } catch (_e) {
+      return;
+    }
+    if (!data || !Array.isArray(data.scenes)) return;
+
+    const previousId = battleStore.activeSceneId;
+    let added = false;
+    data.scenes.forEach(function (preset) {
+      if (!preset || !preset.id) return;
+      if (battleStore.scenes.some(function (s) { return s.id === preset.id; })) return;
+      const localized = preset.name || {};
+      const name = (state.lang === "ua" ? localized.ua : localized.en) || localized.ua || localized.en || preset.id;
+      const scene = defaultSceneData(name);
+      scene.id = preset.id;
+      battleStore.scenes.push(scene);
+      battleStore.activeSceneId = scene.id;
+      encounter = encounterFromScene(scene);
+      (preset.monsters || []).forEach(function (slug) {
+        addCombatant("monster", slug, true);
+      });
+      syncEncounterToStore();
+      added = true;
+    });
+    if (!added) return;
+
+    const stillActive = battleStore.scenes.find(function (s) { return s.id === previousId; });
+    const activeEmpty = !stillActive || !(stillActive.combatants || []).length;
+    battleStore.activeSceneId = activeEmpty && data.scenes[0] ? data.scenes[0].id : previousId;
+    if (!activeScene()) battleStore.activeSceneId = battleStore.scenes[0].id;
+    encounter = encounterFromScene(activeScene());
+    state.expandedIds = {};
+    persistStore();
+  }
+
   function loadActiveEncounter() {
     battleStore = loadStore();
     const scene = activeScene() || battleStore.scenes[0];
@@ -705,6 +747,7 @@
       ui.setLoading(uiElRef, uiLabel("loading"));
       try {
         await loadCatalog();
+        await loadPresetScenes();
         ui.setReady(uiElRef);
       } catch (err) {
         ui.setError(uiElRef, uiLabel("loadError"), esc(err.message));

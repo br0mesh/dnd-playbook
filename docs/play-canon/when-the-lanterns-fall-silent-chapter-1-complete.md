@@ -133,6 +133,7 @@
 | Item | Status |
 |------|--------|
 | Strange carved amulet | **Harry** |
+| Chalice of Tomorrow | Party; taken from the necromancer. Guild seizes it with the amulet in Chapter 2 |
 | Lanterns | **Two** held; **not blue anymore** (ritual gone) |
 | Healing potion | **1** |
 | Slowing potion | **1** |

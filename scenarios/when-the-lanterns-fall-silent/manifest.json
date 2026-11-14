@@ -30,6 +30,16 @@
       "id": 2,
       "label": { "en": "Session 2 — Forest depth", "ua": "Сесія 2 — Глибина лісу" },
       "scenes": []
+    },
+    {
+      "id": 3,
+      "label": { "en": "Chapter 2 — Game 1", "ua": "Розділ 2 — гра 1" },
+      "scenes": [
+        "13_briarford_dome",
+        "14_ashmere_cell",
+        "15_ashmere_escape",
+        "16_falcon_past_the_walls"
+      ]
     }
   ],
   "sections": {

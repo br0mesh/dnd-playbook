@@ -1,0 +1,33 @@
+# Ledge leader
+
+---
+
+### Encounter Reference
+
+**Default quantity:** 1
+**Wave:** Ashmere sewer ledge, fight 1
+**Stat source:** Table numbers for this session
+
+### Quick Tactics
+
+**Behavior:** Holds the dry ledge with the hand. Does not call the city.
+**Flee:** After round 3 if left alone.
+
+---
+
+### Stat Block
+
+**Type:** Medium creature
+**Armor Class AC:** 13
+**Hit Points HP:** 14
+**Speed:** 30 ft.
+
+### Actions
+
+| Action | Hit | Damage | Notes |
+|---|---|---|---|
+| Strike | +4 | 5 (1d6+2) piercing | Melee |
+
+### DM Notes
+
+Bandit captain miniature. A silent throat gives the party the first strike. A singing throat strikes the party first, and they are in the water.

@@ -19,7 +19,7 @@
   let manifestData = null;
 
   // Note: \b after [ABАБ] fails for Cyrillic А/Б in JS (ASCII-only word chars). Use lookahead instead.
-  const BRANCH_HEADING_RE = /^####\s+(?:Branch|Variant|Гілка|Варіант)\s+([ABАБ])(?=\s*(?:—|-|:)|$)(?:\s*(?:—|-|:)\s*(.*))?$/i;
+  const BRANCH_HEADING_RE = /^####\s+(?:Branch|Variant|Гілка|Варіант)\s+([ABАБВ])(?=\s*(?:—|-|:)|$)(?:\s*(?:—|-|:)\s*(.*))?$/i;
   const OPTION_HEADING_RE = /^\*\*(?:Option|Варіант|Опція)\s+(\d+)\s*(?:—|-|:)\s*(.+?)\*\*\s*$/i;
   const STANDALONE_BOLD_RE = /^\*\*[^*]+\*\*\s*$/;
   const BEAT_H4_RE = /^####\s+Beat\s+(\d+)\s*(?:—|-|:)\s*(.*)$/i;
@@ -245,6 +245,7 @@
     const ch = String(raw || "").trim().charAt(0).toUpperCase();
     if (ch === "A" || ch === "\u0410") return "a";
     if (ch === "B" || ch === "\u0411") return "b";
+    if (ch === "\u0412") return "v";
     return ch.toLowerCase();
   }
 
